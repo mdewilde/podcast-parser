@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<Configuration status="INFO" monitorInterval="60">
+
+	<Appenders>
+
+    	<Console name="console" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{ABSOLUTE} %t %c %m%n" />
+		</Console>
+
+		<RollingRandomAccessFile
+				name="event"
+				fileName="${sys:user.home}/podcastparser.log"
+				filePattern="${sys:user.home}/podcastparser.log.%d{yyyy-MM-dd}">
+			<PatternLayout pattern="%d{ABSOLUTE} %t %c %m%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy/>
+			</Policies>
+		</RollingRandomAccessFile>
+
+		<RollingRandomAccessFile
+				name="missing"
+				fileName="${sys:user.home}/localnames_per_namespace.log"
+				filePattern="${sys:user.home}/localnames_per_namespace.log.%d{yyyy-MM-dd}">
+			<PatternLayout pattern="%m%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy/>
+			</Policies>
+		</RollingRandomAccessFile>
+
+	</Appenders>
+
+	<Loggers>
+	
+		<AsyncLogger name="be.ceau.podcastparser" level="TRACE" includeLocation="false" additivity="false">
+			<AppenderRef ref="console" />
+			<AppenderRef ref="event" />
+		</AsyncLogger>
+
+		<AsyncLogger name="be.ceau.podcastparser.stax.namespace.Namespace" level="TRACE" includeLocation="false" additivity="false">
+			<AppenderRef ref="missing" />
+		</AsyncLogger>
+
+		<AsyncLogger name="org.apache.http" level="OFF" includeLocation="false" additivity="false">
+			<AppenderRef ref="console" />
+		</AsyncLogger>
+
+		<Root level="OFF">
+			<AppenderRef ref="console" />
+			<AppenderRef ref="event" />
+		</Root>
+	
+	</Loggers>
+
+</Configuration>
