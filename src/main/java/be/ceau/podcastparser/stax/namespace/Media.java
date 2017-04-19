@@ -254,6 +254,7 @@ public class Media implements Namespace {
 		mediaContent.setChannels(reader.getAttributeValue(null, "channels"));
 		String duration = reader.getAttributeValue(null, "duration");
 		if (duration != null) {
+			PodcastParser.DURATION_STRINGS.add(duration);
 			try {
 				mediaContent.setDuration(Duration.ofSeconds(Integer.parseInt(duration.trim())));
 			} catch (NumberFormatException e) {

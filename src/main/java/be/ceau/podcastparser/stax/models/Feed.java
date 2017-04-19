@@ -4,6 +4,8 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
+import be.ceau.podcastparser.stax.PodcastParser;
+
 public class Feed {
 
 	private String id;
@@ -182,6 +184,7 @@ public class Feed {
 	}
 
 	public void setPubDate(String pubDate) {
+		PodcastParser.DATE_STRINGS.add(pubDate);
 		this.pubDate = pubDate;
 	}
 
@@ -202,6 +205,7 @@ public class Feed {
 	}
 
 	public void setLastBuildDate(String lastBuildDate) {
+		PodcastParser.DATE_STRINGS.add(pubDate);
 		this.lastBuildDate = lastBuildDate;
 	}
 

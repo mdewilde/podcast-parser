@@ -24,6 +24,7 @@ import javax.xml.stream.XMLStreamReader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import be.ceau.podcastparser.stax.PodcastParser;
 import be.ceau.podcastparser.stax.models.Category;
 import be.ceau.podcastparser.stax.models.Feed;
 import be.ceau.podcastparser.stax.models.Image;
@@ -142,7 +143,9 @@ public class ITunes implements Namespace {
 		case "block":
 			return;
 		case "duration":
-			item.setDuration(reader.getElementText());
+			String duration = reader.getElementText();
+			PodcastParser.DURATION_STRINGS.add(duration);
+			item.setDuration(duration);
 			return;
 		case "explicit":
 			Rating rating = item.getRating().orElse(new Rating());

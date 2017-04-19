@@ -5,7 +5,7 @@
 	<Appenders>
 
     	<Console name="console" target="SYSTEM_OUT">
-			<PatternLayout pattern="%d{ABSOLUTE} %t %c %m%n" />
+			<PatternLayout pattern=" %m%n" />
 		</Console>
 
 		<RollingRandomAccessFile

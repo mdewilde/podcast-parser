@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import be.ceau.podcastparser.stax.PodcastParser;
+
 public class Item {
 
 	private String title;
@@ -218,6 +220,7 @@ public class Item {
 	}
 
 	public void setPubDate(String pubDate) {
+		PodcastParser.DATE_STRINGS.add(pubDate);
 		this.pubDate = pubDate;
 	}
 
@@ -239,6 +242,7 @@ public class Item {
 	}
 
 	public void setUpdated(String updated) {
+		PodcastParser.DATE_STRINGS.add(pubDate);
 		this.updated = updated;
 	}
 

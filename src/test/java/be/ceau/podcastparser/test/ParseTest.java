@@ -19,7 +19,6 @@ import java.io.IOException;
 import java.security.SecureRandom;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
 import java.util.stream.Collectors;
 
@@ -31,7 +30,6 @@ import org.slf4j.LoggerFactory;
 import org.xml.sax.SAXException;
 
 import be.ceau.podcastparser.stax.PodcastParser;
-import be.ceau.podcastparser.stax.models.UnmappedElement;
 
 public class ParseTest {
 
@@ -41,18 +39,18 @@ public class ParseTest {
 	
 	private static final Random RANDOM = new SecureRandom();
 	
-	@Test
+	// @Test
 	public void stax() {
 		handleStax("983394039.txt");
 	}
 	
-	// @Test
+	@Test
 	public void staxTest() throws IOException, SAXException, ParserConfigurationException {
 
 		PodcastParser parser = new PodcastParser();
 		
 		FILES_PROVIDER.stream()
-		//	.limit(100000)
+		//	.limit(50000)
 			.forEach(wrap -> {
 				// Bench c = new Bench();
 				//logger.info("{}{}{}", System.lineSeparator(), wrap.getXml(), System.lineSeparator());
@@ -62,11 +60,11 @@ public class ParseTest {
 					
 						;
 				} catch (Exception e) {
-					logger.error("{} -> ", wrap.getDescription(), e);
+					// logger.error("{} -> ", wrap.getDescription(), e);
 				}
 				// c.stop().log(wrap.getDescription());
 			});
-		
+		/*
 		String report = PodcastParser.UNMAPPED.entrySet()
 				.stream()
 				.collect(Collectors.toMap(e -> e.getKey(), e -> e.getValue().sum()))
@@ -77,7 +75,11 @@ public class ParseTest {
 				.collect(Collectors.joining(System.lineSeparator()));
 
 		logger.info("{} {}", System.lineSeparator(), report);
-		
+		*/
+		logger.info("DATE STRINGS");
+		logger.info("{}", PodcastParser.DATE_STRINGS.stream().collect(Collectors.joining(System.lineSeparator())));
+		logger.info("DURATION STRINGS");
+		logger.info("{}", PodcastParser.DURATION_STRINGS.stream().collect(Collectors.joining(System.lineSeparator())));
 	}
 	
 	// @Test

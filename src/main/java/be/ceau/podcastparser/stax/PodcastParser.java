@@ -4,8 +4,10 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
+import java.util.Collections;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.LongAdder;
 
@@ -27,6 +29,8 @@ public class PodcastParser {
 	private static final Logger logger = LoggerFactory.getLogger(PodcastParser.class);
 
 	public static final Map<UnmappedElement, LongAdder> UNMAPPED = new ConcurrentHashMap<>();
+	public static final Set<String> DATE_STRINGS = Collections.newSetFromMap(new ConcurrentHashMap<>());
+	public static final Set<String> DURATION_STRINGS = Collections.newSetFromMap(new ConcurrentHashMap<>());
 
 	private final XMLInputFactory factory;
 
