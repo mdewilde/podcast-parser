@@ -19,8 +19,8 @@ import javax.xml.stream.XMLStreamReader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import be.ceau.podcastparser.stax.models.EncounteredElement;
 import be.ceau.podcastparser.stax.models.Feed;
-import be.ceau.podcastparser.stax.models.UnmappedElement;
 import be.ceau.podcastparser.stax.namespace.Atom;
 import be.ceau.podcastparser.stax.namespace.RSS;
 
@@ -28,7 +28,6 @@ public class PodcastParser {
 
 	private static final Logger logger = LoggerFactory.getLogger(PodcastParser.class);
 
-	public static final Map<UnmappedElement, LongAdder> UNMAPPED = new ConcurrentHashMap<>();
 	public static final Set<String> DATE_STRINGS = Collections.newSetFromMap(new ConcurrentHashMap<>());
 	public static final Set<String> DURATION_STRINGS = Collections.newSetFromMap(new ConcurrentHashMap<>());
 
@@ -73,6 +72,15 @@ public class PodcastParser {
 			logger.error("parse(InputStream)", e);
 		}
 		return Optional.empty();
+	}
+
+
+	public static final Map<EncounteredElement, LongAdder> UNMAPPED = new ConcurrentHashMap<>();
+	public static void countAtFeed(XMLStreamReader reader) {
+		UNMAPPED.computeIfAbsent(new EncounteredElement(reader, "feed"), x -> new LongAdder()).increment();
+	}
+	public static void countAtItem(XMLStreamReader reader) {
+		UNMAPPED.computeIfAbsent(new EncounteredElement(reader, "item"), x -> new LongAdder()).increment();
 	}
 
 }

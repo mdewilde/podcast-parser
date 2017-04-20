@@ -43,6 +43,8 @@ public class AtomPublishing implements Namespace {
 		switch (reader.getLocalName()) {
 		case "edited":
 			break;
+		case "control":
+			break;
 		default:
 			Namespace.super.process(item, reader);
 			break;
@@ -50,3 +52,12 @@ public class AtomPublishing implements Namespace {
 	}
 
 }
+
+/*
+
+	corpus stats
+	
+       746 	--> http://www.w3.org/2007/app level=item localName=edited attributes=[]]
+         1 	--> http://www.w3.org/2007/app level=item localName=control attributes=[]]
+
+*/

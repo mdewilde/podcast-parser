@@ -52,3 +52,17 @@ public class Content implements Namespace {
 	}
 
 }
+
+/*
+
+	corpus stats
+	
+   1669369 	--> http://purl.org/rss/1.0/modules/content/ level=item localName=encoded attributes=[]]
+       145 	--> http://purl.org/rss/1.0/modules/content level=item localName=encoded attributes=[]]
+        40 	--> http://purl.org/rss/1.0/modules/content/ level=item localName=enconded attributes=[]]
+        18 	--> http://purl.org/rss/1.0/modules/content/ level=item localName=featuredImageUrl attributes=[]]
+        18 	--> http://purl.org/rss/1.0/modules/content/ level=item localName=featuredImageDescription attributes=[]]
+        10 	--> https://purl.org/rss/1.0/modules/content/ level=item localName=encoded attributes=[]]
+         3 	--> http://purl.org/rss/1.0/modules/content/ level=feed localName=encoded attributes=[]]
+
+*/

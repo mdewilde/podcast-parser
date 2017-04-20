@@ -1,10 +1,9 @@
 package be.ceau.podcastparser.stax.models;
 
 import java.time.Duration;
+import java.time.temporal.Temporal;
 import java.util.ArrayList;
 import java.util.List;
-
-import be.ceau.podcastparser.stax.PodcastParser;
 
 public class Feed {
 
@@ -17,8 +16,8 @@ public class Feed {
 	private String copyright;
 	private String managingEditor;
 	private String webMaster;
-	private String pubDate;
-	private String lastBuildDate;
+	private Temporal pubDate;
+	private Temporal lastBuildDate;
 	private final List<Category> categories = new ArrayList<>();
 	private String generator;
 	private String docs;
@@ -179,12 +178,11 @@ public class Feed {
 	 * with the exception that the year may be expressed with two characters or
 	 * four characters (four preferred).
 	 */
-	public String getPubDate() {
+	public Temporal getPubDate() {
 		return pubDate;
 	}
 
-	public void setPubDate(String pubDate) {
-		PodcastParser.DATE_STRINGS.add(pubDate);
+	public void setPubDate(Temporal pubDate) {
 		this.pubDate = pubDate;
 	}
 
@@ -198,14 +196,13 @@ public class Feed {
 	 * {@code updated}.
 	 * </p>
 	 * 
-	 * @return {@link String} or {@code null}
+	 * @return {@link Temporal} or {@code null}
 	 */
-	public String getLastBuildDate() {
+	public Temporal getLastBuildDate() {
 		return lastBuildDate;
 	}
 
-	public void setLastBuildDate(String lastBuildDate) {
-		PodcastParser.DATE_STRINGS.add(pubDate);
+	public void setLastBuildDate(Temporal lastBuildDate) {
 		this.lastBuildDate = lastBuildDate;
 	}
 

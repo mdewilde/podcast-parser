@@ -36,3 +36,16 @@ public class Geo implements Namespace {
 	}
 
 }
+
+/*
+
+	corpus stats
+	
+      5143 	--> http://www.w3.org/2003/01/geo/wgs84_pos# level=item localName=long attributes=[]]
+      4861 	--> http://www.w3.org/2003/01/geo/wgs84_pos# level=item localName=lat attributes=[]]
+      1908 	--> http://www.w3.org/2003/01/geo/wgs84_pos# level=feed localName=long attributes=[]]
+      1908 	--> http://www.w3.org/2003/01/geo/wgs84_pos# level=feed localName=lat attributes=[]]
+        21 	--> http://www.w3.org/2003/01/geo/wgs84_pos# level=item localName=Point attributes=[]]
+
+*/
+

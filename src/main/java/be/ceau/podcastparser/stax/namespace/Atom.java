@@ -16,7 +16,6 @@
 package be.ceau.podcastparser.stax.namespace;
 
 import java.util.Set;
-import java.util.concurrent.atomic.LongAdder;
 
 import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
@@ -33,8 +32,8 @@ import be.ceau.podcastparser.stax.models.Image;
 import be.ceau.podcastparser.stax.models.Item;
 import be.ceau.podcastparser.stax.models.Link;
 import be.ceau.podcastparser.stax.models.Person;
-import be.ceau.podcastparser.stax.models.UnmappedElement;
 import be.ceau.podcastparser.util.Attributes;
+import be.ceau.podcastparser.util.Dates;
 import be.ceau.podcastparser.util.UnmodifiableSet;
 
 /**
@@ -79,6 +78,7 @@ public class Atom implements Namespace {
 				}
 				break;
 			case XMLStreamConstants.START_ELEMENT:
+				PodcastParser.countAtFeed(reader);
 				process(feed, reader);
 				break;
 			}
@@ -88,21 +88,21 @@ public class Atom implements Namespace {
 
 	@Override
 	public void process(Feed feed, XMLStreamReader reader) throws XMLStreamException {
+		Namespace namespace = NamespaceFactory.getInstance(reader.getNamespaceURI());
+		if (mustDelegateTo(namespace)) {
+			namespace.process(feed, reader);
+			return;
+		}
+
 		switch (reader.getLocalName()) {
 		case "author":
 			feed.addAuthor(parsePerson(reader, "author"));
 			break;
-		case "category": {
-			Namespace namespace = NamespaceFactory.getInstance(reader.getNamespaceURI());
-			if (mustDelegateTo(namespace)) {
-				namespace.process(feed, reader);
-			} else {
-				Category category = new Category();
-				Attributes.get("term").from(reader).ifPresent(category::setName);
-				feed.addCategory(category);
-			}
+		case "category":
+			Category category = new Category();
+			Attributes.get("term").from(reader).ifPresent(category::setName);
+			feed.addCategory(category);
 			break;
-		}
 		case "contributor":
 			feed.addContributor(parsePerson(reader, "contributor"));
 			break;
@@ -137,21 +137,11 @@ public class Atom implements Namespace {
 			feed.setTitle(reader.getElementText());
 			break;
 		case "updated":
-			feed.setLastBuildDate(reader.getElementText());
+			feed.setLastBuildDate(Dates.parse(reader.getElementText()));
 			break;
 		case "entry":
 			feed.addItem(parseEntry(reader));
 			break;
-		default: {
-			Namespace namespace = NamespaceFactory.getInstance(reader.getNamespaceURI());
-			if (mustDelegateTo(namespace)) {
-				namespace.process(feed, reader);
-			} else {
-				PodcastParser.UNMAPPED.computeIfAbsent(new UnmappedElement(reader, "feed"), x -> new LongAdder())
-						.increment();
-			}
-			break;
-		}
 		}
 		Namespace.super.process(feed, reader);
 	}
@@ -166,67 +156,66 @@ public class Atom implements Namespace {
 				}
 				break;
 			case XMLStreamConstants.START_ELEMENT:
-				switch (reader.getLocalName()) {
-				case "author":
-					item.addAuthor(parsePerson(reader, "author"));
-					break;
-				case "category": {
-					Namespace namespace = NamespaceFactory.getInstance(reader.getNamespaceURI());
-					if (mustDelegateTo(namespace)) {
-						namespace.process(item, reader);
-					} else {
-						item.addCategory(new Category(reader.getAttributeValue(null, "term")));
-					}
-					break;
-				}
-				case "content":
-					// The "atom:content" element either contains or links to
-					// the content of the entry.
-					// item.setEnclosure(parseEnclosure(reader));
-					break;
-				case "contributor":
-					break;
-				case "id":
-					item.setGuid(reader.getElementText());
-					break;
-				case "link":
-					if ("enclosure".equals(reader.getAttributeValue(null, "rel"))) {
-						item.setEnclosure(parseEnclosure(reader));
-					} else {
-						item.addLink(parseLink(reader));
-					}
-					break;
-				case "published":
-					item.setPubDate(reader.getElementText());
-					break;
-				case "rights":
-					item.setCopyright(reader.getElementText());
-					break;
-				case "source":
-					break;
-				case "summary":
-					item.setDescription(reader.getElementText());
-					break;
-				case "title":
-					item.setTitle(reader.getElementText());
-					break;
-				case "updated":
-					item.setUpdated(reader.getElementText());
-					break;
-				default:
-					PodcastParser.UNMAPPED.computeIfAbsent(new UnmappedElement(reader, "item"), x -> new LongAdder()).increment();
-					break;
-				}
+				PodcastParser.countAtItem(reader);
+				process(item, reader);
+				break;
 			}
 		}
 		return item;
 	}
 
-	/*
-	 * be.ceau.podcastparser.namespace.NSAtom 160875 --> link 20214 --> updated
-	 * 1540 --> name 1241 --> id 312 --> content 105 --> summary 94 --> author
-	 * 71 --> email 8 --> published 1 --> generator
-	 */
+	@Override
+	public void process(Item item, XMLStreamReader reader) throws XMLStreamException {
+		Namespace namespace = NamespaceFactory.getInstance(reader.getNamespaceURI());
+		if (mustDelegateTo(namespace)) {
+			namespace.process(item, reader);
+			return;
+		}
+
+		switch (reader.getLocalName()) {
+		case "author":
+			item.addAuthor(parsePerson(reader, "author"));
+			break;
+		case "category": 
+			item.addCategory(new Category(reader.getAttributeValue(null, "term")));
+			break;
+		case "content":
+			// The "atom:content" element either contains or links to
+			// the content of the entry.
+			// item.setEnclosure(parseEnclosure(reader));
+			break;
+		case "contributor":
+			break;
+		case "id":
+			item.setGuid(reader.getElementText());
+			break;
+		case "link":
+			if ("enclosure".equals(reader.getAttributeValue(null, "rel"))) {
+				item.setEnclosure(parseEnclosure(reader));
+			} else {
+				item.addLink(parseLink(reader));
+			}
+			break;
+		case "published":
+			item.setPubDate(Dates.parse(reader.getElementText()));
+			break;
+		case "rights":
+			item.setCopyright(reader.getElementText());
+			break;
+		case "source":
+			break;
+		case "summary":
+			item.setDescription(reader.getElementText());
+			break;
+		case "title":
+			item.setTitle(reader.getElementText());
+			break;
+		case "updated":
+			item.setUpdated(Dates.parse(reader.getElementText()));
+			break;
+		}
+		Namespace.super.process(item, reader);
+	}
 
 	private Person parsePerson(XMLStreamReader reader, String elementName) throws XMLStreamException {
 		Person person = new Person();
@@ -292,3 +281,4 @@ public class Atom implements Namespace {
 	}
 
 }
+

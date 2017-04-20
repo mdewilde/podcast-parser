@@ -107,3 +107,51 @@ public class Blip implements Namespace {
 	}
 
 }
+
+/*
+
+	corpus stats
+	
+      7325 	--> http://blip.tv/dtd/blip/1.0 level=item localName=datestamp attributes=[]]
+      7325 	--> http://blip.tv/dtd/blip/1.0 level=item localName=embedUrl attributes=[type]]
+      7325 	--> http://blip.tv/dtd/blip/1.0 level=item localName=runtime attributes=[]]
+      7325 	--> http://blip.tv/dtd/blip/1.0 level=item localName=userid attributes=[]]
+      7325 	--> http://blip.tv/dtd/blip/1.0 level=item localName=item_type attributes=[]]
+      7325 	--> http://blip.tv/dtd/blip/1.0 level=item localName=item_id attributes=[]]
+      7325 	--> http://blip.tv/dtd/blip/1.0 level=item localName=thumbnail_src attributes=[]]
+      7325 	--> http://blip.tv/dtd/blip/1.0 level=item localName=rating attributes=[]]
+      7325 	--> http://blip.tv/dtd/blip/1.0 level=item localName=show attributes=[]]
+      7325 	--> http://blip.tv/dtd/blip/1.0 level=item localName=showpage attributes=[]]
+      7325 	--> http://blip.tv/dtd/blip/1.0 level=item localName=embedLookup attributes=[]]
+      7325 	--> http://blip.tv/dtd/blip/1.0 level=item localName=puredescription attributes=[]]
+      7325 	--> http://blip.tv/dtd/blip/1.0 level=item localName=safeusername attributes=[]]
+      7325 	--> http://blip.tv/dtd/blip/1.0 level=item localName=language attributes=[]]
+      7325 	--> http://blip.tv/dtd/blip/1.0 level=item localName=user attributes=[]]
+      7325 	--> http://blip.tv/dtd/blip/1.0 level=item localName=posts_id attributes=[]]
+      7325 	--> http://blip.tv/dtd/blip/1.0 level=item localName=license attributes=[]]
+      7325 	--> http://blip.tv/dtd/blip/1.0 level=item localName=picture attributes=[]]
+      7325 	--> http://blip.tv/dtd/blip/1.0 level=item localName=adChannel attributes=[]]
+      7315 	--> http://blip.tv/dtd/blip/1.0 level=item localName=recommendable attributes=[]]
+      7315 	--> http://blip.tv/dtd/blip/1.0 level=item localName=core attributes=[]]
+      7315 	--> http://blip.tv/dtd/blip/1.0 level=item localName=recommendations attributes=[]]
+      7315 	--> http://blip.tv/dtd/blip/1.0 level=item localName=adminRating attributes=[]]
+      7298 	--> http://blip.tv/dtd/blip/1.0 level=item localName=showpath attributes=[]]
+      7081 	--> http://blip.tv/dtd/blip/1.0 level=item localName=poster_image attributes=[]]
+      4489 	--> http://blip.tv/dtd/blip/1.0 level=item localName=smallThumbnail attributes=[]]
+      3785 	--> http://blip.tv/dtd/blip/1.0 level=item localName=channel_list attributes=[]]
+      3785 	--> http://blip.tv/dtd/blip/1.0 level=item localName=channel_name attributes=[]]
+      2825 	--> http://blip.tv/dtd/blip/1.0 level=item localName=core_value attributes=[]]
+      2058 	--> http://blip.tv/dtd/blip/1.0 level=item localName=category attributes=[]]
+      1747 	--> http://blip.tv/dtd/blip/1.0 level=item localName=categories attributes=[]]
+       764 	--> http://blip.tv/dtd/blip/1.0 level=item localName=youtube_category attributes=[]]
+       356 	--> http://blip.tv/dtd/blip/1.0 level=item localName=thumbnail attributes=[]]
+       356 	--> http://blip.tv/dtd/blip/1.0 level=item localName=description attributes=[]]
+       356 	--> http://blip.tv/dtd/blip/1.0 level=item localName=distributions_info attributes=[]]
+       356 	--> http://blip.tv/dtd/blip/1.0 level=item localName=token attributes=[]]
+       356 	--> http://blip.tv/dtd/blip/1.0 level=item localName=title attributes=[]]
+       269 	--> http://blip.tv/dtd/blip/1.0 level=item localName=is_premium attributes=[]]
+       127 	--> http://blip.tv/dtd/blip/1.0 level=item localName=betaUser attributes=[]]
+        10 	--> http://blip.tv/dtd/blip/1.0 level=item localName=contentRating attributes=[]]
+
+*/
+

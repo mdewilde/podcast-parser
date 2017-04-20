@@ -34,3 +34,13 @@ public class ResourceDescriptionFramework implements Namespace {
 	}
 
 }
+
+/*
+
+	corpus stats
+	
+         9 	--> http://www.w3.org/1999/02/22-rdf-syntax-ns# level=feed localName=Description attributes=[]]
+         9 	--> http://www.w3.org/1999/02/22-rdf-syntax-ns# level=feed localName=value attributes=[]]
+         7 	--> http://www.w3.org/1999/02/22-rdf-syntax-ns# level=item localName=RDF attributes=[]]
+
+*/

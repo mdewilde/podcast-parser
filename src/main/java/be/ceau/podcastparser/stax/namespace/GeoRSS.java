@@ -58,3 +58,15 @@ public class GeoRSS implements Namespace {
 	}
 
 }
+
+/*
+
+	corpus stats
+	
+     25956 	--> http://www.georss.org/georss level=item localName=point attributes=[]]
+      6026 	--> http://www.georss.org/georss level=item localName=featurename attributes=[]]
+      6021 	--> http://www.georss.org/georss level=item localName=box attributes=[]]
+         2 	--> http://www.georss.org/georss level=item localName=where attributes=[]]
+
+*/
+

@@ -29,3 +29,15 @@ public class ItunesU implements Namespace {
 	}
 
 }
+
+/*
+
+	corpus stats
+
+     12553 	--> http://www.itunesu.com/feed level=item localName=category attributes=[code]]
+        90 	--> http://www.itunesu.com/feed level=item localName=category attributes=[]]
+        14 	--> http://www.itunesu.com/feed level=feed localName=category attributes=[code]]
+         7 	--> http://www.itunesu.com/feed level=feed localName=category attributes=[code, text]]
+         6 	--> http://www.itunesu.com/feed level=item localName=category attributes=[text]]
+
+*/

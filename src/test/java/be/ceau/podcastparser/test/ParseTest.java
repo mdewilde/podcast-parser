@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.security.SecureRandom;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import java.util.stream.Collectors;
 
@@ -30,6 +31,7 @@ import org.slf4j.LoggerFactory;
 import org.xml.sax.SAXException;
 
 import be.ceau.podcastparser.stax.PodcastParser;
+import be.ceau.podcastparser.stax.models.EncounteredElement;
 
 public class ParseTest {
 
@@ -64,18 +66,18 @@ public class ParseTest {
 				}
 				// c.stop().log(wrap.getDescription());
 			});
-		/*
+
 		String report = PodcastParser.UNMAPPED.entrySet()
 				.stream()
 				.collect(Collectors.toMap(e -> e.getKey(), e -> e.getValue().sum()))
 				.entrySet()
 				.stream()
-				.sorted(Map.Entry.<UnmappedElement, Long>comparingByValue().reversed())
+				.sorted(Map.Entry.<EncounteredElement, Long>comparingByValue().reversed())
 				.map(e -> String.format("%10d", e.getValue()) + " \t--> " + e.getKey())
 				.collect(Collectors.joining(System.lineSeparator()));
 
 		logger.info("{} {}", System.lineSeparator(), report);
-		*/
+
 		logger.info("DATE STRINGS");
 		logger.info("{}", PodcastParser.DATE_STRINGS.stream().collect(Collectors.joining(System.lineSeparator())));
 		logger.info("DURATION STRINGS");

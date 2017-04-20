@@ -43,16 +43,21 @@ public class AtomThreading implements Namespace {
 		switch (reader.getLocalName()) {
 		case "total":
 			break;
+		case "in-reply-to":
+			break;
 		default:
 			Namespace.super.process(item, reader);
 			break;
 		}
 	}
 
-	/*
-		be.ceau.podcastparser.namespace.NSAtomThreading
-       		127 	--> in-reply-to
-	 */
-	
-	
 }
+
+/*
+
+	corpus stats
+	
+    116578 	--> http://purl.org/syndication/thread/1.0 level=item localName=total attributes=[]]
+       348 	--> http://purl.org/syndication/thread/1.0 level=item localName=in-reply-to attributes=[ref, href, type]]
+
+*/

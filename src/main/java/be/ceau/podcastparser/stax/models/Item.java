@@ -1,11 +1,10 @@
 package be.ceau.podcastparser.stax.models;
 
 import java.time.Duration;
+import java.time.temporal.Temporal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
-import be.ceau.podcastparser.stax.PodcastParser;
 
 public class Item {
 
@@ -19,9 +18,9 @@ public class Item {
 	private String comments;
 	private Enclosure enclosure;
 	private String guid;
-	private String pubDate;
-	private String updated;
-	private String validity;
+	private Temporal pubDate;
+	private Temporal updated;
+	private Temporal validity;
 	private String source;
 	private Rating rating;
 	private Duration duration;
@@ -213,14 +212,13 @@ public class Item {
 	 * RSS specification.
 	 * </p>
 	 * 
-	 * @return a {@link String} or {@code null}
+	 * @return a {@link Temporal} or {@code null}
 	 */
-	public String getPubDate() {
+	public Temporal getPubDate() {
 		return pubDate;
 	}
 
-	public void setPubDate(String pubDate) {
-		PodcastParser.DATE_STRINGS.add(pubDate);
+	public void setPubDate(Temporal pubDate) {
 		this.pubDate = pubDate;
 	}
 
@@ -235,14 +233,13 @@ public class Item {
 	 * {@code entry} elements in Atom specification.
 	 * </p>
 	 * 
-	 * @return a {@link String} or {@code null}
+	 * @return a {@link Temporal} or {@code null}
 	 */
-	public String getUpdated() {
+	public Temporal getUpdated() {
 		return updated;
 	}
 
-	public void setUpdated(String updated) {
-		PodcastParser.DATE_STRINGS.add(pubDate);
+	public void setUpdated(Temporal updated) {
 		this.updated = updated;
 	}
 
@@ -254,13 +251,13 @@ public class Item {
 	 * Specified in Dublin Core Terms RSS specification.
 	 * </p>
 	 * 
-	 * @return a {@link String} or {@code null}
+	 * @return a {@link Temporal} or {@code null}
 	 */
-	public String getValidity() {
+	public Temporal getValidity() {
 		return validity;
 	}
 
-	public void setValidity(String validity) {
+	public void setValidity(Temporal validity) {
 		this.validity = validity;
 	}
 

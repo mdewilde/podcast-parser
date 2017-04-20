@@ -38,5 +38,18 @@ public class CreativeCommons implements Namespace {
 	public Set<String> getNames() {
 		return NAMES;
 	}
-
+	
 }
+
+/*
+
+	corpus stats
+	
+	    14 	--> http://web.resource.org/cc/ level=item localName=requires attributes=[resource]]
+        14 	--> http://web.resource.org/cc/ level=item localName=permits attributes=[resource]]
+         7 	--> http://web.resource.org/cc/ level=item localName=License attributes=[about]]
+         7 	--> http://web.resource.org/cc/ level=item localName=Work attributes=[about]]
+         7 	--> http://web.resource.org/cc/ level=item localName=prohibits attributes=[resource]]
+         7 	--> http://web.resource.org/cc/ level=item localName=license attributes=[resource]]
+
+*/

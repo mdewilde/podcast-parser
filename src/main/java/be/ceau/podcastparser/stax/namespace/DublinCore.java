@@ -110,3 +110,46 @@ public class DublinCore implements Namespace {
 	}
 
 }
+
+/*
+
+	corpus stats
+	
+   2036707 	--> http://purl.org/dc/elements/1.1/ level=item localName=creator attributes=[]]
+     23509 	--> http://purl.org/dc/elements/1.1/ level=item localName=date attributes=[]]
+      7258 	--> http://purl.org/dc/elements/1.1/ level=item localName=subject attributes=[]]
+      1809 	--> http://purl.org/dc/elements/1.1/ level=item localName=title attributes=[]]
+      1206 	--> http://purl.org/dc/elements/1.1/ level=item localName=publisher attributes=[]]
+       982 	--> http://purl.org/dc/elements/1.1/ level=item localName=description attributes=[]]
+       680 	--> http://purl.org/dc/elements/1.1/ level=feed localName=creator attributes=[]]
+       652 	--> http://purl.org/dc/elements/1.1/ level=item localName=language attributes=[]]
+       633 	--> http://purl.org/dc/elements/1.1/ level=item localName=type attributes=[]]
+       497 	--> http://purl.org/dc/elements/1.1/ level=item localName=rights attributes=[]]
+       314 	--> http://purl.org/dc/elements/1.1/ level=item localName=format attributes=[]]
+       289 	--> http://purl.org/dc/elements/1.1/ level=feed localName=date attributes=[]]
+       191 	--> http://purl.org/dc/elements/1.1/ level=feed localName=language attributes=[]]
+       176 	--> http://purl.org/dc/elements/1.1/ level=item localName=copyright attributes=[]]
+       151 	--> http://purl.org/dc/elements/1.1/ level=feed localName=rights attributes=[]]
+       145 	--> http://purl.org/dc/elements/1.1 level=item localName=creator attributes=[]]
+       145 	--> http://purl.org/dc/elements/1.1/ level=item localName=identifier attributes=[]]
+       125 	--> http://purl.org/dc/elements/1.1/ level=item localName=contributor attributes=[]]
+       101 	--> http://purl.org/dc/elements/1.1/ level=item localName=creater attributes=[]]
+        95 	--> https://purl.org/dc/elements/1.1/ level=item localName=creator attributes=[]]
+        84 	--> http://purl.org/dc/elements/1.1/ level=item localName=source attributes=[]]
+        35 	--> http://purl.org/dc/elements/1.1/ level=item localName=modified attributes=[]]
+        30 	--> http://purl.org/dc/elements/1.1/ level=feed localName=subject attributes=[]]
+        25 	--> http://purl.org/dc/elements/1.1/ level=item localName=date.Taken attributes=[]]
+        18 	--> http://purl.org/dc/elements/1.1/ level=feed localName=publisher attributes=[]]
+        13 	--> http://purl.org/dc/elements/1.1/ level=feed localName=title attributes=[]]
+         8 	--> http://purl.org/dc/elements/1.1/ level=item localName=modifieddate attributes=[]]
+         7 	--> http://purl.org/dc/elements/1.1/ level=item localName=type attributes=[resource]]
+         6 	--> http://purl.org/dc/elements/1.1/ level=feed localName=description attributes=[]]
+         3 	--> http://purl.org/dc/elements/1.1/ level=feed localName=coverage attributes=[]]
+         2 	--> http://purl.org/dc/elements/1.1/ level=feed localName=type attributes=[]]
+         2 	--> http://purl.org/dc/elements/1.1/ level=feed localName=contributor attributes=[]]
+         1 	--> http://purl.org/dc/elements/1.1/ level=feed localName=relation attributes=[]]
+         1 	--> http://purl.org/dc/elements/1.1/ level=feed localName=identifier attributes=[]]
+         1 	--> http://purl.org/dc/elements/1.1/ level=feed localName=format attributes=[]]
+         1 	--> http://purl.org/dc/elements/1.1/ level=feed localName=source attributes=[]]
+
+*/

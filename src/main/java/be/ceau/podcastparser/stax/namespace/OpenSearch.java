@@ -35,3 +35,16 @@ public class OpenSearch implements Namespace {
 	}
 
 }
+
+/*
+
+	corpus stats
+	
+      6567 	--> http://a9.com/-/spec/opensearchrss/1.0/ level=feed localName=totalResults attributes=[]]
+      6567 	--> http://a9.com/-/spec/opensearchrss/1.0/ level=feed localName=startIndex attributes=[]]
+      6563 	--> http://a9.com/-/spec/opensearchrss/1.0/ level=feed localName=itemsPerPage attributes=[]]
+       104 	--> http://a9.com/-/spec/opensearch/1.1/ level=feed localName=startIndex attributes=[]]
+       100 	--> http://a9.com/-/spec/opensearch/1.1/ level=feed localName=totalResults attributes=[]]
+        97 	--> http://a9.com/-/spec/opensearch/1.1/ level=feed localName=itemsPerPage attributes=[]]
+
+*/

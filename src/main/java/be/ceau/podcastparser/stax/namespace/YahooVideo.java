@@ -14,3 +14,15 @@ public class YahooVideo implements Namespace {
 	}
 
 }
+
+/*
+	corpus stats
+
+	  6281 	--> http://video.yahooapis.com/v2/video/ level=item localName=value attributes=[]]
+      6281 	--> http://video.yahooapis.com/v2/video/ level=item localName=adInfo attributes=[]]
+      6281 	--> http://video.yahooapis.com/v2/video/ level=item localName=adTargeting attributes=[]]
+      6281 	--> http://video.yahooapis.com/v2/video/ level=item localName=id attributes=[]]
+      6281 	--> http://video.yahooapis.com/v2/video/ level=item localName=adData attributes=[]]
+      6281 	--> http://video.yahooapis.com/v2/video/ level=item localName=name attributes=[]]
+
+*/

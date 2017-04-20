@@ -36,3 +36,13 @@ public class UserlandCreativeCommons implements Namespace {
 	}
 
 }
+
+/*
+	corpus stats
+	
+      4775 	--> http://backend.userland.com/creativeCommonsRssModule level=item localName=license attributes=[]]
+      2096 	--> http://backend.userland.com/creativeCommonsRssModule level=feed localName=license attributes=[]]
+         2 	--> http://backend.userland.com/blogChannelModule level=feed localName=blink attributes=[]]
+         2 	--> http://backend.userland.com/blogChannelModule level=feed localName=blogRoll attributes=[]]
+
+*/

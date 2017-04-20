@@ -34,3 +34,12 @@ public class RTE implements Namespace {
 	}
 
 }
+
+/*
+	
+	corpus stats
+	
+	 15436 	--> http://www.rte.ie/applications/ipad/schemas level=item localName=id attributes=[]]
+	   154 	--> http://www.rte.ie/applications/ipad/schemas level=feed localName=id attributes=[]]
+
+*/

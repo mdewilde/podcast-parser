@@ -41,3 +41,16 @@ public class SimpleChapters implements Namespace {
 	}
 
 }
+
+/*
+	corpus stats
+	
+     52486 	--> http://podlove.org/simple-chapters level=item localName=chapter attributes=[start, title]]
+      5677 	--> http://podlove.org/simple-chapters level=item localName=chapters attributes=[version]]
+      5213 	--> http://podlove.org/simple-chapters level=item localName=chapter attributes=[image, start, href, title]]
+      2930 	--> http://podlove.org/simple-chapters level=item localName=chapter attributes=[start, href, title]]
+       138 	--> http://podlove.org/simple-chapters level=item localName=chapter attributes=[image, start, title]]
+        73 	--> http://podlove.org/simple-chapters level=item localName=chapter attributes=[start]]
+         3 	--> http://podlove.org/simple-chapters level=item localName=chapters attributes=[]]
+
+*/

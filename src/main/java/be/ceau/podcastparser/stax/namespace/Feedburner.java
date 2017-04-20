@@ -173,3 +173,21 @@ public class Feedburner implements Namespace {
 	}
 
 }
+
+/*
+
+	corpus stats
+	
+   1053738 	--> http://rssnamespace.org/feedburner/ext/1.0 level=item localName=origLink attributes=[]]
+    772712 	--> http://rssnamespace.org/feedburner/ext/1.0 level=item localName=origEnclosureLink attributes=[]]
+     41112 	--> http://rssnamespace.org/feedburner/ext/1.0 level=feed localName=feedFlare attributes=[src, href]]
+     35095 	--> http://rssnamespace.org/feedburner/ext/1.0 level=feed localName=info attributes=[uri]]
+      3866 	--> http://rssnamespace.org/feedburner/ext/1.0 level=feed localName=emailServiceId attributes=[]]
+      3866 	--> http://rssnamespace.org/feedburner/ext/1.0 level=feed localName=feedburnerHostname attributes=[]]
+      2357 	--> http://rssnamespace.org/feedburner/ext/1.0 level=feed localName=browserFriendly attributes=[]]
+         4 	--> http://rssnamespace.org/feedburner/ext/1.0 level=feed localName=origLink attributes=[]]
+         1 	--> http://rssnamespace.org/feedburner/ext/1.0 level=feed localName=origEnclosureLink attributes=[]]
+         1 	--> http://rssnamespace.org/feedburner/ext/1.0 level=feed localName=awareness attributes=[]]
+
+*/
+

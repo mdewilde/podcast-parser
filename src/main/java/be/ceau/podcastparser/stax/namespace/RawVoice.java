@@ -40,7 +40,7 @@ import be.ceau.podcastparser.util.UnmodifiableSet;
  */
 public class RawVoice implements Namespace {
 
-	public static final Set<String> NAMES = UnmodifiableSet.of("http://www.rawvoice.com/rawvoicerssmodule/");
+	public static final Set<String> NAMES = UnmodifiableSet.of("http://www.rawvoice.com/rawvoiceRssModule/");
 
 	@Override
 	public Set<String> getNames() {
@@ -67,3 +67,73 @@ public class RawVoice implements Namespace {
 	}
 
 }
+
+/*
+
+	corpus stats
+
+     27416 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=item localName=embed attributes=[]]
+     13116 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=item localName=poster attributes=[url]]
+      6727 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=feed localName=location attributes=[]]
+      6565 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=feed localName=frequency attributes=[]]
+      5240 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=feed localName=subscribe attributes=[feed, itunes]]
+      4486 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=feed localName=rating attributes=[]]
+      3591 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=item localName=isHD attributes=[]]
+       712 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=feed localName=subscribe attributes=[feed, itunes, html]]
+       529 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=feed localName=donate attributes=[href]]
+       507 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=feed localName=subscribe attributes=[feed, googleplay, itunes]]
+       355 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=item localName=webm attributes=[src, length, type]]
+       272 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=item localName=metamark attributes=[type]]
+       128 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=feed localName=subscribe attributes=[feed, googleplay, itunes, stitcher, blubrry]]
+       126 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=item localName=metamark attributes=[link, type]]
+       124 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=feed localName=subscribe attributes=[feed, googleplay, itunes, stitcher]]
+       112 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=feed localName=subscribe attributes=[feed, googleplay, itunes, html]]
+       111 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=feed localName=subscribe attributes=[feed, googleplay, itunes, stitcher, tunein, blubrry]]
+       108 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=feed localName=subscribe attributes=[feed, itunes, stitcher]]
+       105 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=feed localName=subscribe attributes=[feed, googleplay, itunes, stitcher, html, blubrry]]
+        85 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=feed localName=subscribe attributes=[feed, googleplay, itunes, stitcher, html, tunein, blubrry]]
+        71 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=feed localName=subscribe attributes=[feed, googleplay]]
+        62 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=feed localName=subscribe attributes=[feed, googleplay, itunes, stitcher, html]]
+        50 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=feed localName=subscribe attributes=[feed, itunes, blubrry]]
+        48 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=feed localName=subscribe attributes=[feed, itunes, stitcher, blubrry]]
+        46 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=feed localName=subscribe attributes=[feed, googleplay, itunes, html, blubrry]]
+        44 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=feed localName=subscribe attributes=[feed, googleplay, itunes, stitcher, html, tunein]]
+        39 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=feed localName=subscribe attributes=[feed, googleplay, itunes, blubrry]]
+        35 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=feed localName=subscribe attributes=[feed, itunes, stitcher, html]]
+        34 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=item localName=webm attributes=[src, type]]
+        32 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=item localName=metamark attributes=[position, type]]
+        31 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=feed localName=subscribe attributes=[feed, googleplay, itunes, stitcher, tunein]]
+        29 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=feed localName=subscribe attributes=[feed, itunes, stitcher, html, blubrry]]
+        29 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=item localName=metamark attributes=[duration, position, type]]
+        26 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=item localName=metamark attributes=[link, position, type]]
+        26 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=feed localName=subscribe attributes=[feed, itunes, html, blubrry]]
+        24 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=feed localName=subscribe attributes=[feed, itunes, stitcher, tunein, blubrry]]
+        22 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=feed localName=subscribe attributes=[feed, itunes, stitcher, tunein]]
+        14 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=feed localName=subscribe attributes=[feed, itunes, stitcher, html, tunein, blubrry]]
+        11 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=feed localName=subscribe attributes=[feed, blubrry]]
+         9 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=item localName=metamark attributes=[duration, link, position, type]]
+         8 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=feed localName=subscribe attributes=[feed, itunes, tunein]]
+         6 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=feed localName=subscribe attributes=[feed, stitcher]]
+         6 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=feed localName=subscribe attributes=[feed, googleplay, itunes, html, tunein]]
+         5 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=feed localName=subscribe attributes=[feed, googleplay, itunes, tunein, blubrry]]
+         5 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=feed localName=subscribe attributes=[feed, html, blubrry]]
+         5 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=feed localName=subscribe attributes=[feed, googleplay, stitcher]]
+         4 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=item localName=metamark attributes=[duration, link, type]]
+         4 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=feed localName=subscribe attributes=[feed, googleplay, itunes, tunein]]
+         4 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=feed localName=subscribe attributes=[feed, googleplay, itunes, html, tunein, blubrry]]
+         4 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=feed localName=subscribe attributes=[feed, googleplay, html]]
+         3 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=feed localName=subscribe attributes=[feed, stitcher, html]]
+         3 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=feed localName=subscribe attributes=[feed, itunes, html, tunein, blubrry]]
+         3 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=feed localName=subscribe attributes=[feed, googleplay, stitcher, tunein, blubrry]]
+         2 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=feed localName=subscribe attributes=[feed, itunes, stitcher, html, tunein]]
+         2 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=feed localName=subscribe attributes=[feed, stitcher, blubrry]]
+         2 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=item localName=metamark attributes=[duration, type]]
+         2 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=feed localName=subscribe attributes=[feed, itunes, tunein, blubrry]]
+         2 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=feed localName=subscribe attributes=[feed, stitcher, tunein]]
+         2 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=feed localName=subscribe attributes=[feed, itunes, html, tunein]]
+         2 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=feed localName=subscribe attributes=[feed, googleplay, blubrry]]
+         1 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=feed localName=subscribe attributes=[feed, tunein]]
+         1 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=feed localName=subscribe attributes=[feed, googleplay, stitcher, html, tunein, blubrry]]
+         1 	--> http://www.rawvoice.com/rawvoiceRssModule/ level=feed localName=subscribe attributes=[feed, stitcher, tunein, blubrry]]
+
+*/

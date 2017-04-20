@@ -6,14 +6,14 @@ import java.util.Set;
 
 import javax.xml.stream.XMLStreamReader;
 
-public class UnmappedElement {
+public class EncounteredElement {
 
 	private final String namespaceUri;
 	private final String localName;
 	private final Set<String> attributes; 
 	private final String level;
 	
-	public UnmappedElement(XMLStreamReader reader, String level) {
+	public EncounteredElement(XMLStreamReader reader, String level) {
 		this.namespaceUri = reader.getNamespaceURI();
 		this.localName = reader.getLocalName();
 		this.attributes = Collections.unmodifiableSet(extractAttributes(reader));
@@ -66,7 +66,7 @@ public class UnmappedElement {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		UnmappedElement other = (UnmappedElement) obj;
+		EncounteredElement other = (EncounteredElement) obj;
 		if (attributes == null) {
 			if (other.attributes != null)
 				return false;

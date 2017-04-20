@@ -58,3 +58,11 @@ public class Slash implements Namespace {
 	}
 
 }
+
+/*
+
+	corpus stats
+	
+    736937 	--> http://purl.org/rss/1.0/modules/slash/ level=item localName=comments attributes=[]]
+
+*/

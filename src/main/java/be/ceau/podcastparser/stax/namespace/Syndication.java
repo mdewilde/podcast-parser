@@ -60,3 +60,15 @@ public class Syndication implements Namespace {
 	}
 
 }
+
+/*
+	corpus stats
+	
+     28814 	--> http://purl.org/rss/1.0/modules/syndication/ level=feed localName=updatePeriod attributes=[]]
+     28800 	--> http://purl.org/rss/1.0/modules/syndication/ level=feed localName=updateFrequency attributes=[]]
+       114 	--> http://purl.org/rss/1.0/modules/syndication/ level=feed localName=updateBase attributes=[]]
+         2 	--> https://purl.org/rss/1.0/modules/syndication/ level=feed localName=updateFrequency attributes=[]]
+         2 	--> https://purl.org/rss/1.0/modules/syndication/ level=feed localName=updatePeriod attributes=[]]
+         1 	--> http://purl.org/rss/1.0/modules/syndication/ level=feed localName=updateperiod attributes=[]]
+
+*/

@@ -16,16 +16,13 @@
 package be.ceau.podcastparser.stax.namespace;
 
 import java.util.Set;
-import java.util.concurrent.atomic.LongAdder;
 
 import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
-import be.ceau.podcastparser.stax.PodcastParser;
 import be.ceau.podcastparser.stax.models.Feed;
 import be.ceau.podcastparser.stax.models.Item;
-import be.ceau.podcastparser.stax.models.UnmappedElement;
 
 /**
  * <p>
@@ -49,8 +46,9 @@ public interface Namespace {
 	public Set<String> getNames();
 
 	/**
-	 * Process any additional information from the {@link XMLStreamReader} onto
-	 * the given {@link Feed} according to the namespace specification.
+	 * Process any additional information from the {@link XMLStreamReader}, at
+	 * its current position, onto the given {@link Feed} according to the
+	 * namespace specification.
 	 *
 	 * @param feed
 	 *            {@link Feed} instance in the process of being built
@@ -62,12 +60,12 @@ public interface Namespace {
 	 */
 	public default void process(Feed feed, XMLStreamReader reader) throws XMLStreamException {
 		// default is to do nothing
-		PodcastParser.UNMAPPED.computeIfAbsent(new UnmappedElement(reader, "feed"), x -> new LongAdder()).increment();
 	}
 
 	/**
-	 * Process any additional information from the {@link XMLStreamReader} onto
-	 * the given {@link Item} according to the namespace specification.
+	 * Process any additional information from the {@link XMLStreamReader}, at
+	 * its current position, onto the given {@link Item} according to the
+	 * namespace specification.
 	 * 
 	 * @param item
 	 *            {@link Item} instance in the process of being built
@@ -79,7 +77,6 @@ public interface Namespace {
 	 */
 	public default void process(Item item, XMLStreamReader reader) throws XMLStreamException {
 		// default is to do nothing
-		PodcastParser.UNMAPPED.computeIfAbsent(new UnmappedElement(reader, "item"), x -> new LongAdder()).increment();
 	}
 
 	public default boolean mustDelegateTo(Namespace namespace) {

@@ -14,3 +14,11 @@ public class Wordpress implements Namespace {
 	}
 
 }
+
+/*
+	corpus stats
+	
+    193028 	--> com-wordpress:feed-additions:1 level=item localName=post-id attributes=[]]
+      5263 	--> com-wordpress:feed-additions:1 level=feed localName=site attributes=[]]
+
+*/

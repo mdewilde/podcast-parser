@@ -11,7 +11,7 @@ import be.ceau.podcastparser.util.UnmodifiableSet;
  */
 public class Iono implements Namespace {
 
-	public static final Set<String> NAMES = UnmodifiableSet.of("http://video.yahooapis.com/v2/video/");
+	public static final Set<String> NAMES = UnmodifiableSet.of("http://iono.fm/rss-namespace-1.0");
 
 	@Override
 	public Set<String> getNames() {
@@ -19,7 +19,14 @@ public class Iono implements Namespace {
 	}
 
 }
+/*
 
+	corpus stats
+
+      8621 	--> http://iono.fm/rss-namespace-1.0 level=item localName=thumbnail attributes=[href]]
+       111 	--> http://iono.fm/rss-namespace-1.0 level=feed localName=thumbnail attributes=[href]]
+
+*/
 /*
 	Image thumbnails
 	

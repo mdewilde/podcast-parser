@@ -21,6 +21,7 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
 import be.ceau.podcastparser.stax.models.Item;
+import be.ceau.podcastparser.util.Dates;
 import be.ceau.podcastparser.util.UnmodifiableSet;
 
 /**
@@ -56,17 +57,17 @@ public class DublinCoreTerms implements Namespace {
 		switch (reader.getLocalName()) {
 		case "modified": {
 			// Date on which the resource was changed.
-			item.setUpdated(reader.getElementText());
+			item.setUpdated(Dates.parse(reader.getElementText()));
 			break;
 		}
 		case "created": {
 			// Date of creation of the resource.
-			item.setPubDate(reader.getElementText());
+			item.setPubDate(Dates.parse(reader.getElementText()));
 			break;
 		}
 		case "valid": {
 			// Date (often a range) of validity of a resource.
-			item.setValidity(reader.getElementText());
+			item.setValidity(Dates.parse(reader.getElementText()));
 			break;
 		}
 		case "subject": {
@@ -78,3 +79,15 @@ public class DublinCoreTerms implements Namespace {
 	}
 
 }
+
+/*
+
+	corpus stats
+	
+    285271 	--> http://purl.org/dc/terms/ level=item localName=modified attributes=[]]
+    285266 	--> http://purl.org/dc/terms/ level=item localName=created attributes=[]]
+     10815 	--> http://purl.org/dc/terms/ level=item localName=valid attributes=[]]
+      3168 	--> http://purl.org/dc/terms/ level=item localName=subject attributes=[]]
+
+*/
+

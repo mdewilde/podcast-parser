@@ -66,3 +66,12 @@ public class WellFormedWeb implements Namespace {
 	}
 
 }
+
+/*
+	corpus stats
+	
+    753167 	--> http://wellformedweb.org/CommentAPI/ level=item localName=commentRss attributes=[]]
+       554 	--> http://wellformedweb.org/CommentAPI/ level=item localName=comment attributes=[]]
+       448 	--> http://wellformedweb.org/CommentAPI/ level=item localName=commentRSS attributes=[]]
+
+*/

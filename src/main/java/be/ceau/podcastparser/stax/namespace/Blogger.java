@@ -47,3 +47,11 @@ public class Blogger implements Namespace {
 	}
 
 }
+
+/*
+
+	corpus stats
+	
+       116 	--> http://schemas.google.com/blogger/2008 level=feed localName=adultContent attributes=[]]
+
+*/

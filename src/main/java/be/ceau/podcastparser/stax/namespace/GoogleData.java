@@ -35,3 +35,12 @@ public class GoogleData implements Namespace {
 	}
 
 }
+
+/*
+
+	corpus stats
+	
+      6550 	--> http://schemas.google.com/g/2005 level=item localName=extendedProperty attributes=[name, value]]
+
+*/
+
