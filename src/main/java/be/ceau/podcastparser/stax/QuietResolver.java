@@ -28,31 +28,35 @@ public class QuietResolver implements XMLResolver {
 	private static final Logger logger = LoggerFactory.getLogger(QuietResolver.class);
 
 	private static final Set<String> PUBLIC_IDS_HTML = UnmodifiableSet.of(
-			"-//W3C//DTD XHTML 1.0 Transitional//EN", 
 			"-//W3C//DTD HTML 4.01//EN",
-			"-//W3C//DTD XHTML 1.0 Strict//EN", 
 			"-//W3C//DTD HTML 4.01 Frameset//EN", 
 			"-//W3C//DTD HTML 4.01 Transitional//EN",
+			"-//W3C//DTD HTML 4.0 Transitional//EN", 
+			"-//W3C//DTD XHTML 1.0 Frameset//EN", 
+			"-//W3C//DTD XHTML 1.0 Strict//EN", 
+			"-//W3C//DTD XHTML 1.0 Transitional//EN", 
 			"-//W3C//DTD XHTML 1.1//EN", 
+			"-//W3C//DTD XHTML Basic 1.0//EN", 
+			"-//W3C//DTD XHTML Basic 1.1//EN", 
+			"-//W3C//DTD XHTML+RDFa 1.0//EN", 
 			"-//W3C//ELEMENTS XHTML Inline Style 1.0//EN", 
 			"-//W3C//ENTITIES XHTML Datatypes 1.0//EN", 
-			"-//W3C//DTD XHTML+RDFa 1.0//EN", 
-			"-//W3C//DTD XHTML 1.0 Frameset//EN", 
-			"-//W3C//DTD HTML 4.0 Transitional//EN", 
 			"-//W3C//ENTITIES XHTML Modular Framework 1.0//EN"
 		);
-	
+
 	private static final Set<String> SYSTEM_IDS_HTML = UnmodifiableSet.of(
-			"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd",
-			"http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd",
 			"http://w3.org/TR/html4/loose.dtd",
-			"http://www.w3.org/TR/REC-html40/loose.dtd",
-			"http://www.w3.org/TR/html4/strict.dtd",
-			"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd",
+			"http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd",
 			"http://www.w3.org/TR/html4/frameset.dtd",
 			"http://www.w3.org/TR/html4/loose.dtd",
-			"http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd" ,
-			"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"
+			"http://www.w3.org/TR/html4/strict.dtd",
+			"http://www.w3.org/TR/REC-html40/loose.dtd",
+			"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd",
+			"http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd",
+			"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd",
+			"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd",
+			"http://www.w3.org/TR/xhtml-basic/xhtml-basic10.dtd", 
+			"http://www.w3.org/TR/xhtml-basic/xhtml-basic11.dtd" 
 		);
 
 	@Override
