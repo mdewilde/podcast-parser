@@ -26,14 +26,6 @@ public class UnmodifiableSet<T> extends HashSet<T> {
 		return Collections.unmodifiableSet(new LinkedHashSet<>(Arrays.asList(t1, t2)));
 	}
 
-	public static <T> Set<T> of(T t1, T t2, T t3) {
-		return Collections.unmodifiableSet(new LinkedHashSet<>(Arrays.asList(t1, t2, t3)));
-	}
-
-	public static <T> Set<T> of(T t1, T t2, T t3, T t4) {
-		return Collections.unmodifiableSet(new LinkedHashSet<>(Arrays.asList(t1, t2, t3, t4)));
-	}
-
 	@SafeVarargs
 	public static <T> Set<T> of(T... s) {
 		return Collections.unmodifiableSet(new LinkedHashSet<>(Arrays.asList(s)));

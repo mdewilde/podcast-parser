@@ -30,8 +30,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.xml.sax.SAXException;
 
-import be.ceau.podcastparser.stax.PodcastParser;
-import be.ceau.podcastparser.stax.models.EncounteredElement;
+import be.ceau.podcastparser.PodcastParser;
+import be.ceau.podcastparser.models.EncounteredElement;
 
 public class ParseTest {
 
