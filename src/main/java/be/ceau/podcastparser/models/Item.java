@@ -4,29 +4,36 @@ import java.time.Duration;
 import java.time.temporal.Temporal;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class Item {
 
-	private String title;
+	private TypedString title;
 	private String subtitle;
 	private final List<Link> links = new ArrayList<>();
-	private String description;
+	private TypedString description;
 	private final List<Person> authors = new ArrayList<>();
 	private final List<Category> categories = new ArrayList<>();
 	private String copyright;
-	private String comments;
 	private Enclosure enclosure;
 	private String guid;
 	private Temporal pubDate;
 	private Temporal updated;
 	private Temporal validity;
+	private Temporal edited;
 	private String source;
 	private Rating rating;
 	private Duration duration;
 	private final List<MediaContent> mediaContents = new ArrayList<>();
 	private final List<Image> images = new ArrayList<>();
 	private final List<String> keywords = new ArrayList<>();
+	private String content;
+	private String subject;
+	private Comments comments;
+	private final List<Chapter> chapters = new ArrayList<>();
+	private final List<Hash> hashes = new ArrayList<>();
+	private License license;
+	private final List<Credit> credits = new ArrayList<>();
+	private String language;
 
 	/**
 	 * <p>
@@ -36,13 +43,19 @@ public class Item {
 	 * Optional as per RSS specification.
 	 * </p>
 	 * 
-	 * @return a {@code String} or {@code null}
+	 * @return {@code TypedString} or {@code null}
 	 */
-	public String getTitle() {
+	public TypedString getTitle() {
 		return title;
 	}
 
 	public void setTitle(String title) {
+		TypedString typedString = new TypedString();
+		typedString.setText(title);
+		setTitle(typedString);
+	}
+
+	public void setTitle(TypedString title) {
 		this.title = title;
 	}
 
@@ -85,13 +98,26 @@ public class Item {
 	}
 
 	/**
+	 * <p>
 	 * The item synopsis.
+	 * </p>
+	 * <p>
+	 * Part of the iTunes specification.
+	 * </p>
+	 * 
+	 * @return a {@code TypedString} or {@code null}
 	 */
-	public String getDescription() {
+	public TypedString getDescription() {
 		return description;
 	}
 
 	public void setDescription(String description) {
+		TypedString typedString = new TypedString();
+		typedString.setText(description);
+		setDescription(typedString);
+	}
+
+	public void setDescription(TypedString description) {
 		this.description = description;
 	}
 
@@ -134,17 +160,6 @@ public class Item {
 
 	public void setCopyright(String copyright) {
 		this.copyright = copyright;
-	}
-
-	/**
-	 * URL of a page for comments relating to the item.
-	 */
-	public String getComments() {
-		return comments;
-	}
-
-	public void setComments(String comments) {
-		this.comments = comments;
 	}
 
 	/**
@@ -263,6 +278,24 @@ public class Item {
 
 	/**
 	 * <p>
+	 * Date when an item was edited.
+	 * </p>
+	 * <p>
+	 * Specified in Atom Publishing namespace specification.
+	 * </p>
+	 * 
+	 * @return a {@link Temporal} or {@code null}
+	 */
+	public Temporal getEdited() {
+		return edited;
+	}
+
+	public void setEdited(Temporal edited) {
+		this.edited = edited;
+	}
+
+	/**
+	 * <p>
 	 * The RSS channel that the item came from.
 	 * </p>
 	 * <p>
@@ -287,12 +320,19 @@ public class Item {
 	 * Combines optional elements from iTunes RSS and Media RSS spec.
 	 * </p>
 	 * 
-	 * @return {@Optional} {@link Rating} or {@code null}
+	 * @return a {@link Rating} or {@code null}
 	 */
-	public Optional<Rating> getRating() {
-		return Optional.ofNullable(rating);
+	public Rating getRating() {
+		return rating;
 	}
 
+	public Rating computeRatingIfAbsent() {
+		if (rating == null) {
+			rating = new Rating();
+		}
+		return rating;
+	}
+	
 	public void setRating(Rating rating) {
 		this.rating = rating;
 	}
@@ -409,6 +449,146 @@ public class Item {
 
 	public void addKeyword(String keyword) {
 		keywords.add(keyword);
+	}
+
+	/**
+	 * <p>
+	 * Not in RSS specification. Part of Content namespace.
+	 * </p>
+	 * 
+	 * @return a {@link String} or {@code null}
+	 */
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	/**
+	 * <p>
+	 * Not in RSS specification. Part of DublinCore namespace.
+	 * </p>
+	 * 
+	 * @return a {@link String} or {@code null}
+	 */
+	public String getSubject() {
+		return subject;
+	}
+
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
+
+	/**
+	 * <p>
+	 * All information regarding comments for this {@link Item}
+	 * </p>
+	 * 
+	 * @return a {@link Comments} instance, or {@code null}
+	 */
+	public Comments getComments() {
+		return comments;
+	}
+
+	/**
+	 * @return a {@link Comments} instance, never {@code null}
+	 */
+	public Comments computeCommentsIfAbsent() {
+		if (comments == null) {
+			comments = new Comments();
+		}
+		return comments;
+	}
+	
+	public void setComments(Comments comments) {
+		this.comments = comments;
+	}
+
+	/**
+	 * <p>
+	 * Not in RSS specification. Part of SimpleChapters namespace specifcation.
+	 * </p>
+	 * 
+	 * @return a {@link List}, not {@code null}
+	 */
+	public List<Chapter> getChapters() {
+		return chapters;
+	}
+
+	public void addChapter(Chapter chapter) {
+		chapters.add(chapter);
+	}
+
+	/**
+	 * <p>
+	 * Part of Media RSS namespace specification.
+	 * </p>
+	 * 
+	 * @return a {@link List}, not {@code null}
+	 */
+	public List<Hash> getHashes() {
+		return hashes;
+	}
+
+	public void addHash(Hash hash) {
+		hashes.add(hash);
+	}
+
+	/**
+	 * <p>
+	 * License information for this {@link Item}
+	 * </p>
+	 * 
+	 * @return a {@link License} or {@code null}
+	 */
+	public License getLicense() {
+		return license;
+	}
+
+	public License computeLicenseIfAbsent() {
+		if (license == null) {
+			license = new License();
+		}
+		return license;
+	}
+	
+	public void setLicense(License license) {
+		this.license = license;
+	}
+
+	/**
+	 * <p>
+	 * Credits for this {@link Item}
+	 * </p>
+	 * 
+	 * @return a {@link List}, not {@code null}
+	 */
+	public List<Credit> getCredits() {
+		return credits;
+	}
+
+	public void addCredit(Credit credit) {
+		credits.add(credit);
+	}
+
+	/**
+	 * <p>
+	 * Language of this {@link Item}
+	 * </p>
+	 * <p>
+	 * Part of the DublinCore namespace specification.
+	 * </p>
+	 * 
+	 * @return a {@link String} or {@code null}
+	 */
+	public String getLanguage() {
+		return language;
+	}
+
+	public void setLanguage(String language) {
+		this.language = language;
 	}
 
 	@Override

@@ -10,6 +10,12 @@ public class WrappedXml {
 		this.xml = xml;
 	}
 
+	/**
+	 * A description for the XML contained in this {@link WrappedXml}, eg. the
+	 * filename in the case of XML extracted from a local file.
+	 * 
+	 * @return a {@link String}, never {@code null}
+	 */
 	public String getDescription() {
 		return description;
 	}
@@ -17,5 +23,5 @@ public class WrappedXml {
 	public String getXml() {
 		return xml;
 	}
-	
+
 }

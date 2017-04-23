@@ -15,8 +15,6 @@
 */
 package be.ceau.podcastparser.models;
 
-import java.time.Duration;
-
 /**
  * Image instance, based on RSS spec {@code channel} level image.
  */
@@ -28,7 +26,7 @@ public class Image {
 	private Integer width;
 	private Integer height;
 	private String description;
-	private Duration time;
+	private Long time;
 
 	/**
 	 * <p>
@@ -44,8 +42,9 @@ public class Image {
 		return url;
 	}
 
-	public void setUrl(String url) {
+	public Image setUrl(String url) {
 		this.url = url;
+		return this;
 	}
 
 	/**
@@ -63,8 +62,9 @@ public class Image {
 		return title;
 	}
 
-	public void setTitle(String title) {
+	public Image setTitle(String title) {
 		this.title = title;
+		return this;
 	}
 
 	/**
@@ -84,8 +84,9 @@ public class Image {
 		return link;
 	}
 
-	public void setLink(String link) {
+	public Image setLink(String link) {
 		this.link = link;
+		return this;
 	}
 
 	/**
@@ -102,8 +103,20 @@ public class Image {
 		return width;
 	}
 
-	public void setWidth(int width) {
+	public Image setWidth(int width) {
 		this.width = width;
+		return this;
+	}
+
+	public Image setWidth(String width) {
+		if (width != null) {
+			try {
+				this.width = Integer.parseInt(width);
+			} catch (NumberFormatException e) {
+				
+			}
+		}
+		return this;
 	}
 
 	/**
@@ -120,8 +133,20 @@ public class Image {
 		return height;
 	}
 
-	public void setHeight(int height) {
+	public Image setHeight(int height) {
 		this.height = height;
+		return this;
+	}
+
+	public Image setHeight(String height) {
+		if (height != null) {
+			try {
+				this.height = Integer.parseInt(height);
+			} catch (NumberFormatException e) {
+				
+			}
+		}
+		return this;
 	}
 
 	/**
@@ -139,29 +164,32 @@ public class Image {
 		return description;
 	}
 
-	public void setDescription(String description) {
+	public Image setDescription(String description) {
 		this.description = description;
+		return this;
 	}
 
 	/**
 	 * <p>
-	 * The time offset in relation to the media object. Typically this is used
-	 * when creating multiple keyframes within a single video. The format for
-	 * this attribute should be in the DSM-CC's Normal Play Time (NTP) as used
-	 * in RTSP [RFC 2326 3.6 Normal Play Time]. It is an optional attribute.
+	 * The time offset, in milliseconds, in relation to the media object.
+	 * Typically this is used when creating multiple keyframes within a single
+	 * video. The format for this attribute should be in the DSM-CC's Normal
+	 * Play Time (NTP) as used in RTSP [RFC 2326 3.6 Normal Play Time]. It is an
+	 * optional attribute.
 	 * </p>
 	 * <p>
 	 * Optional for {@code thumbnail} elements in Media RSS specification.
 	 * </p>
 	 * 
-	 * @return {@code Duration} or {@code null}
+	 * @return {@code Long} or {@code null}
 	 */
-	public Duration getTime() {
+	public Long getTime() {
 		return time;
 	}
 
-	public void setTime(Duration time) {
+	public Image setTime(Long time) {
 		this.time = time;
+		return this;
 	}
 
 	@Override

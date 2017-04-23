@@ -5,6 +5,7 @@ public class Rating {
 	private String text;
 	private String scheme;
 	private String explicit;
+	private String adultContent;
 
 	/**
 	 * <p>
@@ -21,8 +22,9 @@ public class Rating {
 		return text;
 	}
 
-	public void setText(String text) {
+	public Rating setText(String text) {
 		this.text = text;
+		return this;
 	}
 
 	/**
@@ -41,8 +43,9 @@ public class Rating {
 		return scheme;
 	}
 
-	public void setScheme(String scheme) {
+	public Rating setScheme(String scheme) {
 		this.scheme = scheme;
+		return this;
 	}
 
 	/**
@@ -61,8 +64,25 @@ public class Rating {
 		return explicit;
 	}
 
-	public void setExplicit(String explicit) {
+	public Rating setExplicit(String explicit) {
 		this.explicit = explicit;
+		return this;
+	}
+
+	/**
+	 * <p>
+	 * Not in RSS specification. Part of Blogger RSS namespace.
+	 * </p>
+	 * 
+	 * @return {@link String} or {@code null}
+	 */
+	public String getAdultContent() {
+		return adultContent;
+	}
+
+	public Rating setAdultContent(String adultContent) {
+		this.adultContent = adultContent;
+		return this;
 	}
 
 	@Override

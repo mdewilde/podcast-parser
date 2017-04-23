@@ -19,9 +19,7 @@ import java.io.IOException;
 import java.security.SecureRandom;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
-import java.util.stream.Collectors;
 
 import javax.xml.parsers.ParserConfigurationException;
 
@@ -31,7 +29,9 @@ import org.slf4j.LoggerFactory;
 import org.xml.sax.SAXException;
 
 import be.ceau.podcastparser.PodcastParser;
-import be.ceau.podcastparser.models.EncounteredElement;
+import be.ceau.podcastparser.namespace.NamespaceFactory;
+import be.ceau.podcastparser.namespace.impl.AtomPublishing;
+import be.ceau.podcastparser.namespace.impl.AtomThreading;
 
 public class ParseTest {
 
@@ -49,39 +49,26 @@ public class ParseTest {
 	@Test
 	public void staxTest() throws IOException, SAXException, ParserConfigurationException {
 
-		PodcastParser parser = new PodcastParser();
-		
-		FILES_PROVIDER.stream()
-		//	.limit(50000)
+		NamespaceCountingCallbackHandler handler = new NamespaceCountingCallbackHandler();
+		PodcastParser parser = new PodcastParser(handler);
+
+		FILES_PROVIDER.parallelStream()
+			//.limit(50000)
 			.forEach(wrap -> {
-				// Bench c = new Bench();
-				//logger.info("{}{}{}", System.lineSeparator(), wrap.getXml(), System.lineSeparator());
 				try {
-					parser.parse(wrap.getXml())
-						// .ifPresent(feed -> logger.info("{}", feed))
-					
-						;
+					parser.parse(wrap.getXml());
 				} catch (Exception e) {
-					// logger.error("{} -> ", wrap.getDescription(), e);
+					// logger.error("{} -> {}", wrap.getDescription(), e.getMessage());
 				}
 				// c.stop().log(wrap.getDescription());
 			});
 
-		String report = PodcastParser.UNMAPPED.entrySet()
-				.stream()
-				.collect(Collectors.toMap(e -> e.getKey(), e -> e.getValue().sum()))
-				.entrySet()
-				.stream()
-				.sorted(Map.Entry.<EncounteredElement, Long>comparingByValue().reversed())
-				.map(e -> String.format("%10d", e.getValue()) + " \t--> " + e.getKey())
-				.collect(Collectors.joining(System.lineSeparator()));
+		
+		AtomThreading t = (AtomThreading) NamespaceFactory.getInstance("http://purl.org/syndication/thread/1.0");
+		logger.info("total -> {}", t.total);
 
-		logger.info("{} {}", System.lineSeparator(), report);
+		logger.info("{} {}", System.lineSeparator(), handler.toString());
 
-		logger.info("DATE STRINGS");
-		logger.info("{}", PodcastParser.DATE_STRINGS.stream().collect(Collectors.joining(System.lineSeparator())));
-		logger.info("DURATION STRINGS");
-		logger.info("{}", PodcastParser.DURATION_STRINGS.stream().collect(Collectors.joining(System.lineSeparator())));
 	}
 	
 	// @Test

@@ -27,13 +27,15 @@ public class Feed {
 	private String textInput;
 	private String skipHours;
 	private String skipDays;
-	private String explicit;
 	private String subtitle;
 	private final List<Person> authors = new ArrayList<>();
 	private Person owner;
 	private final List<Person> contributors = new ArrayList<>();
 	private final List<String> keywords = new ArrayList<>();
-
+	private UpdateInfo updateInfo;
+	private Rating rating;
+	private String location;
+	
 	/**
 	 * <p>
 	 * The {@code id} element conveys a permanent, universally unique identifier
@@ -336,26 +338,6 @@ public class Feed {
 
 	/**
 	 * <p>
-	 * This tag should be used to indicate whether or not your podcast contains
-	 * explicit material. The three values for this tag are "yes", "no", and
-	 * "clean".
-	 * </p>
-	 * <p>
-	 * Not in RSS specification. Listed in iTunes RSS spec.
-	 * </p>
-	 * 
-	 * @return {@link String} or {@code null}
-	 */
-	public String getExplicit() {
-		return explicit;
-	}
-
-	public void setExplicit(String explicit) {
-		this.explicit = explicit;
-	}
-
-	/**
-	 * <p>
 	 * Description of the feed.
 	 * </p>
 	 * 
@@ -434,6 +416,71 @@ public class Feed {
 	public void addKeyword(String keyword) {
 		keywords.add(keyword);
 	}
+	
+	/**
+	 * <p>
+	 * Update information for this feed.
+	 * </p>
+	 * 
+	 * @return a {@link UpdateInfo} instance, or {@code null}
+	 */
+	public UpdateInfo getUpdateInfo() {
+		return updateInfo;
+	}
+
+	public UpdateInfo computeUpdateInfoIfAbsent() {
+		if (updateInfo == null) {
+			updateInfo = new UpdateInfo();
+		}
+		return updateInfo;
+	}
+	
+	public void setUpdateInfo(UpdateInfo updateInfo) {
+		this.updateInfo = updateInfo;
+	}
+
+	/**
+	 * <p>
+	 * The rating for this item.
+	 * </p>
+	 * <p>
+	 * Combines optional elements from iTunes RSS and Media RSS spec.
+	 * </p>
+	 * 
+	 * @return {@link Rating} or {@code null}
+	 */
+	public Rating getRating() {
+		return rating;
+	}
+
+	public Rating computeRatingIfAbsent() {
+		if (rating == null) {
+			rating = new Rating();
+		}
+		return rating;
+	}
+	
+	public void setRating(Rating rating) {
+		this.rating = rating;
+	}
+
+	/**
+	 * <p>
+	 * The geographic location for this feed.
+	 * </p>
+	 * <p>
+	 * Specified in RawVoice namespace specification.
+	 * </p>
+	 * 
+	 * @return a {@link String} or {@code null}
+	 */
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
 
 	@Override
 	public String toString() {
@@ -479,8 +526,6 @@ public class Feed {
 			builder.append("skipHours=").append(skipHours).append(", \n\t\t");
 		if (skipDays != null)
 			builder.append("skipDays=").append(skipDays).append(", \n\t\t");
-		if (explicit != null)
-			builder.append("explicit=").append(explicit).append(", \n\t\t");
 		if (subtitle != null)
 			builder.append("subtitle=").append(subtitle).append(", \n\t\t");
 		if (authors != null)

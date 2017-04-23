@@ -4,6 +4,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 
+import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamReader;
 
 /**
@@ -32,6 +33,20 @@ public class Attributes {
 			}
 		}
 		return Optional.empty();
+	}
+
+	public static String toString(XMLStreamReader reader) {
+		if (reader.getEventType() == XMLStreamConstants.ATTRIBUTE || reader.getEventType() == XMLStreamConstants.START_ELEMENT) {
+			StringBuilder sb = new StringBuilder();
+			for (int i = 0; i < reader.getAttributeCount(); i++) {
+				if (sb.length() > 0) {
+					sb.append(", ");
+				}
+				sb.append(reader.getAttributeLocalName(i)).append("=").append(reader.getAttributeValue(i));
+			}
+			return sb.toString();
+		}
+		return "";
 	}
 
 }

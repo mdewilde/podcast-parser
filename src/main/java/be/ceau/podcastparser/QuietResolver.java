@@ -21,7 +21,6 @@ import be.ceau.podcastparser.util.UnmodifiableSet;
  * <li>avoid downloading DTD files from external sources
  * <li>early recognition of unsupported files (eg. HTML)
  * </ol>
- *
  */
 public class QuietResolver implements XMLResolver {
 
@@ -62,10 +61,10 @@ public class QuietResolver implements XMLResolver {
 	@Override
 	public InputStream resolveEntity(String publicId, String systemId, String baseURI, String namespace) throws XMLStreamException {
 		if (PUBLIC_IDS_HTML.contains(publicId) || SYSTEM_IDS_HTML.contains(systemId)) {
-			throw new XMLStreamException("the document appears to be HTML");
+	//		throw new XMLStreamException("the document appears to be HTML");
 		}
 
-		logger.info("resolveEntity{} \"{}\" {} \"{}\" {} ", System.lineSeparator(), publicId, System.lineSeparator(), systemId, System.lineSeparator());
+//		logger.info("resolveEntity{} \"{}\" {} \"{}\" {} ", System.lineSeparator(), publicId, System.lineSeparator(), systemId, System.lineSeparator());
 		
 		return QuietSteam.INSTANCE;
 	}
@@ -81,7 +80,7 @@ public class QuietResolver implements XMLResolver {
 		public int read() throws IOException {
 			return -1;
 		}
-		
+
 	}
 	
 }

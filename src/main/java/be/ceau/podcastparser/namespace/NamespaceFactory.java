@@ -21,19 +21,66 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
+import be.ceau.podcastparser.namespace.impl.ARD;
+import be.ceau.podcastparser.namespace.impl.Atom;
+import be.ceau.podcastparser.namespace.impl.AtomPublishing;
+import be.ceau.podcastparser.namespace.impl.AtomThreading;
+import be.ceau.podcastparser.namespace.impl.BBC;
+import be.ceau.podcastparser.namespace.impl.Blip;
+import be.ceau.podcastparser.namespace.impl.Blogger;
+import be.ceau.podcastparser.namespace.impl.Content;
+import be.ceau.podcastparser.namespace.impl.CreativeCommons;
+import be.ceau.podcastparser.namespace.impl.DublinCore;
+import be.ceau.podcastparser.namespace.impl.DublinCoreTerms;
+import be.ceau.podcastparser.namespace.impl.Feedburner;
+import be.ceau.podcastparser.namespace.impl.Geo;
+import be.ceau.podcastparser.namespace.impl.GeoRSS;
+import be.ceau.podcastparser.namespace.impl.GoogleData;
+import be.ceau.podcastparser.namespace.impl.GooglePlay;
+import be.ceau.podcastparser.namespace.impl.ITunes;
+import be.ceau.podcastparser.namespace.impl.Iono;
+import be.ceau.podcastparser.namespace.impl.ItunesU;
+import be.ceau.podcastparser.namespace.impl.Media;
+import be.ceau.podcastparser.namespace.impl.OpenSearch;
+import be.ceau.podcastparser.namespace.impl.PromoDeejay;
+import be.ceau.podcastparser.namespace.impl.RSS;
+import be.ceau.podcastparser.namespace.impl.RTE;
+import be.ceau.podcastparser.namespace.impl.RadioFrance;
+import be.ceau.podcastparser.namespace.impl.RawVoice;
+import be.ceau.podcastparser.namespace.impl.ResourceDescriptionFramework;
+import be.ceau.podcastparser.namespace.impl.SimpleChapters;
+import be.ceau.podcastparser.namespace.impl.Slash;
+import be.ceau.podcastparser.namespace.impl.Syndication;
+import be.ceau.podcastparser.namespace.impl.UserlandCreativeCommons;
+import be.ceau.podcastparser.namespace.impl.WellFormedWeb;
+import be.ceau.podcastparser.namespace.impl.Wordpress;
+import be.ceau.podcastparser.namespace.impl.YahooVideo;
+
 public class NamespaceFactory {
 
 	private static final Map<String, Namespace> NAMESPACES;
 	
 	private static void add(Map<String, Namespace> map, Namespace namespace) {
-		namespace.getNames()
+		{ // TODO tighten
+			Namespace previous = map.put(namespace.getName(), namespace);
+			if (previous != null) {
+				String message = new StringBuilder("names can be mapped to one namespace only but ")
+						.append(namespace.getName())
+						.append(" is associated with both ")
+						.append(namespace.getClass().getCanonicalName())
+						.append(" and with ")
+						.append(previous.getClass().getCanonicalName())
+						.toString();
+				throw new IllegalStateException(message);
+			}
+		}
+		namespace.getAlternativeNames()
 			.forEach(name -> {
 				Namespace previous = map.put(name, namespace);
 				if (previous != null) {
-					String message = new StringBuilder()
-							.append("names can be mapped to one namespace only - ")
+					String message = new StringBuilder("names can be mapped to one namespace only but ")
 							.append(name)
-							.append(" is associated with ")
+							.append(" is associated with both ")
 							.append(namespace.getClass().getCanonicalName())
 							.append(" and with ")
 							.append(previous.getClass().getCanonicalName())
@@ -48,9 +95,11 @@ public class NamespaceFactory {
 	static {
 		
 		Map<String, Namespace> map = new HashMap<>();
+		add(map, new ARD());
 		add(map, Atom.instance());
 		add(map, new AtomPublishing());
 		add(map, new AtomThreading());
+		add(map, new BBC());
 		add(map, new Blip());
 		add(map, new Blogger());
 		add(map, new Content());
@@ -66,7 +115,9 @@ public class NamespaceFactory {
 		add(map, new ITunes());
 		add(map, new ItunesU());
 		add(map, new Media());
+		add(map, new RadioFrance());
 		add(map, new OpenSearch());
+		add(map, new PromoDeejay());
 		add(map, new RawVoice());
 		add(map, new ResourceDescriptionFramework());
 		add(map, RSS.instance());
@@ -77,6 +128,7 @@ public class NamespaceFactory {
 		add(map, new UserlandCreativeCommons());
 		add(map, new WellFormedWeb());
 		add(map, new Wordpress());
+		add(map, new YahooVideo());
 		NAMESPACES = Collections.unmodifiableMap(map);
 	}
 	

@@ -5,14 +5,14 @@
 	<Appenders>
 
     	<Console name="console" target="SYSTEM_OUT">
-			<PatternLayout pattern=" %m%n" />
+			<PatternLayout pattern="%m%n" />
 		</Console>
 
 		<RollingRandomAccessFile
 				name="event"
 				fileName="${sys:user.home}/podcastparser.log"
 				filePattern="${sys:user.home}/podcastparser.log.%d{yyyy-MM-dd}">
-			<PatternLayout pattern="%d{ABSOLUTE} %t %c %m%n" />
+			<PatternLayout pattern="%m%n" />
 			<Policies>
 				<TimeBasedTriggeringPolicy/>
 			</Policies>
@@ -32,7 +32,7 @@
 
 	<Loggers>
 	
-		<AsyncLogger name="be.ceau.podcastparser" level="TRACE" includeLocation="false" additivity="false">
+		<AsyncLogger name="be.ceau" level="TRACE" includeLocation="false" additivity="false">
 			<AppenderRef ref="console" />
 			<AppenderRef ref="event" />
 		</AsyncLogger>

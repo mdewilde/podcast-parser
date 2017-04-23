@@ -15,12 +15,14 @@
 */
 package be.ceau.podcastparser.namespace;
 
+import java.util.Collections;
 import java.util.Set;
 
 import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
+import be.ceau.podcastparser.PodParseContext;
 import be.ceau.podcastparser.models.Feed;
 import be.ceau.podcastparser.models.Item;
 
@@ -40,25 +42,37 @@ public interface Namespace {
 	 * few namespaces are denoted by multiple names in real world podcast XML
 	 * files.
 	 * 
-	 * @return a {@link Set} of names by which this {@link Namespace} is
+	 * @return the canonical name for this {@link Namespace}, not {@code null}
 	 *         identified.
 	 */
-	public Set<String> getNames();
+	public String getName();
+
+	/**
+	 * A namespace has a single, specific, agreed upon name. However, quite a
+	 * few namespaces are denoted by multiple names in real world podcast XML
+	 * files.
+	 * 
+	 * @return a {@link Set} of names by which this {@link Namespace} is also
+	 *         identified, may be empty, never {@code null}
+	 */
+	public default Set<String> getAlternativeNames() {
+		return Collections.emptySet();
+	}
 
 	/**
 	 * Process any additional information from the {@link XMLStreamReader}, at
-	 * its current position, onto the given {@link Feed} according to the
-	 * namespace specification.
+	 * its current position, onto the given {@link Feed} in the
+	 * {@link PodParseContext} according to the namespace specification.
 	 *
-	 * @param feed
-	 *            {@link Feed} instance in the process of being built
+	 * @param ctx
+	 *            {@link PodParseContext} instance in the process of being built
 	 * @param reader
 	 *            {@link XMLStreamReader} instance, having just processed a
 	 *            {@link XMLStreamConstants#START_ELEMENT} event with this
 	 *            namespace.
 	 * @throws XMLStreamException
 	 */
-	public default void process(Feed feed, XMLStreamReader reader) throws XMLStreamException {
+	public default void process(PodParseContext ctx) throws XMLStreamException {
 		// default is to do nothing
 	}
 
@@ -67,6 +81,8 @@ public interface Namespace {
 	 * its current position, onto the given {@link Item} according to the
 	 * namespace specification.
 	 * 
+	 * @param ctx
+	 *            {@link PodParseContext} instance in the process of being built
 	 * @param item
 	 *            {@link Item} instance in the process of being built
 	 * @param reader
@@ -75,10 +91,16 @@ public interface Namespace {
 	 *            namespace.
 	 * @throws XMLStreamException
 	 */
-	public default void process(Item item, XMLStreamReader reader) throws XMLStreamException {
+	public default void process(PodParseContext ctx, Item item) throws XMLStreamException {
 		// default is to do nothing
 	}
 
+	/**
+	 * @param namespace
+	 *            a {@link Namespace} implementation, or {@code null}
+	 * @return true if the given {@link Namespace} is not {@code this}
+	 *         {@link Namespace}
+	 */
 	public default boolean mustDelegateTo(Namespace namespace) {
 		return namespace != null && !this.getClass().equals(namespace.getClass());
 	}
