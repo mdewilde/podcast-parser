@@ -50,10 +50,12 @@ public class ParseTest {
 	public void staxTest() throws IOException, SAXException, ParserConfigurationException {
 
 		NamespaceCountingCallbackHandler handler = new NamespaceCountingCallbackHandler();
-		PodcastParser parser = new PodcastParser(handler);
+		PodcastParser parser = new PodcastParser();
 
-		FILES_PROVIDER.parallelStream()
-			//.limit(50000)
+		FILES_PROVIDER
+			//.parallelStream()
+			.stream()
+			.limit(50000)
 			.forEach(wrap -> {
 				try {
 					parser.parse(wrap.getXml());
@@ -64,10 +66,7 @@ public class ParseTest {
 			});
 
 		
-		AtomThreading t = (AtomThreading) NamespaceFactory.getInstance("http://purl.org/syndication/thread/1.0");
-		logger.info("total -> {}", t.total);
-
-		logger.info("{} {}", System.lineSeparator(), handler.toString());
+	//	logger.info("{} {}", System.lineSeparator(), handler.toString());
 
 	}
 	

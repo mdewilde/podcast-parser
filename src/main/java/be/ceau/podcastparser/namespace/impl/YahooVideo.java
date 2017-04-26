@@ -1,5 +1,6 @@
 package be.ceau.podcastparser.namespace.impl;
 
+import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 
 import org.slf4j.LoggerFactory;
@@ -22,27 +23,54 @@ public class YahooVideo implements Namespace {
 	public void process(PodParseContext ctx, Item item) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
 		case "adData" : 
-			LoggerFactory.getLogger(Namespace.class).info("YahooVideo adData --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
-			break;
 		case "adInfo" : 
-			LoggerFactory.getLogger(Namespace.class).info("YahooVideo adInfo --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
-			break;
 		case "adTargeting" : 
-			LoggerFactory.getLogger(Namespace.class).info("YahooVideo adTargeting --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
-			break;
 		case "id" : 
-			LoggerFactory.getLogger(Namespace.class).info("YahooVideo id --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
-			break;
 		case "name" : 
-			LoggerFactory.getLogger(Namespace.class).info("YahooVideo name --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
-			break;
 		case "value" : 
-			LoggerFactory.getLogger(Namespace.class).info("YahooVideo value --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+		default : 
+			LoggerFactory.getLogger(Namespace.class).info("YahooVideo {} --> {} {}", ctx.getReader().getLocalName(), Attributes.toString(ctx.getReader()), ctx.getElementText());
 			break;
 		}
-		Namespace.super.process(ctx, item);
 	}
 
+	private void parseAdInfo(PodParseContext ctx) throws XMLStreamException {
+		while (ctx.getReader().hasNext()) {
+			switch (ctx.getReader().next()) {
+			case XMLStreamConstants.START_ELEMENT : 
+				switch (ctx.getReader().getLocalName()) {
+				case "adTargeting" : 
+					break;
+				case "adData" : 
+					break;
+				case "id" : 
+					break;
+				case "name" : 
+					break;
+				case "value" : 
+					break;
+				}
+			case XMLStreamConstants.END_ELEMENT : 
+				switch (ctx.getReader().getLocalName()) {
+				case "adInfo" : 
+					return;
+				}
+			}
+		}
+	}
+	
+	/*
+      <yv:adInfo>
+        <yv:adTargeting>
+          <yv:adData>
+            <yv:id>YahooPartnerVideoID</yv:id>
+            <yv:name>Blip post id</yv:name>
+            <yv:value>5713460</yv:value>
+          </yv:adData>
+        </yv:adTargeting>
+      </yv:adInfo>
+
+	 */
 }
 
 /*

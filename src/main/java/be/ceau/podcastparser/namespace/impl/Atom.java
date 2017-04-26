@@ -22,6 +22,7 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.LoggerFactory;
 
 import be.ceau.podcastparser.PodParseContext;
 import be.ceau.podcastparser.models.Category;
@@ -100,7 +101,7 @@ public class Atom implements RootNamespace, Namespace {
 				return;
 			}
 			// not root namespace and not other namespace we can handle
-			ctx.getNamespaceCallbackHandler().unknownNamespace(ctx.getReader(), "feed");
+			ctx.unknownNamespace("feed");
 			return;
 		}
 		
@@ -152,8 +153,10 @@ public class Atom implements RootNamespace, Namespace {
 		case "entry":
 			ctx.getFeed().addItem(parseEntry(ctx));
 			break;
+		default : 
+			Namespace.super.process(ctx);
+			break;
 		}
-		Namespace.super.process(ctx);
 	}
 
 	public Item parseEntry(PodParseContext ctx) throws XMLStreamException {
@@ -184,7 +187,7 @@ public class Atom implements RootNamespace, Namespace {
 				return;
 			}
 			// not root namespace and not other namespace we can handle
-			ctx.getNamespaceCallbackHandler().unknownNamespace(ctx.getReader(), "item");
+			ctx.unknownNamespace("item");
 			return;
 		}
 
@@ -228,6 +231,9 @@ public class Atom implements RootNamespace, Namespace {
 			break;
 		case "updated":
 			item.setUpdated(Dates.parse(ctx.getElementText()));
+			break;
+		default : 
+			Namespace.super.process(ctx, item);
 			break;
 		}
 	}

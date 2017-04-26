@@ -36,6 +36,9 @@ public class Blogger implements Namespace {
 		case "adultContent":
 			item.computeRatingIfAbsent().setAdultContent(ctx.getElementText());
 			break;
+		default : 
+			Namespace.super.process(ctx, item);
+			break;
 		}
 	}
 

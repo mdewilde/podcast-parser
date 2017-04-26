@@ -15,22 +15,20 @@
 */
 package be.ceau.podcastparser.namespace.impl;
 
-import java.util.Collections;
-import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
-
 import javax.xml.stream.XMLStreamException;
 
 import org.slf4j.LoggerFactory;
 
 import be.ceau.podcastparser.PodParseContext;
 import be.ceau.podcastparser.models.Item;
+import be.ceau.podcastparser.models.Link;
+import be.ceau.podcastparser.models.OtherValueKey;
 import be.ceau.podcastparser.namespace.Namespace;
 import be.ceau.podcastparser.util.Attributes;
 
 /**
- * an extension for expressing threaded
-   discussions within the Atom Syndication Format [RFC4287].
+ * An extension for expressing threaded discussions within the Atom Syndication
+ * Format [RFC4287].
  * 
  * @see http://www.ietf.org/rfc/rfc4685.txt
  */
@@ -43,18 +41,26 @@ public class AtomThreading implements Namespace {
 		return NAME;
 	}
 
-	public final Set<String> total = Collections.newSetFromMap(new ConcurrentHashMap<>());
-
 	@Override
 	public void process(PodParseContext ctx, Item item) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
 		case "total":
-			total.add(ctx.getElementText());
+			// The "total" element is used to indicate the total number of
+			// unique responses to an entry known to the publisher
+			ctx.getFeed().addOtherValue(OtherValueKey.ATOM_THREADING_TOTAL, ctx.getElementText());
 			break;
 		case "in-reply-to":
-			LoggerFactory.getLogger(Namespace.class).info("AtomThreading in-reply-to --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			// The "in-reply-to" element is used to indicate that an entry is a
+			// response to another resource. The element MUST contain a "ref"
+			// attribute identifying the resource that is being responded to.
+			Link link = new Link();
+			link.setHref(ctx.getAttribute("href"));
+			link.setType(ctx.getAttribute("type"));
+			link.setRel("in-reply-to");
+			link.setTitle(ctx.getAttribute("ref"));
+			item.addLink(link);
 			break;
-		default:
+		default : 
 			Namespace.super.process(ctx, item);
 			break;
 		}

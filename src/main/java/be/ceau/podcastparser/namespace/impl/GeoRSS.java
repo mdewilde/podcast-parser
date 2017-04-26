@@ -15,14 +15,18 @@
 */
 package be.ceau.podcastparser.namespace.impl;
 
+import java.math.BigDecimal;
+
 import javax.xml.stream.XMLStreamException;
 
 import org.slf4j.LoggerFactory;
 
 import be.ceau.podcastparser.PodParseContext;
 import be.ceau.podcastparser.models.Item;
+import be.ceau.podcastparser.models.OtherValueKey;
 import be.ceau.podcastparser.namespace.Namespace;
 import be.ceau.podcastparser.util.Attributes;
+import be.ceau.podcastparser.util.Strings;
 
 /**
  * <h1>GeoRSS : Geographically Encoded Objects for RSS feeds</h1>
@@ -66,16 +70,35 @@ public class GeoRSS implements Namespace {
 	public void process(PodParseContext ctx, Item item) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
 		case "point":
-			LoggerFactory.getLogger(Namespace.class).info("GeoRSS point --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			// A point contains a single latitude-longitude pair, separated by
+			// whitespace.
+			String point = ctx.getElementText();
+			if (Strings.isNotBlank(point)) {
+				String[] split = point.trim().split("\\s+");
+				if (split.length == 2) {
+					item.computeGeoPointIfAbsent().setLatitude(new BigDecimal(split[0].trim()));
+					item.computeGeoPointIfAbsent().setLongitude(new BigDecimal(split[1].trim()));
+				}
+			}
 			break;
 		case "featurename":
-			LoggerFactory.getLogger(Namespace.class).info("GeoRSS featurename --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			item.addOtherValue(OtherValueKey.GEO_RSS_FEATURE_NAME, ctx.getElementText());
 			break;
 		case "box":
-			LoggerFactory.getLogger(Namespace.class).info("GeoRSS box --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			// A bounding box is a rectangular region, often used to define the
+			// extents of a map or a rough area of interest. A box contains two
+			// space separate latitude-longitude pairs, with each pair separated
+			// by whitespace. The first pair is the lower corner, the second is
+			// the upper corner.
+			LoggerFactory.getLogger(Namespace.class).info("GeoRSS box --> {} {}", Attributes.toString(ctx.getReader()),
+					ctx.getElementText());
 			break;
 		case "where":
-			LoggerFactory.getLogger(Namespace.class).info("GeoRSS where --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			LoggerFactory.getLogger(Namespace.class).info("GeoRSS where --> {} {}",
+					Attributes.toString(ctx.getReader()), ctx.getElementText());
+			break;
+		default : 
+			Namespace.super.process(ctx, item);
 			break;
 		}
 	}
@@ -83,13 +106,12 @@ public class GeoRSS implements Namespace {
 }
 
 /*
-
-	corpus stats
-	
-     25956 	--> http://www.georss.org/georss level=item localName=point attributes=[]]
-      6026 	--> http://www.georss.org/georss level=item localName=featurename attributes=[]]
-      6021 	--> http://www.georss.org/georss level=item localName=box attributes=[]]
-         2 	--> http://www.georss.org/georss level=item localName=where attributes=[]]
-
-*/
-
+ * 
+ * corpus stats
+ * 
+ * 25956 --> http://www.georss.org/georss level=item localName=point attributes=[]] 
+ *  6026 --> http://www.georss.org/georss level=item localName=featurename attributes=[]] 
+ *  6021 --> http://www.georss.org/georss level=item localName=box attributes=[]]
+ *     2 --> http://www.georss.org/georss level=item localName=where attributes=[]]
+ * 
+ */

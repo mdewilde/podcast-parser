@@ -3,7 +3,11 @@ package be.ceau.podcastparser.models;
 import java.time.Duration;
 import java.time.temporal.Temporal;
 import java.util.ArrayList;
+import java.util.EnumMap;
 import java.util.List;
+import java.util.Map;
+
+import be.ceau.podcastparser.util.Strings;
 
 public class Feed {
 
@@ -35,6 +39,8 @@ public class Feed {
 	private UpdateInfo updateInfo;
 	private Rating rating;
 	private String location;
+	private final Map<OtherValueKey, String> values = new EnumMap<>(OtherValueKey.class);
+	private GeoPoint geoPoint;
 	
 	/**
 	 * <p>
@@ -480,6 +486,50 @@ public class Feed {
 
 	public void setLocation(String location) {
 		this.location = location;
+	}
+
+	/**
+	 * <p>
+	 * A {@link Map} containing any value present in the podcast XML that is not
+	 * mapped to any of the other values present here.
+	 * </p>
+	 * <p>
+	 * See {@link OtherValueKey} for a full listing of possible values in this map.
+	 * </p>
+	 * 
+	 * @return a {@link Map}, not {@code null}
+	 */
+	public Map<OtherValueKey, String> getOtherValues() {
+		return values;
+	}
+
+	public void addOtherValue(OtherValueKey key, String value) {
+		// we only add if not blank
+		if (Strings.isNotBlank(value)) {
+			values.put(key, value.trim());
+		}
+	}
+
+	/**
+	 * <p>
+	 * {@link GeoPoint} for this {@link Item}
+	 * </p>
+	 * 
+	 * @return a {@link GeoPoint} or {@code null}
+	 */
+	public GeoPoint getGeoPoint() {
+		return geoPoint;
+	}
+
+	public GeoPoint computeGeoPointIfAbsent() {
+		if (geoPoint == null) {
+			geoPoint = new GeoPoint();
+		}
+		return geoPoint;
+	}
+
+	public void setGeoPoint(GeoPoint geoPoint) {
+		this.geoPoint = geoPoint;
 	}
 
 	@Override

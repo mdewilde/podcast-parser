@@ -15,14 +15,14 @@
 */
 package be.ceau.podcastparser.namespace.impl;
 
-import javax.xml.stream.XMLStreamException;
+import java.math.BigDecimal;
 
-import org.slf4j.LoggerFactory;
+import javax.xml.stream.XMLStreamException;
 
 import be.ceau.podcastparser.PodParseContext;
 import be.ceau.podcastparser.models.Item;
 import be.ceau.podcastparser.namespace.Namespace;
-import be.ceau.podcastparser.util.Attributes;
+import be.ceau.podcastparser.util.Strings;
 
 /**
  * <h1>WGS84 Geo Positioning: an RDF vocabulary</h1>
@@ -44,10 +44,19 @@ public class Geo implements Namespace {
 	public void process(PodParseContext ctx) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
 		case "long":
-			LoggerFactory.getLogger(Namespace.class).info("Geo long --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			String longitude = ctx.getElementText();
+			if (Strings.isNotBlank(longitude)) {
+				ctx.getFeed().computeGeoPointIfAbsent().setLongitude(new BigDecimal(longitude.trim()));
+			}
 			break;
 		case "lat":
-			LoggerFactory.getLogger(Namespace.class).info("Geo lat --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			String latitude = ctx.getElementText();
+			if (Strings.isNotBlank(latitude)) {
+				ctx.getFeed().computeGeoPointIfAbsent().setLatitude(new BigDecimal(latitude.trim()));
+			}
+			break;
+		default : 
+			Namespace.super.process(ctx);
 			break;
 		}
 	}
@@ -56,13 +65,20 @@ public class Geo implements Namespace {
 	public void process(PodParseContext ctx, Item item) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
 		case "long":
-			LoggerFactory.getLogger(Namespace.class).info("Geo long --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			String longitude = ctx.getElementText();
+			if (Strings.isNotBlank(longitude)) {
+				item.computeGeoPointIfAbsent().setLongitude(new BigDecimal(longitude.trim()));
+			}
 			break;
 		case "lat":
-			LoggerFactory.getLogger(Namespace.class).info("Geo lat --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			String latitude = ctx.getElementText();
+			if (Strings.isNotBlank(latitude)) {
+				item.computeGeoPointIfAbsent().setLatitude(new BigDecimal(latitude.trim()));
+			}
 			break;
 		case "Point":
-			LoggerFactory.getLogger(Namespace.class).info("Geo Point --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+		default : 
+			Namespace.super.process(ctx, item);
 			break;
 		}
 	}

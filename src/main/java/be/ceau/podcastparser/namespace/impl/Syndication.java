@@ -25,6 +25,7 @@ import org.slf4j.LoggerFactory;
 
 import be.ceau.podcastparser.PodParseContext;
 import be.ceau.podcastparser.namespace.Namespace;
+import be.ceau.podcastparser.util.Attributes;
 import be.ceau.podcastparser.util.Dates;
 import be.ceau.podcastparser.util.UnmodifiableSet;
 
@@ -97,6 +98,9 @@ public class Syndication implements Namespace {
 			// base date to calculate the publishing schedule
 			Temporal temporal = Dates.parse(ctx.getElementText());
 			ctx.getFeed().computeUpdateInfoIfAbsent().setBase(temporal);
+			break;
+		default : 
+			Namespace.super.process(ctx);
 			break;
 		}
 	}

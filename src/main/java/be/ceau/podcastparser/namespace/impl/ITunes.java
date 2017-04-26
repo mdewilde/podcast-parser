@@ -117,6 +117,9 @@ public class ITunes implements Namespace {
 		case "image":
 			ctx.getFeed().addImage(parseImage(ctx));
 			return;
+		default : 
+			Namespace.super.process(ctx);
+			break;
 		}
 
 	}
@@ -169,6 +172,9 @@ public class ITunes implements Namespace {
 		case "image":
 			item.addImage(parseImage(ctx));
 			return;
+		default : 
+			Namespace.super.process(ctx, item);
+			break;
 		}
 
 	}

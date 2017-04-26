@@ -81,8 +81,10 @@ public class GooglePlay implements Namespace {
 			// help center article:
 			// https://support.google.com/googleplay/podcasts/answer/6260341#spt
 			break;
+		default : 
+			Namespace.super.process(ctx);
+			break;
 		}
-		Namespace.super.process(ctx);
 	}
 
 	@Override
@@ -108,8 +110,10 @@ public class GooglePlay implements Namespace {
 			// 'yes' in the <item> tag, that episode will not appear in Google
 			// Play Music. If it's not set, it will be treated as 'no'.
 			break;
+		default : 
+			Namespace.super.process(ctx, item);
+			break;
 		}
-		Namespace.super.process(ctx, item);
 	}
 
 }

@@ -93,6 +93,9 @@ public class RawVoice implements Namespace {
 				ctx.getFeed().addLink(link);
 			}
 			break;
+		default : 
+			Namespace.super.process(ctx);
+			break;
 		}
 	}
 
@@ -253,6 +256,9 @@ public class RawVoice implements Namespace {
 			String text = ctx.getElementText();
 			LoggerFactory.getLogger(Namespace.class).info("RawVoice metamark --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
 
+			break;
+		default : 
+			Namespace.super.process(ctx, item);
 			break;
 		}
 	}

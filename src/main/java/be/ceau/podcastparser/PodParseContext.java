@@ -46,6 +46,10 @@ public class PodParseContext {
 		namespaceCallbackHandler.beforeProcess(rootNamespace, item, reader);
 	}
 
+	public void unknownNamespace(String level) {
+		namespaceCallbackHandler.unknownNamespace(reader, level);
+	}
+
 	public String getElementText() throws XMLStreamException {
 		return reader.getElementText();
 	}

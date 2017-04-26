@@ -43,7 +43,8 @@ public class GoogleData implements Namespace {
 	public void process(PodParseContext ctx, Item item) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
 		case "extendedProperty":
-			LoggerFactory.getLogger(Namespace.class).info("GoogleData extendedProperty --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+		default : 
+			Namespace.super.process(ctx, item);
 			break;
 		}
 	}

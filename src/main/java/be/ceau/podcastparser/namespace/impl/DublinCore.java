@@ -19,14 +19,11 @@ import java.util.Set;
 
 import javax.xml.stream.XMLStreamException;
 
-import org.slf4j.LoggerFactory;
-
 import be.ceau.podcastparser.PodParseContext;
 import be.ceau.podcastparser.models.Category;
 import be.ceau.podcastparser.models.Item;
 import be.ceau.podcastparser.models.Person;
 import be.ceau.podcastparser.namespace.Namespace;
-import be.ceau.podcastparser.util.Attributes;
 import be.ceau.podcastparser.util.Dates;
 import be.ceau.podcastparser.util.UnmodifiableSet;
 
@@ -91,13 +88,10 @@ public class DublinCore implements Namespace {
 			ctx.getFeed().setPubDate(Dates.parse(ctx.getElementText()));
 			break;
 		case "publisher":
-			LoggerFactory.getLogger(Namespace.class).info("DublinCore publisher --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
-			break;
 		case "rights":
-			LoggerFactory.getLogger(Namespace.class).info("DublinCore rights --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
-			break;
 		case "subject":
-			LoggerFactory.getLogger(Namespace.class).info("DublinCore subject --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+		default : 
+			Namespace.super.process(ctx);
 			break;
 		}
 	}
@@ -114,9 +108,6 @@ public class DublinCore implements Namespace {
 		case "date":
 			item.setPubDate(Dates.parse(ctx.getElementText()));
 			break;
-		case "format":
-			LoggerFactory.getLogger(Namespace.class).info("DublinCore format --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
-			break;
 		case "language":
 			item.setLanguage(ctx.getElementText());
 			break;
@@ -130,6 +121,10 @@ public class DublinCore implements Namespace {
 			Category category = new Category();
 			category.setName(ctx.getElementText());
 			item.addCategory(category);
+			break;
+		case "format":
+		default : 
+			Namespace.super.process(ctx, item);
 			break;
 		}
 	}

@@ -23,6 +23,7 @@ import org.slf4j.LoggerFactory;
 import be.ceau.podcastparser.PodParseContext;
 import be.ceau.podcastparser.models.Item;
 import be.ceau.podcastparser.namespace.Namespace;
+import be.ceau.podcastparser.util.Attributes;
 
 /**
  * Slash is the source code and database that was originally used to create
@@ -59,12 +60,12 @@ public class Slash implements Namespace {
 			break;
 		case "section":
 			// part of spec but not encountered in corpus
-			break;
 		case "department":
 			// part of spec but not encountered in corpus
-			break;
 		case "hit_parade":
 			// part of spec but not encountered in corpus
+		default : 
+			Namespace.super.process(ctx, item);
 			break;
 		}
 	}

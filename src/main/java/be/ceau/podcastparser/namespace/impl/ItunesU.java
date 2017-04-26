@@ -17,13 +17,10 @@ package be.ceau.podcastparser.namespace.impl;
 
 import javax.xml.stream.XMLStreamException;
 
-import org.slf4j.LoggerFactory;
-
 import be.ceau.podcastparser.PodParseContext;
-import be.ceau.podcastparser.models.Category;
 import be.ceau.podcastparser.models.Item;
+import be.ceau.podcastparser.models.OtherValueKey;
 import be.ceau.podcastparser.namespace.Namespace;
-import be.ceau.podcastparser.util.Attributes;
 
 public class ItunesU implements Namespace {
 
@@ -38,8 +35,10 @@ public class ItunesU implements Namespace {
 	public void process(PodParseContext ctx, Item item) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
 		case "category" :
-			Category category = new Category();
-			LoggerFactory.getLogger(Namespace.class).info("ItunesU category --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			item.addOtherValue(OtherValueKey.ITUNES_UNIVERSITY_CATEGORY, ctx.getAttribute("code"));
+			break;
+		default : 
+			Namespace.super.process(ctx, item);
 			break;
 		}
 	}

@@ -74,6 +74,8 @@ public class SimpleChapters implements Namespace {
 			break;
 		case "chapters":
 			// no special handling -> chapters is represented by a List
+		default : 
+			Namespace.super.process(ctx, item);
 			break;
 		}
 	}

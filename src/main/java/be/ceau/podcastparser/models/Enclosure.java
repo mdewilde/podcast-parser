@@ -1,11 +1,14 @@
 package be.ceau.podcastparser.models;
 
+import be.ceau.podcastparser.util.Strings;
+
 public class Enclosure {
 
 	private String url;
 	private long length;
 	private String type;
-
+	private String description;
+	
 	/**
 	 * <p>
 	 * Url says where the enclosure is located.
@@ -42,6 +45,14 @@ public class Enclosure {
 		this.length = length;
 	}
 
+	public void setLength(String length) {
+		if (Strings.isNotBlank(length)) {
+			try {
+				this.length = Long.parseLong(length.trim());
+			} catch (NumberFormatException e) {	}
+		}
+	}
+
 	/**
 	 * <p>
 	 * The standard MIME type of the enclosure..
@@ -58,6 +69,24 @@ public class Enclosure {
 
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	/**
+	 * <p>
+	 * A short descriptor, used primarily for alternative enclosures.
+	 * </p>
+	 * <p>
+	 * Not part of the RSS specification.
+	 * </p>
+	 * 
+	 * @return {@link String} or {@code null}
+	 */
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	@Override

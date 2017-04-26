@@ -22,9 +22,12 @@ import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
+import org.slf4j.LoggerFactory;
+
 import be.ceau.podcastparser.PodParseContext;
 import be.ceau.podcastparser.models.Feed;
 import be.ceau.podcastparser.models.Item;
+import be.ceau.podcastparser.util.Attributes;
 
 /**
  * <p>
@@ -74,6 +77,7 @@ public interface Namespace {
 	 */
 	public default void process(PodParseContext ctx) throws XMLStreamException {
 		// default is to do nothing
+		LoggerFactory.getLogger(Namespace.class).info("{} {} --> {} {}", ctx.getReader().getNamespaceURI(), ctx.getReader().getLocalName(), Attributes.toString(ctx.getReader()), ctx.getElementText());
 	}
 
 	/**
@@ -93,6 +97,7 @@ public interface Namespace {
 	 */
 	public default void process(PodParseContext ctx, Item item) throws XMLStreamException {
 		// default is to do nothing
+		LoggerFactory.getLogger(Namespace.class).info("{} {} --> {} {}", ctx.getReader().getNamespaceURI(), ctx.getReader().getLocalName(), Attributes.toString(ctx.getReader()), ctx.getElementText());
 	}
 
 	/**

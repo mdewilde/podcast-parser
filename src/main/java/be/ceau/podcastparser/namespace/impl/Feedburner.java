@@ -127,6 +127,9 @@ public class Feedburner implements Namespace {
 				ctx.getFeed().addLink(link);
 			});
 			break;
+		default : 
+			Namespace.super.process(ctx);
+			break;
 		}
 	}
 
@@ -168,6 +171,9 @@ public class Feedburner implements Namespace {
 			item.addLink(link);
 			break;
 		}
+		default : 
+			Namespace.super.process(ctx, item);
+			break;
 		}
 	}
 

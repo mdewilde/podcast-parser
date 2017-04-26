@@ -576,6 +576,9 @@ public class Media implements Namespace {
 			 */
 			LoggerFactory.getLogger(Namespace.class).info("Media scenes --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
 			return;
+		default : 
+			Namespace.super.process(ctx, item);
+			break;
 		}
 	}
 

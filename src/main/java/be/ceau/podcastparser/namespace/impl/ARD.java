@@ -2,12 +2,9 @@ package be.ceau.podcastparser.namespace.impl;
 
 import javax.xml.stream.XMLStreamException;
 
-import org.slf4j.LoggerFactory;
-
 import be.ceau.podcastparser.PodParseContext;
 import be.ceau.podcastparser.models.Item;
 import be.ceau.podcastparser.namespace.Namespace;
-import be.ceau.podcastparser.util.Attributes;
 
 public class ARD implements Namespace {
 
@@ -22,7 +19,7 @@ public class ARD implements Namespace {
 	public void process(PodParseContext ctx) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
 		default:
-			LoggerFactory.getLogger(Namespace.class).info("ARD {} --> {} {}", ctx.getReader().getLocalName(), Attributes.toString(ctx.getReader()), ctx.getElementText());
+			Namespace.super.process(ctx);
 		}
 	}
 
@@ -30,7 +27,7 @@ public class ARD implements Namespace {
 	public void process(PodParseContext ctx, Item item) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
 		default:
-			LoggerFactory.getLogger(Namespace.class).info("ARD {} --> {} {}", ctx.getReader().getLocalName(), Attributes.toString(ctx.getReader()), ctx.getElementText());
+			Namespace.super.process(ctx, item);
 		}
 	}
 

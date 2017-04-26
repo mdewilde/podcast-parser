@@ -17,9 +17,12 @@ package be.ceau.podcastparser.namespace.impl;
 
 import javax.xml.stream.XMLStreamException;
 
+import org.slf4j.LoggerFactory;
+
 import be.ceau.podcastparser.PodParseContext;
 import be.ceau.podcastparser.models.Item;
 import be.ceau.podcastparser.namespace.Namespace;
+import be.ceau.podcastparser.util.Attributes;
 import be.ceau.podcastparser.util.Dates;
 
 /**
@@ -39,25 +42,25 @@ public class DublinCoreTerms implements Namespace {
 	@Override
 	public void process(PodParseContext ctx, Item item) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
-		case "modified": {
+		case "modified": 
 			// Date on which the resource was changed.
 			item.setUpdated(Dates.parse(ctx.getElementText()));
 			break;
-		}
-		case "created": {
+		case "created": 
 			// Date of creation of the resource.
 			item.setPubDate(Dates.parse(ctx.getElementText()));
 			break;
-		}
-		case "valid": {
+		case "valid": 
 			// Date (often a range) of validity of a resource.
 			item.setValidity(Dates.parse(ctx.getElementText()));
 			break;
-		}
-		case "subject": {
+		case "subject": 
 			// The topic of the resource.
 			item.setSubject(ctx.getElementText());
-		}
+			break;
+		default : 
+			Namespace.super.process(ctx, item);
+			break;
 		}
 	}
 

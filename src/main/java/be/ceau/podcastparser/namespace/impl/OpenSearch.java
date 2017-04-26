@@ -19,11 +19,8 @@ import java.util.Set;
 
 import javax.xml.stream.XMLStreamException;
 
-import org.slf4j.LoggerFactory;
-
 import be.ceau.podcastparser.PodParseContext;
 import be.ceau.podcastparser.namespace.Namespace;
-import be.ceau.podcastparser.util.Attributes;
 import be.ceau.podcastparser.util.UnmodifiableSet;
 
 /**
@@ -56,15 +53,12 @@ public class OpenSearch implements Namespace {
 		switch (ctx.getReader().getLocalName()) {
 		case "totalResults":
 			// The number of search results available for the current search.
-			LoggerFactory.getLogger(Namespace.class).info("OpenSearch totalResults --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
-			break;
 		case "startIndex":
 			// The index of the first search result in the current set of search results.
-			LoggerFactory.getLogger(Namespace.class).info("OpenSearch startIndex --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
-			break;
 		case "itemsPerPage":
 			// The number of search results returned per page.
-			LoggerFactory.getLogger(Namespace.class).info("OpenSearch itemsPerPage --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+		default : 
+			Namespace.super.process(ctx);
 			break;
 		}
 	}

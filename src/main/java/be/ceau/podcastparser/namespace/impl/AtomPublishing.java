@@ -56,9 +56,8 @@ public class AtomPublishing implements Namespace {
 			item.setPubDate(Dates.parse(ctx.getElementText()));
 			break;
 		case "control":
-			LoggerFactory.getLogger(Namespace.class).info("AtomPublishing control --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
-			break;
-		default:
+			// single instance in corpus has no text or attributes
+		default : 
 			Namespace.super.process(ctx, item);
 			break;
 		}

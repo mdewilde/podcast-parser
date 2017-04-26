@@ -100,7 +100,7 @@ public class RSS implements RootNamespace, Namespace {
 				return;
 			}
 			// not root namespace and not other namespace we can handle
-			ctx.getNamespaceCallbackHandler().unknownNamespace(ctx.getReader(), "feed");
+			ctx.unknownNamespace("feed");
 			return;
 		}
 
@@ -167,8 +167,10 @@ public class RSS implements RootNamespace, Namespace {
 		case "skipDays":
 			ctx.getFeed().setSkipDays(ctx.getElementText());
 			break;
+		default : 
+			Namespace.super.process(ctx);
+			break;
 		}
-		Namespace.super.process(ctx);
 	}
 
 	private Item parseItem(PodParseContext ctx) throws XMLStreamException {
@@ -199,7 +201,7 @@ public class RSS implements RootNamespace, Namespace {
 				return;
 			}
 			// not root namespace and not other namespace we can handle
-			ctx.getNamespaceCallbackHandler().unknownNamespace(ctx.getReader(), "item");
+			ctx.unknownNamespace("item");
 			return;
 		}
 
@@ -240,8 +242,10 @@ public class RSS implements RootNamespace, Namespace {
 		case "source":
 			item.setSource(ctx.getElementText());
 			break;
+		default : 
+			Namespace.super.process(ctx, item);
+			break;
 		}
-		Namespace.super.process(ctx, item);
 	}
 
 	/**

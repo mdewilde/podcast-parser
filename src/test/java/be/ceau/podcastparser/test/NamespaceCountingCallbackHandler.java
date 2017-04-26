@@ -22,12 +22,12 @@ public class NamespaceCountingCallbackHandler implements NamespaceCallbackHandle
 
 	@Override
 	public void beforeProcess(String rootNamespace, Feed feed, XMLStreamReader reader) {
-	//	counts.computeIfAbsent(new EncounteredElement(rootNamespace, reader, "feed"), x -> new LongAdder()).increment();
+		counts.computeIfAbsent(new EncounteredElement(rootNamespace, reader, "feed"), x -> new LongAdder()).increment();
 	}
 
 	@Override
 	public void beforeProcess(String rootNamespace, Item item, XMLStreamReader reader) {
-	//	counts.computeIfAbsent(new EncounteredElement(rootNamespace, reader, "item"), x -> new LongAdder()).increment();
+		counts.computeIfAbsent(new EncounteredElement(rootNamespace, reader, "item"), x -> new LongAdder()).increment();
 	}
 
 	@Override

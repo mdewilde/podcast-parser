@@ -42,7 +42,8 @@ public class RTE implements Namespace {
 	public void process(PodParseContext ctx) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
 		case "id":
-			LoggerFactory.getLogger(Namespace.class).info("RTE id --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+		default : 
+			Namespace.super.process(ctx);
 			break;
 		}
 	}
@@ -51,7 +52,8 @@ public class RTE implements Namespace {
 	public void process(PodParseContext ctx, Item item) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
 		case "id":
-			LoggerFactory.getLogger(Namespace.class).info("RTE id --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+		default : 
+			Namespace.super.process(ctx, item);
 			break;
 		}
 	}

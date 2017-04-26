@@ -15,14 +15,24 @@
 */
 package be.ceau.podcastparser.namespace.impl;
 
+import java.time.temporal.Temporal;
+
+import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.LoggerFactory;
 
 import be.ceau.podcastparser.PodParseContext;
+import be.ceau.podcastparser.models.Category;
+import be.ceau.podcastparser.models.Image;
 import be.ceau.podcastparser.models.Item;
+import be.ceau.podcastparser.models.Link;
+import be.ceau.podcastparser.models.OtherValueKey;
 import be.ceau.podcastparser.namespace.Namespace;
 import be.ceau.podcastparser.util.Attributes;
+import be.ceau.podcastparser.util.Dates;
+import be.ceau.podcastparser.util.Strings;
 
 /**
  * 
@@ -40,101 +50,151 @@ public class Blip implements Namespace {
 	public void process(PodParseContext ctx, Item item) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
 		case "adChannel":
-			LoggerFactory.getLogger(Namespace.class).info("Blip adChannel --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+		case "channel_list":
+		case "channel_name":
+			// these contain category-type information
+			String name = ctx.getElementText();
+			if (StringUtils.isNotBlank(name)) {
+				Category category = new Category();
+				category.setName(ctx.getElementText());
+				item.addCategory(category);
+				// TODO add differently?
+			}
 			break;
 		case "adminRating":
-			LoggerFactory.getLogger(Namespace.class).info("Blip adminRating --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			item.addOtherValue(OtherValueKey.BLIP_ADMIN_RATING, ctx.getElementText());
 			break;
 		case "categories":
-			LoggerFactory.getLogger(Namespace.class).info("Blip categories --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
-			break;
-		case "category":
-			LoggerFactory.getLogger(Namespace.class).info("Blip category --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
-			break;
-		case "channel_list":
-			LoggerFactory.getLogger(Namespace.class).info("Blip channel_list --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
-			break;
-		case "channel_name":
-			LoggerFactory.getLogger(Namespace.class).info("Blip channel_name --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			parseCategories(ctx, item);
 			break;
 		case "core":
-			LoggerFactory.getLogger(Namespace.class).info("Blip core --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			item.addOtherValue(OtherValueKey.BLIP_CORE, ctx.getElementText());
 			break;
 		case "core_value":
-			LoggerFactory.getLogger(Namespace.class).info("Blip core_value --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			item.addOtherValue(OtherValueKey.BLIP_CORE_VALUE, ctx.getElementText());
 			break;
 		case "datestamp":
-			LoggerFactory.getLogger(Namespace.class).info("Blip datestamp --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			Temporal datestamp = Dates.parse(ctx.getElementText());
+			if (datestamp != null) {
+				// TODO -> might be overwriting a different date
+				item.setPubDate(datestamp);
+			}
 			break;
 		case "embedLookup":
-			LoggerFactory.getLogger(Namespace.class).info("Blip embedLookup --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			item.addOtherValue(OtherValueKey.BLIP_EMBED_LOOKUP, ctx.getElementText());
 			break;
-		case "embedUrl":
-			LoggerFactory.getLogger(Namespace.class).info("Blip embedUrl --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+		case "embedUrl": {
+			String type = ctx.getAttribute("type");
+			String href = ctx.getElementText();
+			if (Strings.isNotBlank(href)) {
+				Link link = new Link();
+				link.setHref(href.trim());
+				link.setType(type);
+				link.setTitle("Blip.tv embedUrl");
+				item.addLink(link);
+			}
 			break;
+		}
 		case "item_id":
-			LoggerFactory.getLogger(Namespace.class).info("Blip item_id --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			item.addOtherValue(OtherValueKey.BLIP_ITEM_ID, ctx.getElementText());
 			break;
 		case "item_type":
-			LoggerFactory.getLogger(Namespace.class).info("Blip item_type --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			item.addOtherValue(OtherValueKey.BLIP_ITEM_TYPE, ctx.getElementText());
 			break;
 		case "language":
-			LoggerFactory.getLogger(Namespace.class).info("Blip language --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			item.addOtherValue(OtherValueKey.BLIP_LANGUAGE, ctx.getElementText());
 			break;
 		case "license":
-			LoggerFactory.getLogger(Namespace.class).info("Blip license --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			item.addOtherValue(OtherValueKey.BLIP_LICENSE, ctx.getElementText());
 			break;
-		case "picture":
-			LoggerFactory.getLogger(Namespace.class).info("Blip picture --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+		case "picture": {
+			String href = ctx.getElementText();
+			if (Strings.isNotBlank(href)) {
+				Image image = new Image();
+				image.setUrl(href);
+				image.setTitle("Blip.tv picture");
+			}
 			break;
+		}
 		case "poster_image":
-			LoggerFactory.getLogger(Namespace.class).info("Blip poster_image --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			item.addOtherValue(OtherValueKey.BLIP_POSTER_IMAGE, ctx.getElementText());
 			break;
 		case "posts_id":
-			LoggerFactory.getLogger(Namespace.class).info("Blip posts_id --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			item.addOtherValue(OtherValueKey.BLIP_POSTS_ID, ctx.getElementText());
 			break;
 		case "puredescription":
-			LoggerFactory.getLogger(Namespace.class).info("Blip puredescription --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			item.addOtherValue(OtherValueKey.BLIP_PURE_DESCRIPTION, ctx.getElementText());
 			break;
 		case "rating":
-			LoggerFactory.getLogger(Namespace.class).info("Blip rating --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			item.addOtherValue(OtherValueKey.BLIP_RATING, ctx.getElementText());
 			break;
 		case "recommendable":
-			LoggerFactory.getLogger(Namespace.class).info("Blip recommendable --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			item.addOtherValue(OtherValueKey.BLIP_RECOMMENDABLE, ctx.getElementText());
 			break;
 		case "recommendations":
-			LoggerFactory.getLogger(Namespace.class).info("Blip recommendations --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			item.addOtherValue(OtherValueKey.BLIP_RECOMMENDATIONS, ctx.getElementText());
 			break;
 		case "runtime":
-			LoggerFactory.getLogger(Namespace.class).info("Blip runtime --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			// TODO -> appears to be a runtime in seconds (100 - 1000 range)
+			item.addOtherValue(OtherValueKey.BLIP_RUNTIME, ctx.getElementText());
 			break;
 		case "safeusername":
-			LoggerFactory.getLogger(Namespace.class).info("Blip safeusername --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			item.addOtherValue(OtherValueKey.BLIP_SAFE_USERNAME, ctx.getElementText());
 			break;
 		case "show":
-			LoggerFactory.getLogger(Namespace.class).info("Blip show --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			item.addOtherValue(OtherValueKey.BLIP_SHOW, ctx.getElementText());
 			break;
 		case "showpage":
-			LoggerFactory.getLogger(Namespace.class).info("Blip showpage --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			Link showpage = new Link();
+			showpage.setHref(ctx.getElementText());
+			showpage.setTitle("Blip.tv showpage");
+			item.addLink(showpage);
 			break;
 		case "showpath":
-			LoggerFactory.getLogger(Namespace.class).info("Blip showpath --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			item.addOtherValue(OtherValueKey.BLIP_SHOW_PATH, ctx.getElementText());
 			break;
 		case "smallThumbnail":
-			LoggerFactory.getLogger(Namespace.class).info("Blip smallThumbnail --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			Image smallThumbnail = new Image();
+			smallThumbnail.setUrl(ctx.getElementText());
+			smallThumbnail.setDescription("Blip.tv smallThumbnail");
+			item.addImage(smallThumbnail);
 			break;
 		case "thumbnail_src":
-			LoggerFactory.getLogger(Namespace.class).info("Blip thumbnail_src --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			item.addOtherValue(OtherValueKey.BLIP_THUMBNAIL_SRC, ctx.getElementText());
 			break;
 		case "user":
-			LoggerFactory.getLogger(Namespace.class).info("Blip user --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			item.addOtherValue(OtherValueKey.BLIP_USER, ctx.getElementText());
 			break;
 		case "userid":
-			LoggerFactory.getLogger(Namespace.class).info("Blip userid --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			item.addOtherValue(OtherValueKey.BLIP_USERID, ctx.getElementText());
+			break;
+		default : 
+			Namespace.super.process(ctx, item);
 			break;
 		}
 	}
 
+	private void parseCategories(PodParseContext ctx, Item item) throws XMLStreamException {
+		while (ctx.getReader().hasNext()) {
+			switch (ctx.getReader().next()) {
+			case XMLStreamConstants.START_DOCUMENT:
+				if ("category".equals(ctx.getReader().getLocalName())) {
+					Category category = new Category();
+					category.setName(ctx.getElementText());
+					item.addCategory(category);
+					return;
+				}
+				break;
+			case XMLStreamConstants.END_ELEMENT :
+				if ("categories".equals(ctx.getReader().getLocalName())) {
+					return;
+				}
+				break;
+			}
+		}
+
+	}
+	
 }
 
 /*
