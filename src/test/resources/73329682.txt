@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/rss2enclosuresfull.xsl"?><?xml-stylesheet type="text/css" media="screen" href="http://feeds.feedburner.com/~d/styles/itemcontent.css"?><rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:creativeCommons="http://backend.userland.com/creativeCommonsRssModule" xmlns:feedburner="http://rssnamespace.org/feedburner/ext/1.0" version="2.0">
+	<channel>
+		<title>The Frank Truth</title>
+		<itunes:author>Brian K. Noe</itunes:author>
+		<link>http://franktruth.noebie.com/</link>
+		<description><![CDATA[Since February of 2005 The Frank Truth has celebrated the life, the career and the legacy of the Entertainer of the 20th Century, Francis Albert Sinatra.]]></description>
+		<itunes:subtitle>A Celebration Of All Things Sinatra</itunes:subtitle>
+		<itunes:summary>A Celebration Of All Things Sinatra</itunes:summary>
+		<language>en</language>
+		<copyright>Brian K. Noe</copyright>
+		<itunes:owner>
+			<itunes:name>Brian K. Noe</itunes:name>
+			<itunes:email>frankfeedback@gmail.com</itunes:email>
+		</itunes:owner>
+		<image>
+			<url>http://www.noebie.com/images/franktruth.jpg</url>
+			<title>The Frank Truth</title>
+			<link>http://franktruth.noebie.com/</link>
+		</image>
+		<itunes:image href="http://www.noebie.com/images/franktruth.jpg" />
+		<category>Podcast</category>
+		<itunes:explicit>no</itunes:explicit>
+		<itunes:keywords>Sinatra, Swing, Swank</itunes:keywords>
+		<lastBuildDate>Tue, 14 Feb 2012 11:01:51 +0000</lastBuildDate>
+		<docs>http://blogs.law.harvard.edu/tech/rss</docs>
+		<managingEditor>frankfeedback@gmail.com</managingEditor>
+		<webMaster>frankfeedback@gmail.com</webMaster>
+		
+<itunes:category text="Arts" />
+<itunes:category text="Music" />
+<itunes:category text="TV &amp; Film" />	
+
+
+
+		<atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="self" type="application/rss+xml" href="http://feeds.feedburner.com/TheFrankTruth" /><feedburner:info uri="thefranktruth" /><atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="hub" href="http://pubsubhubbub.appspot.com/" /><creativeCommons:license>http://creativecommons.org/licenses/by-nc-nd/2.0/</creativeCommons:license><feedburner:browserFriendly>This is an XML content feed. It is intended to be viewed in a newsreader or syndicated to another site.</feedburner:browserFriendly><item>
+			<title>FT-136-091510: September Of My Years Concord Release</title>
+			<itunes:author>Brian K. Noe</itunes:author>
+			<link>http://feedproxy.google.com/~r/TheFrankTruth/~3/t0hhR8piRjU/FT-136-091510.mp3</link>
+			<description><![CDATA[  <p> This time around on The Frank Truth, we've got quite a bit of Sinatra news, plus an album review of Frank Sinatra's 1965 Grammy Award Winner, September Of My Years.</p>  ]]></description>
+			<itunes:subtitle>Episode 136: September Of My Years Concord Release</itunes:subtitle>
+			<itunes:summary>Episode 136: September Of My Years Concord Release</itunes:summary>
+			<pubDate>Wed, 15 Sep 2010 12:23:35 +0000</pubDate>
+			<category> Podcast</category>
+			<itunes:explicit>no</itunes:explicit>
+			<itunes:keywords /><guid isPermaLink="false">http://traffic.libsyn.com/noebie/FT-136-091510.mp3</guid><enclosure url="http://traffic.libsyn.com/noebie/FT-136-091510.mp3" length="15709566" type="audio/mpeg" /><feedburner:origLink>http://traffic.libsyn.com/noebie/FT-136-091510.mp3</feedburner:origLink></item> 
+
+		<item>
+			<title>FT-135-071610: Sinatra and Jobim Complete and Deluxe</title>
+			<itunes:author>Brian K. Noe</itunes:author>
+			<link>http://feedproxy.google.com/~r/TheFrankTruth/~3/t2cHbug6Zcg/FT-135-071610.mp3</link>
+			<description><![CDATA[  <p> This time around on The Frank Truth, we take a listen to the Concord Deluxe Reissue of the Complete Reprise Recordings of Frank Sinatra and Antonio Carlos Jobim.</p>  ]]></description>
+			<itunes:subtitle>Episode 135: Sinatra and Jobim Complete and Deluxe</itunes:subtitle>
+			<itunes:summary>Episode 135: Sinatra and Jobim Complete and Deluxe</itunes:summary>
+			<pubDate>Fri, 16 Jul 2010 12:29:20 +0000</pubDate>
+			<category> Podcast</category>
+			<itunes:explicit>no</itunes:explicit>
+			<itunes:keywords>1960s, antonio carlos jobim, bossa nova, Frank Sinatra, sinatra, Sinatra and Jobim</itunes:keywords><guid isPermaLink="false">http://traffic.libsyn.com/noebie/FT-135-071610.mp3</guid><enclosure url="http://traffic.libsyn.com/noebie/FT-135-071610.mp3" length="22679074" type="audio/mpeg" /><feedburner:origLink>http://traffic.libsyn.com/noebie/FT-135-071610.mp3</feedburner:origLink></item> 
+
+
+		<item>
+			<title>FT-130-013110: Francis A. and Edward K.</title>
+			<itunes:author>Brian K. Noe</itunes:author>
+			<link>http://feedproxy.google.com/~r/TheFrankTruth/~3/zGQQFlpbKEY/FT-130-013110.mp3</link>
+			<description><![CDATA[  <p> This time around on The Frank Truth, we take a listen to Frank Sinatra's 1968 album with Duke Ellington and his Orchestra, <em> Francis A. and Edward K.</em> </p>  ]]></description>
+			<itunes:subtitle>Episode 130: Francis A. and Edward K.</itunes:subtitle>
+			<itunes:summary>Episode 130: Francis A. and Edward K.</itunes:summary>
+			<pubDate>Sun, 31 Jan 2010 12:10:22 +0000</pubDate>
+			<category> Podcast</category>
+			<itunes:explicit>no</itunes:explicit>
+			<itunes:keywords>1960s, Duke Ellington, Francis A and Edward K, Frank Sinatra, jazz, sinatra</itunes:keywords><guid isPermaLink="false">http://traffic.libsyn.com/noebie/FT-130-013110.mp3</guid><enclosure url="http://traffic.libsyn.com/noebie/FT-130-013110.mp3" length="22742552" type="audio/mpeg" /><feedburner:origLink>http://traffic.libsyn.com/noebie/FT-130-013110.mp3</feedburner:origLink></item> 
+
+		<item>
+			<title>FT-129-011510: The V-Discs</title>
+			<itunes:author>Brian K. Noe</itunes:author>
+			<link>http://feedproxy.google.com/~r/TheFrankTruth/~3/KxLQA4q2i6U/FT-129-011510.mp3</link>
+			<description><![CDATA[  <p> This time around on The Frank Truth, we take a listen to Frank Sinatra's V-Disc recordings. We've also got Sinatra news from around the Web and listener email.</p>  ]]></description>
+			<itunes:subtitle>Episode 129: The V- Discs</itunes:subtitle>
+			<itunes:summary>Episode 129: The V- Discs</itunes:summary>
+			<pubDate>Fri, 15 Jan 2010 05:54:00 +0000</pubDate>
+			<category> Podcast</category>
+			<itunes:explicit>no</itunes:explicit>
+			<itunes:keywords>Frank Sinatra, sinatra, V Discs, V-Discs, world war II</itunes:keywords><guid isPermaLink="false">http://traffic.libsyn.com/noebie/FT-129-011510.mp3</guid><enclosure url="http://traffic.libsyn.com/noebie/FT-129-011510.mp3" length="28944180" type="audio/mpeg" /><feedburner:origLink>http://traffic.libsyn.com/noebie/FT-129-011510.mp3</feedburner:origLink></item> 
+
+
+		<item>
+			<title>FT-126-111509: A Man Alone</title>
+			<itunes:author>Brian K. Noe</itunes:author>
+			<link>http://feedproxy.google.com/~r/TheFrankTruth/~3/-CQ9z0tQKTo/FT-126-111509.mp3</link>
+			<description><![CDATA[  <p> This time around on The Frank Truth we take a listen to Sinatra's recording of Rod McKuen songs, A Man Alone.</p>  ]]></description>
+			<itunes:subtitle>Episode 126: A Man Alone</itunes:subtitle>
+			<itunes:summary>Episode 126: A Man Alone</itunes:summary>
+			<pubDate>Sun, 15 Nov 2009 11:36:26 +0000</pubDate>
+			<category> Podcast</category>
+			<itunes:explicit>no</itunes:explicit>
+			<itunes:keywords>1969, A Man Alone, Frank Sinatra, Rod McKuen, sinatra</itunes:keywords><guid isPermaLink="false">http://traffic.libsyn.com/noebie/FT-126-111509.mp3</guid><enclosure url="http://traffic.libsyn.com/noebie/FT-126-111509.mp3" length="16439257" type="audio/mpeg" /><feedburner:origLink>http://traffic.libsyn.com/noebie/FT-126-111509.mp3</feedburner:origLink></item> 
+
+
+
+		<item>
+			<title>FT-124-091209: It's Pal Joey!</title>
+			<itunes:author>Brian K. Noe</itunes:author>
+			<link>http://feedproxy.google.com/~r/TheFrankTruth/~3/d_Dmf5w-q3Y/FT-124-091209.mp3</link>
+			<description><![CDATA[  <p> This week on The Frank Truth Sinatra Podcast, we take a look at one of the coolest and classiest musical adaptation films of all time, starring Rita Hayworth, Frank Sinatra and Kim Novak. Tilt your hat to the side. From 1957, it's Pal Joey!</p>  ]]></description>
+			<itunes:subtitle>Episode 124: It's Pal Joey!</itunes:subtitle>
+			<itunes:summary>Episode 124: It's Pal Joey!</itunes:summary>
+			<pubDate>Fri, 11 Sep 2009 20:14:17 +0000</pubDate>
+			<category> Podcast</category>
+			<itunes:explicit>no</itunes:explicit>
+			<itunes:keywords>1957, Frank Sinatra, Kim Novak, Pal Joey, Rita Hayworth, Rodgers and Hart, sinatra</itunes:keywords><guid isPermaLink="false">http://traffic.libsyn.com/noebie/FT-124-091209.mp3</guid><enclosure url="http://traffic.libsyn.com/noebie/FT-124-091209.mp3" length="26072387" type="audio/mpeg" /><feedburner:origLink>http://traffic.libsyn.com/noebie/FT-124-091209.mp3</feedburner:origLink></item> 
+
+
+		<item>
+			<title>FT-121-062309: Point Of No Return</title>
+			<itunes:author>Brian K. Noe</itunes:author>
+			<link>http://feedproxy.google.com/~r/TheFrankTruth/~3/Vf67sCW0O2A/FT-121-062309.mp3</link>
+			<description><![CDATA[  <p> This time around on The Frank Truth Frank Sinatra Podcast, we take a listen to the Capitol swan song for Sinatra, and his last album with Axel Stordahl at the baton, recorded in 1961, Point Of No Return </p>  ]]></description>
+			<itunes:subtitle>Episode 121: Point Of No Return</itunes:subtitle>
+			<itunes:summary>Episode 121: Point Of No Return</itunes:summary>
+			<pubDate>Mon, 22 Jun 2009 19:47:48 +0000</pubDate>
+			<category> Podcast</category>
+			<itunes:explicit>no</itunes:explicit>
+			<itunes:keywords>1961, Axel Stordahl, Frank Sinatra, point of no return, sinatra</itunes:keywords><guid isPermaLink="false">http://traffic.libsyn.com/noebie/FT-121-062309.mp3</guid><enclosure url="http://traffic.libsyn.com/noebie/FT-121-062309.mp3" length="16983468" type="audio/mpeg" /><feedburner:origLink>http://traffic.libsyn.com/noebie/FT-121-062309.mp3</feedburner:origLink></item> 
+
+
+
+		<item>
+			<title>FT-117-042609: Charles Calello Interview</title>
+			<itunes:author>Brian K. Noe</itunes:author>
+			<link>http://feedproxy.google.com/~r/TheFrankTruth/~3/IWdz7fofOLI/FT-117-042609.mp3</link>
+			<description><![CDATA[  <p> On this episode of <em>The Frank Truth</em>, we're speaking with the man who recorded more top ten records than any other arranger, Charles Calello.</p>  ]]></description>
+			<itunes:subtitle>Episode 117: Charles Calello Interview</itunes:subtitle>
+			<itunes:summary>Episode 117: Charles Calello Interview</itunes:summary>
+			<pubDate>Sat, 25 Apr 2009 12:47:56 +0000</pubDate>
+			<category> Podcast</category>
+			<itunes:explicit>no</itunes:explicit>
+			<itunes:keywords>Frankie Valli, sinatra</itunes:keywords><guid isPermaLink="false">http://traffic.libsyn.com/noebie/FT-117-042609.mp3</guid><enclosure url="http://traffic.libsyn.com/noebie/FT-117-042609.mp3" length="30264985" type="audio/mpeg" /><feedburner:origLink>http://traffic.libsyn.com/noebie/FT-117-042609.mp3</feedburner:origLink></item> 
+
+		<item>
+			<title>FT-116-041709: Watertown</title>
+			<itunes:author>Brian K. Noe</itunes:author>
+			<link>http://feedproxy.google.com/~r/TheFrankTruth/~3/osvM_EySfio/FT-116-041709.mp3</link>
+			<description><![CDATA[  <p>This week on <span style="font-style:italic;">The Frank Truth</span> Sinatra Podcast, we take a listen to a misunderstood and often overlooked Frank Sinatra classic, <span style="font-style:italic;">Watertown</span>.</p> ]]></description>
+			<itunes:subtitle>Episode 116: Frank Sinatra's Watertown</itunes:subtitle>
+			<itunes:summary>Episode 116: Frank Sinatra's Watertown</itunes:summary>
+			<pubDate>Fri, 17 Apr 2009 14:57:05 +0000</pubDate>
+			<category> Podcast</category>
+			<itunes:explicit>no</itunes:explicit>
+			<itunes:keywords>Frankie Valli, sinatra</itunes:keywords><guid isPermaLink="false">http://traffic.libsyn.com/noebie/FT-116-041709.mp3</guid><enclosure url="http://traffic.libsyn.com/noebie/FT-116-041709.mp3" length="18848828" type="audio/mpeg" /><feedburner:origLink>http://traffic.libsyn.com/noebie/FT-116-041709.mp3</feedburner:origLink></item> 
+
+
+
+		<item>
+			<title>FT-111-012309: Eee-O Eleven!</title>
+			<itunes:author>Brian K. Noe</itunes:author>
+			<link>http://feedproxy.google.com/~r/TheFrankTruth/~3/iRxVAp0u2CY/FT-111-012309.mp3</link>
+			<description><![CDATA[ This week on The Frank Truth Sinatra Podcast we're reviewing the legendary 1960 heist film from Frank Sinatra and The Rat Pack, Ocean's Eleven. ]]></description>
+			<itunes:subtitle>Show 111: Eee-O Eleven!</itunes:subtitle>
+			<itunes:summary>Show 111: Eee-O Eleven!</itunes:summary>
+			<pubDate>Thu, 22 Jan 2009 21:01:22 +0000</pubDate>
+			<category> Podcast</category>
+			<itunes:explicit>no</itunes:explicit>
+			<itunes:keywords>Dean Martin, DVD, Frank Sinatra, movie, Oceans Eleven, Sammy Davis, Jr., sinatra, video</itunes:keywords><guid isPermaLink="false">http://traffic.libsyn.com/noebie/FT-111-012309.mp3</guid><enclosure url="http://traffic.libsyn.com/noebie/FT-111-012309.mp3" length="16301317" type="audio/mpeg" /><feedburner:origLink>http://traffic.libsyn.com/noebie/FT-111-012309.mp3</feedburner:origLink></item> 
+
+
+
+		<item>
+			<title>FT-107-111708: The Tender Trap</title>
+			<itunes:author>Brian K. Noe</itunes:author>
+			<link>http://feedproxy.google.com/~r/TheFrankTruth/~3/VRYSFaKjvC0/FT-107-111708.mp3</link>
+			<description><![CDATA[  <p>This week on The Frank Truth Sinatra Podcast we take a look at a classic Sinatra film, The Tender Trap.</p>  ]]></description>
+			<itunes:subtitle>Episode 107: The Tender Trap</itunes:subtitle>
+			<itunes:summary>Episode 107: The Tender Trap</itunes:summary>
+			<pubDate>Mon, 17 Nov 2008 09:26:53 +0000</pubDate>
+			<category> Podcast</category>
+			<itunes:explicit>no</itunes:explicit>
+			<itunes:keywords>1950s, Debbie Reynolds, DVD, Frank Sinatra, movie, sinatra, The Tender Trap, video</itunes:keywords><guid isPermaLink="false">http://traffic.libsyn.com/noebie/FT-107-111708.mp3</guid><enclosure url="http://traffic.libsyn.com/noebie/FT-107-111708.mp3" length="16476454" type="audio/mpeg" /><feedburner:origLink>http://traffic.libsyn.com/noebie/FT-107-111708.mp3</feedburner:origLink></item> 
+
+
+		<item>
+			<title>FT-100-071108: The Concert Sinatra</title>
+			<itunes:author>Brian K. Noe</itunes:author>
+			<link>http://feedproxy.google.com/~r/TheFrankTruth/~3/La5gYd71Lds/FT-100-071108.mp3</link>
+			<description><![CDATA[  <p>On the 100th episode of <em> The Frank Truth</em> , we take a listen to Sinatra's 1963 masterpiece <em> The Concert Sinatra</em>.</p>  ]]></description>
+			<itunes:subtitle>Episode 100: The Concert Sinatra</itunes:subtitle>
+			<itunes:summary>Episode 100: The Concert Sinatra</itunes:summary>
+			<pubDate>Fri, 11 Jul 2008 08:54:26 +0000</pubDate>
+			<category> Podcast</category>
+			<itunes:explicit>no</itunes:explicit>
+			<itunes:keywords>1963, Nelson Riddle, Orchestra, riddle, sinatra, symphony</itunes:keywords><guid isPermaLink="false">http://traffic.libsyn.com/noebie/FT-100-071108.mp3</guid><enclosure url="http://traffic.libsyn.com/noebie/FT-100-071108.mp3" length="15988432" type="audio/mpeg" /><feedburner:origLink>http://traffic.libsyn.com/noebie/FT-100-071108.mp3</feedburner:origLink></item> 
+
+
+
+		<item>
+			<title>FT-098-061308: Sinatra Miniseries</title>
+			<itunes:author>Brian K. Noe</itunes:author>
+			<link>http://feedproxy.google.com/~r/TheFrankTruth/~3/5TihBKHHlYU/FT-098-061308.mp3</link>
+			<description><![CDATA[  <p> This time on The Frank Truth we review the Sinatra miniseries that was released last month on Warner Home Video.</p>  ]]></description>
+			<itunes:subtitle>Episode 98: Sinatra Miniseries</itunes:subtitle>
+			<itunes:summary>Episode 98: Sinatra Miniseries</itunes:summary>
+			<pubDate>Thu, 12 Jun 2008 13:25:00 +0000</pubDate>
+			<category> Podcast</category>
+			<itunes:explicit>no</itunes:explicit>
+			<itunes:keywords>Ava Gardner, DVD, film review, Frank Sinatra, miniseries, movie, review, sinatra, video</itunes:keywords><guid isPermaLink="false">http://traffic.libsyn.com/noebie/FT-098-061308.mp3</guid><enclosure url="http://traffic.libsyn.com/noebie/FT-098-061308.mp3" length="17460478" type="audio/mpeg" /><feedburner:origLink>http://traffic.libsyn.com/noebie/FT-098-061308.mp3</feedburner:origLink></item> 
+
+
+
+		<item>
+			<title>FT-094-042508: All Alone</title>
+			<itunes:author>Brian K. Noe</itunes:author>
+			<link>http://feedproxy.google.com/~r/TheFrankTruth/~3/1Y03ld2O3iQ/FT-094-042508.mp3</link>
+			<description><![CDATA[  <p> This week on The Frank Truth Podcast, we take a listen to Frank Sinatra's Haunting 1962 Waltz album, All Alone.</p>  ]]></description>
+			<itunes:subtitle>Episode 94: All Alone</itunes:subtitle>
+			<itunes:summary>Episode 94: All Alone</itunes:summary>
+			<pubDate>Wed, 23 Apr 2008 13:00:00 +0000</pubDate>
+			<category> Podcast</category>
+			<itunes:explicit>no</itunes:explicit>
+			<itunes:keywords>1962, all alone, jazz, sinatra, waltz</itunes:keywords><guid isPermaLink="false">http://traffic.libsyn.com/noebie/FT-094-042508.mp3</guid><enclosure url="http://traffic.libsyn.com/noebie/FT-094-042508.mp3" length="23876542" type="audio/mpeg" /><feedburner:origLink>http://traffic.libsyn.com/noebie/FT-094-042508.mp3</feedburner:origLink></item> 
+
+
+		<item>
+			<title>FT-086-022208: September Of My Years</title>
+			<itunes:author>Brian K. Noe</itunes:author>
+			<link>http://feedproxy.google.com/~r/TheFrankTruth/~3/qU8u42vSzNM/FT-086-022208.mp3</link>
+			<description><![CDATA[  <p> This time around we focus our attention on Frank Sinatra's Grammy-Winner from 1965 - September Of My Years.</p>  ]]></description>
+			<itunes:subtitle>Episode 86: September Of My Years</itunes:subtitle>
+			<itunes:summary>Episode 86: September Of My Years</itunes:summary>
+			<pubDate>Thu, 21 Feb 2008 10:45:00 +0000</pubDate>
+			<category> Podcast</category>
+			<itunes:explicit>no</itunes:explicit>
+			<itunes:keywords>1965, jazz, sinatra, swing</itunes:keywords><guid isPermaLink="false">http://traffic.libsyn.com/noebie/FT-086-022208.mp3</guid><enclosure url="http://traffic.libsyn.com/noebie/FT-086-022208.mp3" length="10380674" type="audio/mpeg" /><feedburner:origLink>http://traffic.libsyn.com/noebie/FT-086-022208.mp3</feedburner:origLink></item> 
+
+
+
+		<item>
+			<title>FT-077-081007: Cole Porter's Can-Can</title>
+			<itunes:author>Brian K. Noe</itunes:author>
+			<link>http://feedproxy.google.com/~r/TheFrankTruth/~3/71P2LxgBSqA/FT-077-081007.mp3</link>
+			<description><![CDATA[ From 1960, It's Cole Porter's Can-Can ]]></description>
+			<itunes:subtitle>Show #77: Cole Porter's Can-Can</itunes:subtitle>
+			<itunes:summary>Show #77: Cole Porter's Can-Can</itunes:summary>
+			<pubDate>Thu, 09 Aug 2007 07:30:00 +0000</pubDate>
+			<category> Podcast</category>
+			<itunes:explicit>no</itunes:explicit>
+			<itunes:keywords>Can-Can, Cole Porter, sinatra</itunes:keywords><guid isPermaLink="false">http://traffic.libsyn.com/noebie/FT-077-081007.mp3</guid><enclosure url="http://traffic.libsyn.com/noebie/FT-077-081007.mp3" length="17142832" type="audio/mpeg" /><feedburner:origLink>http://traffic.libsyn.com/noebie/FT-077-081007.mp3</feedburner:origLink></item> 
+
+
+
+		<item>
+			<title>FT-071-050907: Where Are You?</title>
+			<itunes:author>Brian K. Noe</itunes:author>
+			<link>http://feedproxy.google.com/~r/TheFrankTruth/~3/cGgwlPDE-jo/FT-071-050907.mp3</link>
+			<description><![CDATA[ A Review of Another 1950s Classic, Where Are You?  ]]></description>
+			<itunes:subtitle>Show #71: Where Are You?</itunes:subtitle>
+			<itunes:summary>Show #71: Where Are You?</itunes:summary>
+			<pubDate>Wed, 09 May 2007 10:55:58 +0000</pubDate>
+			<category> Podcast</category>
+			<itunes:explicit>no</itunes:explicit>
+			<itunes:keywords>1950s, Romantic, sinatra, stereo, swing</itunes:keywords><guid isPermaLink="false">http://traffic.libsyn.com/noebie/FT-071-050907.mp3</guid><enclosure url="http://traffic.libsyn.com/noebie/FT-071-050907.mp3" length="13455568" type="audio/mpeg" /><feedburner:origLink>http://traffic.libsyn.com/noebie/FT-071-050907.mp3</feedburner:origLink></item> 
+
+
+
+	</channel>
+</rss>

@@ -1,0 +1,2644 @@
+<?xml version="1.0"?>
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
+    <channel>
+        <!-- If you can read this, you're lost.                   -->
+          <!-- Go to www.firesigntheatre.com/podcasting/indexx.html -->
+        <!--                 (yes, 'indexx.html') with two x's    -->
+        <title>Firesign Theatre podCast</title>
+        <link>http://www.firesigntheatre.com</link>
+        <description>The Grammy-nominated anarcho-satiric comedy troupe Firesign Theatre offers audio clips from their new and classic albums and radio performances.  The Future Fair!  You may already be there!</description>
+        <lastBuildDate>Fri, 14 Apr 2017 12:01:03 -0400</lastBuildDate>
+        <language>en-us</language>
+        <copyright>Copyright Firesign Theatre 2005</copyright>
+        <generator>dirCastv0.1 (modified)</generator>
+        <category>Comedy</category>
+        <webMaster>firesign@firesigntheatre.com</webMaster>
+        <ttl>1440</ttl>
+
+          <itunes:author>Firesign Theatre</itunes:author>
+        <itunes:subtitle>The Firesign Theatre</itunes:subtitle>
+        <itunes:summary>The Grammy-nominated anarcho-satiric comedy troupe Firesign Theatre offers audio clips from their new and classic albums and radio performances.  The Future Fair!  You may already be there!</itunes:summary>
+        <itunes:explicit>yes</itunes:explicit>
+        <itunes:category text="Comedy"></itunes:category>
+        <itunes:owner>
+        <itunes:email>firesign@firesigntheatre.com</itunes:email>
+        </itunes:owner>
+<itunes:image href="http://www.firesigntheatre.com/podcasting/firepod.jpg"/>
+<item>
+<title>David Ossman interview</title>
+<link>https://archive.org/download/OssmanChatInterview20150507/Ossman_Chat_Interview_20150507.mp3</link>
+<guid>http://OssmanChat20150507.mp4</guid>
+<description>David Ossman interview - David Ossman - David Ossman/Kurt Ericson - 2015 - Firesign Theatre</description>
+<itunes:author>David Ossman/Kurt Ericson</itunes:author>
+<itunes:duration>46:25</itunes:duration>
+<category>Comedy</category>
+<pubDate>Sun, 10 May 2015 02:08:48 -0400</pubDate>
+<enclosure url="https://archive.org/download/OssmanChatInterview20150507/Ossman_Chat_Interview_20150507.mp3" length="93" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Rev. Bill Barnstormer -- Red, Inc.</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_011/redinc_video.mp4</link>
+<guid>http://redinc_video.mp4</guid>
+<description>Rev. Bill Barnstormer -- Red, Inc. - Rev. Bill Barnstormer - Brian Westley/David Ossman - 2014</description>
+<itunes:author>Brian Westley/David Ossman</itunes:author>
+<itunes:duration>3::3 </itunes:duration>
+<category>Comedy</category>
+<pubDate>Tue, 08 Jul 2014 20:52:00 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_011/redinc_video.mp4" length="85" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Phil Proctor interview</title>
+<link>http://www.archive.org/download/TheCatEatsPhilProctorFSTChat20131003/The%20Cat%20Eats%20-%20Phil%20Proctor%20FST%20Chat%2020131003.mp3</link>
+<guid>http://The%2520Cat%2520Eats%2520-%2520Phil%2520Proctor%2520FST%2520Chat%252020131003.mp3</guid>
+<description>Phil Proctor interview - Firesign Chat Skype interview - Firesign Theatre - Oct 3, 2013 - Firesign Theatre</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>27:04</itunes:duration>
+<category>Comedy</category>
+<pubDate>Sun, 06 Oct 2013 19:25:13 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/TheCatEatsPhilProctorFSTChat20131003/The%20Cat%20Eats%20-%20Phil%20Proctor%20FST%20Chat%2020131003.mp3" length="64951117" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Firesign Theatre rehearsing ending for Give Me Immortality Or Give Me Death</title>
+<link>http://www.archive.org/download/HellosAndGoodbyes/Rehearsals_hellos__goodbyes-firesignTheatre.mp3</link>
+<guid>http://Rehearsals_hellos__goodbyes-firesignTheatre.mp3</guid>
+<description>Firesign Theatre rehearsing ending for Give Me Immortality Or Give Me Death - Give Me Immortality Or Give Me Death - Firesign Theatre - circa 1998</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>17:14</itunes:duration>
+<category>Comedy</category>
+<pubDate>Sun, 15 Jul 2012 21:52:55 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/HellosAndGoodbyes/Rehearsals_hellos__goodbyes-firesignTheatre.mp3" length="20685622" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Firesign Theatre on the Hollywood Clout! with Richard Greene</title>
+<link>http://www.archive.org/download/OssmanaustinOnClout92509/OssmanAustin9-25-09.m4a</link>
+<guid>http://OssmanAustin9-25-09.m4a</guid>
+<description>Firesign Theatre on the Hollywood Clout! with Richard Greene - Richard Greene interview - Firesign Theatre - Sep 25, 2009 - Hollywood Clout!</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>37:54</itunes:duration>
+<category>Comedy</category>
+<pubDate>Mon, 28 Sep 2009 16:43:58 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/OssmanaustinOnClout92509/OssmanAustin9-25-09.m4a" length="81" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Firesign Theatre on the Thom Hartmann Show</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_010/thomhartmann.mp3</link>
+<guid>http://thomhartmann.mp3</guid>
+<description>Firesign Theatre on the Thom Hartmann Show - Thom Hartmann interview - Firesign Theatre - 2009</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>10:33</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 16 Apr 2009 07:12:00 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_010/thomhartmann.mp3" length="5075114" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>"The Fuse of Doom" part 3</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/fuse3.rm</link>
+<guid>http://fuse3.rm</guid>
+<description>"The Fuse of Doom" part 3 - Fools in Space show #11 - Firesign Theatre - Aug 24, 2002 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>5:14</itunes:duration>
+<category>Comedy</category>
+<pubDate>Mon, 03 Dec 2007 20:13:26 -0500</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/fuse3.rm" length="6000000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>Rev. Barnstormer "No Jokes about America"</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/barn3.rm</link>
+<guid>http://barn3.rm</guid>
+<description>Rev. Barnstormer "No Jokes about America" - Fools in Space show #11 - Firesign Theatre - Aug 24, 2002 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>3:33</itunes:duration>
+<category>Comedy</category>
+<pubDate>Mon, 03 Dec 2007 20:13:14 -0500</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/barn3.rm" length="4000000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>Mutt 'n' Smutt</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_009/muttsmutt2.rm</link>
+<guid>http://muttsmutt2.rm</guid>
+<description>Mutt 'n' Smutt - Fools in Space show #11 - Firesign Theatre - Aug 24, 2002 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>4:16</itunes:duration>
+<category>Comedy</category>
+<pubDate>Mon, 03 Dec 2007 20:12:44 -0500</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_009/muttsmutt2.rm" length="4900000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>St. John St. John</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/insane4.rm</link>
+<guid>http://insane4.rm</guid>
+<description>St. John St. John - Fools in Space show #11 - Firesign Theatre - Aug 24, 2002 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>4:36</itunes:duration>
+<category>Comedy</category>
+<pubDate>Mon, 03 Dec 2007 20:12:10 -0500</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/insane4.rm" length="5200000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>Nick Danger: "Where Were We?" pt 1</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/danger7a.rm</link>
+<guid>http://danger7a.rm</guid>
+<description>Nick Danger: "Where Were We?" pt 1 - Fools in Space show #11 - Firesign Theatre - Aug 24, 2002 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>5:23</itunes:duration>
+<category>Comedy</category>
+<pubDate>Mon, 03 Dec 2007 20:11:52 -0500</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/danger7a.rm" length="6200000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>Nick Danger: "Where Were We?" pt 2</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/danger7b.rm</link>
+<guid>http://danger7b.rm</guid>
+<description>Nick Danger: "Where Were We?" pt 2 - Fools in Space show #11 - Firesign Theatre - Aug 24, 2002 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>6:54</itunes:duration>
+<category>Comedy</category>
+<pubDate>Mon, 03 Dec 2007 20:11:38 -0500</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/danger7b.rm" length="7800000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>"Mark Time!"</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/marktime5.rm</link>
+<guid>http://marktime5.rm</guid>
+<description>"Mark Time!" - Fools in Space show #10 - Firesign Theatre - Jul 27, 2002 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>7:04</itunes:duration>
+<category>Comedy</category>
+<pubDate>Mon, 03 Dec 2007 19:46:26 -0500</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/marktime5.rm" length="8000000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>"Art of the Insane"</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/insane3.rm</link>
+<guid>http://insane3.rm</guid>
+<description>"Art of the Insane" - Fools in Space show #10 - Firesign Theatre - Jul 27, 2002 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>3:12</itunes:duration>
+<category>Comedy</category>
+<pubDate>Mon, 03 Dec 2007 19:46:02 -0500</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/insane3.rm" length="3600000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>"The Fuse of Doom" part 2</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/fuse2.rm</link>
+<guid>http://fuse2.rm</guid>
+<description>"The Fuse of Doom" part 2 - Fools in Space show #10 - Firesign Theatre - Jul 27, 2002 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>4:08</itunes:duration>
+<category>Comedy</category>
+<pubDate>Mon, 03 Dec 2007 19:45:38 -0500</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/fuse2.rm" length="4800000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>Rev. Barnstormer</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/barn2.rm</link>
+<guid>http://barn2.rm</guid>
+<description>Rev. Barnstormer - Fools in Space show #10 - Firesign Theatre - Jul 27, 2002 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>3:24</itunes:duration>
+<category>Comedy</category>
+<pubDate>Mon, 03 Dec 2007 19:45:18 -0500</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/barn2.rm" length="3900000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>"The George Tirebiter Mystery - Kiki and the Madman"</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/tirebiter.rm</link>
+<guid>http://tirebiter.rm</guid>
+<description>"The George Tirebiter Mystery - Kiki and the Madman" - Fools in Space show #10 - Firesign Theatre - Jul 27, 2002 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>6:26</itunes:duration>
+<category>Comedy</category>
+<pubDate>Mon, 03 Dec 2007 19:45:06 -0500</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/tirebiter.rm" length="6700000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>Mutt 'n' Smutt</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_008/muttsmutt.rm</link>
+<guid>http://muttsmutt.rm</guid>
+<description>Mutt 'n' Smutt - Fools in Space show #10 - Firesign Theatre - Jul 27, 2002 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>3:50</itunes:duration>
+<category>Comedy</category>
+<pubDate>Mon, 03 Dec 2007 19:44:30 -0500</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_008/muttsmutt.rm" length="4100000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>"Mark Time!"</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/marktime4.rm</link>
+<guid>http://marktime4.rm</guid>
+<description>"Mark Time!" - Fools in Space show #9 - Firesign Theatre - Jun 22, 2002 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>8:01</itunes:duration>
+<category>Comedy</category>
+<pubDate>Mon, 03 Dec 2007 19:38:24 -0500</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/marktime4.rm" length="8700000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>"The Fuse of Doom" part 1</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/fuse1.rm</link>
+<guid>http://fuse1.rm</guid>
+<description>"The Fuse of Doom" part 1 - Fools in Space show #9 - Firesign Theatre - Jun 22, 2002 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>6:56</itunes:duration>
+<category>Comedy</category>
+<pubDate>Mon, 03 Dec 2007 19:38:02 -0500</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/fuse1.rm" length="7500000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>Harold Hiphugger: 50 Years pt 1</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/hiphugger1.rm</link>
+<guid>http://hiphugger1.rm</guid>
+<description>Harold Hiphugger: 50 Years pt 1 - Fools in Space show #9 - Firesign Theatre - Jun 22, 2002 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>4:20</itunes:duration>
+<category>Comedy</category>
+<pubDate>Mon, 03 Dec 2007 19:37:38 -0500</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/hiphugger1.rm" length="4900000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>Harold Hiphugger: 50 Years pt 2</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/hiphugger2.rm</link>
+<guid>http://hiphugger2.rm</guid>
+<description>Harold Hiphugger: 50 Years pt 2 - Fools in Space show #9 - Firesign Theatre - Jun 22, 2002 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>4:28</itunes:duration>
+<category>Comedy</category>
+<pubDate>Mon, 03 Dec 2007 19:37:22 -0500</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/hiphugger2.rm" length="4900000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>Phil is Big Brother</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/bigbrother.rm</link>
+<guid>http://bigbrother.rm</guid>
+<description>Phil is Big Brother - Fools in Space show #9 - Firesign Theatre - Jun 22, 2002 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>1:47</itunes:duration>
+<category>Comedy</category>
+<pubDate>Mon, 03 Dec 2007 19:36:46 -0500</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/bigbrother.rm" length="2000000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>"Crisis in Terror"</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/mcgroup.rm</link>
+<guid>http://mcgroup.rm</guid>
+<description>"Crisis in Terror" - Fools in Space show #9 - Firesign Theatre - Jun 22, 2002 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>3:27</itunes:duration>
+<category>Comedy</category>
+<pubDate>Mon, 03 Dec 2007 19:36:30 -0500</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/mcgroup.rm" length="3900000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>Young Guy deconstruction</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/youngguy.rm</link>
+<guid>http://youngguy.rm</guid>
+<description>Young Guy deconstruction - Fools in Space show #8 - Firesign Theatre - May 18, 2002 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>2:31</itunes:duration>
+<category>Comedy</category>
+<pubDate>Mon, 03 Dec 2007 19:35:02 -0500</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/youngguy.rm" length="2900000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>Ray builds a dog</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/dog.rm</link>
+<guid>http://dog.rm</guid>
+<description>Ray builds a dog - Fools in Space show #8 - Firesign Theatre - May 18, 2002 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>8:10</itunes:duration>
+<category>Comedy</category>
+<pubDate>Mon, 03 Dec 2007 19:34:58 -0500</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/dog.rm" length="9400000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>"Art of the Insane"</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/insane2.rm</link>
+<guid>http://insane2.rm</guid>
+<description>"Art of the Insane" - Fools in Space show #8 - Firesign Theatre - May 18, 2002 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>4:20</itunes:duration>
+<category>Comedy</category>
+<pubDate>Mon, 03 Dec 2007 19:34:54 -0500</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/insane2.rm" length="4900000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>Peter Bergman on New Zealand</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/newzealand.rm</link>
+<guid>http://newzealand.rm</guid>
+<description>Peter Bergman on New Zealand - Fools in Space show #8 - Firesign Theatre - May 18, 2002 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>3:11</itunes:duration>
+<category>Comedy</category>
+<pubDate>Mon, 03 Dec 2007 19:34:52 -0500</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/newzealand.rm" length="3600000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>"Who Stole the Sneeze?"</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/sneeze.rm</link>
+<guid>http://sneeze.rm</guid>
+<description>"Who Stole the Sneeze?" - Fools in Space show #8 - Firesign Theatre - May 18, 2002 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>2:51</itunes:duration>
+<category>Comedy</category>
+<pubDate>Mon, 03 Dec 2007 19:34:50 -0500</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/sneeze.rm" length="3200000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>Lew Tebbetts aka Tiny Dr. Tim</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/lew.rm</link>
+<guid>http://lew.rm</guid>
+<description>Lew Tebbetts aka Tiny Dr. Tim - Fools in Space show #8 - Firesign Theatre - May 18, 2002 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>3:54</itunes:duration>
+<category>Comedy</category>
+<pubDate>Mon, 03 Dec 2007 19:34:46 -0500</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/lew.rm" length="4300000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>Everything You Know Is Wrong!</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/eykiw2.rm</link>
+<guid>http://eykiw2.rm</guid>
+<description>Everything You Know Is Wrong! - Fools in Space show #7 - Firesign Theatre - Apr 27, 2002 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>6:39</itunes:duration>
+<category>Comedy</category>
+<pubDate>Mon, 03 Dec 2007 19:26:16 -0500</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/eykiw2.rm" length="7200000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>Nick Danger</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/danger6.rm</link>
+<guid>http://danger6.rm</guid>
+<description>Nick Danger - Fools in Space show #7 - Firesign Theatre - Apr 27, 2002 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>4:38</itunes:duration>
+<category>Comedy</category>
+<pubDate>Mon, 03 Dec 2007 19:26:06 -0500</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/danger6.rm" length="5000000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>Mass Entertainment</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/massent.rm</link>
+<guid>http://massent.rm</guid>
+<description>Mass Entertainment - Fools in Space show #7 - Firesign Theatre - Apr 27, 2002 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>6:34</itunes:duration>
+<category>Comedy</category>
+<pubDate>Mon, 03 Dec 2007 19:26:04 -0500</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/massent.rm" length="7200000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>Monitor Lizards</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/lizards.rm</link>
+<guid>http://lizards.rm</guid>
+<description>Monitor Lizards - Fools in Space show #7 - Firesign Theatre - Apr 27, 2002 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>5:34</itunes:duration>
+<category>Comedy</category>
+<pubDate>Mon, 03 Dec 2007 19:26:00 -0500</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/lizards.rm" length="6000000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>Ray's Rules</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/raysrules.rm</link>
+<guid>http://raysrules.rm</guid>
+<description>Ray's Rules - Fools in Space show #7 - Firesign Theatre - Apr 27, 2002 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>5:58</itunes:duration>
+<category>Comedy</category>
+<pubDate>Mon, 03 Dec 2007 19:25:58 -0500</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/raysrules.rm" length="6800000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>Found Poems</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/foundpoems.rm</link>
+<guid>http://foundpoems.rm</guid>
+<description>Found Poems - Fools in Space show #7 - Firesign Theatre - Apr 27, 2002 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>2:04</itunes:duration>
+<category>Comedy</category>
+<pubDate>Mon, 03 Dec 2007 19:25:52 -0500</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/foundpoems.rm" length="2400000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>Everything You Know Is Wrong!</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/eykiw.rm</link>
+<guid>http://eykiw.rm</guid>
+<description>Everything You Know Is Wrong! - Fools in Space show #6 - Firesign Theatre - Mar 30, 2002 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>4:54</itunes:duration>
+<category>Comedy</category>
+<pubDate>Mon, 03 Dec 2007 19:16:38 -0500</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/eykiw.rm" length="5500000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>Battle of the Big Heads -- A Mascot Rumble</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/mascot.rm</link>
+<guid>http://mascot.rm</guid>
+<description>Battle of the Big Heads -- A Mascot Rumble - Fools in Space show #6 - Firesign Theatre - Mar 30, 2002 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>3:58</itunes:duration>
+<category>Comedy</category>
+<pubDate>Mon, 03 Dec 2007 19:16:32 -0500</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/mascot.rm" length="4500000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>Spike Milligan and the Goon Show influence on Firesign</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/spike.rm</link>
+<guid>http://spike.rm</guid>
+<description>Spike Milligan and the Goon Show influence on Firesign - Fools in Space show #6 - Firesign Theatre - Mar 30, 2002 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>1:06</itunes:duration>
+<category>Comedy</category>
+<pubDate>Mon, 03 Dec 2007 19:16:30 -0500</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/spike.rm" length="1100000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>Editorial Comments</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/editorial.rm</link>
+<guid>http://editorial.rm</guid>
+<description>Editorial Comments - Fools in Space show #6 - Firesign Theatre - Mar 30, 2002 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>6:41</itunes:duration>
+<category>Comedy</category>
+<pubDate>Mon, 03 Dec 2007 19:16:28 -0500</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/editorial.rm" length="7700000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>Hotel Sexe</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/hotelsexe.rm</link>
+<guid>http://hotelsexe.rm</guid>
+<description>Hotel Sexe - Fools in Space show #6 - Firesign Theatre - Mar 30, 2002 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>1:02</itunes:duration>
+<category>Comedy</category>
+<pubDate>Mon, 03 Dec 2007 19:16:26 -0500</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/hotelsexe.rm" length="1100000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>Chitchat</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/chitchat.rm</link>
+<guid>http://chitchat.rm</guid>
+<description>Chitchat - Fools in Space show #6 - Firesign Theatre - Mar 30, 2002 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>2:28</itunes:duration>
+<category>Comedy</category>
+<pubDate>Mon, 03 Dec 2007 19:16:24 -0500</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/chitchat.rm" length="2800000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>Nick Danger</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/danger5.rm</link>
+<guid>http://danger5.rm</guid>
+<description>Nick Danger - Fools in Space show #5 - Firesign Theatre - Feb 23, 2002 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>7:10</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:43:32 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/danger5.rm" length="8200000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>Mark Time!</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/marktime3.rm</link>
+<guid>http://marktime3.rm</guid>
+<description>Mark Time! - Fools in Space show #5 - Firesign Theatre - Feb 23, 2002 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>6:23</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:43:30 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/marktime3.rm" length="7300000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>The Golden Hind</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/hind2.rm</link>
+<guid>http://hind2.rm</guid>
+<description>The Golden Hind - Fools in Space show #5 - Firesign Theatre - Feb 23, 2002 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>4:31</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:43:30 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/hind2.rm" length="5200000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>Art of the Insane</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/insane.rm</link>
+<guid>http://insane.rm</guid>
+<description>Art of the Insane - Fools in Space show #5 - Firesign Theatre - Feb 23, 2002 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>3:45</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:43:28 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/insane.rm" length="4300000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>35 years, the Grammys, and Phil's mom</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/grammys.rm</link>
+<guid>http://grammys.rm</guid>
+<description>35 years, the Grammys, and Phil's mom - Fools in Space show #5 - Firesign Theatre - Feb 23, 2002 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>4:01</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:43:28 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/grammys.rm" length="4600000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>More 35th anniversary musings</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/35th4.rm</link>
+<guid>http://35th4.rm</guid>
+<description>More 35th anniversary musings - Fools in Space show #5 - Firesign Theatre - Feb 23, 2002 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>1:56</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:43:26 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/35th4.rm" length="2200000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>"Nick Danger" part A</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/danger4a.rm</link>
+<guid>http://danger4a.rm</guid>
+<description>"Nick Danger" part A - Fools in Space show #4 - Firesign Theatre - Jan 26, 2002 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>4:45</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:43:26 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/danger4a.rm" length="5500000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>Der Ring des Nibenron (The Fall of Enron)</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/enron.rm</link>
+<guid>http://enron.rm</guid>
+<description>Der Ring des Nibenron (The Fall of Enron) - Fools in Space show #4 - Firesign Theatre - Jan 26, 2002 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>3:36</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:43:24 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/enron.rm" length="4100000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>"Nick Danger" part B</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/danger4b.rm</link>
+<guid>http://danger4b.rm</guid>
+<description>"Nick Danger" part B - Fools in Space show #4 - Firesign Theatre - Jan 26, 2002 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>6:28</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:43:24 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/danger4b.rm" length="7400000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>Dink Shrinkwrap on the Olympics</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/dink.rm</link>
+<guid>http://dink.rm</guid>
+<description>Dink Shrinkwrap on the Olympics - Fools in Space show #4 - Firesign Theatre - Jan 26, 2002 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>4:07</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:43:22 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/dink.rm" length="4700000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>"That Kooky Coke Show"</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/coke.rm</link>
+<guid>http://coke.rm</guid>
+<description>"That Kooky Coke Show" - Fools in Space show #4 - Firesign Theatre - Jan 26, 2002 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>3:45</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:43:22 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/coke.rm" length="4300000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>China's buggy 767</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/china.rm</link>
+<guid>http://china.rm</guid>
+<description>China's buggy 767 - Fools in Space show #4 - Firesign Theatre - Jan 26, 2002 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>4:18</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:43:20 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/china.rm" length="4900000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>Promoting "Weirdly Cool"</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/promo.rm</link>
+<guid>http://promo.rm</guid>
+<description>Promoting "Weirdly Cool" - Fools in Space show #3 - Firesign Theatre - Dec 15, 2001 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>3:18</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:43:20 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/promo.rm" length="3800000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>Wally Cox: The Prince George Hotel</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/pghotel.rm</link>
+<guid>http://pghotel.rm</guid>
+<description>Wally Cox: The Prince George Hotel - Fools in Space show #3 - Firesign Theatre - Dec 15, 2001 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>1:49</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:43:18 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/pghotel.rm" length="1900000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>'Twas the sale...</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/twas.rm</link>
+<guid>http://twas.rm</guid>
+<description>'Twas the sale... - Fools in Space show #3 - Firesign Theatre - Dec 15, 2001 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>2:40</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:43:18 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/twas.rm" length="3000000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>7/11</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/711.rm</link>
+<guid>http://711.rm</guid>
+<description>7/11 - Fools in Space show #3 - Firesign Theatre - Dec 15, 2001 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>2:56</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:43:16 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/711.rm" length="3300000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>Nick Danger</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/danger3.rm</link>
+<guid>http://danger3.rm</guid>
+<description>Nick Danger - Fools in Space show #3 - Firesign Theatre - Dec 15, 2001 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>5:18</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:43:16 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/danger3.rm" length="6000000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>35th anniversary (part 1)</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/35th1.rm</link>
+<guid>http://35th1.rm</guid>
+<description>35th anniversary (part 1) - Fools in Space show #2 - Firesign Theatre - Nov 17, 2001 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>3:18</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:43:14 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/35th1.rm" length="3800000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>End of the year</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/yearend.rm</link>
+<guid>http://yearend.rm</guid>
+<description>End of the year - Fools in Space show #3 - Firesign Theatre - Dec 15, 2001 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>2:02</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:43:14 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/yearend.rm" length="2200000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>35th anniversary (part 3)</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/35th3.rm</link>
+<guid>http://35th3.rm</guid>
+<description>35th anniversary (part 3) - Fools in Space show #2 - Firesign Theatre - Nov 17, 2001 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>3:49</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:43:12 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/35th3.rm" length="4400000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>35th anniversary (part 2)</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/35th2.rm</link>
+<guid>http://35th2.rm</guid>
+<description>35th anniversary (part 2) - Fools in Space show #2 - Firesign Theatre - Nov 17, 2001 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>2:29</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:43:12 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/35th2.rm" length="2800000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>Nick Danger (excerpt)</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/danger2.rm</link>
+<guid>http://danger2.rm</guid>
+<description>Nick Danger (excerpt) - Fools in Space show #2 - Firesign Theatre - Nov 17, 2001 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>3:01</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:43:10 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/danger2.rm" length="3400000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>Mark Time! (part A)</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/marktime2a.rm</link>
+<guid>http://marktime2a.rm</guid>
+<description>Mark Time! (part A) - Fools in Space show #2 - Firesign Theatre - Nov 17, 2001 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>5:15</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:43:10 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/marktime2a.rm" length="6000000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>Mark Time! (part B)</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/marktime2b.rm</link>
+<guid>http://marktime2b.rm</guid>
+<description>Mark Time! (part B) - Fools in Space show #2 - Firesign Theatre - Nov 17, 2001 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>5:38</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:43:08 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/marktime2b.rm" length="6500000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>"Fools in Space" preshow + opening theme</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/xmmov1.rm</link>
+<guid>http://xmmov1.rm</guid>
+<description>"Fools in Space" preshow + opening theme - Fools in Space show #1 - Firesign Theatre - Oct 27, 2001 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>3:49</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:43:08 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/xmmov1.rm" length="4359000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>Mark Time!</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/marktime1.rm</link>
+<guid>http://marktime1.rm</guid>
+<description>Mark Time! - Fools in Space show #1 - Firesign Theatre - Oct 27, 2001 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>5:52</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:43:06 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/marktime1.rm" length="6735000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>The Golden Hind</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/hind.rm</link>
+<guid>http://hind.rm</guid>
+<description>The Golden Hind - Fools in Space show #1 - Firesign Theatre - Oct 27, 2001 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>3:28</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:43:06 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/hind.rm" length="3954000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>Studio break</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/break.rm</link>
+<guid>http://break.rm</guid>
+<description>Studio break - Fools in Space show #1 - Firesign Theatre - Oct 27, 2001 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>2:47</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:43:04 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/break.rm" length="3111000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>Nick Danger</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/danger1.rm</link>
+<guid>http://danger1.rm</guid>
+<description>Nick Danger - Fools in Space show #1 - Firesign Theatre - Oct 27, 2001 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>4:59</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:43:04 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/danger1.rm" length="5668000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>Dr. Firesign's Sci-Fi Chiller Theatre</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/chiller.rm</link>
+<guid>http://chiller.rm</guid>
+<description>Dr. Firesign's Sci-Fi Chiller Theatre - Fools in Space show #1 - Firesign Theatre - Oct 27, 2001 - video clips from Firesign Theatre's XM radio show</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>5:14</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:43:02 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/chiller.rm" length="5990000" type="video/x-pn-realvideo"/>
+</item>
+
+<item>
+<title>Multiple Identity Girl</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/LE10_02_Multiple_Identity_Girl.mp3</link>
+<guid>http://LE10_02_Multiple_Identity_Girl.mp3</guid>
+<description>Multiple Identity Girl - Let's Eat! (#10) - Firesign Theatre - 1972</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ht:p:</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:43:02 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/LE10_02_Multiple_Identity_Girl.mp3" length="1619197" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>The Space Race</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/LE10_03_The_Space_Race.mp3</link>
+<guid>http://LE10_03_The_Space_Race.mp3</guid>
+<description>The Space Race - Let's Eat! (#10) - Firesign Theatre - 1972</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ht:p:</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:43:00 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/LE10_03_The_Space_Race.mp3" length="3749222" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Sermon On Suffering</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/LE10_05_Sermon_On_Suffering.mp3</link>
+<guid>http://LE10_05_Sermon_On_Suffering.mp3</guid>
+<description>Sermon On Suffering - Let's Eat! (#10) - Firesign Theatre - 1972</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ht:p:</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:43:00 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/LE10_05_Sermon_On_Suffering.mp3" length="2054606" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Rev.Barnstormer/CreationMuseum</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_006/barnmuseum.mp3</link>
+<guid>http://barnmuseum.mp3</guid>
+<description>Rev.Barnstormer/CreationMuseum - Rev. Barnstormer - David Ossman/Brian Westley - 2007</description>
+<itunes:author>David Ossman/Brian Westley</itunes:author>
+<itunes:duration>ht:p:</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:58 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_006/barnmuseum.mp3" length="3132941" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>G^HLabor Day message</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/BBlabor.mp3</link>
+<guid>http://BBlabor.mp3</guid>
+<description>G^HLabor Day message - Rev. Barnstormer - David Ossman/Brian Westley - 2000</description>
+<itunes:author>David Ossman/Brian Westley</itunes:author>
+<itunes:duration>ht:p:</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:58 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/BBlabor.mp3" length="2430143" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>The Commencement Address</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/LE10_06_The_Commencement_Address.mp3</link>
+<guid>http://LE10_06_The_Commencement_Address.mp3</guid>
+<description>The Commencement Address - Let's Eat! (#10) - Firesign Theatre - 1972</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ht:p:</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:58 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/LE10_06_The_Commencement_Address.mp3" length="2820726" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>4th of July message</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/BBJuly4.mp3</link>
+<guid>http://BBJuly4.mp3</guid>
+<description>4th of July message - Rev. Barnstormer - David Ossman/Brian Westley - 2000</description>
+<itunes:author>David Ossman/Brian Westley</itunes:author>
+<itunes:duration>ww:.f</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:56 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/BBJuly4.mp3" length="1006365" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>WMDs</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/BBWMDs.mp3</link>
+<guid>http://BBWMDs.mp3</guid>
+<description>WMDs - Rev. Barnstormer - David Ossman/Brian Westley - 2000</description>
+<itunes:author>David Ossman/Brian Westley</itunes:author>
+<itunes:duration>ht:p:</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:56 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/BBWMDs.mp3" length="4658816" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Easter message</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/BBeaster.mp3</link>
+<guid>http://BBeaster.mp3</guid>
+<description>Easter message - Rev. Barnstormer - David Ossman/Brian Westley - 2000</description>
+<itunes:author>David Ossman/Brian Westley</itunes:author>
+<itunes:duration>ht:p:</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:54 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/BBeaster.mp3" length="2257472" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Anti-Ballistic missals</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/BBmssl.mp3</link>
+<guid>http://BBmssl.mp3</guid>
+<description>Anti-Ballistic missals - Rev. Barnstormer - David Ossman/Brian Westley - 2000</description>
+<itunes:author>David Ossman/Brian Westley</itunes:author>
+<itunes:duration>ht:p:</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:54 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/BBmssl.mp3" length="2348014" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Go Postal Protection Package</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/BBpostal.mp3</link>
+<guid>http://BBpostal.mp3</guid>
+<description>Go Postal Protection Package - Rev. Barnstormer - David Ossman/Brian Westley - 2000</description>
+<itunes:author>David Ossman/Brian Westley</itunes:author>
+<itunes:duration>ht:p:</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:52 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/BBpostal.mp3" length="3598130" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Visit by Rev. Hensley</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/BBsnake.mp3</link>
+<guid>http://BBsnake.mp3</guid>
+<description>Visit by Rev. Hensley - Rev. Barnstormer - David Ossman/Brian Westley - 2000</description>
+<itunes:author>David Ossman/Brian Westley</itunes:author>
+<itunes:duration>ht:p:</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:52 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/BBsnake.mp3" length="2492210" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>S*domy</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/BBsodmy.mp3</link>
+<guid>http://BBsodmy.mp3</guid>
+<description>S*domy - Rev. Barnstormer - David Ossman/Brian Westley - 2000</description>
+<itunes:author>David Ossman/Brian Westley</itunes:author>
+<itunes:duration>ht:p:</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:50 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/BBsodmy.mp3" length="2081565" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Christmas parable</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/BBxmas.mp3</link>
+<guid>http://BBxmas.mp3</guid>
+<description>Christmas parable - Rev. Barnstormer - David Ossman/Brian Westley - 2000</description>
+<itunes:author>David Ossman/Brian Westley</itunes:author>
+<itunes:duration>ht:p:</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:50 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/BBxmas.mp3" length="1323909" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Storm clouds</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/stormclouds.mp3</link>
+<guid>http://stormclouds.mp3</guid>
+<description>Storm clouds - KPPC Hour Hour clip Feb 1970 - Firesign Theatre - 1970</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ht:p:</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:48 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/stormclouds.mp3" length="1813862" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Pete Moss</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/PeteMoss.mp3</link>
+<guid>http://PeteMoss.mp3</guid>
+<description>Pete Moss - Minicon 33 - Shockwave/Proctor+Ossman - 1998</description>
+<itunes:author>Shockwave/Proctor+Ossman</itunes:author>
+<itunes:duration>17:54</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:48 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/PeteMoss.mp3" length="17176371" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Anarchist joke</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/anarchistjoke.mp3</link>
+<guid>http://anarchistjoke.mp3</guid>
+<description>Anarchist joke - KPPC Hour Hour clip Feb 1970 - Firesign Theatre - 1970</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ht:p:</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:46 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/anarchistjoke.mp3" length="4782417" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Cat squirrel</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/catsquirrel.mp3</link>
+<guid>http://catsquirrel.mp3</guid>
+<description>Cat squirrel - KPPC Hour Hour clip Feb 1970 - Firesign Theatre - 1970</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ht:p:</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:46 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/catsquirrel.mp3" length="3465846" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Archie</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/archie.mp3</link>
+<guid>http://archie.mp3</guid>
+<description>Archie - KPPC Hour Hour clip Feb 1970 - Firesign Theatre - 1970</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ht:p:</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:44 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/archie.mp3" length="1188177" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Let's Play PORKO!</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/letsplayporko.mp3</link>
+<guid>http://letsplayporko.mp3</guid>
+<description>Let's Play PORKO! - KPPC Hour Hour clip Feb 1970 - Firesign Theatre - 1970</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ht:p:</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:44 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/letsplayporko.mp3" length="1870914" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>23 Skid Row</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/23skidrow.mp3</link>
+<guid>http://23skidrow.mp3</guid>
+<description>23 Skid Row - KPPC Hour Hour clip Feb 1970 - Firesign Theatre - 1970</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ht:p:</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:42 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/23skidrow.mp3" length="6278293" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Clayton Rumcake's new phone</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/newphone.mp3</link>
+<guid>http://newphone.mp3</guid>
+<description>Clayton Rumcake's new phone - KPPC Hour Hour clip Feb 1970 - Firesign Theatre - 1970</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ht:p:</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:42 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/newphone.mp3" length="3321650" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Art of the Insane #1</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/ArtOfTheInsane1.mp3</link>
+<guid>http://ArtOfTheInsane1.mp3</guid>
+<description>Art of the Insane #1 - Fools In Space on XM Radio - Firesign Theatre - 2002</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ht:p:</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:40 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/ArtOfTheInsane1.mp3" length="5405595" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Attn: Rudolph Hess</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/attnrudolphhess.mp3</link>
+<guid>http://attnrudolphhess.mp3</guid>
+<description>Attn: Rudolph Hess - KPPC Hour Hour clip Feb 1970 - Firesign Theatre - 1970</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ht:p:</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:40 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/attnrudolphhess.mp3" length="924236" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Art of the Insane #3</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/ArtOfTheInsane3.mp3</link>
+<guid>http://ArtOfTheInsane3.mp3</guid>
+<description>Art of the Insane #3 - Fools In Space on XM Radio - Firesign Theatre - 2002</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ht:p:</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:38 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/ArtOfTheInsane3.mp3" length="4526626" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Art of the Insane #2</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/ArtOfTheInsane2.mp3</link>
+<guid>http://ArtOfTheInsane2.mp3</guid>
+<description>Art of the Insane #2 - Fools In Space on XM Radio - Firesign Theatre - 2002</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ht:p:</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:38 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/ArtOfTheInsane2.mp3" length="6218734" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>US Presidents in butter</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/profbutter.mp3</link>
+<guid>http://profbutter.mp3</guid>
+<description>US Presidents in butter - NPR's "Morning Edition" - Firesign Theatre - 1980</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>Re:or</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:36 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/profbutter.mp3" length="1122766" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Deposed Heads of 1979</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/chheads.mp3</link>
+<guid>http://chheads.mp3</guid>
+<description>Deposed Heads of 1979 - NPR's "Morning Edition" - Firesign Theatre - 1980</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>Re:or</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:36 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/chheads.mp3" length="1224330" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Hal Stark: couches+politicians</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/halstarkcouch.mp3</link>
+<guid>http://halstarkcouch.mp3</guid>
+<description>Hal Stark: couches+politicians - NPR's "Morning Edition" - Firesign Theatre - 1980</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>Re:or</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:34 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/halstarkcouch.mp3" length="2129212" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Breezy Breeze w/G. Washington</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/Washington.mp3</link>
+<guid>http://Washington.mp3</guid>
+<description>Breezy Breeze w/G. Washington - NPR's "Morning Edition" - Firesign Theatre - 1980</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>Re:or</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:34 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/Washington.mp3" length="1716268" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Horned Toads</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/hornedtoads.mp3</link>
+<guid>http://hornedtoads.mp3</guid>
+<description>Horned Toads - NPR's "Morning Edition" - Firesign Theatre - 1980</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>Re:or</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:32 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/hornedtoads.mp3" length="435641" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Tirebiter on CIA and Bush</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/spys.mp3</link>
+<guid>http://spys.mp3</guid>
+<description>Tirebiter on CIA and Bush - NPR's "Morning Edition" - Firesign Theatre - 1980</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>Re:or</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:32 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/spys.mp3" length="1697460" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Johnson's Newt Oil</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/newtoil.mp3</link>
+<guid>http://newtoil.mp3</guid>
+<description>Johnson's Newt Oil - NPR's "Morning Edition" - Firesign Theatre - 1980</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>Re:or</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:30 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/newtoil.mp3" length="324882" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Kissinger's 70s butter dishes</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/Kissinger.mp3</link>
+<guid>http://Kissinger.mp3</guid>
+<description>Kissinger's 70s butter dishes - NPR's "Morning Edition" - Firesign Theatre - 1980</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>Re:or</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:30 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/Kissinger.mp3" length="1232690" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Cash Green On GOP Politics</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/slushfund.mp3</link>
+<guid>http://slushfund.mp3</guid>
+<description>Cash Green On GOP Politics - NPR's "Morning Edition" - Firesign Theatre - 1980</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>Re:or</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:28 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/slushfund.mp3" length="2704742" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>George Tirebiter On Veeps</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/veeps.mp3</link>
+<guid>http://veeps.mp3</guid>
+<description>George Tirebiter On Veeps - Live From The Islands! - David Ossman - 2004</description>
+<itunes:author>David Ossman</itunes:author>
+<itunes:duration>Do:e </itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:28 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/veeps.mp3" length="5727214" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Spud</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/DF_05_Spud.mp3</link>
+<guid>http://DF_05_Spud.mp3</guid>
+<description>Spud - Dear Friends KPFK radio - Firesign Theatre - 1971</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ht:p:</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:26 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/DF_05_Spud.mp3" length="804281" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Rules</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/DF_01_Rules.mp3</link>
+<guid>http://DF_01_Rules.mp3</guid>
+<description>Rules - Dear Friends KPFK radio - Firesign Theatre - 1971</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ht:p:</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:26 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/DF_01_Rules.mp3" length="1089748" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Bluff</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/DF_13_Bluff.mp3</link>
+<guid>http://DF_13_Bluff.mp3</guid>
+<description>Bluff - Dear Friends KPFK radio - Firesign Theatre - 1971</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ht:p:</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:24 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/DF_13_Bluff.mp3" length="2855207" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Fiji</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/DF_17_Fiji.mp3</link>
+<guid>http://DF_17_Fiji.mp3</guid>
+<description>Fiji - Dear Friends KPFK radio - Firesign Theatre - 1971</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ht:p:</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:24 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/DF_17_Fiji.mp3" length="3490505" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Spoilsport's Fallout Shelters</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/RalphSpoilsport1.mp3</link>
+<guid>http://RalphSpoilsport1.mp3</guid>
+<description>Spoilsport's Fallout Shelters - Spoilsport's Fallout Shelters - Phil Proctor/Brian Westley - 1997</description>
+<itunes:author>Phil Proctor/Brian Westley</itunes:author>
+<itunes:duration>fi:es</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:22 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/RalphSpoilsport1.mp3" length="433343" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Fallout Shelter Restaurants</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/RalphSpoilsport2.mp3</link>
+<guid>http://RalphSpoilsport2.mp3</guid>
+<description>Fallout Shelter Restaurants - Spoilsport's Fallout Shelters - Phil Proctor/Brian Westley - 1997</description>
+<itunes:author>Phil Proctor/Brian Westley</itunes:author>
+<itunes:duration>fi:es</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:22 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/RalphSpoilsport2.mp3" length="445568" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Fallout Shelter Treehouses</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/RalphSpoilsport4.mp3</link>
+<guid>http://RalphSpoilsport4.mp3</guid>
+<description>Fallout Shelter Treehouses - Spoilsport's Fallout Shelters - Phil Proctor/Brian Westley - 1997</description>
+<itunes:author>Phil Proctor/Brian Westley</itunes:author>
+<itunes:duration>fi:es</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:20 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/RalphSpoilsport4.mp3" length="388830" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Used Bomb Shelters</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/RalphSpoilsport3.mp3</link>
+<guid>http://RalphSpoilsport3.mp3</guid>
+<description>Used Bomb Shelters - Spoilsport's Fallout Shelters - Phil Proctor/Brian Westley - 1997</description>
+<itunes:author>Phil Proctor/Brian Westley</itunes:author>
+<itunes:duration>fi:es</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:20 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/RalphSpoilsport3.mp3" length="348392" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Portable Fallout Shelters</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/RalphSpoilsport6.mp3</link>
+<guid>http://RalphSpoilsport6.mp3</guid>
+<description>Portable Fallout Shelters - Spoilsport's Fallout Shelters - Phil Proctor/Brian Westley - 1997</description>
+<itunes:author>Phil Proctor/Brian Westley</itunes:author>
+<itunes:duration>fi:es</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:18 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/RalphSpoilsport6.mp3" length="405444" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Fallout Fashion Foundations</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/RalphSpoilsport5.mp3</link>
+<guid>http://RalphSpoilsport5.mp3</guid>
+<description>Fallout Fashion Foundations - Spoilsport's Fallout Shelters - Phil Proctor/Brian Westley - 1997</description>
+<itunes:author>Phil Proctor/Brian Westley</itunes:author>
+<itunes:duration>fi:es</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:18 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/RalphSpoilsport5.mp3" length="383188" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Edible Fallout Shelters</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/RalphSpoilsport7.mp3</link>
+<guid>http://RalphSpoilsport7.mp3</guid>
+<description>Edible Fallout Shelters - Spoilsport's Fallout Shelters - Phil Proctor/Brian Westley - 1997</description>
+<itunes:author>Phil Proctor/Brian Westley</itunes:author>
+<itunes:duration>fi:es</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:16 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/RalphSpoilsport7.mp3" length="326450" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Camp Ground Zero</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/RalphSpoilsport8.mp3</link>
+<guid>http://RalphSpoilsport8.mp3</guid>
+<description>Camp Ground Zero - Spoilsport's Fallout Shelters - Phil Proctor/Brian Westley - 1997</description>
+<itunes:author>Phil Proctor/Brian Westley</itunes:author>
+<itunes:duration>fi:es</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:16 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/RalphSpoilsport8.mp3" length="528637" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Hour Hour: Catch 23</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/catch23.mp3</link>
+<guid>http://catch23.mp3</guid>
+<description>Hour Hour: Catch 23 - KPPC Hour Hour clip June 28 - Firesign Theatre - 1970</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>Re:or</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:14 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/catch23.mp3" length="4042629" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Hour Hour: No Bummers</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/nobummers.mp3</link>
+<guid>http://nobummers.mp3</guid>
+<description>Hour Hour: No Bummers - KPPC Hour Hour clip June 28 - Firesign Theatre - 1970</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>Re:or</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:14 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/nobummers.mp3" length="5533281" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Store Near You</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/a1s_storenearyou.mp3</link>
+<guid>http://a1s_storenearyou.mp3</guid>
+<description>Store Near You - A1 Slacks ads - Firesign Theatre - 1971</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ex:ct</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:12 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/a1s_storenearyou.mp3" length="234684" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Two Legged</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/a1s_twolegged.mp3</link>
+<guid>http://a1s_twolegged.mp3</guid>
+<description>Two Legged - A1 Slacks ads - Firesign Theatre - 1971</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ex:ct</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:12 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/a1s_twolegged.mp3" length="435564" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Moment of Your Time</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/a1s_momentofyourtime.mp3</link>
+<guid>http://a1s_momentofyourtime.mp3</guid>
+<description>Moment of Your Time - A1 Slacks ads - Firesign Theatre - 1971</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ex:ct</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:10 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/a1s_momentofyourtime.mp3" length="435825" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Sock It Towards Me</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/a1s_sockittowardsme.mp3</link>
+<guid>http://a1s_sockittowardsme.mp3</guid>
+<description>Sock It Towards Me - A1 Slacks ads - Firesign Theatre - 1971</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ex:ct</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:10 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/a1s_sockittowardsme.mp3" length="239595" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Lower Half</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/a1s_lowerhalf.mp3</link>
+<guid>http://a1s_lowerhalf.mp3</guid>
+<description>Lower Half - A1 Slacks ads - Firesign Theatre - 1971</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ex:ct</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:08 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/a1s_lowerhalf.mp3" length="452127" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Double Your Trousers</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/a1s_doubleyourtrousers.mp3</link>
+<guid>http://a1s_doubleyourtrousers.mp3</guid>
+<description>Double Your Trousers - A1 Slacks ads - Firesign Theatre - 1971</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ex:ct</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:08 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/a1s_doubleyourtrousers.mp3" length="245027" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Temporarily Humboldt County</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/wfte1.mp3</link>
+<guid>http://wfte1.mp3</guid>
+<description>Temporarily Humboldt County - Waiting For The Electrician... - Firesign Theatre - 1968</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>Or:So</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:06 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/wfte1.mp3" length="1406561" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Further Adventures/Nick Danger</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/hcyb2.mp3</link>
+<guid>http://hcyb2.mp3</guid>
+<description>Further Adventures/Nick Danger - HowCanYouBeInTwoPlacesAtOnce - Firesign Theatre - 1969</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>Wh:nY</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:06 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/hcyb2.mp3" length="1150770" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Side .001</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/bozos1.mp3</link>
+<guid>http://bozos1.mp3</guid>
+<description>Side .001 - I Think We're All Bozos... - Firesign Theatre - 1971</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>..:On</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:04 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/bozos1.mp3" length="1309595" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>This Side</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/dctd1.mp3</link>
+<guid>http://dctd1.mp3</guid>
+<description>This Side - Don't Crush That Dwarf... - Firesign Theatre - 1970</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>..:an</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:04 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/dctd1.mp3" length="1720866" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Balliol Bros.</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/df24.mp3</link>
+<guid>http://df24.mp3</guid>
+<description>Balliol Bros. - Dear Friends - Firesign Theatre - 1972</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>0:48</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:02 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/df24.mp3" length="769173" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Not Responsible</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/ni2.mp3</link>
+<guid>http://ni2.mp3</guid>
+<description>Not Responsible - Not Insane - Firesign Theatre - 1972</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ex:er</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:02 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/ni2.mp3" length="1457134" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>NotQuiteTheSolutionHeExpected</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/gros1.mp3</link>
+<guid>http://gros1.mp3</guid>
+<description>NotQuiteTheSolutionHeExpected - TheTaleOfTheGiantRatofSumatra - Firesign Theatre - 1974</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ex:er</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:00 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/gros1.mp3" length="949314" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Side 1</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/eykiw1.mp3</link>
+<guid>http://eykiw1.mp3</guid>
+<description>Side 1 - Everything You Know Is Wrong - Firesign Theatre - 1974</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ex:er</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:42:00 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/eykiw1.mp3" length="1496840" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Bear Whiz Beer</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/sfi25.mp3</link>
+<guid>http://sfi25.mp3</guid>
+<description>Bear Whiz Beer - Shoes For Industry! - The Firesign Theatre - 1993</description>
+<itunes:author>The Firesign Theatre</itunes:author>
+<itunes:duration>Co:pi</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:58 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/sfi25.mp3" length="489141" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Police Street</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/nextworld1.mp3</link>
+<guid>http://nextworld1.mp3</guid>
+<description>Police Street - InTheNextWorld,You'reOnYourOwn - Firesign Theatre - 1975</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ex:er</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:58 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/nextworld1.mp3" length="1319626" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>In The War Zone</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/fc6.mp3</link>
+<guid>http://fc6.mp3</guid>
+<description>In The War Zone - Fighting Clowns - Firesign Theatre - 1980</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ex:er</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:56 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/fc6.mp3" length="990692" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Ye Rampartes of Castle Pflegem</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/aywt6.mp3</link>
+<guid>http://aywt6.mp3</guid>
+<description>Ye Rampartes of Castle Pflegem - Anythynge You Want To - Firesign Theatre - 1977</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ex:er</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:56 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/aywt6.mp3" length="1678652" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Unconscious Village</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/gmiogmd16.mp3</link>
+<guid>http://gmiogmd16.mp3</guid>
+<description>Unconscious Village - GiveMeImmortalityOrGiveMeDeath - Firesign Theatre - 1998</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>0:59</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:54 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/gmiogmd16.mp3" length="947224" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>PapoonNominated!PrezOffToMars!</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/pfp2.mp3</link>
+<guid>http://pfp2.mp3</guid>
+<description>PapoonNominated!PrezOffToMars! - Papoon for President - Firesign Theatre - 2002</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ex:er</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:54 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/pfp2.mp3" length="764158" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>The Haystack In The Needle</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/bof7.mp3</link>
+<guid>http://bof7.mp3</guid>
+<description>The Haystack In The Needle - The Bride of Firesign - Firesign Theatre - 2001</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ex:er</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:52 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/bof7.mp3" length="1420772" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Devilmaster by Infermco</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/bdb22.mp3</link>
+<guid>http://bdb22.mp3</guid>
+<description>Devilmaster by Infermco - Boom Dot Bust - Firesign Theatre - 1999</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ex:er</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:52 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/bdb22.mp3" length="1281173" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>TIPs Hotline</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/atf8.mp3</link>
+<guid>http://atf8.mp3</guid>
+<description>TIPs Hotline - All Things Firesign - Firesign Theatre - 2003</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>1:25</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:50 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/atf8.mp3" length="1361004" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Mark,MrMotionAndTheMemoryLoops</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/htf6.mp3</link>
+<guid>http://htf6.mp3</guid>
+<description>Mark,MrMotionAndTheMemoryLoops - How Time Flys - David Ossman - 1973</description>
+<itunes:author>David Ossman</itunes:author>
+<itunes:duration>ex:er</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:48 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/htf6.mp3" length="1596732" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Goddess Air</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/rnl12.mp3</link>
+<guid>http://rnl12.mp3</guid>
+<description>Goddess Air - RadioNow Live! - Firesign Theatre - 2001</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>li:e </itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:48 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/rnl12.mp3" length="972301" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>The Pills Brothers On Drugs</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/tont11.mp3</link>
+<guid>http://tont11.mp3</guid>
+<description>The Pills Brothers On Drugs - TV Or Not TV - Proctor and Bergman - 1973</description>
+<itunes:author>Proctor and Bergman</itunes:author>
+<itunes:duration>0:57</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:46 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/tont11.mp3" length="912951" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>T.V.</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/rm8.mp3</link>
+<guid>http://rm8.mp3</guid>
+<description>T.V. - Roller Maidens From OuterSpace - Phil Austin - 1974</description>
+<itunes:author>Phil Austin</itunes:author>
+<itunes:duration>1:03</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:46 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/rm8.mp3" length="1007828" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Driving Mr. Power</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/power2.mp3</link>
+<guid>http://power2.mp3</guid>
+<description>Driving Mr. Power - Power: Life On The Edge in LA - Proctor and Bergman - 1990</description>
+<itunes:author>Proctor and Bergman</itunes:author>
+<itunes:duration>ex:er</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:44 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/power2.mp3" length="1536128" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>What This Country Needs</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/wtcn9.mp3</link>
+<guid>http://wtcn9.mp3</guid>
+<description>What This Country Needs - What This Counry Needs - Proctor And Bergman - 1973</description>
+<itunes:author>Proctor And Bergman</itunes:author>
+<itunes:duration>1:40</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:44 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/wtcn9.mp3" length="1607599" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>A Drink</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/craig_adrink.mp3</link>
+<guid>http://craig_adrink.mp3</guid>
+<description>A Drink - Craig Recorder ads - Firesign Theatre - 1971</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ex:ct</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:42 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/craig_adrink.mp3" length="612153" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>DC Tour</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/craig_dctour.mp3</link>
+<guid>http://craig_dctour.mp3</guid>
+<description>DC Tour - Craig Recorder ads - Firesign Theatre - 1971</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ex:ct</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:42 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/craig_dctour.mp3" length="640470" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Goodbeer Blimp</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/craig_goodbeerblimp.mp3</link>
+<guid>http://craig_goodbeerblimp.mp3</guid>
+<description>Goodbeer Blimp - Craig Recorder ads - Firesign Theatre - 1971</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ex:ct</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:40 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/craig_goodbeerblimp.mp3" length="582217" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Girlfriends</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/craig_girlfriends.mp3</link>
+<guid>http://craig_girlfriends.mp3</guid>
+<description>Girlfriends - Craig Recorder ads - Firesign Theatre - 1971</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ex:ct</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:40 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/craig_girlfriends.mp3" length="505678" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Lecture</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/craig_lecture.mp3</link>
+<guid>http://craig_lecture.mp3</guid>
+<description>Lecture - Craig Recorder ads - Firesign Theatre - 1971</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ex:ct</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:38 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/craig_lecture.mp3" length="599928" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Parent's House</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/craig_parentshouse.mp3</link>
+<guid>http://craig_parentshouse.mp3</guid>
+<description>Parent's House - Craig Recorder ads - Firesign Theatre - 1971</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ex:ct</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:38 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/craig_parentshouse.mp3" length="607711" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Dad Makes Breakfast</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/cib_dadmakesbreakfast.mp3</link>
+<guid>http://cib_dadmakesbreakfast.mp3</guid>
+<description>Dad Makes Breakfast - Carnation Instant Breakfast ad - Firesign Theatre - 1971</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ex:ct</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:36 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/cib_dadmakesbreakfast.mp3" length="695378" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Stg. Preston</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/craig_sgtpreston.mp3</link>
+<guid>http://craig_sgtpreston.mp3</guid>
+<description>Stg. Preston - Craig Recorder ads - Firesign Theatre - 1971</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ex:ct</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:36 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/craig_sgtpreston.mp3" length="591306" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Flower Shoppe</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/cib_flowershoppe.mp3</link>
+<guid>http://cib_flowershoppe.mp3</guid>
+<description>Flower Shoppe - Carnation Instant Breakfast ad - Firesign Theatre - 1971</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ex:ct</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:34 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/cib_flowershoppe.mp3" length="713350" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Day for Night</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/cib_dayfornight.mp3</link>
+<guid>http://cib_dayfornight.mp3</guid>
+<description>Day for Night - Carnation Instant Breakfast ad - Firesign Theatre - 1971</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ex:ct</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:34 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/cib_dayfornight.mp3" length="734093" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Secret Microphone</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/cib_secretmicrophone.mp3</link>
+<guid>http://cib_secretmicrophone.mp3</guid>
+<description>Secret Microphone - Carnation Instant Breakfast ad - Firesign Theatre - 1971</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ex:ct</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:32 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/cib_secretmicrophone.mp3" length="683120" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Professor Zygote</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/cib_profzygote.mp3</link>
+<guid>http://cib_profzygote.mp3</guid>
+<description>Professor Zygote - Carnation Instant Breakfast ad - Firesign Theatre - 1971</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ex:ct</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:32 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/cib_profzygote.mp3" length="733412" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>"Snuffy" Rodriguez</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/cib_snuffyrodriguez.mp3</link>
+<guid>http://cib_snuffyrodriguez.mp3</guid>
+<description>"Snuffy" Rodriguez - Carnation Instant Breakfast ad - Firesign Theatre - 1971</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ex:ct</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:30 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/cib_snuffyrodriguez.mp3" length="709851" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Jack Poet Volkswagen ad #1</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/jpoz_bergman2.mp3</link>
+<guid>http://jpoz_bergman2.mp3</guid>
+<description>Jack Poet Volkswagen ad #1 - Radio Free Oz - Firesign Theatre - 1968</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>0:45</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:30 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/jpoz_bergman2.mp3" length="719840" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Jack Poet Volkswagen ad #2</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/jpoz_bergman1.mp3</link>
+<guid>http://jpoz_bergman1.mp3</guid>
+<description>Jack Poet Volkswagen ad #2 - Radio Free Oz - Firesign Theatre - 1968</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>1:30</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:28 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/jpoz_bergman1.mp3" length="1443440" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Jack Poet Volkswagen ad #3</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/jpoz_improvised.mp3</link>
+<guid>http://jpoz_improvised.mp3</guid>
+<description>Jack Poet Volkswagen ad #3 - Radio Free Oz - Firesign Theatre - 1968</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>1:45</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:28 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/jpoz_improvised.mp3" length="1672400" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Pancake Eating Contest</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/ihop_pancakeeatingcontest.mp3</link>
+<guid>http://ihop_pancakeeatingcontest.mp3</guid>
+<description>Pancake Eating Contest - Internat'l House of Pancakes - Firesign Theatre - 1971</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ex:ct</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:26 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/ihop_pancakeeatingcontest.mp3" length="754991" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Tell Us A Story</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/ihop_tellusastory.mp3</link>
+<guid>http://ihop_tellusastory.mp3</guid>
+<description>Tell Us A Story - Internat'l House of Pancakes - Firesign Theatre - 1971</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ex:ct</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:26 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/ihop_tellusastory.mp3" length="734248" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Announcer</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/ihop_announcer.mp3</link>
+<guid>http://ihop_announcer.mp3</guid>
+<description>Announcer - Internat'l House of Pancakes - Firesign Theatre - 1971</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ex:ct</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:24 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/ihop_announcer.mp3" length="738532" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>International House</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/ihop_internationalhouse.mp3</link>
+<guid>http://ihop_internationalhouse.mp3</guid>
+<description>International House - Internat'l House of Pancakes - Firesign Theatre - 1971</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ex:ct</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:24 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/ihop_internationalhouse.mp3" length="733778" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>News Bite #1</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/02_newsbite_a.mp3</link>
+<guid>http://02_newsbite_a.mp3</guid>
+<description>News Bite #1 - NPR "April Fools" ads - Firesign Theatre - 1997</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>0:46</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:22 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/02_newsbite_a.mp3" length="737552" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Everything You Know Is Wrong</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/01_eykiw_expo.mp3</link>
+<guid>http://01_eykiw_expo.mp3</guid>
+<description>Everything You Know Is Wrong - NPR "April Fools" ads - Firesign Theatre - 1997</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>0:36</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:22 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/01_eykiw_expo.mp3" length="582896" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Darwin Breweries</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/03_darwin_breweries.mp3</link>
+<guid>http://03_darwin_breweries.mp3</guid>
+<description>Darwin Breweries - NPR "April Fools" ads - Firesign Theatre - 1997</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>0:27</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:20 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/03_darwin_breweries.mp3" length="429536" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Unconscious Village</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/04_unconscious.mp3</link>
+<guid>http://04_unconscious.mp3</guid>
+<description>Unconscious Village - NPR "April Fools" ads - Firesign Theatre - 1997</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>0:30</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:20 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/04_unconscious.mp3" length="476192" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>US Plus</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/06_u_s_plus.mp3</link>
+<guid>http://06_u_s_plus.mp3</guid>
+<description>US Plus - NPR "April Fools" ads - Firesign Theatre - 1997</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>0:31</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:18 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/06_u_s_plus.mp3" length="499520" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>News Bite #2</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/05_newsbite_b.mp3</link>
+<guid>http://05_newsbite_b.mp3</guid>
+<description>News Bite #2 - NPR "April Fools" ads - Firesign Theatre - 1997</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>0:44</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:18 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/05_newsbite_b.mp3" length="708176" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>News Bite #3</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/08_newsbite_c.mp3</link>
+<guid>http://08_newsbite_c.mp3</guid>
+<description>News Bite #3 - NPR "April Fools" ads - Firesign Theatre - 1997</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>0:46</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:16 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/08_newsbite_c.mp3" length="732800" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Dr. Sy Borg</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/07_dr_sy_borg.mp3</link>
+<guid>http://07_dr_sy_borg.mp3</guid>
+<description>Dr. Sy Borg - NPR "April Fools" ads - Firesign Theatre - 1997</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>0:33</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:16 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/07_dr_sy_borg.mp3" length="533216" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Chef Troofle</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/10_chef_troofle.mp3</link>
+<guid>http://10_chef_troofle.mp3</guid>
+<description>Chef Troofle - NPR "April Fools" ads - Firesign Theatre - 1997</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>0:28</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:14 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/10_chef_troofle.mp3" length="454592" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Anythynge You Want To</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/09_anythynge.mp3</link>
+<guid>http://09_anythynge.mp3</guid>
+<description>Anythynge You Want To - NPR "April Fools" ads - Firesign Theatre - 1997</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>0:35</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:14 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/09_anythynge.mp3" length="562592" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Hour Hour: STONES BABY, STONES</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/hh_19700628_seg1_edit.mp3</link>
+<guid>http://hh_19700628_seg1_edit.mp3</guid>
+<description>Hour Hour: STONES BABY, STONES - KPPC Hour Hour clip June 28 - Firesign Theatre - 1970</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>Re:or</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:12 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/hh_19700628_seg1_edit.mp3" length="5123472" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Hour Hour: navigation</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/hh_19700621.mp3</link>
+<guid>http://hh_19700621.mp3</guid>
+<description>Hour Hour: navigation - KPPC Hour Hour clip June 21 - Firesign Theatre - 1970</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>Re:or</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:12 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/hh_19700621.mp3" length="4808540" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Traffic</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/jp_traffic.mp3</link>
+<guid>http://jp_traffic.mp3</guid>
+<description>Traffic - Jack Poet Volkswagen radio ads - Firesign Theatre - 1968</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>Ac:ua</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:10 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/jp_traffic.mp3" length="525216" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>The Lone Wrangler</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/jp_thelonewrangler.mp3</link>
+<guid>http://jp_thelonewrangler.mp3</guid>
+<description>The Lone Wrangler - Jack Poet Volkswagen radio ads - Firesign Theatre - 1968</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>Ac:ua</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:10 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/jp_thelonewrangler.mp3" length="742304" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>_nd of the World</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/jp_ndoftheworld.mp3</link>
+<guid>http://jp_ndoftheworld.mp3</guid>
+<description>_nd of the World - Jack Poet Volkswagen radio ads - Firesign Theatre - 1968</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>Ac:ua</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:08 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/jp_ndoftheworld.mp3" length="768656" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Subterranean Penthouse</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/jp_subterraneanpenthouse.mp3</link>
+<guid>http://jp_subterraneanpenthouse.mp3</guid>
+<description>Subterranean Penthouse - Jack Poet Volkswagen radio ads - Firesign Theatre - 1968</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>Ac:ua</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:08 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/jp_subterraneanpenthouse.mp3" length="661520" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Lounge Singer</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/jp_loungesinger.mp3</link>
+<guid>http://jp_loungesinger.mp3</guid>
+<description>Lounge Singer - Jack Poet Volkswagen radio ads - Firesign Theatre - 1968</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>Ac:ua</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:06 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/jp_loungesinger.mp3" length="578663" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Hollywood Skyscraper</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/jp_hollywoodskyscraper.mp3</link>
+<guid>http://jp_hollywoodskyscraper.mp3</guid>
+<description>Hollywood Skyscraper - Jack Poet Volkswagen radio ads - Firesign Theatre - 1968</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>Ac:ua</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:06 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/jp_hollywoodskyscraper.mp3" length="770816" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Captain Equinox</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/jp_captainequinox.mp3</link>
+<guid>http://jp_captainequinox.mp3</guid>
+<description>Captain Equinox - Jack Poet Volkswagen radio ads - Firesign Theatre - 1968</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>Ac:ua</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:04 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/jp_captainequinox.mp3" length="722864" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Breakfast With the Brunts</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/jp_breakfastwiththebrunts.mp3</link>
+<guid>http://jp_breakfastwiththebrunts.mp3</guid>
+<description>Breakfast With the Brunts - Jack Poet Volkswagen radio ads - Firesign Theatre - 1968</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>Ac:ua</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:04 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/jp_breakfastwiththebrunts.mp3" length="781616" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Army-Navy Classic</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/jp_armynavyclassic.mp3</link>
+<guid>http://jp_armynavyclassic.mp3</guid>
+<description>Army-Navy Classic - Jack Poet Volkswagen radio ads - Firesign Theatre - 1968</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>Ac:ua</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:02 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/jp_armynavyclassic.mp3" length="753536" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Aboriginal Amateur Hour</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/jp_aboriginalamateurhour.mp3</link>
+<guid>http://jp_aboriginalamateurhour.mp3</guid>
+<description>Aboriginal Amateur Hour - Jack Poet Volkswagen radio ads - Firesign Theatre - 1968</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>Ac:ua</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:02 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/jp_aboriginalamateurhour.mp3" length="782048" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>The Backwards Pizza</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/ph_thebackwardspizza.mp3</link>
+<guid>http://ph_thebackwardspizza.mp3</guid>
+<description>The Backwards Pizza - Pizza Hut Nick Danger ads - Firesign Theatre - 1995</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>Th:y </itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:00 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/ph_thebackwardspizza.mp3" length="815750" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>The Priceless Pizza</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/ph_thepricelesspizza.mp3</link>
+<guid>http://ph_thepricelesspizza.mp3</guid>
+<description>The Priceless Pizza - Pizza Hut Nick Danger ads - Firesign Theatre - 1995</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>Th:y </itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:41:00 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/ph_thepricelesspizza.mp3" length="813556" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Pizza Heaven</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/ph_pizzaheaven.mp3</link>
+<guid>http://ph_pizzaheaven.mp3</guid>
+<description>Pizza Heaven - Pizza Hut Nick Danger ads - Firesign Theatre - 1995</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>Th:y </itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:40:58 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/ph_pizzaheaven.mp3" length="787278" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Crusty Calculations</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/ph_crustycalculation.mp3</link>
+<guid>http://ph_crustycalculation.mp3</guid>
+<description>Crusty Calculations - Pizza Hut Nick Danger ads - Firesign Theatre - 1995</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>Th:y </itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 14 Jun 2007 18:40:56 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/ph_crustycalculation.mp3" length="821654" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Let's Eat Poems #2</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_002/LE10_08_Lets_Eat_Poems__2_.mp3</link>
+<guid>http://LE10_08_Lets_Eat_Poems_%5B2%5D.mp3</guid>
+<description>Let's Eat Poems #2 - Let's Eat! (#10) - Firesign Theatre - 1972</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ht:p:</itunes:duration>
+<category>Comedy</category>
+<pubDate>Tue, 06 Jun 2006 07:55:04 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_002/LE10_08_Lets_Eat_Poems__2_.mp3" length="2262437" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Let's Eat Poems #1</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_002/LE10_07_Lets_Eat_Poems__1_.mp3</link>
+<guid>http://LE10_07_Lets_Eat_Poems_%5B1%5D.mp3</guid>
+<description>Let's Eat Poems #1 - Let's Eat! (#10) - Firesign Theatre - 1972</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ht:p:</itunes:duration>
+<category>Comedy</category>
+<pubDate>Tue, 06 Jun 2006 07:54:52 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_002/LE10_07_Lets_Eat_Poems__1_.mp3" length="2894391" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>San Clameron!</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_002/LE10_04_San_Clameron_.mp3</link>
+<guid>http://LE10_04_San_Clameron%21.mp3</guid>
+<description>San Clameron! - Let's Eat! (#10) - Firesign Theatre - 1972</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ht:p:</itunes:duration>
+<category>Comedy</category>
+<pubDate>Tue, 06 Jun 2006 07:54:18 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_002/LE10_04_San_Clameron_.mp3" length="2826368" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Rats!</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_002/LE10_01_Rats_.mp3</link>
+<guid>http://LE10_01_Rats%21.mp3</guid>
+<description>Rats! - Let's Eat! (#10) - Firesign Theatre - 1972</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ht:p:</itunes:duration>
+<category>Comedy</category>
+<pubDate>Tue, 06 Jun 2006 07:53:42 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_002/LE10_01_Rats_.mp3" length="1171563" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Pellet Court</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_002/DF_20_Pellet_Court.mp3</link>
+<guid>http://DF_20_Pellet%20Court.mp3</guid>
+<description>Pellet Court - Dear Friends KPFK radio - Firesign Theatre - 1971</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ht:p:</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 04 Aug 2005 10:24:04 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_002/DF_20_Pellet_Court.mp3" length="992781" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Development Meeting 1970</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_002/DF_19_Development_Meeting_1970.mp3</link>
+<guid>http://DF_19_Development%20Meeting%201970.mp3</guid>
+<description>Development Meeting 1970 - Dear Friends KPFK radio - Firesign Theatre - 1971</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ht:p:</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 04 Aug 2005 10:23:58 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_002/DF_19_Development_Meeting_1970.mp3" length="2147184" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Ed's End-of-World Restaurant</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_002/DF_18_Eds_End-of-World_Restaurant.mp3</link>
+<guid>http://DF_18_Eds%20End-of-World%20Restaurant.mp3</guid>
+<description>Ed's End-of-World Restaurant - Dear Friends KPFK radio - Firesign Theatre - 1971</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ht:p:</itunes:duration>
+<category>Comedy</category>
+<pubDate>Wed, 03 Aug 2005 08:22:18 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_002/DF_18_Eds_End-of-World_Restaurant.mp3" length="1674472" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Speed Kills</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_002/DF_16_Speed_Kills.mp3</link>
+<guid>http://DF_16_Speed%20Kills.mp3</guid>
+<description>Speed Kills - Dear Friends KPFK radio - Firesign Theatre - 1971</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ht:p:</itunes:duration>
+<category>Comedy</category>
+<pubDate>Tue, 02 Aug 2005 09:51:22 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_002/DF_16_Speed_Kills.mp3" length="412236" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Space Age Hardware</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_002/DF_15_Space_Age_Hardware.mp3</link>
+<guid>http://DF_15_Space%20Age%20Hardware.mp3</guid>
+<description>Space Age Hardware - Dear Friends KPFK radio - Firesign Theatre - 1971</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ht:p:</itunes:duration>
+<category>Comedy</category>
+<pubDate>Tue, 02 Aug 2005 09:51:14 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_002/DF_15_Space_Age_Hardware.mp3" length="626231" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Bob Dog Dog</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_002/DF_14_Bob_Dog_Dog.mp3</link>
+<guid>http://DF_14_Bob%20Dog%20Dog.mp3</guid>
+<description>Bob Dog Dog - Dear Friends KPFK radio - Firesign Theatre - 1971</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ht:p:</itunes:duration>
+<category>Comedy</category>
+<pubDate>Mon, 01 Aug 2005 07:29:44 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_002/DF_14_Bob_Dog_Dog.mp3" length="933849" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>4 or 5 Crazy Guys</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_002/DF_12_4_or_5_Crazy_Guys.mp3</link>
+<guid>http://DF_12_4%20or%205%20Crazy%20Guys.mp3</guid>
+<description>4 or 5 Crazy Guys - Dear Friends KPFK radio - Firesign Theatre - 1971</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ht:p:</itunes:duration>
+<category>Comedy</category>
+<pubDate>Sun, 31 Jul 2005 12:41:48 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_002/DF_12_4_or_5_Crazy_Guys.mp3" length="1292876" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Whole Earth Estates</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_002/DF_11_Whole_Earth_Estates.mp3</link>
+<guid>http://DF_11_Whole%20Earth%20Estates.mp3</guid>
+<description>Whole Earth Estates - Dear Friends KPFK radio - Firesign Theatre - 1971</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ht:p:</itunes:duration>
+<category>Comedy</category>
+<pubDate>Sun, 31 Jul 2005 12:41:40 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_002/DF_11_Whole_Earth_Estates.mp3" length="1002812" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Lucky Duck Garage</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_002/DF_10_Lucky_Duck_Garage.mp3</link>
+<guid>http://DF_10_Lucky%20Duck%20Garage.mp3</guid>
+<description>Lucky Duck Garage - Dear Friends KPFK radio - Firesign Theatre - 1971</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ht:p:</itunes:duration>
+<category>Comedy</category>
+<pubDate>Sat, 30 Jul 2005 08:18:04 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_002/DF_10_Lucky_Duck_Garage.mp3" length="418923" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Balliol Bros BlessedCraterSale</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_002/DF_09_Balliol_Bros_BlessedCraterSale.mp3</link>
+<guid>http://DF_09_Balliol%20Bros%20BlessedCraterSale.mp3</guid>
+<description>Balliol Bros BlessedCraterSale - Dear Friends KPFK radio - Firesign Theatre - 1971</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ht:p:</itunes:duration>
+<category>Comedy</category>
+<pubDate>Sat, 30 Jul 2005 08:17:54 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_002/DF_09_Balliol_Bros_BlessedCraterSale.mp3" length="647965" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Vince Tomaine's Leg-o-the-Crow</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_002/DF_08_Vince_Tomaines_Leg-o-the-Crow.mp3</link>
+<guid>http://DF_08_Vince%20Tomaines%20Leg-o-the-Crow.mp3</guid>
+<description>Vince Tomaine's Leg-o-the-Crow - Dear Friends KPFK radio - Firesign Theatre - 1971</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ht:p:</itunes:duration>
+<category>Comedy</category>
+<pubDate>Fri, 29 Jul 2005 08:24:04 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_002/DF_08_Vince_Tomaines_Leg-o-the-Crow.mp3" length="1507289" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Charles Blank</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_002/DF_07_Charles_Blank.mp3</link>
+<guid>http://DF_07_Charles%20Blank.mp3</guid>
+<description>Charles Blank - Dear Friends KPFK radio - Firesign Theatre - 1971</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ht:p:</itunes:duration>
+<category>Comedy</category>
+<pubDate>Fri, 29 Jul 2005 08:23:56 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_002/DF_07_Charles_Blank.mp3" length="1905186" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>I R Writer</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_002/DF_06_I_R_Writer.mp3</link>
+<guid>http://DF_06_I%20R%20Writer.mp3</guid>
+<description>I R Writer - Dear Friends KPFK radio - Firesign Theatre - 1971</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ht:p:</itunes:duration>
+<category>Comedy</category>
+<pubDate>Thu, 28 Jul 2005 09:15:12 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_002/DF_06_I_R_Writer.mp3" length="1061744" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Any More Rocket Fuel/Hardhats</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_002/DF_04_Any_More_Rocket_Fuel_Hardhats.mp3</link>
+<guid>http://DF_04_Any%20More%20Rocket%20Fuel_Hardhats.mp3</guid>
+<description>Any More Rocket Fuel/Hardhats - Dear Friends KPFK radio - Firesign Theatre - 1971</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ht:p:</itunes:duration>
+<category>Comedy</category>
+<pubDate>Wed, 27 Jul 2005 11:29:06 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_002/DF_04_Any_More_Rocket_Fuel_Hardhats.mp3" length="2521258" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>Lone God on a Martyr Trip</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_002/DF_03_Lone_God_on_a_Martyr_Trip.mp3</link>
+<guid>http://DF_03_Lone%20God%20on%20a%20Martyr%20Trip.mp3</guid>
+<description>Lone God on a Martyr Trip - Dear Friends KPFK radio - Firesign Theatre - 1971</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ht:p:</itunes:duration>
+<category>Comedy</category>
+<pubDate>Wed, 27 Jul 2005 11:28:44 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_002/DF_03_Lone_God_on_a_Martyr_Trip.mp3" length="867393" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>97-inch Bust</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_002/DF_02_97-inch_Bust.mp3</link>
+<guid>http://DF_02_97-inch%20Bust.mp3</guid>
+<description>97-inch Bust - Dear Friends KPFK radio - Firesign Theatre - 1971</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>ht:p:</itunes:duration>
+<category>Comedy</category>
+<pubDate>Tue, 26 Jul 2005 20:07:04 -0400</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_002/DF_02_97-inch_Bust.mp3" length="805117" type="audio/mpeg"/>
+</item>
+
+<item>
+<title>A flier Peter Bergman found</title>
+<link>http://www.archive.org/download/Firesign_Theatre_Podcasting_001/flier.mp3</link>
+<guid>http://flier.mp3</guid>
+<description>A flier Peter Bergman found - 2002/03/30 Fools In Space - Firesign Theatre - 2002</description>
+<itunes:author>Firesign Theatre</itunes:author>
+<itunes:duration>A :ea</itunes:duration>
+<category>Comedy</category>
+<pubDate>Fri, 11 Mar 2005 20:21:14 -0500</pubDate>
+<enclosure url="http://www.archive.org/download/Firesign_Theatre_Podcasting_001/flier.mp3" length="440534" type="audio/mpeg"/>
+</item>
+
+</channel>
+</rss>

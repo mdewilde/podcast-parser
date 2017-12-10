@@ -13,28 +13,17 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
 */
-package be.ceau.podcastparser.test;
+package be.ceau.podcastparser;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.stream.Collectors;
+import org.junit.Assert;
+import org.junit.Test;
 
-public class Counter {
+public class PodcastParserExceptionTest {
 
-	public final Map<String, Integer> map = new HashMap<>();
-
-	public void count(String string) {
-		map.compute(string, (k, v) -> (v == null ? 1 : v + 1));
+	@Test
+	public void templatingTest() {
+		PodcastParserException exception = new PodcastParserException("found qrr but should be {}", "rss");
+		Assert.assertEquals("found qrr but should be rss", exception.getMessage());
 	}
-	
-	@Override
-	public String toString() {
-		return map.entrySet()
-					.stream()
-				    .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
-				    .map(e -> String.format("%10d", e.getValue()) + " \t--> " + e.getKey())
-					.collect(Collectors.joining(System.lineSeparator()));
-	}
-
 	
 }

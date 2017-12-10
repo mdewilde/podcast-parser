@@ -1,4 +1,4 @@
-package be.ceau.podcastparser.test;
+package be.ceau.podcastparser;
 
 import java.util.Collections;
 import java.util.HashSet;

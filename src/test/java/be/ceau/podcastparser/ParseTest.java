@@ -13,7 +13,7 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
 */
-package be.ceau.podcastparser.test;
+package be.ceau.podcastparser;
 
 import java.io.IOException;
 import java.security.SecureRandom;
@@ -28,10 +28,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.xml.sax.SAXException;
 
-import be.ceau.podcastparser.PodcastParser;
-import be.ceau.podcastparser.namespace.NamespaceFactory;
-import be.ceau.podcastparser.namespace.impl.AtomPublishing;
-import be.ceau.podcastparser.namespace.impl.AtomThreading;
+import be.ceau.podcastparser.test.provider.FileProvider;
+import be.ceau.podcastparser.test.provider.FilesProvider;
 
 public class ParseTest {
 
@@ -55,7 +53,7 @@ public class ParseTest {
 		FILES_PROVIDER
 			//.parallelStream()
 			.stream()
-			.limit(50000)
+			.limit(1000)
 			.forEach(wrap -> {
 				try {
 					parser.parse(wrap.getXml());
@@ -117,10 +115,7 @@ public class ParseTest {
 		WrappedXml wrap = new FileProvider(filename).get();
 		Bench bench = new Bench();
 		try {
-			new PodcastParser().parse(wrap.getXml())
-			.ifPresent(f -> 
-				logger.info("{}", f)
-				);
+			logger.info("{}", new PodcastParser().parse(wrap.getXml()));
 		} catch (Exception e) {
 			logger.error("{} -> {}", wrap.getDescription(), e.getMessage());
 		}

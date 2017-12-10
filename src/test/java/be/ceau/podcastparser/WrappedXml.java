@@ -1,4 +1,4 @@
-package be.ceau.podcastparser.test;
+package be.ceau.podcastparser;
 
 public class WrappedXml {
 

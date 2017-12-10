@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/rss2enclosuresfull.xsl"?><?xml-stylesheet type="text/css" media="screen" href="http://feeds.feedburner.com/~d/styles/itemcontent.css"?><rss xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" xmlns:slash="http://purl.org/rss/1.0/modules/slash/" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:rawvoice="http://www.rawvoice.com/rawvoiceRssModule/" xmlns:googleplay="http://www.google.com/schemas/play-podcasts/1.0/play-podcasts.xsd" xmlns:ev="http://purl.org/rss/2.0/modules/event/" xmlns:media="http://search.yahoo.com/mrss/" xmlns:feedburner="http://rssnamespace.org/feedburner/ext/1.0" version="2.0">
+<channel>
+	<title>KQED’s Forum</title>
+	
+	<link>https://ww2.kqed.org/forum</link>
+	<description>KQED’s live call-in program presents balanced discussions of local, state, national, and world issues as well as in-depth interviews with leading figures in politics, science, entertainment, and the arts.</description>
+	<lastBuildDate>Thu, 13 Apr 2017 22:34:04 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.2.2</generator>
+<!-- podcast_generator="Blubrry PowerPress/7.0.1" mode="advanced" category="2" -->
+	<itunes:summary>KQED's live call-in program presents balanced discussions of local, state, national, and world issues as well as in-depth interviews with leading figures in politics, science, entertainment, and the arts.</itunes:summary>
+	<itunes:author>KQED</itunes:author>
+	<itunes:image href="http://u.s.kqed.net/2016/10/17/ForumiTunesBadge03.png" />
+	<itunes:owner>
+		<itunes:name>KQED</itunes:name>
+		<itunes:email>forum@kqed.org</itunes:email>
+	</itunes:owner>
+	<managingEditor>forum@kqed.org (KQED)</managingEditor>
+	<copyright>Copyright © 2016 KQED Inc. All Rights Reserved.</copyright>
+	<itunes:subtitle>KQED Public Media for Northern CA</itunes:subtitle>
+	<image>
+		<title>KQED’s Forum</title>
+		<url>http://u.s.kqed.net/2016/10/17/ForumiTunesBadge03.png</url>
+		<link>https://ww2.kqed.org/forum</link>
+	</image>
+	<itunes:category text="News &amp; Politics" />
+	<googleplay:email>carlosgonzalez@kqed.org</googleplay:email>
+	<googleplay:category text="News &amp; Politics" />
+	<googleplay:image href="http://u.s.kqed.net/2016/08/26/ForumiTunesicons02.png" />
+	<rawvoice:subscribe feed="https://ww2.kqed.org/forum/category/forum/feed/podcast" itunes="https://itunes.apple.com/us/podcast/id73329719" />
+	<feedburner:info uri="kqedforum" /><atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="hub" href="http://pubsubhubbub.appspot.com/" /><atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="hub" href="http://pubsubhubbub.superfeedr.com/" /><atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="self" type="application/rss+xml" href="http://www.kqed.org/.pod/forum" /><feedburner:browserFriendly>This is an XML content feed. It is intended to be viewed in a newsreader or syndicated to another site, subject to copyright and fair use.</feedburner:browserFriendly><item>
+		<title>Supervisor Tang Wants to Make San Francisco Most Lactation-Friendly City in Nation</title>
+		<link>http://feedproxy.google.com/~r/kqedforum/~3/sbcFWnXpknI/</link>
+		<pubDate>Thu, 13 Apr 2017 16:30:00 +0000</pubDate>
+		<guid isPermaLink="false">https://ww2.kqed.org/forum/?p=2010101859485</guid>
+		<comments>https://ww2.kqed.org/forum/2017/04/12/supervisor-tang-wants-to-make-san-francisco-lactation-friendliest-city-in-nation/#comments</comments>
+		<wfw:commentRss>https://ww2.kqed.org/forum/2017/04/12/supervisor-tang-wants-to-make-san-francisco-lactation-friendliest-city-in-nation/feed/</wfw:commentRss>
+		<slash:comments>34</slash:comments>
+		<description>Supervisor Katy Tang wants to make pumping at work easier for breastfeeding moms in San Francisco. Tang introduced legislation last month that would expand current law by requiring employers to provide a lactation space that is private, not a bathroom, has access to electricity and contains a flat surface and a chair. Current law requires employers make reasonable efforts to provide breaks and a location for pumping, but doesn’t contain such specific requirements. Studies have found links between early breastfeeding and health.</description>
+		<content:encoded><![CDATA[<p>Supervisor Katy Tang wants to make pumping at work easier for breastfeeding moms in San Francisco. Tang introduced legislation last month that would expand current law by requiring employers to provide a lactation space that is private, not a bathroom, has access to electricity and contains a flat surface and a chair. Current law requires employers make reasonable efforts to provide breaks and a location for pumping, but doesn’t contain such specific requirements. Studies have found links between early breastfeeding and health.
+<div class='ctx-subscribe-container ctx-clearfix ctx_default_placement'></div>
+<div class='ctx-social-container ctx-clearfix ctx_default_placement'></div>
+<div class='ctx-module-container ctx-clearfix ctx_default_placement'></div>
+<img src="http://feeds.feedburner.com/~r/kqedforum/~4/sbcFWnXpknI" height="1" width="1" alt=""/>]]></content:encoded>
+		
+		<itunes:subtitle>Supervisor Katy Tang wants to make pumping at work easier for breastfeeding moms in San Francisco. Tang introduced legislation last month that would expand current law by requiring employers to provide a lactation space that is private,</itunes:subtitle>
+		<itunes:summary>Supervisor Katy Tang wants to make pumping at work easier for breastfeeding moms in San Francisco. Tang introduced legislation last month that would expand current law by requiring employers to provide a lactation space that is private, not a bathroom, has access to electricity and contains a flat surface and a chair. Current law requires employers make reasonable efforts to provide breaks and a location for pumping, but doesn’t contain such specific requirements. Studies have found links between early breastfeeding and health.</itunes:summary>
+		<itunes:author>KQED</itunes:author>
+		<itunes:duration>28:12</itunes:duration>
+<media:content url="http://feedproxy.google.com/~r/kqedforum/~5/LGzx8_OpD2Q/Forum20170413ab.mp3" medium="image" height="https://ww2.kqed.org/forum/wp-content/uploads/sites/43/2017/04/kqed-lactation-fridge-for-web.jpg" width="1080"><media:thumbnail url="https://ww2.kqed.org/forum/wp-content/uploads/sites/43/2017/04/kqed-lactation-fridge-for-web-160x90.jpg" height="60" width="60" /></media:content>
+		<feedburner:origLink>https://ww2.kqed.org/forum/2017/04/12/supervisor-tang-wants-to-make-san-francisco-lactation-friendliest-city-in-nation/</feedburner:origLink><enclosure url="http://feedproxy.google.com/~r/kqedforum/~5/LGzx8_OpD2Q/Forum20170413ab.mp3" length="13536509" type="audio/mpeg" /><feedburner:origEnclosureLink>https://www.podtrac.com/pts/redirect.mp3/www.kqed.org/.stream/mp3splice/radio/forum/2017/04/Forum20170413ab.mp3</feedburner:origEnclosureLink></item>
+	<item>
+		<title>Foreign Policy Expert Joseph Nye on Trump’s Threat to American ‘Soft Power’</title>
+		<link>http://feedproxy.google.com/~r/kqedforum/~3/A6DwO1jVjIw/</link>
+		<pubDate>Thu, 13 Apr 2017 17:00:00 +0000</pubDate>
+		<guid isPermaLink="false">https://ww2.kqed.org/forum/?p=2010101859482</guid>
+		<comments>https://ww2.kqed.org/forum/2017/04/12/foreign-policy-expert-joseph-nye-on-trumps-threat-to-american-soft-power/#comments</comments>
+		<wfw:commentRss>https://ww2.kqed.org/forum/2017/04/12/foreign-policy-expert-joseph-nye-on-trumps-threat-to-american-soft-power/feed/</wfw:commentRss>
+		<slash:comments>31</slash:comments>
+		<description>Harvard political scientist Joseph Nye famously wrote that "smart power is neither hard nor soft. It is both." We talk to Nye about how the U.S. can most effectively wield its power in the world's changing political landscape. We'll also hear his views on the Trump administration's decision to intervene militarily in Syria, the North Korean nuclear threat and what could be ahead for U.S.-Russia relations.</description>
+		<content:encoded><![CDATA[<p>Harvard political scientist Joseph Nye famously wrote that &#8220;smart power is neither hard nor soft. It is both.&#8221; We talk to Nye about how the U.S. can most effectively wield its power in the world&#8217;s changing political landscape. We&#8217;ll also hear his views on the Trump administration&#8217;s decision to intervene militarily in Syria, the North Korean nuclear threat and what could be ahead for U.S.-Russia relations.
+<div class='ctx-subscribe-container ctx-clearfix ctx_default_placement'></div>
+<div class='ctx-social-container ctx-clearfix ctx_default_placement'></div>
+<div class='ctx-module-container ctx-clearfix ctx_default_placement'></div>
+<img src="http://feeds.feedburner.com/~r/kqedforum/~4/A6DwO1jVjIw" height="1" width="1" alt=""/>]]></content:encoded>
+		
+		<itunes:subtitle>Harvard political scientist Joseph Nye famously wrote that "smart power is neither hard nor soft. It is both." We talk to Nye about how the U.S. can most effectively wield its power in the world's changing political landscape.</itunes:subtitle>
+		<itunes:summary>Harvard political scientist Joseph Nye famously wrote that "smart power is neither hard nor soft. It is both." We talk to Nye about how the U.S. can most effectively wield its power in the world's changing political landscape. We'll also hear his views on the Trump administration's decision to intervene militarily in Syria, the North Korean nuclear threat and what could be ahead for U.S.-Russia relations.</itunes:summary>
+		<itunes:author>KQED</itunes:author>
+		<itunes:duration>52:11</itunes:duration>
+<media:content url="http://feedproxy.google.com/~r/kqedforum/~5/Q5_a0Ys2xgg/Forum20170413b.mp3" medium="image" height="https://ww2.kqed.org/forum/wp-content/uploads/sites/43/2017/04/UN-security-council.jpg" width="1080"><media:thumbnail url="https://ww2.kqed.org/forum/wp-content/uploads/sites/43/2017/04/UN-security-council-160x90.jpg" height="60" width="60" /></media:content>
+		<feedburner:origLink>https://ww2.kqed.org/forum/2017/04/12/foreign-policy-expert-joseph-nye-on-trumps-threat-to-american-soft-power/</feedburner:origLink><enclosure url="http://feedproxy.google.com/~r/kqedforum/~5/Q5_a0Ys2xgg/Forum20170413b.mp3" length="25050714" type="audio/mpeg" /><feedburner:origEnclosureLink>https://www.podtrac.com/pts/redirect.mp3/www.kqed.org/.stream/mp3splice/radio/forum/2017/04/Forum20170413b.mp3</feedburner:origEnclosureLink></item>
+	<item>
+		<title>No Charges for SFPD Officers in 2015 Fatal Shooting</title>
+		<link>http://feedproxy.google.com/~r/kqedforum/~3/nr_E9LCpu8Y/</link>
+		<pubDate>Thu, 13 Apr 2017 16:00:00 +0000</pubDate>
+		<guid isPermaLink="false">https://ww2.kqed.org/forum/?p=2010101859479</guid>
+		<comments>https://ww2.kqed.org/forum/2017/04/12/no-charges-for-sfpd-officers-in-2015-fatal-shooting/#comments</comments>
+		<wfw:commentRss>https://ww2.kqed.org/forum/2017/04/12/no-charges-for-sfpd-officers-in-2015-fatal-shooting/feed/</wfw:commentRss>
+		<slash:comments>20</slash:comments>
+		<description>The two San Francisco police officers involved in the fatal shooting of 20-year-old Amilcar Perez Lopez in the Mission District in 2015 will not face criminal charges. District Attorney George Gascon announced his decision Wednesday, citing insufficient evidence and statements from officers that Lopez may have attacked another man and lunged toward the police officers with a knife before he was shot. Critics have called the shooting an example of excessive force, pointing to evidence that Lopez was shot in the back. The controversy contributed to the resignation of former Police Chief Greg Suhr, who remains listed as a defendant in a civil case tied to the shooting.</description>
+		<content:encoded><![CDATA[<p>The two San Francisco police officers involved in the fatal shooting of 20-year-old Amilcar Perez Lopez in the Mission District in 2015 will not face criminal charges. District Attorney George Gascon announced his decision Wednesday, citing insufficient evidence and statements from officers that Lopez may have attacked another man and lunged toward the police officers with a knife before he was shot. Critics have called the shooting an example of excessive force, pointing to evidence that Lopez was shot in the back. The controversy contributed to the resignation of former Police Chief Greg Suhr, who remains listed as a defendant in a civil case tied to the shooting.</p>
+<p><strong>More:</strong></p>
+<p><a href="https://ww2.kqed.org/news/2017/04/12/da-no-criminal-charges-for-s-f-officers-who-fatally-shot-20-year-old-from-behind/">No Criminal Charges for S.F. Officers Who Fatally Shot 20-Year-Old From Behind</a> (KQED News)
+<div class='ctx-subscribe-container ctx-clearfix ctx_default_placement'></div>
+<div class='ctx-social-container ctx-clearfix ctx_default_placement'></div>
+<div class='ctx-module-container ctx-clearfix ctx_default_placement'></div>
+<img src="http://feeds.feedburner.com/~r/kqedforum/~4/nr_E9LCpu8Y" height="1" width="1" alt=""/>]]></content:encoded>
+		
+		<itunes:subtitle>The two San Francisco police officers involved in the fatal shooting of 20-year-old Amilcar Perez Lopez in the Mission District in 2015 will not face criminal charges. District Attorney George Gascon announced his decision Wednesday,</itunes:subtitle>
+		<itunes:summary>The two San Francisco police officers involved in the fatal shooting of 20-year-old Amilcar Perez Lopez in the Mission District in 2015 will not face criminal charges. District Attorney George Gascon announced his decision Wednesday, citing insufficient evidence and statements from officers that Lopez may have attacked another man and lunged toward the police officers with a knife before he was shot. Critics have called the shooting an example of excessive force, pointing to evidence that Lopez was shot in the back. The controversy contributed to the resignation of former Police Chief Greg Suhr, who remains listed as a defendant in a civil case tied to the shooting.</itunes:summary>
+		<itunes:author>KQED</itunes:author>
+		<itunes:duration>23:40</itunes:duration>
+<media:content url="http://feedproxy.google.com/~r/kqedforum/~5/Wu2Q7Nf16N4/Forum20170413aa.mp3" medium="image" height="https://ww2.kqed.org/forum/wp-content/uploads/sites/43/2017/04/sf-police-car-Justin-Sullivan.jpg" width="1080"><media:thumbnail url="https://ww2.kqed.org/forum/wp-content/uploads/sites/43/2017/04/sf-police-car-Justin-Sullivan-160x90.jpg" height="60" width="60" /></media:content>
+		<feedburner:origLink>https://ww2.kqed.org/forum/2017/04/12/no-charges-for-sfpd-officers-in-2015-fatal-shooting/</feedburner:origLink><enclosure url="http://feedproxy.google.com/~r/kqedforum/~5/Wu2Q7Nf16N4/Forum20170413aa.mp3" length="11358462" type="audio/mpeg" /><feedburner:origEnclosureLink>https://www.podtrac.com/pts/redirect.mp3/www.kqed.org/.stream/mp3splice/radio/forum/2017/04/Forum20170413aa.mp3</feedburner:origEnclosureLink></item>
+	<item>
+		<title>Emotions Are a Construct of the Brain, Says Psychologist Lisa Feldman Barrett</title>
+		<link>http://feedproxy.google.com/~r/kqedforum/~3/gCmtEWSLqKY/</link>
+		<pubDate>Wed, 12 Apr 2017 17:00:00 +0000</pubDate>
+		<guid isPermaLink="false">https://ww2.kqed.org/forum/?p=2010101859466</guid>
+		<comments>https://ww2.kqed.org/forum/2017/04/11/emotions-are-a-construct-of-the-brain-says-psychologist-lisa-feldman-barrett/#comments</comments>
+		<wfw:commentRss>https://ww2.kqed.org/forum/2017/04/11/emotions-are-a-construct-of-the-brain-says-psychologist-lisa-feldman-barrett/feed/</wfw:commentRss>
+		<slash:comments>42</slash:comments>
+		<description>Imagine that you’re driving South on 101 when you see blue and red highway patrol lights flashing behind you. Do you feel worried? How about anxious, horrified or scared? According to psychologist Lisa Feldman Barrett, emotions are not something that happen to people, but rather, emotions are constructed in our brains, often with much more nuance than we readily acknowledge. Feldman Barrett joins us to talk about how emotions are made, the link between language and feelings and why assigning emotion to facial expressions has negative effects on everything from childcare to the justice system.</description>
+		<content:encoded><![CDATA[<p>Imagine that you’re driving South on 101 when you see blue and red highway patrol lights flashing behind you. Do you feel worried? How about anxious, horrified or scared? According to psychologist Lisa Feldman Barrett, emotions are not something that happen to people, but rather, emotions are constructed in our brains, often with much more nuance than we readily acknowledge. Feldman Barrett joins us to talk about how emotions are made, the link between language and feelings and why assigning emotion to facial expressions has negative effects on everything from childcare to the justice system.</p>
+<p>Related Links:</p>
+<ul>
+<li><a href="https://www.nytimes.com/2016/12/31/opinion/sunday/how-to-become-a-superager.html" target="_blank">How to Become a &#8220;Superager&#8221;</a> (The New York Times)</li>
+<li><a href="http://www.npr.org/sections/13.7/2015/08/07/430334253/on-simple-minded-views-of-the-emotions" target="_blank">A New Way to Look at Emotions by Alva Noe</a> (NPR)</li>
+</ul>
+<div class='ctx-subscribe-container ctx-clearfix ctx_default_placement'></div>
+<div class='ctx-social-container ctx-clearfix ctx_default_placement'></div>
+<div class='ctx-module-container ctx-clearfix ctx_default_placement'></div>
+<img src="http://feeds.feedburner.com/~r/kqedforum/~4/gCmtEWSLqKY" height="1" width="1" alt=""/>]]></content:encoded>
+		
+		<itunes:subtitle>Imagine that you’re driving South on 101 when you see blue and red highway patrol lights flashing behind you. Do you feel worried? How about anxious, horrified or scared? According to psychologist Lisa Feldman Barrett,</itunes:subtitle>
+		<itunes:summary>Imagine that you’re driving South on 101 when you see blue and red highway patrol lights flashing behind you. Do you feel worried? How about anxious, horrified or scared? According to psychologist Lisa Feldman Barrett, emotions are not something that happen to people, but rather, emotions are constructed in our brains, often with much more nuance than we readily acknowledge. Feldman Barrett joins us to talk about how emotions are made, the link between language and feelings and why assigning emotion to facial expressions has negative effects on everything from childcare to the justice system.</itunes:summary>
+		<itunes:author>KQED</itunes:author>
+		<itunes:duration>52:13</itunes:duration>
+<media:content url="http://feedproxy.google.com/~r/kqedforum/~5/hsjBJyXIkA0/Forum20170412b.mp3" medium="image" height="https://ww2.kqed.org/forum/wp-content/uploads/sites/43/2017/04/heart-brain-image-istock.jpg" width="1081"><media:thumbnail url="https://ww2.kqed.org/forum/wp-content/uploads/sites/43/2017/04/heart-brain-image-istock-160x90.jpg" height="60" width="60" /></media:content>
+		<feedburner:origLink>https://ww2.kqed.org/forum/2017/04/11/emotions-are-a-construct-of-the-brain-says-psychologist-lisa-feldman-barrett/</feedburner:origLink><enclosure url="http://feedproxy.google.com/~r/kqedforum/~5/hsjBJyXIkA0/Forum20170412b.mp3" length="25063466" type="audio/mpeg" /><feedburner:origEnclosureLink>https://www.podtrac.com/pts/redirect.mp3/www.kqed.org/.stream/mp3splice/radio/forum/2017/04/Forum20170412b.mp3</feedburner:origEnclosureLink></item>
+	<item>
+		<title>As Secretary of State Rex Tillerson Heads to Russia, He Warns Putin to Abandon Assad</title>
+		<link>http://feedproxy.google.com/~r/kqedforum/~3/6IGj1IcFBm8/</link>
+		<pubDate>Wed, 12 Apr 2017 16:00:00 +0000</pubDate>
+		<guid isPermaLink="false">https://ww2.kqed.org/forum/?p=2010101859463</guid>
+		<comments>https://ww2.kqed.org/forum/2017/04/11/as-secretary-of-state-rex-tillerson-heads-to-russia-he-warns-putin-to-abandon-assad/#comments</comments>
+		<wfw:commentRss>https://ww2.kqed.org/forum/2017/04/11/as-secretary-of-state-rex-tillerson-heads-to-russia-he-warns-putin-to-abandon-assad/feed/</wfw:commentRss>
+		<slash:comments>25</slash:comments>
+		<description>U.S. Secretary of State Rex Tillerson said Tuesday that if Russia maintains its alliance with Syrian President Bashar Assad, Russia risks becoming irrelevant in the Middle East. The comments came just before Tillerson boarded a plane to Moscow for talks with his Russian counterpart Sergei Lavrov and after failed efforts by the G7 countries to develop a unified approach to Syria.</description>
+		<content:encoded><![CDATA[<p>U.S. Secretary of State Rex Tillerson said Tuesday that if Russia maintains its alliance with Syrian President Bashar Assad, Russia risks becoming irrelevant in the Middle East. The comments came just before Tillerson boarded a plane to Moscow for talks with his Russian counterpart Sergei Lavrov and after failed efforts by the G7 countries to develop a unified approach to Syria.
+<div class='ctx-subscribe-container ctx-clearfix ctx_default_placement'></div>
+<div class='ctx-social-container ctx-clearfix ctx_default_placement'></div>
+<div class='ctx-module-container ctx-clearfix ctx_default_placement'></div>
+<img src="http://feeds.feedburner.com/~r/kqedforum/~4/6IGj1IcFBm8" height="1" width="1" alt=""/>]]></content:encoded>
+		
+		<itunes:subtitle>U.S. Secretary of State Rex Tillerson said Tuesday that if Russia maintains its alliance with Syrian President Bashar Assad, Russia risks becoming irrelevant in the Middle East. The comments came just before Tillerson boarded a plane to Moscow for talk...</itunes:subtitle>
+		<itunes:summary>U.S. Secretary of State Rex Tillerson said Tuesday that if Russia maintains its alliance with Syrian President Bashar Assad, Russia risks becoming irrelevant in the Middle East. The comments came just before Tillerson boarded a plane to Moscow for talks with his Russian counterpart Sergei Lavrov and after failed efforts by the G7 countries to develop a unified approach to Syria.</itunes:summary>
+		<itunes:author>KQED</itunes:author>
+		<itunes:duration>23:39</itunes:duration>
+<media:content url="http://feedproxy.google.com/~r/kqedforum/~5/ysIQWbWijfs/Forum20170412aa.mp3" medium="image" height="https://ww2.kqed.org/forum/wp-content/uploads/sites/43/2017/04/tillerson-russia.jpg" width="1080"><media:thumbnail url="https://ww2.kqed.org/forum/wp-content/uploads/sites/43/2017/04/tillerson-russia-160x90.jpg" height="60" width="60" /></media:content>
+		<feedburner:origLink>https://ww2.kqed.org/forum/2017/04/11/as-secretary-of-state-rex-tillerson-heads-to-russia-he-warns-putin-to-abandon-assad/</feedburner:origLink><enclosure url="http://feedproxy.google.com/~r/kqedforum/~5/ysIQWbWijfs/Forum20170412aa.mp3" length="11354348" type="audio/mpeg" /><feedburner:origEnclosureLink>https://www.podtrac.com/pts/redirect.mp3/www.kqed.org/.stream/mp3splice/radio/forum/2017/04/Forum20170412aa.mp3</feedburner:origEnclosureLink></item>
+	<item>
+		<title>Passenger’s Forced Removal from Flight Sparks Criticism of United Airlines, Overbooking</title>
+		<link>http://feedproxy.google.com/~r/kqedforum/~3/xtX2_HLWmKo/</link>
+		<pubDate>Wed, 12 Apr 2017 16:30:00 +0000</pubDate>
+		<guid isPermaLink="false">https://ww2.kqed.org/forum/?p=2010101859458</guid>
+		<comments>https://ww2.kqed.org/forum/2017/04/11/passengers-forced-removal-from-flight-sparks-criticism-of-united-airlines-overbooking/#comments</comments>
+		<wfw:commentRss>https://ww2.kqed.org/forum/2017/04/11/passengers-forced-removal-from-flight-sparks-criticism-of-united-airlines-overbooking/feed/</wfw:commentRss>
+		<slash:comments>78</slash:comments>
+		<description>On Sunday a United Airlines passenger was forcibly removed from his seat by police after refusing to give up his spot on an overbooked flight. The video of him being dragged by his arms down the aisle went viral and sparked a public relations nightmare for United. The airline's CEO Oscar Munoz apologized on Tuesday, promising a review of the company's practices. But that was after an initial statement that called the customer "disruptive and belligerent" and saying United employees"followed established procedures." We'll take a look at the practice of overbooking flights and how removing the Asian-American passenger might affect the airline's business in China, where state media described the passenger as being of Chinese descent.</description>
+		<content:encoded><![CDATA[<p>On Sunday a United Airlines passenger was forcibly removed from his seat by police after refusing to give up his spot on an overbooked flight. The video of him being dragged by his arms down the aisle went viral and sparked a public relations nightmare for United. The airline&#8217;s CEO Oscar Munoz apologized on Tuesday, promising a review of the company&#8217;s practices. But that was after an emotionless public statement on Monday and a leaked company email that called the customer &#8220;disruptive and belligerent&#8221; and said that United employees &#8220;followed established procedures.&#8221; We&#8217;ll take a look at the practice of overbooking flights and how removing the Asian-American passenger might affect the airline&#8217;s business in China, where state media described the passenger as being of Chinese descent.</p>
+<blockquote class="twitter-tweet">
+<p dir="ltr" lang="en"><a href="https://twitter.com/united">@United</a> overbook <a href="https://twitter.com/hashtag/flight3411?src=hash">#flight3411</a> and decided to force random passengers off the plane. Here&#8217;s how they did it: <a href="https://t.co/QfefM8X2cW">pic.twitter.com/QfefM8X2cW</a></p>
+<p>— Jayse D. Anspach (@JayseDavid) <a href="https://twitter.com/JayseDavid/status/851223662976004096">April 10, 2017</a></p></blockquote>
+<div class='ctx-subscribe-container ctx-clearfix ctx_default_placement'></div>
+<div class='ctx-social-container ctx-clearfix ctx_default_placement'></div>
+<div class='ctx-module-container ctx-clearfix ctx_default_placement'></div>
+<img src="http://feeds.feedburner.com/~r/kqedforum/~4/xtX2_HLWmKo" height="1" width="1" alt=""/>]]></content:encoded>
+		
+		<itunes:subtitle>On Sunday a United Airlines passenger was forcibly removed from his seat by police after refusing to give up his spot on an overbooked flight. The video of him being dragged by his arms down the aisle went viral and sparked a public relations nightmare...</itunes:subtitle>
+		<itunes:summary>On Sunday a United Airlines passenger was forcibly removed from his seat by police after refusing to give up his spot on an overbooked flight. The video of him being dragged by his arms down the aisle went viral and sparked a public relations nightmare for United. The airline's CEO Oscar Munoz apologized on Tuesday, promising a review of the company's practices. But that was after an initial statement that called the customer "disruptive and belligerent" and saying United employees"followed established procedures." We'll take a look at the practice of overbooking flights and how removing the Asian-American passenger might affect the airline's business in China, where state media described the passenger as being of Chinese descent.&lt;br /&gt;</itunes:summary>
+		<itunes:author>KQED</itunes:author>
+		<itunes:duration>28:14</itunes:duration>
+<media:content url="http://feedproxy.google.com/~r/kqedforum/~5/VJ4OuPxacUI/Forum20170412ab.mp3" medium="image" height="https://ww2.kqed.org/forum/wp-content/uploads/sites/43/2017/04/united-airplane-at-SFO.jpg" width="1080"><media:thumbnail url="https://ww2.kqed.org/forum/wp-content/uploads/sites/43/2017/04/united-airplane-at-SFO-160x90.jpg" height="60" width="60" /></media:content>
+		<feedburner:origLink>https://ww2.kqed.org/forum/2017/04/11/passengers-forced-removal-from-flight-sparks-criticism-of-united-airlines-overbooking/</feedburner:origLink><enclosure url="http://feedproxy.google.com/~r/kqedforum/~5/VJ4OuPxacUI/Forum20170412ab.mp3" length="13550730" type="audio/mpeg" /><feedburner:origEnclosureLink>https://www.podtrac.com/pts/redirect.mp3/www.kqed.org/.stream/mp3splice/radio/forum/2017/04/Forum20170412ab.mp3</feedburner:origEnclosureLink></item>
+	<item>
+		<title>Wall Street Embraces Tesla — But Will American Drivers Follow?</title>
+		<link>http://feedproxy.google.com/~r/kqedforum/~3/-m196tsJf5Y/</link>
+		<pubDate>Tue, 11 Apr 2017 17:00:00 +0000</pubDate>
+		<guid isPermaLink="false">https://ww2.kqed.org/forum/?p=2010101859414</guid>
+		<comments>https://ww2.kqed.org/forum/2017/04/11/electric-vehicles-where-are-they-headed/#comments</comments>
+		<wfw:commentRss>https://ww2.kqed.org/forum/2017/04/11/electric-vehicles-where-are-they-headed/feed/</wfw:commentRss>
+		<slash:comments>42</slash:comments>
+		<description>Electric vehicles (EVs) have been around for over 100 years now, and they've become increasingly popular in the Bay Area in recent years. Yet they've never quite cracked into the mainstream market nationally. But with recent technological advances, and with Silicon Valley-based Tesla Motors -- set to release its more affordable, electric Model 3 next year -- overtaking Ford Motor Company in stock market value this week, EVs may finally be zooming down the road to the mainstream. In this hour of Forum, we talk with some experts about the current state of electric cars in the U.S. And we'll also explore the future of the industry and how it might be impacted by the Trump administration's policies towards energy and automakers.</description>
+		<content:encoded><![CDATA[<p>Electric vehicles (EVs) have been around for over 100 years and despite being especially popular in the Bay Area, they&#8217;ve never quite cracked the national market. But with Tesla briefly overtaking General Motors as the most valuable automaker in America on Monday and Tesla&#8217;s more affordable Model 3 set to be released later this year, electric vehicles might be headed for the mainstream. In this hour of Forum, we&#8217;ll discuss the current state of electric cars in the U.S. and how President Trump&#8217;s policies on energy and trade might affect the EV industry.
+<div class='ctx-subscribe-container ctx-clearfix ctx_default_placement'></div>
+<div class='ctx-social-container ctx-clearfix ctx_default_placement'></div>
+<div class='ctx-module-container ctx-clearfix ctx_default_placement'></div>
+<img src="http://feeds.feedburner.com/~r/kqedforum/~4/-m196tsJf5Y" height="1" width="1" alt=""/>]]></content:encoded>
+		
+		<itunes:subtitle>Electric vehicles (EVs) have been around for over 100 years now, and they've become increasingly popular in the Bay Area in recent years. Yet they've never quite cracked into the mainstream market nationally. But with recent technological advances,</itunes:subtitle>
+		<itunes:summary>Electric vehicles (EVs) have been around for over 100 years now, and they've become increasingly popular in the Bay Area in recent years. Yet they've never quite cracked into the mainstream market nationally. But with recent technological advances, and with Silicon Valley-based Tesla Motors -- set to release its more affordable, electric Model 3 next year -- overtaking Ford Motor Company in stock market value this week, EVs may finally be zooming down the road to the mainstream. In this hour of Forum, we talk with some experts about the current state of electric cars in the U.S. And we'll also explore the future of the industry and how it might be impacted by the Trump administration's policies towards energy and automakers.</itunes:summary>
+		<itunes:author>KQED</itunes:author>
+		<itunes:duration>52:13</itunes:duration>
+<media:content url="http://feedproxy.google.com/~r/kqedforum/~5/zjiWqOtP6Dc/Forum20170411b.mp3" medium="image" height="https://ww2.kqed.org/forum/wp-content/uploads/sites/43/2017/04/Electric-Car-for-Forum.jpg" width="1080"><media:thumbnail url="https://ww2.kqed.org/forum/wp-content/uploads/sites/43/2017/04/Electric-Car-for-Forum-160x90.jpg" height="60" width="60" /></media:content>
+		<feedburner:origLink>https://ww2.kqed.org/forum/2017/04/11/electric-vehicles-where-are-they-headed/</feedburner:origLink><enclosure url="http://feedproxy.google.com/~r/kqedforum/~5/zjiWqOtP6Dc/Forum20170411b.mp3" length="25068033" type="audio/mpeg" /><feedburner:origEnclosureLink>https://www.podtrac.com/pts/redirect.mp3/www.kqed.org/.stream/mp3splice/radio/forum/2017/04/Forum20170411b.mp3</feedburner:origEnclosureLink></item>
+	<item>
+		<title>Labor Department Accuses Google of Gender Pay Discrimination</title>
+		<link>http://feedproxy.google.com/~r/kqedforum/~3/g-5Du5LxolU/</link>
+		<pubDate>Tue, 11 Apr 2017 16:00:00 +0000</pubDate>
+		<guid isPermaLink="false">https://ww2.kqed.org/forum/?p=2010101859450</guid>
+		<comments>https://ww2.kqed.org/forum/2017/04/10/labor-department-accuses-google-of-gender-pay-discrimination/#comments</comments>
+		<wfw:commentRss>https://ww2.kqed.org/forum/2017/04/10/labor-department-accuses-google-of-gender-pay-discrimination/feed/</wfw:commentRss>
+		<slash:comments>45</slash:comments>
+		<description>The U.S. Department of Labor has accused Google of violating federal employment laws and discriminating against its female employees. In an ongoing investigation, a regional solicitor said last week that the government found "systemic compensation disparities against women pretty much across the entire workforce." Google has denied the allegations, which come as one San Francisco supervisor has proposed legislation barring employers from asking prospective employees for their salary history. In this hour of Forum, we'll discuss the issue of gender pay discrimination and possible solutions.</description>
+		<content:encoded><![CDATA[<p>The U.S. Department of Labor has accused Google of violating federal employment laws and discriminating against its female employees. In an ongoing investigation, a regional solicitor said last week that the government found &#8220;systemic compensation disparities against women pretty much across the entire workforce.&#8221; Google has denied the allegations, which come as one San Francisco supervisor has proposed legislation barring employers from asking prospective employees for their salary history. In this hour of Forum, we&#8217;ll discuss the issue of gender pay discrimination and possible solutions.</p>
+<p><a href="https://blog.google/topics/diversity/our-focus-pay-equity/">Our focus on pay equity</a> (Google)
+<div class='ctx-subscribe-container ctx-clearfix ctx_default_placement'></div>
+<div class='ctx-social-container ctx-clearfix ctx_default_placement'></div>
+<div class='ctx-module-container ctx-clearfix ctx_default_placement'></div>
+<img src="http://feeds.feedburner.com/~r/kqedforum/~4/g-5Du5LxolU" height="1" width="1" alt=""/>]]></content:encoded>
+		
+		<itunes:subtitle>The U.S. Department of Labor has accused Google of violating federal employment laws and discriminating against its female employees. In an ongoing investigation, a regional solicitor said last week that the government found "systemic compensation disp...</itunes:subtitle>
+		<itunes:summary>The U.S. Department of Labor has accused Google of violating federal employment laws and discriminating against its female employees. In an ongoing investigation, a regional solicitor said last week that the government found "systemic compensation disparities against women pretty much across the entire workforce." Google has denied the allegations, which come as one San Francisco supervisor has proposed legislation barring employers from asking prospective employees for their salary history. In this hour of Forum, we'll discuss the issue of gender pay discrimination and possible solutions.</itunes:summary>
+		<itunes:author>KQED</itunes:author>
+		<itunes:duration>52:12</itunes:duration>
+<media:content url="http://feedproxy.google.com/~r/kqedforum/~5/MGQDWkzhG48/Forum20170411a.mp3" medium="image" height="https://ww2.kqed.org/forum/wp-content/uploads/sites/43/2017/04/lemonade-gender-pay-gap.jpg" width="1080"><media:thumbnail url="https://ww2.kqed.org/forum/wp-content/uploads/sites/43/2017/04/lemonade-gender-pay-gap-160x90.jpg" height="60" width="60" /></media:content>
+		<feedburner:origLink>https://ww2.kqed.org/forum/2017/04/10/labor-department-accuses-google-of-gender-pay-discrimination/</feedburner:origLink><enclosure url="http://feedproxy.google.com/~r/kqedforum/~5/MGQDWkzhG48/Forum20170411a.mp3" length="25058625" type="audio/mpeg" /><feedburner:origEnclosureLink>https://www.podtrac.com/pts/redirect.mp3/www.kqed.org/.stream/mp3splice/radio/forum/2017/04/Forum20170411a.mp3</feedburner:origEnclosureLink></item>
+	<item>
+		<title>Congresswoman Anna Eshoo on Syria and Discord on the Hill</title>
+		<link>http://feedproxy.google.com/~r/kqedforum/~3/1hxSm_D2zM8/</link>
+		<pubDate>Mon, 10 Apr 2017 16:00:00 +0000</pubDate>
+		<guid isPermaLink="false">https://ww2.kqed.org/forum/?p=2010101859436</guid>
+		<comments>https://ww2.kqed.org/forum/2017/04/07/congresswoman-anna-eshoo-on-syria-and-discord-on-the-hill/#comments</comments>
+		<wfw:commentRss>https://ww2.kqed.org/forum/2017/04/07/congresswoman-anna-eshoo-on-syria-and-discord-on-the-hill/feed/</wfw:commentRss>
+		<slash:comments>71</slash:comments>
+		<description>Silicon Valley Congresswoman Anna Eshoo joined other lawmakers Friday in calling on President Trump to seek congressional approval if he intends to escalate U.S. military involvement in Syria. We'll speak to Representative Eshoo about what she sees as the United States'role in Syria and in the region as a whole. We'll also hear Rep. Eshoo's views on a range of topics including the House Intelligence Committee's Russia probe, her ongoing fight to compel President Trump to release his taxes, and how Democrats and Republicans may find common ground in a hyper-partisan Congress.</description>
+		<content:encoded><![CDATA[<p>Silicon Valley Congresswoman Anna Eshoo joined other lawmakers Friday in calling on President Trump to seek congressional approval if he intends to escalate U.S. military involvement in Syria. We&#8217;ll speak to Representative Eshoo about what she sees as the United State&#8217;s role in Syria and in the region as a whole. We&#8217;ll also hear Rep. Eshoo&#8217;s views on a range of topics including the House Intelligence Committee&#8217;s Russia probe, her ongoing fight to compel President Trump to release his taxes, and how Democrats and Republicans may find common ground in a hyperpartisan Congress.
+<div class='ctx-subscribe-container ctx-clearfix ctx_default_placement'></div>
+<div class='ctx-social-container ctx-clearfix ctx_default_placement'></div>
+<div class='ctx-module-container ctx-clearfix ctx_default_placement'></div>
+<img src="http://feeds.feedburner.com/~r/kqedforum/~4/1hxSm_D2zM8" height="1" width="1" alt=""/>]]></content:encoded>
+		
+		<itunes:subtitle>Silicon Valley Congresswoman Anna Eshoo joined other lawmakers Friday in calling on President Trump to seek congressional approval if he intends to escalate U.S. military involvement in Syria. We'll speak to Representative Eshoo about what she sees as ...</itunes:subtitle>
+		<itunes:summary>Silicon Valley Congresswoman Anna Eshoo joined other lawmakers Friday in calling on President Trump to seek congressional approval if he intends to escalate U.S. military involvement in Syria. We'll speak to Representative Eshoo about what she sees as the United States'role in Syria and in the region as a whole. We'll also hear Rep. Eshoo's views on a range of topics including the House Intelligence Committee's Russia probe, her ongoing fight to compel President Trump to release his taxes, and how Democrats and Republicans may find common ground in a hyperpartisan Congress.</itunes:summary>
+		<itunes:author>KQED</itunes:author>
+		<itunes:duration>51:48</itunes:duration>
+<media:content url="http://feedproxy.google.com/~r/kqedforum/~5/xubSw7B1ssQ/Forum20170410a.mp3" medium="image" height="https://ww2.kqed.org/forum/wp-content/uploads/sites/43/2017/04/Congresswoman-Anna-Eshoo.jpg" width="1077"><media:thumbnail url="https://ww2.kqed.org/forum/wp-content/uploads/sites/43/2017/04/Congresswoman-Anna-Eshoo-160x90.jpg" height="60" width="60" /></media:content>
+		<feedburner:origLink>https://ww2.kqed.org/forum/2017/04/07/congresswoman-anna-eshoo-on-syria-and-discord-on-the-hill/</feedburner:origLink><enclosure url="http://feedproxy.google.com/~r/kqedforum/~5/xubSw7B1ssQ/Forum20170410a.mp3" length="24865161" type="audio/mpeg" /><feedburner:origEnclosureLink>https://www.podtrac.com/pts/redirect.mp3/www.kqed.org/.stream/mp3splice/radio//2017/04/Forum20170410a.mp3</feedburner:origEnclosureLink></item>
+	<item>
+		<title>Don Lattin on ‘Changing Our Minds’ About Psychedelic Drugs</title>
+		<link>http://feedproxy.google.com/~r/kqedforum/~3/FLZ08zgdDag/</link>
+		<pubDate>Mon, 10 Apr 2017 17:00:00 +0000</pubDate>
+		<guid isPermaLink="false">https://ww2.kqed.org/forum/?p=2010101859434</guid>
+		<comments>https://ww2.kqed.org/forum/2017/04/07/don-lattin-on-changing-our-minds-about-psychedelic-drugs/#comments</comments>
+		<wfw:commentRss>https://ww2.kqed.org/forum/2017/04/07/don-lattin-on-changing-our-minds-about-psychedelic-drugs/feed/</wfw:commentRss>
+		<slash:comments>62</slash:comments>
+		<description>Over the past 40 years, author Don Lattin has been writing about the beneficial uses of psychedelic drugs. In his new book, "Changing Our Minds: Psychedelic Sacraments and the New Psychotherapy," the former San Francisco Chronicle religion writer shares stories of neuroscientists, volunteer research subjects and others searching for safe uses of psychedelics. He also recounts his own search for an alternative treatment for depression, which took him from Switzerland to a South American jungle.</description>
+		<content:encoded><![CDATA[<p>Over the past 40 years, author Don Lattin has been writing about the beneficial uses of psychedelic drugs. In his new book, &#8220;Changing Our Minds: Psychedelic Sacraments and the New Psychotherapy,&#8221; the former San Francisco Chronicle religion writer shares stories of neuroscientists, volunteer research subjects and others searching for safe uses of psychedelics. He also recounts his own search for an alternative treatment for depression, which took him from Switzerland to a South American jungle.</p>
+<p><a href="http://www.maps.org/" target="_blank">Multidisciplinary Association for Psychedelic Studies</a> (Mentioned on Air)
+<div class='ctx-subscribe-container ctx-clearfix ctx_default_placement'></div>
+<div class='ctx-social-container ctx-clearfix ctx_default_placement'></div>
+<div class='ctx-module-container ctx-clearfix ctx_default_placement'></div>
+<img src="http://feeds.feedburner.com/~r/kqedforum/~4/FLZ08zgdDag" height="1" width="1" alt=""/>]]></content:encoded>
+		
+		<itunes:subtitle>Over the past 40 years, author Don Lattin has been writing about the beneficial uses of psychedelic drugs. In his new book, "Changing Our Minds: Psychedelic Sacraments and the New Psychotherapy," the former San Francisco Chronicle religion writer share...</itunes:subtitle>
+		<itunes:summary>Over the past 40 years, author Don Lattin has been writing about the beneficial uses of psychedelic drugs. In his new book, "Changing Our Minds: Psychedelic Sacraments and the New Psychotherapy," the former San Francisco Chronicle religion writer shares stories of neuroscientists, volunteer research subjects and others searching for safe uses of psychedelics. He also recounts his own search for an alternative treatment for depression, which took him from Switzerland to a South American jungle.</itunes:summary>
+		<itunes:author>KQED</itunes:author>
+		<itunes:duration>51:27</itunes:duration>
+<media:content url="http://feedproxy.google.com/~r/kqedforum/~5/vEV5cCUyiZE/Forum20170410b.mp3" medium="image" height="https://ww2.kqed.org/forum/wp-content/uploads/sites/43/2016/04/donlattin20121004248x140.jpg" width="140"><media:thumbnail url="https://ww2.kqed.org/forum/wp-content/uploads/sites/43/2016/04/donlattin20121004248x140.jpg" height="60" width="60" /></media:content>
+		<feedburner:origLink>https://ww2.kqed.org/forum/2017/04/07/don-lattin-on-changing-our-minds-about-psychedelic-drugs/</feedburner:origLink><enclosure url="http://feedproxy.google.com/~r/kqedforum/~5/vEV5cCUyiZE/Forum20170410b.mp3" length="24695052" type="audio/mpeg" /><feedburner:origEnclosureLink>https://www.podtrac.com/pts/redirect.mp3/www.kqed.org/.stream/mp3splice/radio//2017/04/Forum20170410b.mp3</feedburner:origEnclosureLink></item>
+	<item>
+		<title>U.S. Launches Dozens of Missiles at Air Base in Syria</title>
+		<link>http://feedproxy.google.com/~r/kqedforum/~3/TmT9YFdkoJw/</link>
+		<pubDate>Fri, 07 Apr 2017 16:00:00 +0000</pubDate>
+		<guid isPermaLink="false">https://ww2.kqed.org/forum/?p=2010101859419</guid>
+		<comments>https://ww2.kqed.org/forum/2017/04/06/u-s-launches-dozens-of-missiles-at-air-base-in-syria/#comments</comments>
+		<wfw:commentRss>https://ww2.kqed.org/forum/2017/04/06/u-s-launches-dozens-of-missiles-at-air-base-in-syria/feed/</wfw:commentRss>
+		<slash:comments>82</slash:comments>
+		<description>President Donald Trump on Thursday launched airstrikes in Syria in response to apparent chemical attacks allegedly ordered by the Syrian government that killed more than 80 civilians, including many children. Forum discusses the missile strikes, which were carried out against the Syrian base believed to be where the planes that conducted the chemical attacks originated.</description>
+		<content:encoded><![CDATA[<p>President Donald Trump on Thursday launched airstrikes in Syria in response to apparent chemical attacks allegedly ordered by the Syrian government that killed more than 80 civilians, including many children. Forum discusses the missile strikes, which were carried out against the Syrian base believed to be where the planes that conducted the chemical attacks originated.
+<div class='ctx-subscribe-container ctx-clearfix ctx_default_placement'></div>
+<div class='ctx-social-container ctx-clearfix ctx_default_placement'></div>
+<div class='ctx-module-container ctx-clearfix ctx_default_placement'></div>
+<img src="http://feeds.feedburner.com/~r/kqedforum/~4/TmT9YFdkoJw" height="1" width="1" alt=""/>]]></content:encoded>
+		
+		<itunes:subtitle>President Donald Trump on Thursday launched airstrikes in Syria in response to apparent chemical attacks allegedly ordered by the Syrian government that killed more than 80 civilians, including many children. Forum discusses the missile strikes,</itunes:subtitle>
+		<itunes:summary>President Donald Trump on Thursday launched airstrikes in Syria in response to apparent chemical attacks allegedly ordered by the Syrian government that killed more than 80 civilians, including many children. Forum discusses the missile strikes, which were carried out against the Syrian base believed to be where the planes that conducted the chemical attacks originated.</itunes:summary>
+		<itunes:author>KQED</itunes:author>
+		<itunes:duration>52:10</itunes:duration>
+<media:content url="http://feedproxy.google.com/~r/kqedforum/~5/fOXZCKJ1PRE/Forum20170407a.mp3" medium="image" height="https://ww2.kqed.org/forum/wp-content/uploads/sites/43/2017/04/Syria-Missile-Strike-Trump.jpg" width="1080"><media:thumbnail url="https://ww2.kqed.org/forum/wp-content/uploads/sites/43/2017/04/Syria-Missile-Strike-Trump-160x90.jpg" height="60" width="60" /></media:content>
+		<feedburner:origLink>https://ww2.kqed.org/forum/2017/04/06/u-s-launches-dozens-of-missiles-at-air-base-in-syria/</feedburner:origLink><enclosure url="http://feedproxy.google.com/~r/kqedforum/~5/fOXZCKJ1PRE/Forum20170407a.mp3" length="25039385" type="audio/mpeg" /><feedburner:origEnclosureLink>https://www.podtrac.com/pts/redirect.mp3/www.kqed.org/.stream/mp3splice/radio/forum/2017/04/Forum20170407a.mp3</feedburner:origEnclosureLink></item>
+	<item>
+		<title>Protest in a Time of Political Polarization</title>
+		<link>http://feedproxy.google.com/~r/kqedforum/~3/Fu5UqJWwTUs/</link>
+		<pubDate>Fri, 07 Apr 2017 17:00:00 +0000</pubDate>
+		<guid isPermaLink="false">https://ww2.kqed.org/forum/?p=2010101859408</guid>
+		<comments>https://ww2.kqed.org/forum/2017/04/06/protest-in-a-time-of-political-polarization/#comments</comments>
+		<wfw:commentRss>https://ww2.kqed.org/forum/2017/04/06/protest-in-a-time-of-political-polarization/feed/</wfw:commentRss>
+		<slash:comments>70</slash:comments>
+		<description>The Women’s March broke records as one of the largest protests in U.S. history, with approximately 3 to 4 million participants. But what happened to the momentum after that? We discuss what makes an effective, sustainable protest movement today… and draw lessons from past movements by talking to longtime activists and influencers from AIDS advocacy, Black Lives Matter, the Tea Party movement, the Grab Your Wallet boycott and more.</description>
+		<content:encoded><![CDATA[<p>The Women’s March broke records as one of the largest protests in U.S. history, with approximately 3 to 4 million participants. But what happened to the momentum after that? We discuss what makes an effective, sustainable protest movement today… and draw lessons from past movements by talking to longtime activists and influencers from AIDS advocacy, Black Lives Matter, the Tea Party movement, the Grab Your Wallet boycott and more.
+<div class='ctx-subscribe-container ctx-clearfix ctx_default_placement'></div>
+<div class='ctx-social-container ctx-clearfix ctx_default_placement'></div>
+<div class='ctx-module-container ctx-clearfix ctx_default_placement'></div>
+<img src="http://feeds.feedburner.com/~r/kqedforum/~4/Fu5UqJWwTUs" height="1" width="1" alt=""/>]]></content:encoded>
+		
+		<itunes:subtitle>The Women’s March broke records as one of the largest protests in U.S. history, with approximately 3 to 4 million participants. But what happened to the momentum after that? We discuss what makes an effective,</itunes:subtitle>
+		<itunes:summary>The Women’s March broke records as one of the largest protests in U.S. history, with approximately 3 to 4 million participants. But what happened to the momentum after that? We discuss what makes an effective, sustainable protest movement today… and draw lessons from past movements by talking to longtime activists and influencers from AIDS advocacy, Black Lives Matter, the Tea Party movement, the Grab Your Wallet boycott and more.</itunes:summary>
+		<itunes:author>KQED</itunes:author>
+		<itunes:duration>52:11</itunes:duration>
+<media:content url="http://feedproxy.google.com/~r/kqedforum/~5/JwW1ZLBfqbY/Forum20170407b.mp3" medium="image" height="https://ww2.kqed.org/forum/wp-content/uploads/sites/43/2017/04/womens-march-for-Forum.jpg" width="1080"><media:thumbnail url="https://ww2.kqed.org/forum/wp-content/uploads/sites/43/2017/04/womens-march-for-Forum-160x90.jpg" height="60" width="60" /></media:content>
+		<feedburner:origLink>https://ww2.kqed.org/forum/2017/04/06/protest-in-a-time-of-political-polarization/</feedburner:origLink><enclosure url="http://feedproxy.google.com/~r/kqedforum/~5/JwW1ZLBfqbY/Forum20170407b.mp3" length="25047097" type="audio/mpeg" /><feedburner:origEnclosureLink>https://www.podtrac.com/pts/redirect.mp3/www.kqed.org/.stream/mp3splice/radio/forum/2017/04/Forum20170407b.mp3</feedburner:origEnclosureLink></item>
+	<item>
+		<title>San Francisco Supervisors Pass Resolution Supporting Vote on City Income Tax</title>
+		<link>http://feedproxy.google.com/~r/kqedforum/~3/zpciuVC02nc/</link>
+		<pubDate>Thu, 06 Apr 2017 16:00:00 +0000</pubDate>
+		<guid isPermaLink="false">https://ww2.kqed.org/forum/?p=2010101859399</guid>
+		<comments>https://ww2.kqed.org/forum/2017/04/05/san-francisco-supervisors-pass-resolution-supporting-vote-on-city-income-tax/#comments</comments>
+		<wfw:commentRss>https://ww2.kqed.org/forum/2017/04/05/san-francisco-supervisors-pass-resolution-supporting-vote-on-city-income-tax/feed/</wfw:commentRss>
+		<slash:comments>32</slash:comments>
+		<description>San Francisco Supervisors on Tuesday voted 8-3 to pass a resolution pledging support of a state bill that would allow San Francisco to place a local income tax measure on the 2018 ballot. With federal budget cuts looming, supporters say the measure would raise revenue and could help address the city's wealth gap. But critics have raised concerns that the measure could inhibit economic growth and that the city should improve accountability on current spending before raising taxes. We'll discuss the bill, which proponents say would have allowed San Francisco to generate over $270 million in the 2013 tax year.</description>
+		<content:encoded><![CDATA[<p>San Francisco Supervisors on Tuesday voted 8-3 to pass a resolution pledging support of a state bill that would allow San Francisco to place a local income tax measure on the 2018 ballot. With federal budget cuts looming, supporters say the measure would raise revenue and could help address the city&#8217;s wealth gap. But critics have raised concerns that the measure could inhibit economic growth and that the city should improve accountability on current spending before raising taxes. We&#8217;ll discuss the bill, which proponents say would have allowed San Francisco to generate over $270 million in the 2013 tax year.
+<div class='ctx-subscribe-container ctx-clearfix ctx_default_placement'></div>
+<div class='ctx-social-container ctx-clearfix ctx_default_placement'></div>
+<div class='ctx-module-container ctx-clearfix ctx_default_placement'></div>
+<img src="http://feeds.feedburner.com/~r/kqedforum/~4/zpciuVC02nc" height="1" width="1" alt=""/>]]></content:encoded>
+		
+		<itunes:subtitle>San Francisco Supervisors on Tuesday voted 8-3 to pass a resolution pledging support of a state bill that would allow San Francisco to place a local income tax measure on the 2018 ballot. With federal budget cuts looming,</itunes:subtitle>
+		<itunes:summary>San Francisco Supervisors on Tuesday voted 8-3 to pass a resolution pledging support of a state bill that would allow San Francisco to place a local income tax measure on the 2018 ballot. With federal budget cuts looming, supporters say the measure would raise revenue and could help address the city's wealth gap. But critics have raised concerns that the measure could inhibit economic growth and that the city should improve accountability on current spending before raising taxes. We'll discuss the bill, which proponents say would have allowed San Francisco to generate over $270 million in the 2013 tax year.</itunes:summary>
+		<itunes:author>KQED</itunes:author>
+		<itunes:duration>23:38</itunes:duration>
+<media:content url="http://feedproxy.google.com/~r/kqedforum/~5/n7RnHBLrRTA/Forum20170406aa.mp3" medium="image" height="https://ww2.kqed.org/forum/wp-content/uploads/sites/43/2016/09/San-Francisco-skyline-Justin-Sullivan.jpg" width="1080"><media:thumbnail url="https://ww2.kqed.org/forum/wp-content/uploads/sites/43/2016/09/San-Francisco-skyline-Justin-Sullivan-400x225.jpg" height="60" width="60" /></media:content>
+		<feedburner:origLink>https://ww2.kqed.org/forum/2017/04/05/san-francisco-supervisors-pass-resolution-supporting-vote-on-city-income-tax/</feedburner:origLink><enclosure url="http://feedproxy.google.com/~r/kqedforum/~5/n7RnHBLrRTA/Forum20170406aa.mp3" length="11341376" type="audio/mpeg" /><feedburner:origEnclosureLink>https://www.podtrac.com/pts/redirect.mp3/www.kqed.org/.stream/mp3splice/radio/forum/2017/04/Forum20170406aa.mp3</feedburner:origEnclosureLink></item>
+	<item>
+		<title>How Cuts to the National Endowment for the Arts Could Affect the Bay Area Arts</title>
+		<link>http://feedproxy.google.com/~r/kqedforum/~3/_-9x8nGfTtg/</link>
+		<pubDate>Thu, 06 Apr 2017 17:00:00 +0000</pubDate>
+		<guid isPermaLink="false">https://ww2.kqed.org/forum/?p=2010101859395</guid>
+		<comments>https://ww2.kqed.org/forum/2017/04/05/how-cuts-to-the-national-endowment-for-the-arts-could-affect-the-bay-area-arts/#comments</comments>
+		<wfw:commentRss>https://ww2.kqed.org/forum/2017/04/05/how-cuts-to-the-national-endowment-for-the-arts-could-affect-the-bay-area-arts/feed/</wfw:commentRss>
+		<slash:comments>37</slash:comments>
+		<description>President Trump’s proposed $148 million budget cut to the National Endowment for the Arts has been sending nervous ripples through the arts community. We talk with local museums, theaters and other arts groups about how the Bay Area would be impacted by cuts to NEA funding.</description>
+		<content:encoded><![CDATA[<p>President Trump’s proposed $148 million budget cut to the National Endowment for the Arts has been sending nervous ripples through the arts community. We talk with local museums, theaters and other arts groups about how the Bay Area would be impacted by cuts to NEA funding.
+<div class='ctx-subscribe-container ctx-clearfix ctx_default_placement'></div>
+<div class='ctx-social-container ctx-clearfix ctx_default_placement'></div>
+<div class='ctx-module-container ctx-clearfix ctx_default_placement'></div>
+<img src="http://feeds.feedburner.com/~r/kqedforum/~4/_-9x8nGfTtg" height="1" width="1" alt=""/>]]></content:encoded>
+		
+		<itunes:subtitle>President Trump’s proposed $148 million budget cut to the National Endowment for the Arts has been sending nervous ripples through the arts community. We talk with local museums, theaters and other arts groups about how the Bay Area would be impacted b...</itunes:subtitle>
+		<itunes:summary>President Trump’s proposed $148 million budget cut to the National Endowment for the Arts has been sending nervous ripples through the arts community. We talk with local museums, theaters and other arts groups about how the Bay Area would be impacted by cuts to NEA funding.</itunes:summary>
+		<itunes:author>KQED</itunes:author>
+		<itunes:duration>52:12</itunes:duration>
+<media:content url="http://feedproxy.google.com/~r/kqedforum/~5/Rs4zaBAbX1I/Forum20170406b.mp3" medium="image" height="https://ww2.kqed.org/forum/wp-content/uploads/sites/43/2016/10/cant-happen-here-2.jpg" width="1080"><media:thumbnail url="https://ww2.kqed.org/forum/wp-content/uploads/sites/43/2016/10/cant-happen-here-2-400x225.jpg" height="60" width="60" /></media:content>
+		<feedburner:origLink>https://ww2.kqed.org/forum/2017/04/05/how-cuts-to-the-national-endowment-for-the-arts-could-affect-the-bay-area-arts/</feedburner:origLink><enclosure url="http://feedproxy.google.com/~r/kqedforum/~5/Rs4zaBAbX1I/Forum20170406b.mp3" length="25056153" type="audio/mpeg" /><feedburner:origEnclosureLink>https://www.podtrac.com/pts/redirect.mp3/www.kqed.org/.stream/mp3splice/radio/forum/2017/04/Forum20170406b.mp3</feedburner:origEnclosureLink></item>
+	<item>
+		<title>What Other Historical Figures Should Get the ‘Hamilton’ Treatment?</title>
+		<link>http://feedproxy.google.com/~r/kqedforum/~3/JGkWF2amBMo/</link>
+		<pubDate>Thu, 06 Apr 2017 16:30:00 +0000</pubDate>
+		<guid isPermaLink="false">https://ww2.kqed.org/forum/?p=2010101859391</guid>
+		<comments>https://ww2.kqed.org/forum/2017/04/05/what-other-historical-figures-should-get-the-hamilton-treatment/#comments</comments>
+		<wfw:commentRss>https://ww2.kqed.org/forum/2017/04/05/what-other-historical-figures-should-get-the-hamilton-treatment/feed/</wfw:commentRss>
+		<slash:comments>28</slash:comments>
+		<description>Ron Chernow, the historian whose biography of Alexander Hamilton inspired Lin-Manuel Miranda's Broadway sensation, praises the hit musical for transforming our understanding of the founding fathers beyond "a bunch of middle-aged white guys with wigs and buckled shoes." This hour, we'd like to know which historical figures or events you think deserve a full-scale theatrical treatment akin to "Hamilton." Who played an important -- but overlooked -- role in shaping America? What historical figure deserves their name in lights? What historical eras should be highlighted like the formative days of Hamilton, Burr and LaFayette?</description>
+		<content:encoded><![CDATA[<p>Ron Chernow, the historian whose biography of Alexander Hamilton inspired Lin-Manuel Miranda&#8217;s Broadway sensation, praises the hit musical for transforming our understanding of the founding fathers beyond &#8220;a bunch of middle-aged white guys with wigs and buckled shoes.&#8221; This hour, we&#8217;d like to know which historical figures or events you think deserve a full-scale theatrical treatment akin to &#8220;Hamilton.&#8221; Who played an important &#8212; but overlooked &#8212; role in shaping America? What historical figure deserves their name in lights? What historical eras should be highlighted like the formative days of Hamilton, Burr and LaFayette?
+<div class='ctx-subscribe-container ctx-clearfix ctx_default_placement'></div>
+<div class='ctx-social-container ctx-clearfix ctx_default_placement'></div>
+<div class='ctx-module-container ctx-clearfix ctx_default_placement'></div>
+<img src="http://feeds.feedburner.com/~r/kqedforum/~4/JGkWF2amBMo" height="1" width="1" alt=""/>]]></content:encoded>
+		
+		<itunes:subtitle>Ron Chernow, the historian whose biography of Alexander Hamilton inspired Lin-Manuel Miranda's Broadway sensation, praises the hit musical for transforming our understanding of the founding fathers beyond "a bunch of middle-aged white guys with wigs an...</itunes:subtitle>
+		<itunes:summary>Ron Chernow, the historian whose biography of Alexander Hamilton inspired Lin-Manuel Miranda's Broadway sensation, praises the hit musical for transforming our understanding of the founding fathers beyond "a bunch of middle-aged white guys with wigs and buckled shoes." This hour, we'd like to know which historical figures or events you think deserve a full-scale theatrical treatment akin to "Hamilton." Who played an important -- but overlooked -- role in shaping America? What historical figure deserves their name in lights? What historical eras should be highlighted like the formative days of Hamilton, Burr and LaFayette?</itunes:summary>
+		<itunes:author>KQED</itunes:author>
+		<itunes:duration>28:13</itunes:duration>
+<media:content url="http://feedproxy.google.com/~r/kqedforum/~5/tpdEoE5a1t0/Forum20170406ab.mp3" medium="image" height="https://ww2.kqed.org/forum/wp-content/uploads/sites/43/2017/04/Hamilton-for-web.jpg" width="1080"><media:thumbnail url="https://ww2.kqed.org/forum/wp-content/uploads/sites/43/2017/04/Hamilton-for-web-160x90.jpg" height="60" width="60" /></media:content>
+		<feedburner:origLink>https://ww2.kqed.org/forum/2017/04/05/what-other-historical-figures-should-get-the-hamilton-treatment/</feedburner:origLink><enclosure url="http://feedproxy.google.com/~r/kqedforum/~5/tpdEoE5a1t0/Forum20170406ab.mp3" length="13543792" type="audio/mpeg" /><feedburner:origEnclosureLink>https://www.podtrac.com/pts/redirect.mp3/www.kqed.org/.stream/mp3splice/radio/forum/2017/04/Forum20170406ab.mp3</feedburner:origEnclosureLink></item>
+	<item>
+		<title>Syrian Government Suspected in Chemical Attack That Killed at Least 50 Civilians</title>
+		<link>http://feedproxy.google.com/~r/kqedforum/~3/7_PWYFpoLkw/</link>
+		<pubDate>Wed, 05 Apr 2017 16:00:00 +0000</pubDate>
+		<guid isPermaLink="false">https://ww2.kqed.org/forum/?p=2010101859378</guid>
+		<comments>https://ww2.kqed.org/forum/2017/04/04/syrian-government-suspected-in-chemical-attack-that-killed-at-least-50-civilians/#comments</comments>
+		<wfw:commentRss>https://ww2.kqed.org/forum/2017/04/04/syrian-government-suspected-in-chemical-attack-that-killed-at-least-50-civilians/feed/</wfw:commentRss>
+		<slash:comments>36</slash:comments>
+		<description>The United States and its allies are blaming the Syrian government for a gas attack in the rebelheld province of Idlib on Tuesday that killed at least 58 people. This was the third suspected chemical attack in Syria in less than two weeks. The Syrian army has denied involvement, as has Russia, which is allied with Syria in its fight against anti-government insurgents. We discuss the attack, the international response, and prospects for curbing chemical weapons use in Syria.</description>
+		<content:encoded><![CDATA[<p>The United States and its allies are blaming the Syrian government for a gas attack in the rebel-held province of Idlib on Tuesday that killed at least 58 people. This was the third suspected chemical attack in Syria in less than two weeks. The Syrian army has denied involvement, as has Russia, which is allied with Syria in its fight against anti-government insurgents. We discuss the attack, the international response, and prospects for curbing chemical weapons use in Syria.
+<div class='ctx-subscribe-container ctx-clearfix ctx_default_placement'></div>
+<div class='ctx-social-container ctx-clearfix ctx_default_placement'></div>
+<div class='ctx-module-container ctx-clearfix ctx_default_placement'></div>
+<img src="http://feeds.feedburner.com/~r/kqedforum/~4/7_PWYFpoLkw" height="1" width="1" alt=""/>]]></content:encoded>
+		
+		<itunes:subtitle>The United States and its allies are blaming the Syrian government for a gas attack in the rebelheld province of Idlib on Tuesday that killed at least 58 people. This was the third suspected chemical attack in Syria in less than two weeks.</itunes:subtitle>
+		<itunes:summary>The United States and its allies are blaming the Syrian government for a gas attack in the rebelheld province of Idlib on Tuesday that killed at least 58 people. This was the third suspected chemical attack in Syria in less than two weeks. The Syrian army has denied involvement, as has Russia, which is allied with Syria in its fight against anti-government insurgents. We discuss the attack, the international response, and prospects for curbing chemical weapons use in Syria.</itunes:summary>
+		<itunes:author>KQED</itunes:author>
+		<itunes:duration>23:40</itunes:duration>
+<media:content url="http://feedproxy.google.com/~r/kqedforum/~5/R_Y0wsYnWBs/Forum20170405aa.mp3" medium="image" height="https://ww2.kqed.org/forum/wp-content/uploads/sites/43/2017/04/syrian-gas-attack-victim-w-mask-Mohamed-Al-Bakour-AFP-Getty-Images.jpg" width="1080"><media:thumbnail url="https://ww2.kqed.org/forum/wp-content/uploads/sites/43/2017/04/syrian-gas-attack-victim-w-mask-Mohamed-Al-Bakour-AFP-Getty-Images-160x90.jpg" height="60" width="60" /></media:content>
+		<feedburner:origLink>https://ww2.kqed.org/forum/2017/04/04/syrian-government-suspected-in-chemical-attack-that-killed-at-least-50-civilians/</feedburner:origLink><enclosure url="http://feedproxy.google.com/~r/kqedforum/~5/R_Y0wsYnWBs/Forum20170405aa.mp3" length="11359983" type="audio/mpeg" /><feedburner:origEnclosureLink>https://www.podtrac.com/pts/redirect.mp3/www.kqed.org/.stream/mp3splice/radio/forum/2017/04/Forum20170405aa.mp3</feedburner:origEnclosureLink></item>
+	<item>
+		<title>State Senate to Vote on Brown’s Plan to Increase Taxes to Fund Road Repairs, Transit</title>
+		<link>http://feedproxy.google.com/~r/kqedforum/~3/w8qyhArjOhw/</link>
+		<pubDate>Wed, 05 Apr 2017 17:00:00 +0000</pubDate>
+		<guid isPermaLink="false">https://ww2.kqed.org/forum/?p=2010101859375</guid>
+		<comments>https://ww2.kqed.org/forum/2017/04/04/state-senate-to-vote-on-browns-plan-to-increase-taxes-to-fund-road-repairs-transit/#comments</comments>
+		<wfw:commentRss>https://ww2.kqed.org/forum/2017/04/04/state-senate-to-vote-on-browns-plan-to-increase-taxes-to-fund-road-repairs-transit/feed/</wfw:commentRss>
+		<slash:comments>66</slash:comments>
+		<description>A $5.2 billion a year transportation plan unveiled last week by Governor Jerry Brown and state legislators will come up for a vote in the state Senate on Thursday.  The plan, which will require a two-thirds majority vote in both houses, would raise funds through fuel taxes and vehicle fees. Critics of the bill say current funding should be better managed before raising taxes while  environmentalists say the proposal doesn't do enough to curb emissions from commercial trucking.  We'll discuss the latest attempt to fix California's battered roads.</description>
+		<content:encoded><![CDATA[<p>A $5.2 billion a year transportation plan unveiled last week by Governor Jerry Brown and state legislators will come up for a vote in the state Senate on Thursday. The plan, which will require a two-thirds majority vote in both houses, would raise funds through fuel taxes and vehicle fees. Critics of the bill say current funding should be better managed before raising taxes while environmentalists say the proposal doesn&#8217;t do enough to curb emissions from commercial trucking. We&#8217;ll discuss the latest attempt to fix California&#8217;s battered roads.
+<div class='ctx-subscribe-container ctx-clearfix ctx_default_placement'></div>
+<div class='ctx-social-container ctx-clearfix ctx_default_placement'></div>
+<div class='ctx-module-container ctx-clearfix ctx_default_placement'></div>
+<img src="http://feeds.feedburner.com/~r/kqedforum/~4/w8qyhArjOhw" height="1" width="1" alt=""/>]]></content:encoded>
+		
+		<itunes:subtitle>A $5.2 billion a year transportation plan unveiled last week by Governor Jerry Brown and state legislators will come up for a vote in the state Senate on Thursday.  The plan, which will require a two-thirds majority vote in both houses,</itunes:subtitle>
+		<itunes:summary>A $5.2 billion a year transportation plan unveiled last week by Governor Jerry Brown and state legislators will come up for a vote in the state Senate on Thursday.  The plan, which will require a two-thirds majority vote in both houses, would raise funds through fuel taxes and vehicle fees. Critics of the bill say current funding should be better managed before raising taxes while  environmentalists say the proposal doesn't do enough to curb emissions from commercial trucking.  We'll discuss the latest attempt to fix California's battered roads.</itunes:summary>
+		<itunes:author>KQED</itunes:author>
+		<itunes:duration>52:11</itunes:duration>
+<media:content url="http://feedproxy.google.com/~r/kqedforum/~5/9Ofjmb77JHY/Forum20170405b.mp3" medium="image" height="https://ww2.kqed.org/forum/wp-content/uploads/sites/43/2017/04/freeway-underpass-Joe-Raedle-getty-images.jpg" width="1080"><media:thumbnail url="https://ww2.kqed.org/forum/wp-content/uploads/sites/43/2017/04/freeway-underpass-Joe-Raedle-getty-images-160x90.jpg" height="60" width="60" /></media:content>
+		<feedburner:origLink>https://ww2.kqed.org/forum/2017/04/04/state-senate-to-vote-on-browns-plan-to-increase-taxes-to-fund-road-repairs-transit/</feedburner:origLink><enclosure url="http://feedproxy.google.com/~r/kqedforum/~5/9Ofjmb77JHY/Forum20170405b.mp3" length="25050314" type="audio/mpeg" /><feedburner:origEnclosureLink>https://www.podtrac.com/pts/redirect.mp3/www.kqed.org/.stream/mp3splice/radio/forum/2017/04/Forum20170405b.mp3</feedburner:origEnclosureLink></item>
+	<item>
+		<title>Rebuking President Trump, California Senate Passes ‘Sanctuary State’ Bill</title>
+		<link>http://feedproxy.google.com/~r/kqedforum/~3/Wsl46z6_-9s/</link>
+		<pubDate>Wed, 05 Apr 2017 16:30:00 +0000</pubDate>
+		<guid isPermaLink="false">https://ww2.kqed.org/forum/?p=2010101859372</guid>
+		<comments>https://ww2.kqed.org/forum/2017/04/04/rebuking-president-trump-california-senate-passes-sanctuary-state-bill/#comments</comments>
+		<wfw:commentRss>https://ww2.kqed.org/forum/2017/04/04/rebuking-president-trump-california-senate-passes-sanctuary-state-bill/feed/</wfw:commentRss>
+		<slash:comments>65</slash:comments>
+		<description>The California state senate passed the California Values Act in a 27 to 21 vote along party lines on Monday. The controversial "sanctuary state" bill would prohibit state and local law enforcement agencies from reporting, arresting or detaining individuals for purposes of immigration enforcement. The bill would not apply to cases involving violent crimes like murder and rape. State Senate President Pro Tem Kevin de Leon called the vote a "rejection of President Trump's false and cynical portrayal of undocumented residents as a lawless community." But opponents to the bill say it would shelter dangerous criminals and trigger the loss of federal funds for California. We discuss the legislation and its potential impact.</description>
+		<content:encoded><![CDATA[<p>The California state senate passed the California Values Act in a 27 to 21 vote along party lines on Monday. The controversial &#8220;sanctuary state&#8221; bill would prohibit state and local law enforcement agencies from reporting, arresting or detaining individuals for purposes of immigration enforcement. The bill would not apply to cases involving violent crimes like murder and rape. State Senate President Pro Tem Kevin de Leon called the vote a &#8220;rejection of President Trump&#8217;s false and cynical portrayal of undocumented residents as a lawless community.&#8221; But opponents to the bill say it would shelter dangerous criminals and trigger the loss of federal funds for California. We discuss the legislation and its potential impact.
+<div class='ctx-subscribe-container ctx-clearfix ctx_default_placement'></div>
+<div class='ctx-social-container ctx-clearfix ctx_default_placement'></div>
+<div class='ctx-module-container ctx-clearfix ctx_default_placement'></div>
+<img src="http://feeds.feedburner.com/~r/kqedforum/~4/Wsl46z6_-9s" height="1" width="1" alt=""/>]]></content:encoded>
+		
+		<itunes:subtitle>The California state senate passed the California Values Act in a 27 to 21 vote along party lines on Monday. The controversial "sanctuary state" bill would prohibit state and local law enforcement agencies from reporting,</itunes:subtitle>
+		<itunes:summary>The California state senate passed the California Values Act in a 27 to 21 vote along party lines on Monday. The controversial "sanctuary state" bill would prohibit state and local law enforcement agencies from reporting, arresting or detaining individuals for purposes of immigration enforcement. The bill would not apply to cases involving violent crimes like murder and rape. State Senate President Pro Tem Kevin de Leon called the vote a "rejection of President Trump's false and cynical portrayal of undocumented residents as a lawless community." But opponents to the bill say it would shelter dangerous criminals and trigger the loss of federal funds for California. We discuss the legislation and its potential impact.</itunes:summary>
+		<itunes:author>KQED</itunes:author>
+		<itunes:duration>28:14</itunes:duration>
+<media:content url="http://feedproxy.google.com/~r/kqedforum/~5/J--cd5_dueQ/Forum20170405ab.mp3" medium="image" height="https://ww2.kqed.org/forum/wp-content/uploads/sites/43/2017/04/sb54-sign-Mark-Ralston-AFP-Getty-Images.jpg" width="1080"><media:thumbnail url="https://ww2.kqed.org/forum/wp-content/uploads/sites/43/2017/04/sb54-sign-Mark-Ralston-AFP-Getty-Images-160x90.jpg" height="60" width="60" /></media:content>
+		<feedburner:origLink>https://ww2.kqed.org/forum/2017/04/04/rebuking-president-trump-california-senate-passes-sanctuary-state-bill/</feedburner:origLink><enclosure url="http://feedproxy.google.com/~r/kqedforum/~5/J--cd5_dueQ/Forum20170405ab.mp3" length="13549448" type="audio/mpeg" /><feedburner:origEnclosureLink>https://www.podtrac.com/pts/redirect.mp3/www.kqed.org/.stream/mp3splice/radio/forum/2017/04/Forum20170405ab.mp3</feedburner:origEnclosureLink></item>
+	<item>
+		<title>Jane Mayer Lifts the Curtain on ‘Dark Money’ and the Billionaires Who Funded Trump’s Victory</title>
+		<link>http://feedproxy.google.com/~r/kqedforum/~3/23AWdK6BWTg/</link>
+		<pubDate>Tue, 04 Apr 2017 17:00:00 +0000</pubDate>
+		<guid isPermaLink="false">https://ww2.kqed.org/forum/?p=2010101859363</guid>
+		<comments>https://ww2.kqed.org/forum/2017/04/03/jane-mayer-lifts-the-curtain-on-dark-money-and-the-billionaires-who-funded-trumps-victory/#comments</comments>
+		<wfw:commentRss>https://ww2.kqed.org/forum/2017/04/03/jane-mayer-lifts-the-curtain-on-dark-money-and-the-billionaires-who-funded-trumps-victory/feed/</wfw:commentRss>
+		<slash:comments>55</slash:comments>
+		<description>Political power in the United States no longer lies with the two major political parties, but rather with "a tiny group of rich mega-donors." That's according to Jane Mayer who profiles Robert Mercer, the billionaire who helped Donald Trump win the presidency. Mayer's reporting in The New Yorker reveals how Mercer and his daughter Rebekah strategically invested large amounts of money in Breitbart News and helped position Steve Bannon and Kellyanne Conway as President Trump's key advisers. Mayer joins us to talk about the impact of the Mercers' funding and other cases of "dark money," including a $10 million campaign supporting Neil Gorsuch's Supreme Court nomination. Her latest book now in paperback is "Dark Money: The Hidden History of the Billionaires Behind the Rise of the Radical Right."</description>
+		<content:encoded><![CDATA[<p>Political power in the United States no longer lies with the two major political parties, but rather with &#8220;a tiny group of rich mega-donors.&#8221; That&#8217;s according to Jane Mayer who profiles Robert Mercer, the billionaire who helped Donald Trump win the presidency. Mayer&#8217;s reporting in The New Yorker reveals how Mercer and his daughter Rebekah strategically invested large amounts of money in Breitbart News and helped position Steve Bannon and Kellyanne Conway as President Trump&#8217;s key advisors. Mayer joins us to talk about the impact of the Mercers&#8217; funding and other cases of &#8220;dark money,&#8221; including a $10 million campaign supporting Neil Gorsuch&#8217;s Supreme Court nomination. Her latest book, now in paperback, is &#8220;Dark Money: The Hidden History of the Billionaires Behind the Rise of the Radical Right.&#8221;</p>
+<p>Related Links:</p>
+<ul>
+<li><a href="http://www.newyorker.com/magazine/2017/03/27/the-reclusive-hedge-fund-tycoon-behind-the-trump-presidency" target="_blank">The Reclusive Hedge-Fund Tycoon Behind the Trump Presidency</a> (The New Yorker)</li>
+<li><a href="http://www.penguinrandomhouse.com/books/215462/dark-money-by-jane-mayer/" target="_blank">More Information about &#8220;Dark Money: The Hidden History of the Billionaires Behind the Rise of the Radical Right</a>&#8221; (Penguin Random House Books)</li>
+</ul>
+<div class='ctx-subscribe-container ctx-clearfix ctx_default_placement'></div>
+<div class='ctx-social-container ctx-clearfix ctx_default_placement'></div>
+<div class='ctx-module-container ctx-clearfix ctx_default_placement'></div>
+<img src="http://feeds.feedburner.com/~r/kqedforum/~4/23AWdK6BWTg" height="1" width="1" alt=""/>]]></content:encoded>
+		
+		<itunes:subtitle>Political power in the United States no longer lies with the two major political parties, but rather with "a tiny group of rich mega-donors." That's according to Jane Mayer who profiles Robert Mercer, the billionaire who helped Donald Trump win the pre...</itunes:subtitle>
+		<itunes:summary>Political power in the United States no longer lies with the two major political parties, but rather with "a tiny group of rich mega-donors." That's according to Jane Mayer who profiles Robert Mercer, the billionaire who helped Donald Trump win the presidency. Mayer's reporting in The New Yorker reveals how Mercer and his daughter Rebekah strategically invested large amounts of money in Breitbart News and helped position Steve Bannon and Kellyanne Conway as President Trump's key advisers. Mayer joins us to talk about the impact of the Mercers' funding and other cases of "dark money," including a $10 million campaign supporting Neil Gorsuch's Supreme Court nomination. Her latest book now in paperback is "Dark Money: The Hidden History of the Billionaires Behind the Rise of the Radical Right."</itunes:summary>
+		<itunes:author>KQED</itunes:author>
+		<itunes:duration>51:40</itunes:duration>
+<media:content url="http://feedproxy.google.com/~r/kqedforum/~5/Xi8ZuBFGq2o/Forum20170404b.mp3" medium="image" height="https://ww2.kqed.org/forum/wp-content/uploads/sites/43/2017/04/Jane-Mayer-cropped.jpg" width="1080"><media:thumbnail url="https://ww2.kqed.org/forum/wp-content/uploads/sites/43/2017/04/Jane-Mayer-cropped-160x90.jpg" height="60" width="60" /></media:content>
+		<feedburner:origLink>https://ww2.kqed.org/forum/2017/04/03/jane-mayer-lifts-the-curtain-on-dark-money-and-the-billionaires-who-funded-trumps-victory/</feedburner:origLink><enclosure url="http://feedproxy.google.com/~r/kqedforum/~5/Xi8ZuBFGq2o/Forum20170404b.mp3" length="24798301" type="audio/mpeg" /><feedburner:origEnclosureLink>https://www.podtrac.com/pts/redirect.mp3/www.kqed.org/.stream/mp3splice/radio/forum/2017/04/Forum20170404b.mp3</feedburner:origEnclosureLink></item>
+	<item>
+		<title>Chinese President Xi Jinping and President Trump to Meet Amid Rising Tensions</title>
+		<link>http://feedproxy.google.com/~r/kqedforum/~3/BtG5JLYpifQ/</link>
+		<pubDate>Tue, 04 Apr 2017 16:00:00 +0000</pubDate>
+		<guid isPermaLink="false">https://ww2.kqed.org/forum/?p=2010101859360</guid>
+		<comments>https://ww2.kqed.org/forum/2017/04/03/chinese-president-xi-jinping-and-president-trump-to-meet-amid-rising-tensions/#comments</comments>
+		<wfw:commentRss>https://ww2.kqed.org/forum/2017/04/03/chinese-president-xi-jinping-and-president-trump-to-meet-amid-rising-tensions/feed/</wfw:commentRss>
+		<slash:comments>47</slash:comments>
+		<description>On Thursday, Chinese President Xi Jinping will meet with President Donald Trump at his estate in Florida. The summit comes amid tense relations between the two nations over differing strategies toward North Korea, China's military presence on islands in the South China Sea and Trump's repeated criticism of China's trade policy. In this hour of Forum, we'll preview President Xi's visit and discuss the current state of U.S.-China relations.</description>
+		<content:encoded><![CDATA[<p>On Thursday, Chinese President Xi Jinping will meet with President Donald Trump at his estate in Florida. The summit comes amid tense relations between the two nations over differing strategies toward North Korea, China&#8217;s military presence on islands in the South China Sea and Trump&#8217;s repeated criticism of China&#8217;s trade policy. In this hour of Forum, we&#8217;ll preview President Xi&#8217;s visit and discuss the current state of U.S.-China relations.</p>
+<p><strong>Mentioned on Air</strong></p>
+<p><a href="http://china.ucsd.edu/_files/02072017_US_China_task-force_executivesummary.pdf" target="_blank">U.S. Policy Toward China: Recommendations for a New Administration</a>
+<div class='ctx-subscribe-container ctx-clearfix ctx_default_placement'></div>
+<div class='ctx-social-container ctx-clearfix ctx_default_placement'></div>
+<div class='ctx-module-container ctx-clearfix ctx_default_placement'></div>
+<img src="http://feeds.feedburner.com/~r/kqedforum/~4/BtG5JLYpifQ" height="1" width="1" alt=""/>]]></content:encoded>
+		
+		<itunes:subtitle>On Thursday, Chinese President Xi Jinping will meet with President Donald Trump at his estate in Florida. The summit comes amid tense relations between the two nations over differing strategies toward North Korea,</itunes:subtitle>
+		<itunes:summary>On Thursday, Chinese President Xi Jinping will meet with President Donald Trump at his estate in Florida. The summit comes amid tense relations between the two nations over differing strategies toward North Korea, China's military presence on islands in the South China Sea and Trump's repeated criticism of China's trade policy. In this hour of Forum, we'll preview President Xi's visit and discuss the current state of U.S.-China relations.</itunes:summary>
+		<itunes:author>KQED</itunes:author>
+		<itunes:duration>51:40</itunes:duration>
+<media:content url="http://feedproxy.google.com/~r/kqedforum/~5/n43_p4dJXpk/Forum20170404a.mp3" medium="image" height="https://ww2.kqed.org/forum/wp-content/uploads/sites/43/2017/04/Xi-Jinping-AFP-getty-images-Fred-DuFour.jpg" width="1081"><media:thumbnail url="https://ww2.kqed.org/forum/wp-content/uploads/sites/43/2017/04/Xi-Jinping-AFP-getty-images-Fred-DuFour-160x90.jpg" height="60" width="60" /></media:content>
+		<feedburner:origLink>https://ww2.kqed.org/forum/2017/04/03/chinese-president-xi-jinping-and-president-trump-to-meet-amid-rising-tensions/</feedburner:origLink><enclosure url="http://feedproxy.google.com/~r/kqedforum/~5/n43_p4dJXpk/Forum20170404a.mp3" length="24800151" type="audio/mpeg" /><feedburner:origEnclosureLink>https://www.podtrac.com/pts/redirect.mp3/www.kqed.org/.stream/mp3splice/radio/forum/2017/04/Forum20170404a.mp3</feedburner:origEnclosureLink></item>
+	<item>
+		<title>Politics Roundup: Michael Flynn, House Intelligence Committee Drama and Russia Controversies</title>
+		<link>http://feedproxy.google.com/~r/kqedforum/~3/YGZGMryI2UY/</link>
+		<pubDate>Mon, 03 Apr 2017 17:00:00 +0000</pubDate>
+		<guid isPermaLink="false">https://ww2.kqed.org/forum/?p=2010101859354</guid>
+		<comments>https://ww2.kqed.org/forum/2017/03/31/politics-roundup-michael-flynn-house-intelligence-committee-drama-and-russia-controversies/#comments</comments>
+		<wfw:commentRss>https://ww2.kqed.org/forum/2017/03/31/politics-roundup-michael-flynn-house-intelligence-committee-drama-and-russia-controversies/feed/</wfw:commentRss>
+		<slash:comments>83</slash:comments>
+		<description>Forum speaks with a panel of journalists about the latest political news, including the Senate Intelligence Committee's rejection Friday of an immunity deal for former National Security Advisor Michael Flynn and intensifying partisan rifts in the House Intelligence Committee charged with investigating Russian election meddling.</description>
+		<content:encoded><![CDATA[<p>Forum speaks with a panel of journalists about the latest political news, including the Senate Intelligence Committee&#8217;s rejection Friday of an immunity deal for former National Security Advisor Michael Flynn and intensifying partisan rifts in the House Intelligence Committee charged with investigating Russian election meddling.
+<div class='ctx-subscribe-container ctx-clearfix ctx_default_placement'></div>
+<div class='ctx-social-container ctx-clearfix ctx_default_placement'></div>
+<div class='ctx-module-container ctx-clearfix ctx_default_placement'></div>
+<img src="http://feeds.feedburner.com/~r/kqedforum/~4/YGZGMryI2UY" height="1" width="1" alt=""/>]]></content:encoded>
+		
+		<itunes:subtitle>Forum speaks with a panel of journalists about the latest political news, including the Senate Intelligence Committee's rejection Friday of an immunity deal for former National Security Advisor Michael Flynn and intensifying partisan rifts in the House...</itunes:subtitle>
+		<itunes:summary>Forum speaks with a panel of journalists about the latest political news, including the Senate Intelligence Committee's rejection Friday of an immunity deal for former National Security Advisor Michael Flynn and intensifying partisan rifts in the House Intelligence Committee charged with investigating Russian election meddling.</itunes:summary>
+		<itunes:author>KQED</itunes:author>
+		<itunes:duration>51:40</itunes:duration>
+<media:content url="http://feedproxy.google.com/~r/kqedforum/~5/E9ukulW21sI/Forum20170403b.mp3" medium="image" height="https://ww2.kqed.org/forum/wp-content/uploads/sites/43/2017/03/Flynn-for-Forum.jpg" width="1080"><media:thumbnail url="https://ww2.kqed.org/forum/wp-content/uploads/sites/43/2017/03/Flynn-for-Forum-160x90.jpg" height="60" width="60" /></media:content>
+		<feedburner:origLink>https://ww2.kqed.org/forum/2017/03/31/politics-roundup-michael-flynn-house-intelligence-committee-drama-and-russia-controversies/</feedburner:origLink><enclosure url="http://feedproxy.google.com/~r/kqedforum/~5/E9ukulW21sI/Forum20170403b.mp3" length="24796838" type="audio/mpeg" /><feedburner:origEnclosureLink>https://www.podtrac.com/pts/redirect.mp3/www.kqed.org/.stream/mp3splice/radio/forum/2017/04/Forum20170403b.mp3</feedburner:origEnclosureLink></item>
+	<item>
+		<title>Warriors Coach Steve Kerr Reflects on Record Wins and 2017 Season</title>
+		<link>http://feedproxy.google.com/~r/kqedforum/~3/k6T4KiKGofA/</link>
+		<pubDate>Mon, 03 Apr 2017 16:00:00 +0000</pubDate>
+		<guid isPermaLink="false">https://ww2.kqed.org/forum/?p=2010101859351</guid>
+		<comments>https://ww2.kqed.org/forum/2017/03/31/warriors-coach-steve-kerr-reflects-on-record-wins-and-2017-season/#comments</comments>
+		<wfw:commentRss>https://ww2.kqed.org/forum/2017/03/31/warriors-coach-steve-kerr-reflects-on-record-wins-and-2017-season/feed/</wfw:commentRss>
+		<slash:comments>21</slash:comments>
+		<description>Golden State Warriors Coach Steve Kerr made history again -- this time reaching 200 wins faster than any NBA coach in sports history. "I know how lucky I am," Kerr said, referring to his all-star roster of Stephen Curry, Draymond Green and Klay Thompson. Coach Kerr joins us to talk about the 2017 season, as well as his life on and off the court.</description>
+		<content:encoded><![CDATA[<p>Golden State Warriors Coach Steve Kerr made history again &#8212; this time reaching 200 wins faster than any NBA coach in sports history. &#8220;I know how lucky I am,&#8221; Kerr said, referring to his all-star roster of Stephen Curry, Draymond Green and Klay Thompson. Coach Kerr joins us to talk about the 2017 season, as well as his life on and off the court.
+<div class='ctx-subscribe-container ctx-clearfix ctx_default_placement'></div>
+<div class='ctx-social-container ctx-clearfix ctx_default_placement'></div>
+<div class='ctx-module-container ctx-clearfix ctx_default_placement'></div>
+<img src="http://feeds.feedburner.com/~r/kqedforum/~4/k6T4KiKGofA" height="1" width="1" alt=""/>]]></content:encoded>
+		
+		<itunes:subtitle>Golden State Warriors Coach Steve Kerr made history again -- this time reaching 200 wins faster than any NBA coach in sports history. "I know how lucky I am," Kerr said, referring to his all-star roster of Stephen Curry,</itunes:subtitle>
+		<itunes:summary>Golden State Warriors Coach Steve Kerr made history again -- this time reaching 200 wins faster than any NBA coach in sports history. "I know how lucky I am," Kerr said, referring to his all-star roster of Stephen Curry, Draymond Green and Klay Thompson. Coach Kerr joins us to talk about the 2017 season, as well as his life on and off the court.</itunes:summary>
+		<itunes:author>KQED</itunes:author>
+		<itunes:duration>23:40</itunes:duration>
+<media:content url="http://feedproxy.google.com/~r/kqedforum/~5/0JYPPnQsCE0/Forum20170403aa.mp3" medium="image" height="https://ww2.kqed.org/forum/wp-content/uploads/sites/43/2017/03/steve-kerr-for-Forum.jpg" width="1080"><media:thumbnail url="https://ww2.kqed.org/forum/wp-content/uploads/sites/43/2017/03/steve-kerr-for-Forum-160x90.jpg" height="60" width="60" /></media:content>
+		<feedburner:origLink>https://ww2.kqed.org/forum/2017/03/31/warriors-coach-steve-kerr-reflects-on-record-wins-and-2017-season/</feedburner:origLink><enclosure url="http://feedproxy.google.com/~r/kqedforum/~5/0JYPPnQsCE0/Forum20170403aa.mp3" length="11363297" type="audio/mpeg" /><feedburner:origEnclosureLink>https://www.podtrac.com/pts/redirect.mp3/www.kqed.org/.stream/mp3splice/radio/forum/2017/04/Forum20170403aa.mp3</feedburner:origEnclosureLink></item>
+	<item>
+		<title>The Early Years of the ‘Dynastic, Bombastic, Fantastic’ Oakland A’s</title>
+		<link>http://feedproxy.google.com/~r/kqedforum/~3/uNqgt3paO9Y/</link>
+		<pubDate>Mon, 03 Apr 2017 16:30:00 +0000</pubDate>
+		<guid isPermaLink="false">https://ww2.kqed.org/forum/?p=2010101859349</guid>
+		<comments>https://ww2.kqed.org/forum/2017/03/31/the-early-years-of-the-dynamic-bombastic-fantastic-oakland-as/#comments</comments>
+		<wfw:commentRss>https://ww2.kqed.org/forum/2017/03/31/the-early-years-of-the-dynamic-bombastic-fantastic-oakland-as/feed/</wfw:commentRss>
+		<slash:comments>11</slash:comments>
+		<description>Long before Billy Beane’s numbers-based “Moneyball” system of choosing baseball players, and way before people expected the SF Giants to make the World Series every other year, the wild antics of an early-70s Oakland A’s team captivated the Bay Area. The A’s moved from Kansas City to Oakland in 1968, and proceeded to introduce new uniforms, grow mustaches and fight in the locker room, on the field and with the occasional journalist. They also won the World Series three times in a row -- in 1972, '73 and '74. Veteran sports reporter Jason Turbow recounts the winning - and losing - streaks of the A’s first decade in Oakland in his new book “Dynamic, Bombastic, Fantastic: Reggie, Rollie, Catfish, and Charlie Finley’s Swingin’ A’s."</description>
+		<content:encoded><![CDATA[<p>Long before Billy Beane’s numbers-based “Moneyball” system of choosing baseball players, and way before people expected the SF Giants to make the World Series every other year, the wild antics of an early-70s Oakland A’s team captivated the Bay Area. The A’s moved from Kansas City to Oakland in 1968, and proceeded to introduce new uniforms, grow mustaches and fight in the locker room, on the field and with the occasional journalist. They also won the World Series three times in a row &#8212; in 1972, &#8217;73 and &#8217;74. Veteran sports reporter Jason Turbow recounts the winning &#8211; and losing &#8211; streaks of the A’s first decade in Oakland in his new book “Dynastic, Bombastic, Fantastic: Reggie, Rollie, Catfish, and Charlie Finley’s Swingin’ A’s.&#8221;</p>
+<div class='ctx-subscribe-container ctx-clearfix ctx_default_placement'></div>
+<div class='ctx-social-container ctx-clearfix ctx_default_placement'></div>
+<div class='ctx-module-container ctx-clearfix ctx_default_placement'></div>
+<img src="http://feeds.feedburner.com/~r/kqedforum/~4/uNqgt3paO9Y" height="1" width="1" alt=""/>]]></content:encoded>
+		
+		<itunes:subtitle>Long before Billy Beane’s numbers-based “Moneyball” system of choosing baseball players, and way before people expected the SF Giants to make the World Series every other year, the wild antics of an early-70s Oakland A’s team captivated the Bay Area.</itunes:subtitle>
+		<itunes:summary>Long before Billy Beane’s numbers-based “Moneyball” system of choosing baseball players, and way before people expected the SF Giants to make the World Series every other year, the wild antics of an early-70s Oakland A’s team captivated the Bay Area. The A’s moved from Kansas City to Oakland in 1968, and proceeded to introduce new uniforms, grow mustaches and fight in the locker room, on the field and with the occasional journalist. They also won the World Series three times in a row -- in 1972, '73 and '74. Veteran sports reporter Jason Turbow recounts the winning - and losing - streaks of the A’s first decade in Oakland in his new book “Dynamic, Bombastic, Fantastic: Reggie, Rollie, Catfish, and Charlie Finley’s Swingin’ A’s."</itunes:summary>
+		<itunes:author>KQED</itunes:author>
+		<itunes:duration>28:12</itunes:duration>
+<media:content url="http://feedproxy.google.com/~r/kqedforum/~5/AnV7yaFYJjQ/Forum20170403ab.mp3" medium="image" height="https://ww2.kqed.org/forum/wp-content/uploads/sites/43/2017/03/Oakland-Athletics-for-Forum.jpg" width="1080"><media:thumbnail url="https://ww2.kqed.org/forum/wp-content/uploads/sites/43/2017/03/Oakland-Athletics-for-Forum-160x90.jpg" height="60" width="60" /></media:content>
+		<feedburner:origLink>https://ww2.kqed.org/forum/2017/03/31/the-early-years-of-the-dynamic-bombastic-fantastic-oakland-as/</feedburner:origLink><enclosure url="http://feedproxy.google.com/~r/kqedforum/~5/AnV7yaFYJjQ/Forum20170403ab.mp3" length="13538358" type="audio/mpeg" /><feedburner:origEnclosureLink>https://www.podtrac.com/pts/redirect.mp3/www.kqed.org/.stream/mp3splice/radio/forum/2017/04/Forum20170403ab.mp3</feedburner:origEnclosureLink></item>
+	<item>
+		<title>Exploring ‘The Inner Life of Cats’</title>
+		<link>http://feedproxy.google.com/~r/kqedforum/~3/ttlQxXuZCJY/</link>
+		<pubDate>Fri, 31 Mar 2017 17:00:00 +0000</pubDate>
+		<guid isPermaLink="false">https://ww2.kqed.org/forum/?p=2010101859334</guid>
+		<comments>https://ww2.kqed.org/forum/2017/03/30/why-so-grumpy-the-inner-life-of-cats/#comments</comments>
+		<wfw:commentRss>https://ww2.kqed.org/forum/2017/03/30/why-so-grumpy-the-inner-life-of-cats/feed/</wfw:commentRss>
+		<slash:comments>62</slash:comments>
+		<description>Dogs may have their day, but when it comes to the internet, it's a cat's world. A YouTube video of a cat "playing" the keyboard has netted nearly 47 million views, and the sourpuss kitty known as "Grumpy Cat" sparked such an online sensation that Friskies made her its Official Spokescat, paying for her personal assistant, and chauffeur. But what makes the ordinary house cat extraordinary? We talk with two authors about cats' behavior and development, and why we're so obsessed with them. What have you always wanted to know about cats?</description>
+		<content:encoded><![CDATA[<p>Dogs may have their day, but when it comes to the internet, it&#8217;s a cat&#8217;s world. A YouTube video of a cat &#8220;playing&#8221; the keyboard has netted nearly 47 million views, and the sourpuss kitty known as &#8220;Grumpy Cat&#8221; sparked such an online sensation that Friskies made her its Official Spokescat, paying for her personal assistant, and chauffeur. But what makes the ordinary house cat extraordinary? We talk with two authors about cats&#8217; behavior and development, and why we&#8217;re so obsessed with them. What have you always wanted to know about cats?</p>
+<p><strong>Click on the post below to see photos of the &#8216;Cats of Forum&#8217;</strong></p>
+<div class='ctx-subscribe-container ctx-clearfix ctx_default_placement'></div>
+<div class='ctx-social-container ctx-clearfix ctx_default_placement'></div>
+<div class='ctx-module-container ctx-clearfix ctx_default_placement'></div>
+<img src="http://feeds.feedburner.com/~r/kqedforum/~4/ttlQxXuZCJY" height="1" width="1" alt=""/>]]></content:encoded>
+		
+		<itunes:subtitle>Dogs may have their day, but when it comes to the internet, it's a cat's world. A YouTube video of a cat "playing" the keyboard has netted nearly 47 million views, and the sourpuss kitty known as "Grumpy Cat" sparked such an online sensation that Frisk...</itunes:subtitle>
+		<itunes:summary>Dogs may have their day, but when it comes to the internet, it's a cat's world. A YouTube video of a cat "playing" the keyboard has netted nearly 47 million views, and the sourpuss kitty known as "Grumpy Cat" sparked such an online sensation that Friskies made her its Official Spokescat, paying for her personal assistant, and chauffeur. But what makes the ordinary house cat extraordinary? We talk with two authors about cats' behavior and development, and why we're so obsessed with them. What have you always wanted to know about cats?</itunes:summary>
+		<itunes:author>KQED</itunes:author>
+		<itunes:duration>52:25</itunes:duration>
+<media:content url="http://feedproxy.google.com/~r/kqedforum/~5/NFJgMRs7y3o/Forum20170331b.mp3" medium="image" height="https://ww2.kqed.org/forum/wp-content/uploads/sites/43/2017/03/mirandas-cat-in-the-sun-for-web.jpg" width="1079"><media:thumbnail url="https://ww2.kqed.org/forum/wp-content/uploads/sites/43/2017/03/mirandas-cat-in-the-sun-for-web-160x90.jpg" height="60" width="60" /></media:content>
+		<feedburner:origLink>https://ww2.kqed.org/forum/2017/03/30/why-so-grumpy-the-inner-life-of-cats/</feedburner:origLink><enclosure url="http://feedproxy.google.com/~r/kqedforum/~5/NFJgMRs7y3o/Forum20170331b.mp3" length="25157628" type="audio/mpeg" /><feedburner:origEnclosureLink>https://www.podtrac.com/pts/redirect.mp3/www.kqed.org/.stream/mp3splice/radio/forum/2017/03/Forum20170331b.mp3</feedburner:origEnclosureLink></item>
+	<item>
+		<title>Congress Votes to Strip Away FCC’s Internet Privacy Rules</title>
+		<link>http://feedproxy.google.com/~r/kqedforum/~3/A4-5oS2xN5o/</link>
+		<pubDate>Fri, 31 Mar 2017 16:00:00 +0000</pubDate>
+		<guid isPermaLink="false">https://ww2.kqed.org/forum/?p=2010101859331</guid>
+		<comments>https://ww2.kqed.org/forum/2017/03/30/congress-votes-to-strip-away-fccs-internet-privacy-rules/#comments</comments>
+		<wfw:commentRss>https://ww2.kqed.org/forum/2017/03/30/congress-votes-to-strip-away-fccs-internet-privacy-rules/feed/</wfw:commentRss>
+		<slash:comments>103</slash:comments>
+		<description>On Tuesday, the House approved a measure that rolls back FCC internet privacy regulations issued under the Obama administration. Under those rules, which never went into effect, the FCC would prohibit internet service providers (ISPs) from selling and sharing consumers' data. But the new bill -- which has already passed the senate and is expected to be signed into law by President Trump -- opens the door for ISPs to sell their customers'data. Telecommunication companies are celebrating the legislation, arguing that the Obama regulations were unnecessary and hurt economic growth and innovation. But consumer rights advocates see it as an attack on consumers' online privacy. In this hour, Forum hears from both sides and discusses ways that you can protect your privacy online.</description>
+		<content:encoded><![CDATA[<p>On Tuesday, the House approved a measure that rolls back FCC internet privacy regulations issued under the Obama administration. Under those rules, which never went into effect, the FCC would prohibit internet service providers (ISPs) from selling and sharing consumers&#8217; data. But the new bill &#8212; which has already passed the senate and is expected to be signed into law by President Trump &#8212; opens the door for ISPs to sell their customers&#8217;data. Telecommunication companies are celebrating the legislation, arguing that the Obama regulations were unnecessary and hurt economic growth and innovation. But consumer rights advocates see it as an attack on consumers&#8217; online privacy. In this hour, Forum hears from both sides and discusses ways that you can protect your privacy online.
+<div class='ctx-subscribe-container ctx-clearfix ctx_default_placement'></div>
+<div class='ctx-social-container ctx-clearfix ctx_default_placement'></div>
+<div class='ctx-module-container ctx-clearfix ctx_default_placement'></div>
+<img src="http://feeds.feedburner.com/~r/kqedforum/~4/A4-5oS2xN5o" height="1" width="1" alt=""/>]]></content:encoded>
+		
+		<itunes:subtitle>On Tuesday, the House approved a measure that rolls back FCC internet privacy regulations issued under the Obama administration. Under those rules, which never went into effect, the FCC would prohibit internet service providers (ISPs) from selling and ...</itunes:subtitle>
+		<itunes:summary>On Tuesday, the House approved a measure that rolls back FCC internet privacy regulations issued under the Obama administration. Under those rules, which never went into effect, the FCC would prohibit internet service providers (ISPs) from selling and sharing consumers' data. But the new bill -- which has already passed the senate and is expected to be signed into law by President Trump -- opens the door for ISPs to sell their customers'data. Telecommunication companies are celebrating the legislation, arguing that the Obama regulations were unnecessary and hurt economic growth and innovation. But consumer rights advocates see it as an attack on consumers' online privacy. In this hour, Forum hears from both sides and discusses ways that you can protect your privacy online.</itunes:summary>
+		<itunes:author>KQED</itunes:author>
+		<itunes:duration>52:22</itunes:duration>
+<media:content url="http://feedproxy.google.com/~r/kqedforum/~5/M6khzaeGNSw/Forum20170331a.mp3" medium="image" height="https://ww2.kqed.org/forum/wp-content/uploads/sites/43/2017/03/Ajit-Pai-for-Forum.jpg" width="1080"><media:thumbnail url="https://ww2.kqed.org/forum/wp-content/uploads/sites/43/2017/03/Ajit-Pai-for-Forum-160x90.jpg" height="60" width="60" /></media:content>
+		<feedburner:origLink>https://ww2.kqed.org/forum/2017/03/30/congress-votes-to-strip-away-fccs-internet-privacy-rules/</feedburner:origLink><enclosure url="http://feedproxy.google.com/~r/kqedforum/~5/M6khzaeGNSw/Forum20170331a.mp3" length="25137194" type="audio/mpeg" /><feedburner:origEnclosureLink>https://www.podtrac.com/pts/redirect.mp3/www.kqed.org/.stream/mp3splice/radio/forum/2017/03/Forum20170331a.mp3</feedburner:origEnclosureLink></item>
+</channel>
+</rss>

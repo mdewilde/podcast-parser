@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/rss2enclosuresfull.xsl"?><?xml-stylesheet type="text/css" media="screen" href="http://feeds.feedburner.com/~d/styles/itemcontent.css"?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:cc="http://web.resource.org/cc/" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:media="http://search.yahoo.com/mrss/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" version="2.0">
+	<channel>
+		
+		<title>Marketing Chick Sushi-Roll</title>
+		<pubDate>Wed, 31 Aug 2005 03:49:00 +0000</pubDate>
+		<lastBuildDate>Sun, 21 Aug 2016 14:42:01 +0000</lastBuildDate>
+		<generator>Libsyn WebEngine 2.0</generator>
+		<link>http://www.MarketingChick.com</link>
+		<language>en</language>
+		<copyright>Copyright Carmen Sakurai</copyright>
+		<docs>http://www.MarketingChick.com</docs>
+		<managingEditor>marketingchick@gmail.com (marketingchick@gmail.com) (marketingchick@gmail.com (marketingchick@gmail.com)) (marketingchick@gmail.com (marketingchick@gmail.com) (marketingchick@gmail.com (marketingchick@gmail.com))) (marketingchick@gmail.com (marketingchick (marketingchick@gmail.com (marketingchick@gmail.com) (marketingchick@gmail.com (marketingchick@gmail.com)) (marketingchick@gmail.com (marketingchick@gmail.com) (marketingchick@gmail.com (marketingchick@gmail.com))) (marketingchick@gmail.com (marketingchick)</managingEditor>
+		<itunes:summary><![CDATA[Join *Marketing Chick* Carmen Sakurai as she covers current home-biz/Internet marketing news and trends, offers unbiased product and service reviews and case studies, plus other funkalicious groovyness... FREE 24/7!]]></itunes:summary>
+		<image>
+			<url>http://static.libsyn.com/p/assets/d/7/e/f/d7ef90764c300bf5/mcbox.png</url>
+			<title>Marketing Chick Sushi-Roll</title>
+			<link><![CDATA[http://www.MarketingChick.com]]></link>
+		</image>
+		<itunes:author>Carmen Sakurai</itunes:author>
+		<itunes:keywords>internet,marketing,entrepreneur,business</itunes:keywords>
+	
+	
+		<itunes:image href="http://marketingchick.com/podcast/box.png" />
+		<itunes:explicit>no</itunes:explicit>
+		<itunes:owner>
+			<itunes:name><![CDATA[Carmen Sakurai]]></itunes:name>
+			<itunes:email>marketingchick@gmail.com (marketingchick@gmail.com) (marketingchick@gmail.com (marketingchick@gmail.com)) (marketingchick@gmail.com (marketingchick@gmail.com) (marketingchick@gmail.com (marketingchick@gmail.com))) (marketingchick@gmail.com (marketingchick (marketingchick@gmail.com (marketingchick@gmail.com) (marketingchick@gmail.com (marketingchick@gmail.com)) (marketingchick@gmail.com (marketingchick@gmail.com) (marketingchick@gmail.com (marketingchick@gmail.com))) (marketingchick@gmail.com (marketingchick)</itunes:email>
+		</itunes:owner>
+		<description><![CDATA[Join *Marketing Chick* Carmen Sakurai as she covers current home-biz/Internet marketing news and trends, offers unbiased product and service reviews and case studies, plus other funkalicious groovyness... FREE 24/7!]]></description>
+		<itunes:subtitle><![CDATA[Join *Marketing Chick* Carmen Sakurai as she covers current home-biz/Internet marketing news and trends, offers unbiased product and service reviews and case studies, plus other funkalicious groovyness... FREE 24/7!]]></itunes:subtitle>
+				<atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="self" type="application/rss+xml" href="http://feeds.feedburner.com/sushiroll" /><feedburner:info xmlns:feedburner="http://rssnamespace.org/feedburner/ext/1.0" uri="sushiroll" /><atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="hub" href="http://pubsubhubbub.appspot.com/" /><media:copyright>Copyright Carmen Sakurai</media:copyright><media:thumbnail url="http://marketingchick.com/podcast/box.png" /><media:keywords>internet,marketing,entrepreneur,business</media:keywords><media:category scheme="http://www.itunes.com/dtds/podcast-1.0.dtd">Business/Management &amp; Marketing</media:category><itunes:category text="Business"><itunes:category text="Management &amp; Marketing" /></itunes:category><feedburner:emailServiceId xmlns:feedburner="http://rssnamespace.org/feedburner/ext/1.0">sushiroll</feedburner:emailServiceId><feedburner:feedburnerHostname xmlns:feedburner="http://rssnamespace.org/feedburner/ext/1.0">https://feedburner.google.com</feedburner:feedburnerHostname><feedburner:feedFlare xmlns:feedburner="http://rssnamespace.org/feedburner/ext/1.0" href="http://www.podnova.com/add.srf?url=http%3A%2F%2Ffeeds.feedburner.com%2Fsushiroll" src="http://www.podnova.com/img_chicklet_podnova.gif">Subscribe with Podnova</feedburner:feedFlare><feedburner:feedFlare xmlns:feedburner="http://rssnamespace.org/feedburner/ext/1.0" href="http://www.netvibes.com/subscribe.php?url=http%3A%2F%2Ffeeds.feedburner.com%2Fsushiroll" src="//www.netvibes.com/img/add2netvibes.gif">Subscribe with Netvibes</feedburner:feedFlare><feedburner:feedFlare xmlns:feedburner="http://rssnamespace.org/feedburner/ext/1.0" href="http://www.pageflakes.com/subscribe.aspx?url=http%3A%2F%2Ffeeds.feedburner.com%2Fsushiroll" src="http://www.pageflakes.com/ImageFile.ashx?instanceId=Static_4&amp;fileName=ATP_blu_91x17.gif">Subscribe with Pageflakes</feedburner:feedFlare><feedburner:feedFlare xmlns:feedburner="http://rssnamespace.org/feedburner/ext/1.0" href="https://add.my.yahoo.com/rss?url=http%3A%2F%2Ffeeds.feedburner.com%2Fsushiroll" src="http://us.i1.yimg.com/us.yimg.com/i/us/my/addtomyyahoo4.gif">Subscribe with My Yahoo!</feedburner:feedFlare><feedburner:feedFlare xmlns:feedburner="http://rssnamespace.org/feedburner/ext/1.0" href="http://odeo.com/listen/subscribe?feed=http%3A%2F%2Ffeeds.feedburner.com%2Fsushiroll" src="http://odeo.com/img/badge-channel-black.gif">Subscribe with ODEO</feedburner:feedFlare><feedburner:feedFlare xmlns:feedburner="http://rssnamespace.org/feedburner/ext/1.0" href="http://www.thefreedictionary.com/_/hp/AddRSS.aspx?http%3A%2F%2Ffeeds.feedburner.com%2Fsushiroll" src="http://img.tfd.com/hp/addToTheFreeDictionary.gif">Subscribe with The Free Dictionary</feedburner:feedFlare><feedburner:feedFlare xmlns:feedburner="http://rssnamespace.org/feedburner/ext/1.0" href="http://www.bitty.com/manual/?contenttype=rssfeed&amp;contentvalue=http%3A%2F%2Ffeeds.feedburner.com%2Fsushiroll" src="http://www.bitty.com/img/bittychicklet_91x17.gif">Subscribe with Bitty Browser</feedburner:feedFlare><feedburner:feedFlare xmlns:feedburner="http://rssnamespace.org/feedburner/ext/1.0" href="http://www.podcastready.com/oneclick_bookmark.php?url=http%3A%2F%2Ffeeds.feedburner.com%2Fsushiroll" src="http://www.podcastready.com/images/podcastready_button.gif">Subscribe with Podcast Ready</feedburner:feedFlare><feedburner:feedFlare xmlns:feedburner="http://rssnamespace.org/feedburner/ext/1.0" href="http://www.dailyrotation.com/index.php?feed=http%3A%2F%2Ffeeds.feedburner.com%2Fsushiroll" src="http://www.dailyrotation.com/rss-dr2.gif">Subscribe with Daily Rotation</feedburner:feedFlare><item>
+			<title>Podcast #2: Three Customer Types</title>
+			<pubDate>Wed, 31 Aug 2005 03:49:00 +0000</pubDate>
+			<guid isPermaLink="false"><![CDATA[http://marketingchick.libsyn.com/index.php?post_id=18879#]]></guid>
+			<link><![CDATA[http://marketingchick.libsyn.com/index.php?post_id=18879#]]></link>
+			<itunes:image href="http://static.libsyn.com/p/assets/0/e/6/0/0e600e4a8e104dbe/mcbox.png" />
+			<description><![CDATA[We are all *at least* one of the three learning types. The marketing campaigns accommodating all three learning types will most likely pull in the BEST results all around. <p>Find out what the three learning types are... and how to take FULL advantage of it!</p> <p><b><i>Links from this broadcast:</i></b></p> <ul> <li><a href="http://www.itunes.com" target="_blank">100% Free Podcasts from itunes.com</a> -- FREE radio shows, delivered to your computer and ready to sync to your iPod. Over 3,000 FREE podcasts to choose from!</li> <li>John Reese's Shocking Secret Report:<br /> <a href= "http://www.marketingchick.com/traffic-secrets-reports.shtml" target="_blank">Click here to download this FREE report!</a></li> </ul>]]></description>
+			<enclosure length="7365404" type="audio/mpeg" url="http://traffic.libsyn.com/marketingchick/05-0830.mp3" />
+			<itunes:duration>07:40</itunes:duration>
+			<itunes:explicit>no</itunes:explicit>
+			<itunes:keywords />
+			<itunes:subtitle><![CDATA[We are all *at least* one of the three learning types.  The marketing campaigns accommodating all three learning types will most likely pull in the BEST results all around.
+
+
+
+Find out what the three learning types are... and how to take FULL...]]></itunes:subtitle>
+					<dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Carmen Sakurai</dc:creator><media:content url="http://traffic.libsyn.com/marketingchick/05-0830.mp3" fileSize="7365404" type="audio/mpeg" /><itunes:author>Carmen Sakurai</itunes:author><itunes:summary>Join *Marketing Chick* Carmen Sakurai as she covers current home-biz/Internet marketing news and trends, offers unbiased product and service reviews and case studies, plus other funkalicious groovyness... FREE 24/7!</itunes:summary></item>
+		<item>
+			<title>Podcast #1: Int'l Radio Star!</title>
+			<pubDate>Fri, 03 Jun 2005 04:44:00 +0000</pubDate>
+			<guid isPermaLink="false"><![CDATA[http://marketingchick.libsyn.com/index.php?post_id=18887#]]></guid>
+			<link><![CDATA[http://marketingchick.libsyn.com/index.php?post_id=18887#]]></link>
+			<itunes:image href="http://static.libsyn.com/p/assets/6/5/4/c/654ca56dca50df97/podcastshow1.jpg" />
+			<description><![CDATA[<p><img src= "http://asset-server.libsyn.com/assets/6/5/4/c/654ca56dca50df97/podcastshow1.jpg" alt="" width="423" height="148" /><br /> Have you ever thought to yourself, "I was born to star in my own radio show!"? I'll show you how!<br /> <br /> <em><strong>Links from this broadcast:</strong></em></p> <p>iPodder Podcast Receiver:<br /> <a href="http://ipodder.sourceforge.net/index.php" target= "_blank">http://ipodder.sourceforge.net/index.php</a></p> <p>AudioBlog.com 7-Day Free Trial:<br /> <a href="http://www.AudioBlog.com" target= "_blank">http://www.AudioBlog.com</a></p> <p>FREE Audacity audio editor & recorder:<br /> <a href="http://sourceforge.net/projects/audacity/" target= "_blank">http://sourceforge.net/projects/audacity/</a></p> <p>Podcast Directories:<br /> <a href="http://www.ipodder.org" target= "_blank">http://www.ipodder.org</a><br /> <a href="http://podcastalley.com" target= "_blank">http://podcastalley.com</a><br /> <a href="http://www.gigadial.net" target= "_blank">http://www.gigadial.net</a><br /> <a href="http://podcast.net" target= "_blank">http://podcast.net</a><br /> <a href="http://www.podcastdirectory.com" target= "_blank">http://www.podcastdirectory.com</a><br /> <a href="http://www.digitalpodcast.com" target= "_blank">http://www.digitalpodcast.com</a><br /> <a href="http://www.podcastingnews.com" target= "_blank">http://www.podcastingnews.com</a><br /> <a href="http://publicradiofeeds.com" target= "_blank">http://publicradiofeeds.com</a><br /> <a href="http://ipodderx.com/directory" target= "_blank">http://ipodderx.com/directory</a></p>]]></description>
+			<enclosure length="5142697" type="audio/mpeg" url="http://traffic.libsyn.com/marketingchick/05-0603.mp3" />
+			<itunes:duration>05:21</itunes:duration>
+			<itunes:explicit>no</itunes:explicit>
+			<itunes:keywords />
+			<itunes:subtitle><![CDATA[Have you ever thought to yourself, "I was born to star in my own radio show!"? I'll show you how! Links from this broadcast:
+iPodder Podcast Receiver: http://ipodder.sourceforge.net/index.php
+AudioBlog.com 7-Day Free Trial:...]]></itunes:subtitle>
+					<dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Carmen Sakurai</dc:creator><media:content url="http://traffic.libsyn.com/marketingchick/05-0603.mp3" fileSize="5142697" type="audio/mpeg" /><itunes:author>Carmen Sakurai</itunes:author><itunes:summary>Join *Marketing Chick* Carmen Sakurai as she covers current home-biz/Internet marketing news and trends, offers unbiased product and service reviews and case studies, plus other funkalicious groovyness... FREE 24/7!</itunes:summary></item>
+	<media:credit role="author">Carmen Sakurai</media:credit><media:rating>nonadult</media:rating><media:description type="plain">Join *Marketing Chick* Carmen Sakurai as she covers current home-biz/Internet marketing news and trends, offers unbiased product and service reviews and case studies, plus other funkalicious groovyness... FREE 24/7!</media:description></channel>
+</rss>

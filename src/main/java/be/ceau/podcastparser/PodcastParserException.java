@@ -13,17 +13,25 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
 */
-package be.ceau.podcastparser.test;
+package be.ceau.podcastparser;
 
 /**
- * Contract for any class able to provide XML samples for testing this library.
+ * {@link Exception} indicating any issue linked directly to the parsing of a podcast feed XML file.
  */
-public interface TestXmlProvider {
+public class PodcastParserException extends Exception {
 
-	/**
-	 * @return a feed sample as {@link WrappedXml}, possibly invalid, never
-	 *         {@code null}
-	 */
-	public WrappedXml get();
+	private static final long serialVersionUID = 1512898418624L;
+
+	public PodcastParserException(String message) {
+		super(message);
+	}
+
+	public PodcastParserException(String message, String arg0) {
+		super(message.replaceFirst("\\{\\}", arg0));
+	}
+
+    public PodcastParserException(Throwable cause) {
+        super(cause);
+    }
 
 }
