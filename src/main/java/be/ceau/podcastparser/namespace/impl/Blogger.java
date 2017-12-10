@@ -34,7 +34,7 @@ public class Blogger implements Namespace {
 	public void process(PodParseContext ctx, Item item) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
 		case "adultContent":
-			item.computeRatingIfAbsent().setAdultContent(ctx.getElementText());
+			item.getRating().setAdultContent(ctx.getElementText());
 			break;
 		default : 
 			Namespace.super.process(ctx, item);

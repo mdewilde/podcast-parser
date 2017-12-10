@@ -94,6 +94,7 @@ public class GooglePlay implements Namespace {
 			// A description of the podcast or episode. The description can be
 			// specified in the <channel> or <item> tags and must be plain-text
 			// (no markup allowed).
+			item.setDescription(ctx.getElementText());
 			break;
 		case "explicit":
 			// Indicates whether the podcast or a specific episode contains
@@ -103,6 +104,7 @@ public class GooglePlay implements Namespace {
 			// when placed in the <item>. A 'clean' value can only be used in
 			// the <item> tag, and it means this episode is not explicit, but
 			// there's also an explicit version of of the same episode.
+			item.getRating().setExplicit(ctx.getElementText());
 			break;
 		case "block":
 			// If this tag is set to 'yes' in the <channel> tag, the podcast

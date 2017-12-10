@@ -1,3 +1,18 @@
+/*
+	Copyright 2017 Marceau Dewilde <m@ceau.be>
+	
+	Licensed under the Apache License, Version 2.0 (the "License");
+	you may not use this file except in compliance with the License.
+	You may obtain a copy of the License at
+	
+		https://www.apache.org/licenses/LICENSE-2.0
+	
+	Unless required by applicable law or agreed to in writing, software
+	distributed under the License is distributed on an "AS IS" BASIS,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	See the License for the specific language governing permissions and
+	limitations under the License.
+*/
 package be.ceau.podcastparser.models;
 
 import java.time.Duration;
@@ -26,7 +41,7 @@ public class Item {
 	private Temporal validity;
 	private Temporal edited;
 	private String source;
-	private Rating rating;
+	private final Rating rating = new Rating();
 	private Duration duration;
 	private final List<MediaContent> mediaContents = new ArrayList<>();
 	private final List<Image> images = new ArrayList<>();
@@ -42,6 +57,9 @@ public class Item {
 	private final Map<OtherValueKey, String> values = new EnumMap<>(OtherValueKey.class);
 	private final Map<String, Enclosure> otherEnclosures = new HashMap<>();
 	private GeoPoint geoPoint;
+	private int order;
+	private String summary;
+	private String block;
 	
 	/**
 	 * <p>
@@ -325,24 +343,13 @@ public class Item {
 	 * The rating for this item.
 	 * </p>
 	 * <p>
-	 * Combines optional elements from iTunes RSS and Media RSS spec.
+	 * Combines optional elements from iTunes RSS, Media RSS and Google Play spec.
 	 * </p>
 	 * 
-	 * @return a {@link Rating} or {@code null}
+	 * @return a {@link Rating}, never {@code null}
 	 */
 	public Rating getRating() {
 		return rating;
-	}
-
-	public Rating computeRatingIfAbsent() {
-		if (rating == null) {
-			rating = new Rating();
-		}
-		return rating;
-	}
-
-	public void setRating(Rating rating) {
-		this.rating = rating;
 	}
 
 	/**
@@ -661,6 +668,30 @@ public class Item {
 
 	public void setGeoPoint(GeoPoint geoPoint) {
 		this.geoPoint = geoPoint;
+	}
+
+	public int getOrder() {
+		return order;
+	}
+
+	public void setOrder(int order) {
+		this.order = order;
+	}
+
+	public String getSummary() {
+		return summary;
+	}
+
+	public void setSummary(String summary) {
+		this.summary = summary;
+	}
+
+	public String getBlock() {
+		return block;
+	}
+
+	public void setBlock(String block) {
+		this.block = block;
 	}
 
 	@Override

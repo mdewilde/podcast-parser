@@ -22,19 +22,26 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import be.ceau.podcastparser.PodParseContext;
 import be.ceau.podcastparser.models.Category;
 import be.ceau.podcastparser.models.Image;
 import be.ceau.podcastparser.models.Item;
+import be.ceau.podcastparser.models.Link;
 import be.ceau.podcastparser.models.Person;
 import be.ceau.podcastparser.namespace.Namespace;
+import be.ceau.podcastparser.util.Attributes;
+import be.ceau.podcastparser.util.Strings;
 import be.ceau.podcastparser.util.UnmodifiableSet;
 
 /**
- * @see http://lists.apple.com/archives/syndication-dev/2005/Nov/msg00002.html
+ * @see https://help.apple.com/itc/podcasts_connect/#/itcb54353390
  */
 public class ITunes implements Namespace {
+
+	private static final Logger logger = LoggerFactory.getLogger(ITunes.class);
 
 	private static final String NAME = "http://www.itunes.com/dtds/podcast-1.0.dtd";
 	private static final Set<String> ALTERNATIVE_NAMES = UnmodifiableSet.of(
@@ -56,8 +63,8 @@ public class ITunes implements Namespace {
 
 	@Override
 	public void process(PodParseContext ctx) throws XMLStreamException {
-
-		switch (ctx.getReader().getLocalName()) {
+		String localName = ctx.getReader().getLocalName();
+		switch (localName) {
 		case "author":
 			Person author = new Person();
 			author.setName(ctx.getElementText());
@@ -80,12 +87,22 @@ public class ITunes implements Namespace {
 			 * At the episode level, if there is no block tag, it is the same as
 			 * if a block=no were present.
 			 */
+			String block = ctx.getElementText();
+			if (Strings.isNotBlank(block)) {
+				ctx.getFeed().setBlock(block);
+			}
 			return;
 		case "category":
 			ctx.getFeed().addCategory(parseCategory(ctx));
 			return;
 		case "explicit":
-			ctx.getFeed().computeRatingIfAbsent().setExplicit(ctx.getElementText());
+			ctx.getFeed().getRating().setExplicit(ctx.getElementText());
+			return;
+		case "image":
+			ctx.getFeed().addImage(parseImage(ctx));
+			return;
+		case "link":
+			ctx.getFeed().addLink(parseLink(ctx));
 			return;
 		case "keywords":
 			// comma separated list of keywords
@@ -96,6 +113,12 @@ public class ITunes implements Namespace {
 					ctx.getFeed().addKeyword(split[i].trim());
 				}
 			}
+			return;
+		case "new-feed-url":
+			Link link = new Link();
+			link.setHref(ctx.getElementText());
+			link.setTitle("new-feed-url");
+			ctx.getFeed().addLink(link);
 			return;
 		case "owner":
 			ctx.getFeed().setOwner(parseOwner(ctx));
@@ -109,16 +132,13 @@ public class ITunes implements Namespace {
 			}
 			return;
 		case "summary":
-			// The contents of this tag are shown in a separate window that appears when the "circled i" in 
-			// the Description column is clicked. It also appears on the iTunes Music Store page for your podcast.
-			// This field can be up to 4000 characters. If <itunes:summary> is not included, 
-			// the contents of the <description> tag are used.
-			return;
-		case "image":
-			ctx.getFeed().addImage(parseImage(ctx));
+			String summary = ctx.getElementText();
+			if (StringUtils.isNotBlank(summary)) {
+				ctx.getFeed().setSummary(summary);
+			}
 			return;
 		default : 
-			Namespace.super.process(ctx);
+			logger.warn("iTunes {} @FEED --> [ATTRIBUTES {}] [TEXT {}]", localName, Attributes.toString(ctx.getReader()), ctx.getElementText());
 			break;
 		}
 
@@ -135,21 +155,45 @@ public class ITunes implements Namespace {
 	 */
 	@Override
 	public void process(PodParseContext ctx, Item item) throws XMLStreamException {
-
-		switch (ctx.getReader().getLocalName()) {
+		String localName = ctx.getReader().getLocalName();
+		switch (localName) {
 		case "author":
 			Person person = new Person();
 			person.setEmail(ctx.getElementText());
 			item.addAuthor(person);
 			return;
 		case "block":
+			String block = ctx.getElementText();
+			if (Strings.isNotBlank(block)) {
+				item.setBlock(block);
+			}
+			return;
+		case "category":
+			item.addCategory(parseCategory(ctx));
+			return;
+		case "description":
+			String description = ctx.getElementText();
+			if (Strings.isNotBlank(description)) {
+				item.setDescription(description);
+			}
 			return;
 		case "duration":
 			String duration = ctx.getElementText();
 			item.setDuration(duration);
 			return;
+		case "email":
+			String email = ctx.getElementText();
+			if (Strings.isNotBlank(email)) {
+				Person emailPerson = new Person();
+				emailPerson.setEmail(email);
+				item.addAuthor(emailPerson);
+			}
+			return;
 		case "explicit":
-			item.computeRatingIfAbsent().setExplicit(ctx.getElementText());
+			item.getRating().setExplicit(ctx.getElementText());
+			return;
+		case "image":
+			item.addImage(parseImage(ctx));
 			return;
 		case "keywords":
 			// comma separated list of keywords
@@ -161,20 +205,28 @@ public class ITunes implements Namespace {
 				}
 			}
 			return;
+		case "order":
+			item.setOrder(Integer.parseInt(ctx.getElementText()));
+			return;
 		case "subtitle":
 			String subtitle = ctx.getElementText();
-			if (subtitle != null && !subtitle.trim().isEmpty()) {
+			if (Strings.isNotBlank(subtitle)) {
 				item.setSubtitle(subtitle);
 			}
 			return;
 		case "summary":
+			String summary = ctx.getElementText();
+			if (Strings.isNotBlank(summary)) {
+				item.setSummary(summary);
+			}
 			return;
-		case "image":
-			item.addImage(parseImage(ctx));
-			return;
+		case "album":
+			// fallthrough intended
+		case "isClosedCaptioned":
+			// fallthrough intended
 		default : 
-			Namespace.super.process(ctx, item);
-			break;
+			logger.warn("iTunes {} @ITEM --> [ATTRIBUTES {}] [TEXT {}]", localName, Attributes.toString(ctx.getReader()), ctx.getElementText());
+			return;
 		}
 
 	}
@@ -266,6 +318,18 @@ public class ITunes implements Namespace {
 		return person;
 	}
 
+	// XXX duplicate code -> see Atom
+	private Link parseLink(PodParseContext ctx) throws XMLStreamException {
+		Link link = new Link();
+		Attributes.get("href").from(ctx.getReader()).ifPresent(link::setHref);
+		Attributes.get("rel").from(ctx.getReader()).ifPresent(link::setRel);
+		Attributes.get("type").from(ctx.getReader()).ifPresent(link::setType);
+		Attributes.get("hreflang").from(ctx.getReader()).ifPresent(link::setHreflang);
+		Attributes.get("title").from(ctx.getReader()).ifPresent(link::setTitle);
+		Attributes.get("length").from(ctx.getReader()).ifPresent(link::setLength);
+		return link;
+	}
+	
 }
 
 /*

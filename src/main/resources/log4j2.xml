@@ -33,12 +33,8 @@
 	<Loggers>
 	
 		<AsyncLogger name="be.ceau" level="TRACE" includeLocation="false" additivity="false">
-			<AppenderRef ref="console" />
+<!-- 			<AppenderRef ref="console" /> -->
 			<AppenderRef ref="event" />
-		</AsyncLogger>
-
-		<AsyncLogger name="be.ceau.podcastparser.stax.namespace.Namespace" level="TRACE" includeLocation="false" additivity="false">
-			<AppenderRef ref="missing" />
 		</AsyncLogger>
 
 		<AsyncLogger name="org.apache.http" level="OFF" includeLocation="false" additivity="false">

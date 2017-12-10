@@ -51,14 +51,14 @@ public class ParseTest {
 		PodcastParser parser = new PodcastParser();
 
 		FILES_PROVIDER
-			//.parallelStream()
-			.stream()
-			.limit(1000)
+			.parallelStream()
+//			.stream()
+			.limit(50000)
 			.forEach(wrap -> {
 				try {
 					parser.parse(wrap.getXml());
 				} catch (Exception e) {
-					// logger.error("{} -> {}", wrap.getDescription(), e.getMessage());
+					logger.error("{} -> {}", wrap.getDescription(), e.getMessage());
 				}
 				// c.stop().log(wrap.getDescription());
 			});

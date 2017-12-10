@@ -1,3 +1,18 @@
+/*
+	Copyright 2017 Marceau Dewilde <m@ceau.be>
+	
+	Licensed under the Apache License, Version 2.0 (the "License");
+	you may not use this file except in compliance with the License.
+	You may obtain a copy of the License at
+	
+		https://www.apache.org/licenses/LICENSE-2.0
+	
+	Unless required by applicable law or agreed to in writing, software
+	distributed under the License is distributed on an "AS IS" BASIS,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	See the License for the specific language governing permissions and
+	limitations under the License.
+*/
 package be.ceau.podcastparser.models;
 
 import java.time.Duration;
@@ -37,11 +52,13 @@ public class Feed {
 	private final List<Person> contributors = new ArrayList<>();
 	private final List<String> keywords = new ArrayList<>();
 	private UpdateInfo updateInfo;
-	private Rating rating;
+	private final Rating rating = new Rating();
 	private String location;
 	private final Map<OtherValueKey, String> values = new EnumMap<>(OtherValueKey.class);
 	private GeoPoint geoPoint;
-	
+	private String block;
+	private String summary;
+
 	/**
 	 * <p>
 	 * The {@code id} element conveys a permanent, universally unique identifier
@@ -450,24 +467,13 @@ public class Feed {
 	 * The rating for this item.
 	 * </p>
 	 * <p>
-	 * Combines optional elements from iTunes RSS and Media RSS spec.
+	 * Combines optional elements from iTunes RSS, Media RSS and Google Play spec.
 	 * </p>
 	 * 
-	 * @return {@link Rating} or {@code null}
+	 * @return a {@link Rating}, not {@code null}
 	 */
 	public Rating getRating() {
 		return rating;
-	}
-
-	public Rating computeRatingIfAbsent() {
-		if (rating == null) {
-			rating = new Rating();
-		}
-		return rating;
-	}
-	
-	public void setRating(Rating rating) {
-		this.rating = rating;
 	}
 
 	/**
@@ -530,6 +536,22 @@ public class Feed {
 
 	public void setGeoPoint(GeoPoint geoPoint) {
 		this.geoPoint = geoPoint;
+	}
+
+	public String getBlock() {
+		return block;
+	}
+
+	public void setBlock(String block) {
+		this.block = block;
+	}
+
+	public String getSummary() {
+		return summary;
+	}
+
+	public void setSummary(String summary) {
+		this.summary = summary;
 	}
 
 	@Override

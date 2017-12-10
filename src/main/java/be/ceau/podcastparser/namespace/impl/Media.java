@@ -42,7 +42,7 @@ import be.ceau.podcastparser.util.UnmodifiableSet;
  * <h1>Media RSS Specification</h1>
  * 
  * <p>
- * An RSS module that supplements the <enclosure> element capabilities of RSS
+ * An RSS module that supplements the &lt;enclosure&gt; element capabilities of RSS
  * 2.0 to allow for more robust media syndication.
  * </p>
  * 
@@ -149,7 +149,7 @@ public class Media implements Namespace {
 			return;
 		case "adult": {
 			// This is deprecated and has been replaced with 'rating'
-			item.computeRatingIfAbsent().setText(ctx.getElementText()).setScheme("urn:simple");
+			item.getRating().setText(ctx.getElementText()).setScheme("urn:simple");
 			return;
 		}
 		case "rating": {
@@ -158,7 +158,7 @@ public class Media implements Namespace {
 			if (scheme == null) {
 				scheme = "urn:simple";
 			}
-			item.computeRatingIfAbsent().setText(ctx.getElementText()).setScheme(scheme);
+			item.getRating().setText(ctx.getElementText()).setScheme(scheme);
 			return;
 		}
 		case "title": {
@@ -239,7 +239,7 @@ public class Media implements Namespace {
 			 * width is the width of the browser window that the URL should be
 			 * opened in. It is an optional attribute.
 			 */
-			LoggerFactory.getLogger(Namespace.class).info("Media player --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			LoggerFactory.getLogger(Media.class).info("Media player --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
 			return;
 		case "credit":
 			/*
@@ -284,7 +284,7 @@ public class Media implements Namespace {
 			 * license, the Creative Commons module should be used instead. It
 			 * is an optional attribute.
 			 */
-			LoggerFactory.getLogger(Namespace.class).info("Media copyright --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			LoggerFactory.getLogger(Media.class).info("Media copyright --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
 			return;
 		case "text":
 			/*
@@ -322,7 +322,7 @@ public class Media implements Namespace {
 			 * expected that the end time is either the end of the clip or the
 			 * start of the next <media:text> element.
 			 */
-			LoggerFactory.getLogger(Namespace.class).info("Media text --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			LoggerFactory.getLogger(Media.class).info("Media text --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
 			return;
 		case "restriction":
 			/*
@@ -374,7 +374,7 @@ public class Media implements Namespace {
 			 * 
 			 * <media:restriction type="sharing" relationship="deny" />
 			 */
-			LoggerFactory.getLogger(Namespace.class).info("Media restriction --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			LoggerFactory.getLogger(Media.class).info("Media restriction --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
 			return;
 		case "community":
 			/*
@@ -402,13 +402,13 @@ public class Media implements Namespace {
 			 * for example, number of occurences can be one way to decide weight
 			 * of a particular tag. Default weight is 1.
 			 */
-			LoggerFactory.getLogger(Namespace.class).info("Media community --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			LoggerFactory.getLogger(Media.class).info("Media community --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
 			return;
 		case "comments":
 			/*
 			 * Allows inclusion of all the comments a media object has received.
 			 */
-			LoggerFactory.getLogger(Namespace.class).info("Media comments --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			LoggerFactory.getLogger(Media.class).info("Media comments --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
 			return;
 		case "embed":
 			/*
@@ -416,19 +416,19 @@ public class Media implements Namespace {
 			 * play any video. <media:embed> allows inclusion of such
 			 * information in the form of key-value pairs.
 			 */
-			LoggerFactory.getLogger(Namespace.class).info("Media embed --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			LoggerFactory.getLogger(Media.class).info("Media embed --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
 			return;
 		case "responses":
 			/*
 			 * Allows inclusion of a list of all media responses a media object has received.
 			 */
-			LoggerFactory.getLogger(Namespace.class).info("Media responses --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			LoggerFactory.getLogger(Media.class).info("Media responses --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
 			return;
 		case "backLinks":
 			/*
 			 * Allows inclusion of all the URLs pointing to a media object.
 			 */
-			LoggerFactory.getLogger(Namespace.class).info("Media backLinks --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			LoggerFactory.getLogger(Media.class).info("Media backLinks --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
 			return;
 		case "status":
 			/*
@@ -446,7 +446,7 @@ public class Media implements Namespace {
 			 * reason is a reason explaining why a media object has been
 			 * blocked/deleted. It can be plain text or a URL.
 			 */
-			LoggerFactory.getLogger(Namespace.class).info("Media status --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			LoggerFactory.getLogger(Media.class).info("Media status --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
 			return;
 		case "price":
 			/*
@@ -479,7 +479,7 @@ public class Media implements Namespace {
 			 * currency -- use [ISO 4217] for currency codes. This is an
 			 * optional attribute.
 			 */
-			LoggerFactory.getLogger(Namespace.class).info("Media price --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			LoggerFactory.getLogger(Media.class).info("Media price --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
 			return;
 		case "license": {
 			/*
@@ -506,7 +506,7 @@ public class Media implements Namespace {
 			 * language. Please refer to Timed Text spec - W3C for more
 			 * information on Timed Text and Real Time Subtitling.
 			 */
-			LoggerFactory.getLogger(Namespace.class).info("Media subTitle --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			LoggerFactory.getLogger(Media.class).info("Media subTitle --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
 			return;
 		case "peerLink":
 			/*
@@ -538,7 +538,7 @@ public class Media implements Namespace {
 			 * end time at which the reference to a particular location ends in
 			 * the media object.
 			 */
-			LoggerFactory.getLogger(Namespace.class).info("Media peerLink --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			LoggerFactory.getLogger(Media.class).info("Media peerLink --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
 			return;
 		case "rights":
 			/*
@@ -553,7 +553,7 @@ public class Media implements Namespace {
 			 * object has been created by the publisher or they have rights to
 			 * circulate it. Supported values are "userCreated" and "official".
 			 */
-			LoggerFactory.getLogger(Namespace.class).info("Media rights --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			LoggerFactory.getLogger(Media.class).info("Media rights --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
 			return;
 		case "scenes":
 			/*
@@ -574,7 +574,7 @@ public class Media implements Namespace {
 			 * <sceneStartTime>00:57</sceneStartTime>
 			 * <sceneEndTime>01:45</sceneEndTime> </media:scene> </media:scenes>
 			 */
-			LoggerFactory.getLogger(Namespace.class).info("Media scenes --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			LoggerFactory.getLogger(Media.class).info("Media scenes --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
 			return;
 		default : 
 			Namespace.super.process(ctx, item);

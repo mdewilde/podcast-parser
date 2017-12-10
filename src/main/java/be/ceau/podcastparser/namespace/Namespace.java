@@ -47,6 +47,7 @@ public interface Namespace {
 	 * 
 	 * @return the canonical name for this {@link Namespace}, not {@code null}
 	 *         identified.
+	 * @see #getAlternativeNames()
 	 */
 	public String getName();
 
@@ -57,6 +58,7 @@ public interface Namespace {
 	 * 
 	 * @return a {@link Set} of names by which this {@link Namespace} is also
 	 *         identified, may be empty, never {@code null}
+	 * @see #getName()
 	 */
 	public default Set<String> getAlternativeNames() {
 		return Collections.emptySet();
@@ -77,7 +79,8 @@ public interface Namespace {
 	 */
 	public default void process(PodParseContext ctx) throws XMLStreamException {
 		// default is to do nothing
-		LoggerFactory.getLogger(Namespace.class).info("{} {} --> {} {}", ctx.getReader().getNamespaceURI(), ctx.getReader().getLocalName(), Attributes.toString(ctx.getReader()), ctx.getElementText());
+		LoggerFactory.getLogger(Namespace.class)
+			.info("{} {} --> [@ FEED] [ATTRIBUTES {}] [TEXT {}]", ctx.getReader().getNamespaceURI(), ctx.getReader().getLocalName(), Attributes.toString(ctx.getReader()), ctx.getElementText());
 	}
 
 	/**
@@ -97,7 +100,8 @@ public interface Namespace {
 	 */
 	public default void process(PodParseContext ctx, Item item) throws XMLStreamException {
 		// default is to do nothing
-		LoggerFactory.getLogger(Namespace.class).info("{} {} --> {} {}", ctx.getReader().getNamespaceURI(), ctx.getReader().getLocalName(), Attributes.toString(ctx.getReader()), ctx.getElementText());
+		LoggerFactory.getLogger(Namespace.class)
+			.info("{} {} --> [@ ITEM] [ATTRIBUTES {}] [TEXT {}]", ctx.getReader().getNamespaceURI(), ctx.getReader().getLocalName(), Attributes.toString(ctx.getReader()), ctx.getElementText());
 	}
 
 	/**

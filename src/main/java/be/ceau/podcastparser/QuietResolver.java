@@ -22,8 +22,6 @@ import java.util.Set;
 import javax.xml.stream.XMLResolver;
 import javax.xml.stream.XMLStreamException;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.xml.sax.EntityResolver;
 
 import be.ceau.podcastparser.util.UnmodifiableSet;
@@ -38,8 +36,6 @@ import be.ceau.podcastparser.util.UnmodifiableSet;
  * </ol>
  */
 public class QuietResolver implements XMLResolver {
-
-	private static final Logger logger = LoggerFactory.getLogger(QuietResolver.class);
 
 	private static final Set<String> PUBLIC_IDS_HTML = UnmodifiableSet.of(
 			"-//W3C//DTD HTML 4.01//EN",

@@ -25,9 +25,6 @@ import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import be.ceau.podcastparser.models.Feed;
 import be.ceau.podcastparser.namespace.NamespaceCallbackHandler;
 import be.ceau.podcastparser.namespace.NoOpNamespaceCallback;
@@ -38,8 +35,6 @@ import be.ceau.podcastparser.namespace.impl.RSS;
  * Parser class for converting podcast XML feeds into {@link Feed} objects.
  */
 public class PodcastParser {
-
-	private static final Logger logger = LoggerFactory.getLogger(PodcastParser.class);
 
 	private final XMLInputFactory factory;
 	private final NamespaceCallbackHandler namespaceCallbackHandler;
