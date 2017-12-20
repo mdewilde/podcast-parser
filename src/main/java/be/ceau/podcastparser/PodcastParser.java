@@ -26,8 +26,8 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
 import be.ceau.podcastparser.models.Feed;
-import be.ceau.podcastparser.namespace.NamespaceCallbackHandler;
-import be.ceau.podcastparser.namespace.NoOpNamespaceCallback;
+import be.ceau.podcastparser.namespace.callback.NamespaceCallbackHandler;
+import be.ceau.podcastparser.namespace.callback.NoOpNamespaceCallback;
 import be.ceau.podcastparser.namespace.impl.Atom;
 import be.ceau.podcastparser.namespace.impl.RSS;
 
@@ -55,7 +55,7 @@ public class PodcastParser {
 	 * </p>
 	 *
 	 * @param callbackHandler
-	 *            a {@link be.ceau.podcastparser.namespace.NamespaceCallbackHandler} object.
+	 *            a {@link be.ceau.podcastparser.namespace.callback.NamespaceCallbackHandler} object.
 	 */
 	public PodcastParser(NamespaceCallbackHandler callbackHandler) {
 		Objects.requireNonNull(callbackHandler);

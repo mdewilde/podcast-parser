@@ -100,7 +100,7 @@ public class RSS implements RootNamespace, Namespace {
 				return;
 			}
 			// not root namespace and not other namespace we can handle
-			ctx.unknownNamespace("feed");
+			ctx.registerUnknownNamespace("feed");
 			return;
 		}
 
@@ -201,7 +201,7 @@ public class RSS implements RootNamespace, Namespace {
 				return;
 			}
 			// not root namespace and not other namespace we can handle
-			ctx.unknownNamespace("item");
+			ctx.registerUnknownNamespace("item");
 			return;
 		}
 

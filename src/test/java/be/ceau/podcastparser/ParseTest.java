@@ -28,6 +28,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.xml.sax.SAXException;
 
+import be.ceau.podcastparser.namespace.callback.NamespaceCountingCallbackHandler;
 import be.ceau.podcastparser.test.provider.FileProvider;
 import be.ceau.podcastparser.test.provider.FilesProvider;
 
@@ -47,8 +48,8 @@ public class ParseTest {
 	@Test
 	public void staxTest() throws IOException, SAXException, ParserConfigurationException {
 
-		NamespaceCountingCallbackHandler handler = new NamespaceCountingCallbackHandler();
-		PodcastParser parser = new PodcastParser();
+		NamespaceCountingCallbackHandler callback = new NamespaceCountingCallbackHandler();
+		PodcastParser parser = new PodcastParser(callback);
 
 		FILES_PROVIDER
 			.parallelStream()
@@ -63,7 +64,7 @@ public class ParseTest {
 				// c.stop().log(wrap.getDescription());
 			});
 
-		
+		System.out.println(callback);
 	//	logger.info("{} {}", System.lineSeparator(), handler.toString());
 
 	}

@@ -137,6 +137,12 @@ public class ITunes implements Namespace {
 				ctx.getFeed().setSummary(summary);
 			}
 			return;
+		case "type":
+			String type = ctx.getElementText();
+			if (StringUtils.isNotBlank(type)) {
+				ctx.getFeed().setType(type);
+			}
+			return;
 		default : 
 			logger.warn("iTunes {} @FEED --> [ATTRIBUTES {}] [TEXT {}]", localName, Attributes.toString(ctx.getReader()), ctx.getElementText());
 			break;
@@ -189,6 +195,15 @@ public class ITunes implements Namespace {
 				item.addAuthor(emailPerson);
 			}
 			return;
+		case "episode":
+			String episode = ctx.getElementText();
+			if (Strings.isNotBlank(episode)) {
+				item.setEpisode(episode);
+			}
+			return;
+		case "episodeType":
+			item.setEpisodeType(ctx.getElementText());
+			return;
 		case "explicit":
 			item.getRating().setExplicit(ctx.getElementText());
 			return;
@@ -214,10 +229,22 @@ public class ITunes implements Namespace {
 				item.setSubtitle(subtitle);
 			}
 			return;
+		case "season":
+			String season = ctx.getElementText();
+			if (Strings.isNotBlank(season)) {
+				item.setSeason(season);
+			}
+			return;
 		case "summary":
 			String summary = ctx.getElementText();
 			if (Strings.isNotBlank(summary)) {
 				item.setSummary(summary);
+			}
+			return;
+		case "title":
+			String title = ctx.getElementText();
+			if (Strings.isNotBlank(title)) {
+				item.setTitle(title);
 			}
 			return;
 		case "album":

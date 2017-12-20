@@ -1,4 +1,19 @@
-package be.ceau.podcastparser;
+/*
+	Copyright 2017 Marceau Dewilde <m@ceau.be>
+	
+	Licensed under the Apache License, Version 2.0 (the "License");
+	you may not use this file except in compliance with the License.
+	You may obtain a copy of the License at
+	
+		https://www.apache.org/licenses/LICENSE-2.0
+	
+	Unless required by applicable law or agreed to in writing, software
+	distributed under the License is distributed on an "AS IS" BASIS,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	See the License for the specific language governing permissions and
+	limitations under the License.
+*/
+package be.ceau.podcastparser.namespace.callback;
 
 import java.util.Collections;
 import java.util.HashSet;
@@ -14,8 +29,19 @@ import org.apache.commons.lang3.StringUtils;
 
 import be.ceau.podcastparser.models.Feed;
 import be.ceau.podcastparser.models.Item;
-import be.ceau.podcastparser.namespace.NamespaceCallbackHandler;
 
+/**
+ * <p>
+ * {@link NamespaceCallbackHandler} implementation that counts every occurrence of any element in any namespace.
+ * </p>
+ * <p>
+ * Add an instance to any number of {@link be.ceau.podcastparser.PodcastParser} instances. Generate a report using
+ * {@link #toString()}.
+ * </p>
+ * <p>
+ * This implementation is threadsafe.
+ * </p>
+ */
 public class NamespaceCountingCallbackHandler implements NamespaceCallbackHandler {
 
 	private final Map<EncounteredElement, LongAdder> counts = new ConcurrentHashMap<>();
@@ -31,7 +57,7 @@ public class NamespaceCountingCallbackHandler implements NamespaceCallbackHandle
 	}
 
 	@Override
-	public void unknownNamespace(XMLStreamReader reader, String level) {
+	public void registerUnknownNamespace(XMLStreamReader reader, String level) {
 		counts.computeIfAbsent(new EncounteredElement("", reader, level), x -> new LongAdder()).increment();
 	}
 
@@ -51,9 +77,9 @@ public class NamespaceCountingCallbackHandler implements NamespaceCallbackHandle
 
 		private final String namespaceUri;
 		private final String localName;
-		private final Set<String> attributes; 
+		private final Set<String> attributes;
 		private final String level;
-		
+
 		public EncounteredElement(String rootNamespace, XMLStreamReader reader, String level) {
 			String uri = reader.getNamespaceURI();
 			this.namespaceUri = StringUtils.isBlank(uri) ? rootNamespace : uri;

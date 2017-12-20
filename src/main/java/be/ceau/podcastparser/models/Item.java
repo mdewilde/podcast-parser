@@ -60,6 +60,9 @@ public class Item {
 	private int order;
 	private String summary;
 	private String block;
+	private String episodeType;
+	private String episode;
+	private String season;
 	
 	/**
 	 * <p>
@@ -109,8 +112,7 @@ public class Item {
 	 * </p>
 	 * 
 	 * <p>
-	 * Required in RSS specification. Listed in Atom specification as element
-	 * {@code link}.
+	 * Required in RSS specification. Listed in Atom specification as element {@code link}.
 	 * </p>
 	 * 
 	 * @return {@link List}
@@ -171,8 +173,8 @@ public class Item {
 
 	/**
 	 * <p>
-	 * The {@code rights} element is a Text construct that conveys information
-	 * about rights held in and over an entry or feed.
+	 * The {@code rights} element is a Text construct that conveys information about rights held in and over an entry or
+	 * feed.
 	 * </p>
 	 * <p>
 	 * Listed as optional element {@code rights} in Atom specification.
@@ -208,30 +210,25 @@ public class Item {
 
 	/**
 	 * <p>
-	 * guid stands for globally unique identifier. It's a string that uniquely
-	 * identifies the item. When present, an aggregator may choose to use this
-	 * string to determine if an item is new.
+	 * guid stands for globally unique identifier. It's a string that uniquely identifies the item. When present, an
+	 * aggregator may choose to use this string to determine if an item is new.
 	 * 
 	 * <guid>http://some.server.com/weblogItem3207</guid>
 	 * 
-	 * There are no rules for the syntax of a guid. Aggregators must view them
-	 * as a string. It's up to the source of the feed to establish the
-	 * uniqueness of the string.
+	 * There are no rules for the syntax of a guid. Aggregators must view them as a string. It's up to the source of the
+	 * feed to establish the uniqueness of the string.
 	 * 
-	 * If the guid element has an attribute named "isPermaLink" with a value of
-	 * true, the reader may assume that it is a permalink to the item, that is,
-	 * a url that can be opened in a Web browser, that points to the full item
-	 * described by the <item> element. An example:
+	 * If the guid element has an attribute named "isPermaLink" with a value of true, the reader may assume that it is a
+	 * permalink to the item, that is, a url that can be opened in a Web browser, that points to the full item described by
+	 * the <item> element. An example:
 	 * 
 	 * <guid isPermaLink="true">http://inessential.com/2002/09/01.php#a2</guid>
 	 * 
-	 * isPermaLink is optional, its default value is true. If its value is
-	 * false, the guid may not be assumed to be a url, or a url to anything in
-	 * particular.
+	 * isPermaLink is optional, its default value is true. If its value is false, the guid may not be assumed to be a url,
+	 * or a url to anything in particular.
 	 * </p>
 	 * <p>
-	 * Optional for {@code item} elements in RSS specification. Required item
-	 * {@code id} as per Atom specification.
+	 * Optional for {@code item} elements in RSS specification. Required item {@code id} as per Atom specification.
 	 * </p>
 	 * 
 	 * @return a {@link String} or {@code null}
@@ -249,8 +246,7 @@ public class Item {
 	 * Date when the item was published.
 	 * </p>
 	 * <p>
-	 * Optional for {@code entry} elements in Atom specification. Not part of
-	 * RSS specification.
+	 * Optional for {@code entry} elements in Atom specification. Not part of RSS specification.
 	 * </p>
 	 * 
 	 * @return a {@link Temporal} or {@code null}
@@ -265,16 +261,14 @@ public class Item {
 
 	/**
 	 * <p>
-	 * The {@code updated} element is a Date construct indicating the most
-	 * recent instant in time when an entry or feed was modified in a way the
-	 * publisher considers significant.
+	 * The {@code updated} element is a Date construct indicating the most recent instant in time when an entry or feed was
+	 * modified in a way the publisher considers significant.
 	 * </p>
 	 * <p>
-	 * Optional for {@code item} elements in RSS specification. Optional for
-	 * {@code entry} elements in Atom specification.
+	 * Optional for {@code item} elements in RSS specification. Optional for {@code entry} elements in Atom specification.
 	 * </p>
 	 * 
-	 * @return a {@link Temporal} or {@code null}
+	 * @return a {@link TeepisodeTypemporal} or {@code null}
 	 */
 	public Temporal getUpdated() {
 		return updated;
@@ -374,13 +368,10 @@ public class Item {
 	 * Parse and set duration.
 	 * 
 	 * @param duration
-	 *            {@link String} formatted HH:MM:SS, H:MM:SS, MM:SS, or M:SS (H
-	 *            = hours, M = minutes, S = seconds). If an integer is provided
-	 *            (no colon present), the value is assumed to be in seconds. If
-	 *            one colon is present, the number to the left is assumed to be
-	 *            minutes, and the number to the right is assumed to be seconds.
-	 *            If more than two colons are present, the numbers furthest to
-	 *            the right are ignored.
+	 *            {@link String} formatted HH:MM:SS, H:MM:SS, MM:SS, or M:SS (H = hours, M = minutes, S = seconds). If an
+	 *            integer is provided (no colon present), the value is assumed to be in seconds. If one colon is present,
+	 *            the number to the left is assumed to be minutes, and the number to the right is assumed to be seconds. If
+	 *            more than two colons are present, the numbers furthest to the right are ignored.
 	 */
 	public void setDuration(String duration) {
 		if (duration != null) {
@@ -419,13 +410,11 @@ public class Item {
 
 	/**
 	 * <p>
-	 * A more expressive alternative to {@link #getEnclosure()}. Not always
-	 * present.
+	 * A more expressive alternative to {@link #getEnclosure()}. Not always present.
 	 * </p>
 	 * <p>
-	 * Part of the Media RSS specification. There are no limitations on the
-	 * number of {@link content} elements per {@code item}, though it is
-	 * recommended to have only one.
+	 * Part of the Media RSS specification. There are no limitations on the number of {@link content} elements per
+	 * {@code item}, though it is recommended to have only one.
 	 * </p>
 	 * 
 	 * @return a {@link List}, never {@code null}
@@ -608,12 +597,11 @@ public class Item {
 
 	/**
 	 * <p>
-	 * A {@link Map} containing any value present in the podcast XML that is not
-	 * mapped to any of the other values present here.
+	 * A {@link Map} containing any value present in the podcast XML that is not mapped to any of the other values present
+	 * here.
 	 * </p>
 	 * <p>
-	 * See {@link OtherValueKey} for a full listing of possible values in this
-	 * map.
+	 * See {@link OtherValueKey} for a full listing of possible values in this map.
 	 * </p>
 	 * 
 	 * @return a {@link Map}, not {@code null}
@@ -631,9 +619,9 @@ public class Item {
 
 	/**
 	 * <p>
-	 * A {@link Map} containing any alternative {@link Enclosure} in the podcast
-	 * XML that is not the main enclosure.
+	 * A {@link Map} containing any alternative {@link Enclosure} in the podcast XML that is not the main enclosure.
 	 * </p>
+	 * setFull
 	 * 
 	 * @return a {@link Map}, not {@code null}
 	 */
@@ -692,6 +680,35 @@ public class Item {
 
 	public void setBlock(String block) {
 		this.block = block;
+	}
+
+	/**
+	 * Whether this is a full episode, a trailer or a preview.
+	 * 
+	 * @return {@link String} or {@code null}
+	 */
+	public String getEpisodeType() {
+		return episodeType;
+	}
+
+	public void setEpisodeType(String episodeType) {
+		this.episodeType = episodeType;
+	}
+
+	public String getEpisode() {
+		return episode;
+	}
+
+	public void setEpisode(String episode) {
+		this.episode = episode;
+	}
+
+	public String getSeason() {
+		return season;
+	}
+
+	public void setSeason(String season) {
+		this.season = season;
 	}
 
 	@Override

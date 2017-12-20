@@ -1,10 +1,11 @@
-package be.ceau.podcastparser.namespace;
+package be.ceau.podcastparser.namespace.callback;
 
 import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamReader;
 
 import be.ceau.podcastparser.models.Feed;
 import be.ceau.podcastparser.models.Item;
+import be.ceau.podcastparser.namespace.Namespace;
 
 /**
  * <p>
@@ -68,7 +69,7 @@ public interface NamespaceCallbackHandler {
 	 *            {@link String} name of the level at which the element is
 	 *            encountered (feed|item)
 	 */
-	public default void unknownNamespace(XMLStreamReader reader, String level) {
+	public default void registerUnknownNamespace(XMLStreamReader reader, String level) {
 		// default is to do nothing
 	}
 

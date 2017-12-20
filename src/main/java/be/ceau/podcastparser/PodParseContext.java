@@ -22,7 +22,7 @@ import javax.xml.stream.XMLStreamReader;
 
 import be.ceau.podcastparser.models.Feed;
 import be.ceau.podcastparser.models.Item;
-import be.ceau.podcastparser.namespace.NamespaceCallbackHandler;
+import be.ceau.podcastparser.namespace.callback.NamespaceCallbackHandler;
 
 public class PodParseContext {
 
@@ -61,8 +61,8 @@ public class PodParseContext {
 		namespaceCallbackHandler.beforeProcess(rootNamespace, item, reader);
 	}
 
-	public void unknownNamespace(String level) {
-		namespaceCallbackHandler.unknownNamespace(reader, level);
+	public void registerUnknownNamespace(String level) {
+		namespaceCallbackHandler.registerUnknownNamespace(reader, level);
 	}
 
 	public String getElementText() throws XMLStreamException {

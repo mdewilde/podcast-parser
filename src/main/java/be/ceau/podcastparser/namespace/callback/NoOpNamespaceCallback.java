@@ -1,4 +1,4 @@
-package be.ceau.podcastparser.namespace;
+package be.ceau.podcastparser.namespace.callback;
 
 /**
  * <p>

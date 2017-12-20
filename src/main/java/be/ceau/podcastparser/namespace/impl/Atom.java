@@ -101,7 +101,7 @@ public class Atom implements RootNamespace, Namespace {
 				return;
 			}
 			// not root namespace and not other namespace we can handle
-			ctx.unknownNamespace("feed");
+			ctx.registerUnknownNamespace("feed");
 			return;
 		}
 		
@@ -187,7 +187,7 @@ public class Atom implements RootNamespace, Namespace {
 				return;
 			}
 			// not root namespace and not other namespace we can handle
-			ctx.unknownNamespace("item");
+			ctx.registerUnknownNamespace("item");
 			return;
 		}
 
@@ -199,11 +199,13 @@ public class Atom implements RootNamespace, Namespace {
 			item.addCategory(new Category().setName(ctx.getAttribute("term")));
 			break;
 		case "content":
+			Namespace.super.process(ctx, item);
 			// The "atom:content" element either contains or links to
 			// the content of the entry.
 			// item.setEnclosure(parseEnclosure(ctx.getReader()));
 			break;
 		case "contributor":
+			Namespace.super.process(ctx, item);
 			break;
 		case "id":
 			item.setGuid(ctx.getElementText());

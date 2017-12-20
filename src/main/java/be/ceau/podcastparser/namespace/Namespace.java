@@ -80,7 +80,7 @@ public interface Namespace {
 	public default void process(PodParseContext ctx) throws XMLStreamException {
 		// default is to do nothing
 		LoggerFactory.getLogger(Namespace.class)
-			.info("{} {} --> [@ FEED] [ATTRIBUTES {}] [TEXT {}]", ctx.getReader().getNamespaceURI(), ctx.getReader().getLocalName(), Attributes.toString(ctx.getReader()), ctx.getElementText());
+			.info("{}:{} [@FEED] --> TEXT {} -- ATTRIBUTES {}", ctx.getReader().getNamespaceURI(), ctx.getReader().getLocalName(), ctx.getElementText(), Attributes.toString(ctx.getReader()));
 	}
 
 	/**
@@ -101,7 +101,7 @@ public interface Namespace {
 	public default void process(PodParseContext ctx, Item item) throws XMLStreamException {
 		// default is to do nothing
 		LoggerFactory.getLogger(Namespace.class)
-			.info("{} {} --> [@ ITEM] [ATTRIBUTES {}] [TEXT {}]", ctx.getReader().getNamespaceURI(), ctx.getReader().getLocalName(), Attributes.toString(ctx.getReader()), ctx.getElementText());
+			.info("{}:{} [@ITEM] --> TEXT {} -- ATTRIBUTES {}", ctx.getReader().getNamespaceURI(), ctx.getReader().getLocalName(), ctx.getElementText(), Attributes.toString(ctx.getReader()));
 	}
 
 	/**

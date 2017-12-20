@@ -58,7 +58,8 @@ public class Feed {
 	private GeoPoint geoPoint;
 	private String block;
 	private String summary;
-
+	private String type;
+	
 	/**
 	 * <p>
 	 * The {@code id} element conveys a permanent, universally unique identifier
@@ -552,6 +553,14 @@ public class Feed {
 
 	public void setSummary(String summary) {
 		this.summary = summary;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	@Override
