@@ -13,23 +13,25 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
 */
-package be.ceau.podcastparser;
+package be.ceau.podcastparser.exceptions;
 
-import org.junit.Assert;
-import org.junit.Test;
+/**
+ * {@link RuntimeException} indicating that the parsed file is not valid RSS or Atom.
+ */
+public class InvalidFeedFormatException extends PodcastParserException {
 
-import be.ceau.podcastparser.exceptions.PodcastParserException;
+	private static final long serialVersionUID = 1512898418624L;
 
-
-public class PodcastParserTest {
-
-	@Test
-	public void emptyInput() {
-		try {
-			new PodcastParser().parse("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
-		} catch (PodcastParserException e) {
-			Assert.assertEquals("provided feed XML is empty", e.getMessage());
-		}
+	public InvalidFeedFormatException(String message) {
+		super(message);
 	}
-	
+
+	public InvalidFeedFormatException(String message, String arg0) {
+		super(message.replaceFirst("\\{\\}", arg0));
+	}
+
+	public InvalidFeedFormatException(Throwable cause) {
+		super(cause);
+	}
+
 }

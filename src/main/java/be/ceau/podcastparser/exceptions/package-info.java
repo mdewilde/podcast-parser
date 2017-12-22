@@ -13,25 +13,7 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
 */
-package be.ceau.podcastparser;
-
 /**
- * {@link Exception} indicating any issue linked directly to the parsing of a podcast feed XML file.
+ * Exceptions that can be thrown by this library.
  */
-public class PodcastParserException extends Exception {
-
-	private static final long serialVersionUID = 1512898418624L;
-
-	public PodcastParserException(String message) {
-		super(message);
-	}
-
-	public PodcastParserException(String message, String arg0) {
-		super(message.replaceFirst("\\{\\}", arg0));
-	}
-
-    public PodcastParserException(Throwable cause) {
-        super(cause);
-    }
-
-}
+package be.ceau.podcastparser.exceptions;

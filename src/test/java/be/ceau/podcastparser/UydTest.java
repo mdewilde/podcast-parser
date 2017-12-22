@@ -22,6 +22,7 @@ import javax.xml.stream.XMLStreamException;
 import org.junit.Assert;
 import org.junit.Test;
 
+import be.ceau.podcastparser.exceptions.PodcastParserException;
 import be.ceau.podcastparser.models.Feed;
 import be.ceau.podcastparser.test.provider.ClasspathFileProvider;
 

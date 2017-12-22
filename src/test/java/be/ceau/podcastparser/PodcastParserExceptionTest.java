@@ -18,6 +18,8 @@ package be.ceau.podcastparser;
 import org.junit.Assert;
 import org.junit.Test;
 
+import be.ceau.podcastparser.exceptions.PodcastParserException;
+
 public class PodcastParserExceptionTest {
 
 	@Test
