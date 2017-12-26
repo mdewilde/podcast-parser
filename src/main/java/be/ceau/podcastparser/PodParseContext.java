@@ -15,13 +15,18 @@
 */
 package be.ceau.podcastparser;
 
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
 import be.ceau.podcastparser.models.Feed;
 import be.ceau.podcastparser.models.Item;
+import be.ceau.podcastparser.models.SkippableElement;
 import be.ceau.podcastparser.namespace.callback.NamespaceCallbackHandler;
 
 public class PodParseContext {
@@ -30,15 +35,22 @@ public class PodParseContext {
 	private final XMLStreamReader reader;
 	private final NamespaceCallbackHandler namespaceCallbackHandler;
 	private final Feed feed;
-
+	private final Set<SkippableElement> skippableElements;
+	
 	public PodParseContext(String rootNamespace, XMLStreamReader reader, NamespaceCallbackHandler namespaceCallbackHandler) {
+		this(rootNamespace, reader, namespaceCallbackHandler, Collections.emptySet());
+	}
+
+	public PodParseContext(String rootNamespace, XMLStreamReader reader, NamespaceCallbackHandler namespaceCallbackHandler, Collection<SkippableElement> skippableElements) {
 		Objects.requireNonNull(rootNamespace);
 		Objects.requireNonNull(reader);
 		Objects.requireNonNull(namespaceCallbackHandler);
+		Objects.requireNonNull(skippableElements);
 		this.rootNamespace = rootNamespace;
 		this.reader = reader;
 		this.namespaceCallbackHandler = namespaceCallbackHandler;
 		this.feed = new Feed();
+		this.skippableElements = Collections.unmodifiableSet(new HashSet<>(skippableElements));
 	}
 
 	public XMLStreamReader getReader() {
