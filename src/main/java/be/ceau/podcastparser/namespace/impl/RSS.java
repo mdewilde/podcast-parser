@@ -162,10 +162,16 @@ public class RSS implements RootNamespace, Namespace {
 			ctx.getFeed().setTextInput(ctx.getElementText());
 			break;
 		case "skipHours":
-			ctx.getFeed().setSkipHours(ctx.getElementText());
+			// An XML element that contains up to 24 <hour> sub-elements whose value is a number between 0 and
+			// 23, representing a time in GMT, when aggregators, if they support the feature, may not read the
+			// channel on hours listed in the skipHours element. The hour beginning at midnight is hour zero.
+			parseSkipHours(ctx);
 			break;
 		case "skipDays":
-			ctx.getFeed().setSkipDays(ctx.getElementText());
+			// An XML element that contains up to seven <day> sub-elements whose value is Monday, Tuesday,
+			// Wednesday, Thursday, Friday, Saturday or Sunday. Aggregators may not read the channel during days
+			// listed in the skipDays element.
+			parseSkipDays(ctx);
 			break;
 		default : 
 			Namespace.super.process(ctx);
@@ -336,6 +342,43 @@ public class RSS implements RootNamespace, Namespace {
 			}
 		}
 		return enclosure;
+	}
+
+	
+	private void parseSkipHours(PodParseContext ctx) throws XMLStreamException {
+		while (ctx.getReader().hasNext()) {
+			switch (ctx.getReader().next()) {
+			case XMLStreamConstants.END_ELEMENT:
+				if ("skipHours".equals(ctx.getReader().getLocalName())) {
+					return;
+				}
+				break;
+			case XMLStreamConstants.START_ELEMENT:
+				switch (ctx.getReader().getLocalName()) {
+				case "hour":
+					ctx.getFeed().addSkipHour(ctx.getElementTextAsInteger());
+					break;
+				}
+			}
+		}
+	}
+
+	private void parseSkipDays(PodParseContext ctx) throws XMLStreamException {
+		while (ctx.getReader().hasNext()) {
+			switch (ctx.getReader().next()) {
+			case XMLStreamConstants.END_ELEMENT:
+				if ("skipDays".equals(ctx.getReader().getLocalName())) {
+					return;
+				}
+				break;
+			case XMLStreamConstants.START_ELEMENT:
+				switch (ctx.getReader().getLocalName()) {
+				case "hour":
+					ctx.getFeed().addSkipHour(ctx.getElementTextAsInteger());
+					break;
+				}
+			}
+		}
 	}
 
 }

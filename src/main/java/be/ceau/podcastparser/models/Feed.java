@@ -44,8 +44,8 @@ public class Feed {
 	private Duration ttl;
 	private final List<Image> images = new ArrayList<>();
 	private String textInput;
-	private String skipHours;
-	private String skipDays;
+	private final List<Integer> skipHours = new ArrayList<>();
+	private final List<String> skipDays = new ArrayList<>();
 	private String subtitle;
 	private final List<Person> authors = new ArrayList<>();
 	private Person owner;
@@ -341,23 +341,23 @@ public class Feed {
 	/**
 	 * A hint for aggregators telling them which hours they can skip.
 	 */
-	public String getSkipHours() {
+	public List<Integer> getSkipHours() {
 		return skipHours;
 	}
 
-	public void setSkipHours(String skipHours) {
-		this.skipHours = skipHours;
+	public void addSkipHour(int skipHour) {
+		this.skipHours.add(skipHour);
 	}
 
 	/**
 	 * A hint for aggregators telling them which days they can skip.
 	 */
-	public String getSkipDays() {
+	public List<String> getSkipDays() {
 		return skipDays;
 	}
 
-	public void setSkipDays(String skipDays) {
-		this.skipDays = skipDays;
+	public void addSkipDay(String skipDay) {
+		this.skipDays.add(skipDay);
 	}
 
 	/**
