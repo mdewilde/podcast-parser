@@ -26,6 +26,7 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
 import be.ceau.podcastparser.exceptions.InvalidFeedFormatException;
+import be.ceau.podcastparser.exceptions.NotPodcastFeedException;
 import be.ceau.podcastparser.exceptions.PodcastParserException;
 import be.ceau.podcastparser.models.Feed;
 import be.ceau.podcastparser.namespace.callback.NamespaceCallbackHandler;
@@ -124,7 +125,7 @@ public class PodcastParser {
 					return ctx.getFeed();
 				}
 				default:
-					throw new InvalidFeedFormatException("root element must be <rss> or <feed> but it is {}", streamReader.getLocalName());
+					throw new NotPodcastFeedException("root element must be <rss> or <feed> but it is {}", streamReader.getLocalName());
 				}
 			case XMLStreamConstants.END_DOCUMENT:
 				streamReader.close();

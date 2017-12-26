@@ -16,7 +16,9 @@
 package be.ceau.podcastparser.exceptions;
 
 /**
- * {@link RuntimeException} indicating that the parsed file is not valid RSS or Atom.
+ * <p>
+ * {@link RuntimeException} indicating that the given input could not be parsed.
+ * </p>
  */
 public class InvalidFeedFormatException extends PodcastParserException {
 
