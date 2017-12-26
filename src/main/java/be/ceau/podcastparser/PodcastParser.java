@@ -32,6 +32,7 @@ import be.ceau.podcastparser.namespace.callback.NamespaceCallbackHandler;
 import be.ceau.podcastparser.namespace.callback.NoOpNamespaceCallback;
 import be.ceau.podcastparser.namespace.impl.Atom;
 import be.ceau.podcastparser.namespace.impl.RSS;
+import be.ceau.podcastparser.util.Strings;
 
 /**
  * Parser class for converting podcast XML feeds into {@link Feed} objects.
@@ -74,11 +75,15 @@ public class PodcastParser {
 	 * @param xml
 	 *            a {@link java.lang.String} object.
 	 * @return a {@link Feed} object.
+	 * @throws IllegalArgumentException if argument blank
 	 * @throws {@link be.ceau.podcastparser.exceptions.PodcastParserException}
 	 *             if any.
 	 */
 	public Feed parse(String xml) throws PodcastParserException {
-		try (StringReader reader = new StringReader(xml)) {
+		if (Strings.isBlank(xml)) {
+			throw new IllegalArgumentException("xml argument can not be blank");
+		}
+		try (StringReader reader = new StringReader(xml.trim().replaceFirst("^([\\W]+)<","<"))) {
 			return parse(reader);
 		}
 	}
