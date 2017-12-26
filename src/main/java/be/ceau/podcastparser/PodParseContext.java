@@ -48,7 +48,7 @@ public class PodParseContext {
 	public NamespaceCallbackHandler getNamespaceCallbackHandler() {
 		return namespaceCallbackHandler;
 	}
-	
+
 	public Feed getFeed() {
 		return feed;
 	}
@@ -56,7 +56,7 @@ public class PodParseContext {
 	public void beforeProcess() {
 		namespaceCallbackHandler.beforeProcess(rootNamespace, feed, reader);
 	}
-	
+
 	public void beforeProcess(Item item) {
 		namespaceCallbackHandler.beforeProcess(rootNamespace, item, reader);
 	}
@@ -66,7 +66,24 @@ public class PodParseContext {
 	}
 
 	public String getElementText() throws XMLStreamException {
-		return reader.getElementText();
+		if (reader.isStartElement()) {
+			return reader.getElementText();
+		}
+		return null;
+	}
+
+	/**
+	 * Extract and attempt parsing current element text as {@link Integer}, catching any exception
+	 * 
+	 * @return {@link Integer} or {@code null}
+	 * @throws XMLStreamException
+	 */
+	public Integer getElementTextAsInteger() throws XMLStreamException {
+		try {
+			return Integer.valueOf(reader.getElementText().trim());
+		} catch (NumberFormatException e) {
+			return null;
+		}
 	}
 
 	public String getAttribute(String localName) {
