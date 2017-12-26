@@ -37,7 +37,7 @@ public class Strings {
 		return true;
 	}
 
-	public static void requireNonNull(final String string) {
+	public static void requireNonBlank(final String string) {
 		if (isBlank(string)) {
 			throw new IllegalArgumentException();
 		}
