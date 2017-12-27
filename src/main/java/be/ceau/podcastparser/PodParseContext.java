@@ -21,6 +21,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
@@ -104,6 +105,23 @@ public class PodParseContext {
 			value = value.trim();
 		}
 		return value;
+	}
+
+	/**
+	 * If called after having processed a {@link XMLStreamConstants#START_ELEMENT} event, will skip
+	 * until the end of the newly opened element is reached.
+	 * 
+	 * @throws XMLStreamException
+	 */
+	public void skip() throws XMLStreamException {
+		if (reader.isStartElement()) {
+			String localname = reader.getLocalName();
+			while (getReader().hasNext()) {
+				if (getReader().next() == XMLStreamConstants.END_ELEMENT && localname.equals(getReader().getLocalName())) {
+					return;
+				}
+			}
+		}
 	}
 
 }

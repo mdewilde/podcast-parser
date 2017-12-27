@@ -22,7 +22,6 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
 import org.apache.commons.lang3.StringUtils;
-import org.slf4j.LoggerFactory;
 
 import be.ceau.podcastparser.PodParseContext;
 import be.ceau.podcastparser.models.Category;

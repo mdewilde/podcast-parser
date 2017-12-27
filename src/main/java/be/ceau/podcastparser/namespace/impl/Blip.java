@@ -21,7 +21,6 @@ import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 
 import org.apache.commons.lang3.StringUtils;
-import org.slf4j.LoggerFactory;
 
 import be.ceau.podcastparser.PodParseContext;
 import be.ceau.podcastparser.models.Category;
@@ -30,7 +29,6 @@ import be.ceau.podcastparser.models.Item;
 import be.ceau.podcastparser.models.Link;
 import be.ceau.podcastparser.models.OtherValueKey;
 import be.ceau.podcastparser.namespace.Namespace;
-import be.ceau.podcastparser.util.Attributes;
 import be.ceau.podcastparser.util.Dates;
 import be.ceau.podcastparser.util.Strings;
 

@@ -1,5 +1,8 @@
 package be.ceau.podcastparser;
 
+import java.io.Reader;
+import java.io.StringReader;
+
 public class WrappedXml {
 
 	private final String description;
@@ -24,4 +27,8 @@ public class WrappedXml {
 		return xml;
 	}
 
+	public Reader getReader() {
+		return new StringReader(xml);
+	}
+	
 }
