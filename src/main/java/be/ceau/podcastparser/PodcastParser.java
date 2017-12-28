@@ -75,14 +75,13 @@ public class PodcastParser {
 	 *
 	 * @param xml
 	 *            a {@link java.lang.String} object.
-	 * @return a {@link Feed} object.
-	 * @throws IllegalArgumentException if argument blank
+	 * @return a {@link Feed} object
 	 * @throws {@link be.ceau.podcastparser.exceptions.PodcastParserException}
-	 *             if any.
+	 *             if any
 	 */
 	public Feed parse(String xml) throws PodcastParserException {
 		if (Strings.isBlank(xml)) {
-			throw new IllegalArgumentException("xml argument can not be blank");
+			throw new NotPodcastFeedException("xml input is blank");
 		}
 		try (StringReader reader = new StringReader(xml.trim().replaceFirst("^([\\W]+)<","<"))) {
 			return parse(reader);
