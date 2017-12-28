@@ -53,10 +53,10 @@ public class Iono implements Namespace {
 	}
 
 	private Image parseImage(PodParseContext ctx) {
-		String url = ctx.getAttribute("thumbnail");
-		if (Strings.isBlank(url)) {
+		String href = ctx.getAttribute("href");
+		if (Strings.isNotBlank(href)) {
 			Image thumbnail = new Image();
-			thumbnail.setUrl(url.trim());
+			thumbnail.setUrl(href.trim());
 			thumbnail.setDescription("Iono thumbnail");
 			return thumbnail;
 		}
