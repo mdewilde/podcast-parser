@@ -169,6 +169,17 @@ public class ITunes implements Namespace {
 			item.addAuthor(person);
 			return;
 		case "block":
+			/*
+			 * The episode show or hide status.
+			 * 
+			 * Specifying the <itunes:block> tag with a Yes value at the item level (episode), prevents that
+			 * episode from appearing in Apple Podcasts.
+			 * 
+			 * For example, you might want to block a specific episode if you know that its content would
+			 * otherwise cause the entire podcast to be removed from Apple Podcasts.
+			 * 
+			 * Specifying any value other than Yes has no effect.
+			 */
 			String block = ctx.getElementText();
 			if (Strings.isNotBlank(block)) {
 				item.setBlock(block);
@@ -206,6 +217,10 @@ public class ITunes implements Namespace {
 			return;
 		case "explicit":
 			item.getRating().setExplicit(ctx.getElementText());
+			return;
+		case "guid":
+			// This is a global RSS item, but many publishers add it to the iTunes namespace.
+			item.setGuid(ctx.getElementText());
 			return;
 		case "image":
 			item.addImage(parseImage(ctx));
