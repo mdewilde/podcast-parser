@@ -78,6 +78,12 @@ public class PodParseContext {
 		namespaceCallbackHandler.registerUnknownNamespace(reader, level);
 	}
 
+	/**
+	 * Retrieves the element text if currently at a start element.
+	 * 
+	 * @return a {@link String} with element text content, or {@code null}
+	 * @throws XMLStreamException
+	 */
 	public String getElementText() throws XMLStreamException {
 		if (reader.isStartElement()) {
 			return reader.getElementText();
