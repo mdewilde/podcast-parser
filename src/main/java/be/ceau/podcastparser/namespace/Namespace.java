@@ -103,27 +103,20 @@ public interface Namespace {
 	}
 
 	public static void log(PodParseContext ctx, String level) throws XMLStreamException {
+		if (!ctx.getReader().isStartElement() && !ctx.getReader().isEndElement()) {
+			return;
+		}
+
 		String localName = ctx.getReader().getLocalName();
 		String attributes = Attributes.toString(ctx.getReader());
+		String namespace = ctx.getReader().getName().getPrefix();
 
 		LoggerFactory.getLogger(Namespace.class)
-				.info("{}:{} [@{}] {}", ctx.getReader().getNamespaceURI(), localName, level, attributes);
+				.info("{}:{} [@{}] {}", namespace, localName, level, attributes);
 
-		if (!ctx.getReader().isEndElement()) {
+		if (ctx.getReader().isStartElement()) {
 			// parse this hierarchy before returning
-			while (ctx.getReader().hasNext()) {
-				switch (ctx.getReader().next()) {
-				case XMLStreamConstants.END_ELEMENT:
-					if ("localName".equals(ctx.getReader().getLocalName())) {
-						return;
-					}
-					break;
-				case XMLStreamConstants.START_ELEMENT:
-					LoggerFactory.getLogger(Namespace.class)
-							.info("{}:{}:{} [@{}]", ctx.getReader().getNamespaceURI(), localName, ctx.getReader().getLocalName(), level);
-					break;
-				}
-			}
+			ctx.skip();
 		}
 
 	}
