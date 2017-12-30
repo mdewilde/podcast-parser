@@ -15,11 +15,15 @@
 */
 package be.ceau.podcastparser.util;
 
+import java.util.regex.Pattern;
+
 /**
  * Utility methods for working with {@link String} objects
  */
 public class Strings {
 
+	private static final Pattern WHITE_SPACE = Pattern.compile("\\s+");
+	
 	public static boolean isNotBlank(final String string) {
 		return !isBlank(string);
 	}
@@ -41,6 +45,20 @@ public class Strings {
 		if (isBlank(string)) {
 			throw new IllegalArgumentException();
 		}
+	}
+
+	/**
+	 * Reduces all whitespace in the given {@link String} to a single space
+	 * 
+	 * @param string
+	 *            a {@link String}, can be {@code null}
+	 * @return a {@link String} with all whitespace reduced, or {@code null} if input {@code null}
+	 */
+	public static String reduceWhitespace(final String string) {
+		if (string == null) {
+			return null;
+		}
+		return WHITE_SPACE.matcher(string).replaceAll(" ");
 	}
 
 }

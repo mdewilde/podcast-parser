@@ -23,18 +23,18 @@ import java.util.Set;
 import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 
-import org.slf4j.LoggerFactory;
-
 import be.ceau.podcastparser.PodParseContext;
 import be.ceau.podcastparser.models.Category;
+import be.ceau.podcastparser.models.Copyright;
 import be.ceau.podcastparser.models.Credit;
 import be.ceau.podcastparser.models.Hash;
 import be.ceau.podcastparser.models.Image;
 import be.ceau.podcastparser.models.Item;
 import be.ceau.podcastparser.models.MediaContent;
+import be.ceau.podcastparser.models.MediaPlayer;
+import be.ceau.podcastparser.models.Scene;
 import be.ceau.podcastparser.models.TypedString;
 import be.ceau.podcastparser.namespace.Namespace;
-import be.ceau.podcastparser.util.Attributes;
 import be.ceau.podcastparser.util.Durations;
 import be.ceau.podcastparser.util.UnmodifiableSet;
 
@@ -220,26 +220,19 @@ public class Media implements Namespace {
 			return;
 		}
 		case "player":
-			/*
-			 * Allows the media object to be accessed through a web browser
-			 * media player console. This element is required only if a direct
-			 * media url attribute is not specified in the <media:content>
-			 * element. It has one required attribute and two optional
-			 * attributes.
-			 * 
-			 * <media:player url="http://www.foo.com/player?id=1111"
-			 * height="200" width="400" />
-			 * 
-			 * url is the URL of the player console that plays the media. It is
-			 * a required attribute.
-			 * 
-			 * height is the height of the browser window that the URL should be
-			 * opened in. It is an optional attribute.
-			 * 
-			 * width is the width of the browser window that the URL should be
-			 * opened in. It is an optional attribute.
-			 */
-			LoggerFactory.getLogger(Media.class).info("Media player --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			MediaPlayer player = new MediaPlayer();
+			player.setUrl(ctx.getAttribute("url"));
+			try {
+				int height = Integer.parseInt(ctx.getAttribute("height"));
+				player.setHeight(height);
+			} catch (NumberFormatException e) {
+			}
+			try {
+				int width = Integer.parseInt(ctx.getAttribute("width"));
+				player.setWidth(width);
+			} catch (NumberFormatException e) {
+			}
+			item.setMediaPlayer(player);
 			return;
 		case "credit":
 			/*
@@ -284,7 +277,10 @@ public class Media implements Namespace {
 			 * license, the Creative Commons module should be used instead. It
 			 * is an optional attribute.
 			 */
-			LoggerFactory.getLogger(Media.class).info("Media copyright --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			Copyright copyright = new Copyright();
+			copyright.setText(ctx.getElementText());
+			copyright.setUrl(ctx.getAttribute("url"));
+			item.setMediaCopyright(copyright);
 			return;
 		case "text":
 			/*
@@ -322,7 +318,7 @@ public class Media implements Namespace {
 			 * expected that the end time is either the end of the clip or the
 			 * start of the next <media:text> element.
 			 */
-			LoggerFactory.getLogger(Media.class).info("Media text --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			Namespace.super.process(ctx, item);
 			return;
 		case "restriction":
 			/*
@@ -374,7 +370,7 @@ public class Media implements Namespace {
 			 * 
 			 * <media:restriction type="sharing" relationship="deny" />
 			 */
-			LoggerFactory.getLogger(Media.class).info("Media restriction --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			Namespace.super.process(ctx, item);
 			return;
 		case "community":
 			/*
@@ -402,13 +398,13 @@ public class Media implements Namespace {
 			 * for example, number of occurences can be one way to decide weight
 			 * of a particular tag. Default weight is 1.
 			 */
-			LoggerFactory.getLogger(Media.class).info("Media community --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			Namespace.super.process(ctx, item);
 			return;
 		case "comments":
 			/*
 			 * Allows inclusion of all the comments a media object has received.
 			 */
-			LoggerFactory.getLogger(Media.class).info("Media comments --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			Namespace.super.process(ctx, item);
 			return;
 		case "embed":
 			/*
@@ -416,19 +412,19 @@ public class Media implements Namespace {
 			 * play any video. <media:embed> allows inclusion of such
 			 * information in the form of key-value pairs.
 			 */
-			LoggerFactory.getLogger(Media.class).info("Media embed --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			Namespace.super.process(ctx, item);
 			return;
 		case "responses":
 			/*
 			 * Allows inclusion of a list of all media responses a media object has received.
 			 */
-			LoggerFactory.getLogger(Media.class).info("Media responses --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			Namespace.super.process(ctx, item);
 			return;
 		case "backLinks":
 			/*
 			 * Allows inclusion of all the URLs pointing to a media object.
 			 */
-			LoggerFactory.getLogger(Media.class).info("Media backLinks --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			Namespace.super.process(ctx, item);
 			return;
 		case "status":
 			/*
@@ -446,7 +442,7 @@ public class Media implements Namespace {
 			 * reason is a reason explaining why a media object has been
 			 * blocked/deleted. It can be plain text or a URL.
 			 */
-			LoggerFactory.getLogger(Media.class).info("Media status --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			Namespace.super.process(ctx, item);
 			return;
 		case "price":
 			/*
@@ -479,7 +475,7 @@ public class Media implements Namespace {
 			 * currency -- use [ISO 4217] for currency codes. This is an
 			 * optional attribute.
 			 */
-			LoggerFactory.getLogger(Media.class).info("Media price --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			Namespace.super.process(ctx, item);
 			return;
 		case "license": {
 			/*
@@ -506,7 +502,7 @@ public class Media implements Namespace {
 			 * language. Please refer to Timed Text spec - W3C for more
 			 * information on Timed Text and Real Time Subtitling.
 			 */
-			LoggerFactory.getLogger(Media.class).info("Media subTitle --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			Namespace.super.process(ctx, item);
 			return;
 		case "peerLink":
 			/*
@@ -538,7 +534,7 @@ public class Media implements Namespace {
 			 * end time at which the reference to a particular location ends in
 			 * the media object.
 			 */
-			LoggerFactory.getLogger(Media.class).info("Media peerLink --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			Namespace.super.process(ctx, item);
 			return;
 		case "rights":
 			/*
@@ -553,28 +549,10 @@ public class Media implements Namespace {
 			 * object has been created by the publisher or they have rights to
 			 * circulate it. Supported values are "userCreated" and "official".
 			 */
-			LoggerFactory.getLogger(Media.class).info("Media rights --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			Namespace.super.process(ctx, item);
 			return;
 		case "scenes":
-			/*
-			 * Optional element to specify various scenes within a media object.
-			 * It can have multiple child <media:scene> elements, where each
-			 * <media:scene> element contains information about a particular
-			 * scene. <media:scene> has the optional sub-elements <sceneTitle>,
-			 * <sceneDescription>, <sceneStartTime> and <sceneEndTime>, which
-			 * contains title, description, start and end time of a particular
-			 * scene in the media, respectively.
-			 * 
-			 * <media:scenes> <media:scene> <sceneTitle>sceneTitle1</sceneTitle>
-			 * <sceneDescription>sceneDesc1</sceneDescription>
-			 * <sceneStartTime>00:15</sceneStartTime>
-			 * <sceneEndTime>00:45</sceneEndTime> </media:scene> <media:scene>
-			 * <sceneTitle>sceneTitle2</sceneTitle>
-			 * <sceneDescription>sceneDesc2</sceneDescription>
-			 * <sceneStartTime>00:57</sceneStartTime>
-			 * <sceneEndTime>01:45</sceneEndTime> </media:scene> </media:scenes>
-			 */
-			LoggerFactory.getLogger(Media.class).info("Media scenes --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			parseScenes(ctx).forEach(item::addScene);
 			return;
 		default : 
 			Namespace.super.process(ctx, item);
@@ -668,6 +646,49 @@ public class Media implements Namespace {
 				.setTitle("thumbnail");
 	}
 
+	private List<Scene> parseScenes(PodParseContext ctx)throws XMLStreamException {
+		/*
+		 * Optional element to specify various scenes within a media object.
+		 * It can have multiple child <media:scene> elements, where each
+		 * <media:scene> element contains information about a particular
+		 * scene. <media:scene> has the optional sub-elements <sceneTitle>,
+		 * <sceneDescription>, <sceneStartTime> and <sceneEndTime>, which
+		 * contains title, description, start and end time of a particular
+		 * scene in the media, respectively.
+		 */
+		List<Scene> scenes = new ArrayList<>();
+		Scene scene = null;
+		while (ctx.getReader().hasNext()) {
+			switch (ctx.getReader().next()) {
+			case XMLStreamConstants.END_ELEMENT:
+				if ("scenes".equals(ctx.getReader().getLocalName())) {
+					return scenes;
+				}
+				break;
+			case XMLStreamConstants.START_ELEMENT:
+				if ("scene".equals(ctx.getReader().getLocalName())) {
+					scene = new Scene();
+					scenes.add(scene);
+				}
+				if ("sceneTitle".equals(ctx.getReader().getLocalName())) {
+					scene.setTitle(ctx.getElementText());
+				}
+				if ("sceneDescription".equals(ctx.getReader().getLocalName())) {
+					scene.setDescription(ctx.getElementText());
+				}
+				if ("sceneStartTime".equals(ctx.getReader().getLocalName())) {
+					scene.setStartTime(ctx.getElementText());
+				}
+				if ("sceneEndTime".equals(ctx.getReader().getLocalName())) {
+					scene.setEndTime(ctx.getElementText());
+				}
+				break;
+			}
+		}
+		return scenes;
+
+	}
+	
 }
 
 /*

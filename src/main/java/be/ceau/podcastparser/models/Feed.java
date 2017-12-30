@@ -56,9 +56,10 @@ public class Feed {
 	private String location;
 	private final Map<OtherValueKey, String> values = new EnumMap<>(OtherValueKey.class);
 	private GeoPoint geoPoint;
-	private String block;
+	private boolean block;
 	private String summary;
 	private String type;
+	private String email;
 	
 	/**
 	 * <p>
@@ -539,11 +540,11 @@ public class Feed {
 		this.geoPoint = geoPoint;
 	}
 
-	public String getBlock() {
+	public boolean getBlock() {
 		return block;
 	}
 
-	public void setBlock(String block) {
+	public void setBlock(boolean block) {
 		this.block = block;
 	}
 
@@ -561,6 +562,29 @@ public class Feed {
 
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	/**
+	 * <p>
+	 * {@link String} email for this {@link Feed}
+	 * </p>
+	 * 
+	 * <p>
+	 * Specified in Google Play spec
+	 * </p>
+	 * 
+	 * @return a {@link String} or {@code null}
+	 */
+	public String getEmail() {
+		return email;
+	}
+
+	/**
+	 * @param email
+	 * @see #getEmail()
+	 */
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	@Override

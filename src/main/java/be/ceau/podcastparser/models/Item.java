@@ -59,11 +59,16 @@ public class Item {
 	private GeoPoint geoPoint;
 	private int order;
 	private String summary;
-	private String block;
+	private boolean block;
 	private String episodeType;
 	private String episode;
 	private String season;
+	private MediaPlayer mediaPlayer;
+	private final List<Scene> scenes = new ArrayList<>();
 	
+	// TODO -> merge with copyright?
+	private Copyright mediaCopyright;
+
 	/**
 	 * <p>
 	 * The title of the item.
@@ -190,7 +195,7 @@ public class Item {
 		this.copyright = copyright;
 	}
 
-	/**
+	/**list
 	 * <p>
 	 * Describes a media object that is attached to the item.
 	 * </p>
@@ -452,11 +457,11 @@ public class Item {
 	}
 
 	public void addKeyword(String keyword) {
-		keywords.add(keyword);
+		keywords.add(keyword);	
 	}
 
 	/**
-	 * <p>
+	 * <p>list
 	 * Not in RSS specification. Part of Content namespace.
 	 * </p>
 	 * 
@@ -674,11 +679,11 @@ public class Item {
 		this.summary = summary;
 	}
 
-	public String getBlock() {
+	public boolean getBlock() {
 		return block;
 	}
 
-	public void setBlock(String block) {
+	public void setBlock(boolean block) {
 		this.block = block;
 	}
 
@@ -709,6 +714,33 @@ public class Item {
 
 	public void setSeason(String season) {
 		this.season = season;
+	}
+
+	public MediaPlayer getMediaPlayer() {
+		return mediaPlayer;
+	}
+
+	public void setMediaPlayer(MediaPlayer mediaPlayer) {
+		this.mediaPlayer = mediaPlayer;
+	}
+
+	public Copyright getMediaCopyright() {
+		return mediaCopyright;
+	}
+
+	public void setMediaCopyright(Copyright mediaCopyright) {
+		this.mediaCopyright = mediaCopyright;
+	}
+
+	public List<Scene> getScenes() {
+		return scenes;
+	}
+
+	public void addScene(Scene scene) {
+		// we only add if not null
+		if (scene != null) {
+			scenes.add(scene);
+		}
 	}
 
 	@Override

@@ -37,7 +37,7 @@ public class PodParseContext {
 	private final NamespaceCallbackHandler namespaceCallbackHandler;
 	private final Feed feed;
 	private final Set<SkippableElement> skippableElements;
-	
+
 	public PodParseContext(String rootNamespace, XMLStreamReader reader, NamespaceCallbackHandler namespaceCallbackHandler) {
 		this(rootNamespace, reader, namespaceCallbackHandler, Collections.emptySet());
 	}
@@ -105,6 +105,11 @@ public class PodParseContext {
 		}
 	}
 
+	/**
+	 * @param localName
+	 *            {@link String} attribute name
+	 * @return {@link String} attribute value, or {@code null}
+	 */
 	public String getAttribute(String localName) {
 		String value = reader.getAttributeValue(null, localName);
 		if (value != null) {

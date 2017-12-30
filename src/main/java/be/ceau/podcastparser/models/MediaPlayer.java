@@ -17,33 +17,20 @@ package be.ceau.podcastparser.models;
 
 /**
  * <p>
- * Instances represent copyright information for an enclosure
+ * Instances represent a reference to a web browser media player console
  * </p>
  * <p>
  * As specified in the Media namespace.
  * </p>
  */
-public class Copyright {
+public class MediaPlayer {
 
-	private String text;
 	private String url;
+	private int height;
+	private int width;
 
 	/**
-	 * @return a {@link String} or {@code null}
-	 */
-	public String getText() {
-		return text;
-	}
-
-	public void setText(String text) {
-		this.text = text;
-	}
-
-	/**
-	 * Url is the URL for a terms of use page or additional copyright information. It is an optional
-	 * attribute.
-	 * 
-	 * @return a {@link String} or {@code null}
+	 * Url is the URL of the player console that plays the media. It is a required attribute.
 	 */
 	public String getUrl() {
 		return url;
@@ -51,6 +38,30 @@ public class Copyright {
 
 	public void setUrl(String url) {
 		this.url = url;
+	}
+
+	/**
+	 * Height is the height of the browser window that the URL should be opened in. It is an optional
+	 * attribute.
+	 */
+	public int getHeight() {
+		return height;
+	}
+
+	public void setHeight(int height) {
+		this.height = height;
+	}
+
+	/**
+	 * Width is the width of the browser window that the URL should be opened in. It is an optional
+	 * attribute.
+	 */
+	public int getWidth() {
+		return width;
+	}
+
+	public void setWidth(int width) {
+		this.width = width;
 	}
 
 }

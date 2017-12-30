@@ -8,6 +8,8 @@ import java.nio.file.Paths;
 
 import org.junit.Test;
 
+import be.ceau.podcastparser.exceptions.NotPodcastFeedException;
+
 public class InvalidFeedTester {
 
 	private static final Path BASE_DIRECTORY = Paths.get(System.getProperty("user.home"), "LocalLinkSaver");
@@ -22,6 +24,12 @@ public class InvalidFeedTester {
 				try {
 					String xml = new String(Files.readAllBytes(path), StandardCharsets.UTF_8);
 					PODCAST_PARSER.parse(xml);
+				} catch (NotPodcastFeedException e1) {
+					try {
+						Files.delete(path);
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
 				} catch (Exception e) {
 					System.out.println(path);
 					e.printStackTrace(System.out);

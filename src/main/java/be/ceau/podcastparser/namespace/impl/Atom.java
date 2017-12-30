@@ -223,6 +223,7 @@ public class Atom implements RootNamespace, Namespace {
 			item.setCopyright(ctx.getElementText());
 			break;
 		case "source":
+			Namespace.super.process(ctx, item);
 			break;
 		case "summary":
 			item.setDescription(ctx.getElementText());

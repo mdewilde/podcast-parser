@@ -88,9 +88,7 @@ public class ITunes implements Namespace {
 			 * if a block=no were present.
 			 */
 			String block = ctx.getElementText();
-			if (Strings.isNotBlank(block)) {
-				ctx.getFeed().setBlock(block);
-			}
+			ctx.getFeed().setBlock("yes".equalsIgnoreCase(block));
 			return;
 		case "category":
 			ctx.getFeed().addCategory(parseCategory(ctx));
@@ -181,9 +179,7 @@ public class ITunes implements Namespace {
 			 * Specifying any value other than Yes has no effect.
 			 */
 			String block = ctx.getElementText();
-			if (Strings.isNotBlank(block)) {
-				item.setBlock(block);
-			}
+			item.setBlock("yes".equalsIgnoreCase(block));
 			return;
 		case "category":
 			item.addCategory(parseCategory(ctx));

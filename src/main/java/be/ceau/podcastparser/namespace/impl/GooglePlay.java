@@ -20,8 +20,10 @@ import java.util.Set;
 import javax.xml.stream.XMLStreamException;
 
 import be.ceau.podcastparser.PodParseContext;
+import be.ceau.podcastparser.models.Image;
 import be.ceau.podcastparser.models.Item;
 import be.ceau.podcastparser.models.Person;
+import be.ceau.podcastparser.models.Rating;
 import be.ceau.podcastparser.namespace.Namespace;
 import be.ceau.podcastparser.util.UnmodifiableSet;
 
@@ -49,29 +51,38 @@ public class GooglePlay implements Namespace {
 		case "author":
 			// The author of the podcast or episode. The author is specified in
 			// the <channel> or <item> tags.
-			Person author = new Person();
-			author.setName(ctx.getElementText());
-			ctx.getFeed().addAuthor(author);
+			ctx.getFeed().addAuthor(parseAuthor(ctx));
+			break;
+		case "block":
+			String block = ctx.getElementText();
+			ctx.getFeed().setBlock("yes".equalsIgnoreCase(block));
 			break;
 		case "email":
 			// The email address of the podcast owner. This email will be used
 			// to verify the ownership of the podcast during registration. The
 			// email is only specified in the <channel> tag.
+			ctx.getFeed().setEmail(ctx.getElementText());
+			break;
+		case "explicit":
+			parseExplicit(ctx);
 			break;
 		case "image":
 			// A URL that points to the the artwork of your podcast or episode.
 			// The image can be specified in the <channel> or <item> tags.
+			ctx.getFeed().addImage(parseImage(ctx));
 			break;
 		case "description":
 			// A description of the podcast or episode. The description can be
 			// specified in the <channel> or <item> tags and must be plain-text
 			// (no markup allowed).
+			ctx.getFeed().setDescription(ctx.getElementText());
 			break;
 		case "newFeedUrl":
 			// Allows the podcast owner to change the URL where the RSS podcast
 			// feed is located. After adding the tag, you should maintain the
 			// old feed for 48 hours before retiring it. newFeedUrl is only
 			// specified in the <channel> tag.
+			Namespace.super.process(ctx);
 			break;
 		case "category":
 			// Specify the category that your podcast relates to. If more than
@@ -80,6 +91,7 @@ public class GooglePlay implements Namespace {
 			// must match one of the pre-defined categories specified in the
 			// help center article:
 			// https://support.google.com/googleplay/podcasts/answer/6260341#spt
+			Namespace.super.process(ctx);
 			break;
 		default : 
 			Namespace.super.process(ctx);
@@ -90,6 +102,17 @@ public class GooglePlay implements Namespace {
 	@Override
 	public void process(PodParseContext ctx, Item item) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
+		case "author":
+			item.addAuthor(parseAuthor(ctx));
+			break;
+		case "block":
+			// If this tag is set to 'yes' in the <channel> tag, the podcast
+			// will will not appear in Google Play Music. If this tag is set to
+			// 'yes' in the <item> tag, that episode will not appear in Google
+			// Play Music. If it's not set, it will be treated as 'no'.
+			String block = ctx.getElementText();
+			item.setBlock("yes".equalsIgnoreCase(block));
+			break;
 		case "description":
 			// A description of the podcast or episode. The description can be
 			// specified in the <channel> or <item> tags and must be plain-text
@@ -97,20 +120,10 @@ public class GooglePlay implements Namespace {
 			item.setDescription(ctx.getElementText());
 			break;
 		case "explicit":
-			// Indicates whether the podcast or a specific episode contains
-			// explicit material. If not specified, it is considered not
-			// explicit. The explicit symbol will appear next to the podcast
-			// when the tag is placed in the <channel> and next to the episode
-			// when placed in the <item>. A 'clean' value can only be used in
-			// the <item> tag, and it means this episode is not explicit, but
-			// there's also an explicit version of of the same episode.
-			item.getRating().setExplicit(ctx.getElementText());
+			parseExplicit(ctx, item);
 			break;
-		case "block":
-			// If this tag is set to 'yes' in the <channel> tag, the podcast
-			// will will not appear in Google Play Music. If this tag is set to
-			// 'yes' in the <item> tag, that episode will not appear in Google
-			// Play Music. If it's not set, it will be treated as 'no'.
+		case "image":
+			item.addImage(parseImage(ctx));
 			break;
 		default : 
 			Namespace.super.process(ctx, item);
@@ -118,6 +131,38 @@ public class GooglePlay implements Namespace {
 		}
 	}
 
+	private void parseExplicit(PodParseContext ctx) throws XMLStreamException {
+		parseExplicit(ctx, ctx.getFeed().getRating());
+	}
+
+	private void parseExplicit(PodParseContext ctx, Item item) throws XMLStreamException {
+		parseExplicit(ctx, item.getRating());
+	}
+
+	private void parseExplicit(PodParseContext ctx, Rating rating) throws XMLStreamException {
+		// Indicates whether the podcast or a specific episode contains
+		// explicit material. If not specified, it is considered not
+		// explicit. The explicit symbol will appear next to the podcast
+		// when the tag is placed in the <channel> and next to the episode
+		// when placed in the <item>. A 'clean' value can only be used in
+		// the <item> tag, and it means this episode is not explicit, but
+		// there's also an explicit version of of the same episode.
+		rating.setExplicit(ctx.getElementText());
+	}
+	
+	private Person parseAuthor(PodParseContext ctx) throws XMLStreamException {
+		Person author = new Person();
+		author.setName(ctx.getElementText());
+		return author;
+	}
+
+	private Image parseImage(PodParseContext ctx) {
+		String href = ctx.getAttribute("href");
+		Image image = new Image();
+		image.setUrl(href);
+		return image;
+	}
+	
 }
 
 /*
