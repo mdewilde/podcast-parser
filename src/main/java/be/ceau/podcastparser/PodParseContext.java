@@ -54,6 +54,10 @@ public class PodParseContext {
 		this.skippableElements = Collections.unmodifiableSet(new HashSet<>(skippableElements));
 	}
 
+	public String getRootNamespace() {
+		return rootNamespace;
+	}
+
 	public XMLStreamReader getReader() {
 		return reader;
 	}

@@ -22,6 +22,7 @@ import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
+import org.apache.logging.log4j.util.Strings;
 import org.slf4j.LoggerFactory;
 
 import be.ceau.podcastparser.PodParseContext;
@@ -110,7 +111,9 @@ public interface Namespace {
 		String localName = ctx.getReader().getLocalName();
 		String attributes = Attributes.toString(ctx.getReader());
 		String namespace = ctx.getReader().getName().getPrefix();
-
+		if (Strings.isBlank(namespace)) {
+			namespace = ctx.getRootNamespace();
+		}
 		LoggerFactory.getLogger(Namespace.class)
 				.info("{}:{} [@{}] {}", namespace, localName, level, attributes);
 
