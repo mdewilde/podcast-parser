@@ -4,8 +4,7 @@ import java.util.Locale;
 import java.util.regex.Pattern;
 
 /**
- * Factory class for parsing duration patterns into {@code long} millisecond
- * values.
+ * Factory class for parsing duration patterns into {@code long} millisecond values.
  */
 public class Durations {
 
@@ -13,8 +12,15 @@ public class Durations {
 		// static methods only
 	}
 
+	/**
+	 * Parse the given {@link String} into a millisecond timestamp.
+	 * 
+	 * @param string
+	 *            a {@link String}, or {@code null}
+	 * @return millisecond timestamp {@link Long}, or {@code null} if parse problem
+	 */
 	public static Long parse(String string) {
-		if (string == null) {
+		if (Strings.isBlank(string)) {
 			return null;
 		}
 		string = string.trim().toLowerCase(Locale.ENGLISH);

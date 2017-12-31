@@ -1,5 +1,5 @@
 /*
-	Copyright 2017 Marceau Dewilde <m@ceau.be>
+	Copyright 2018 Marceau Dewilde <m@ceau.be>
 	
 	Licensed under the Apache License, Version 2.0 (the "License");
 	you may not use this file except in compliance with the License.
@@ -65,6 +65,7 @@ public class Item {
 	private String season;
 	private MediaPlayer mediaPlayer;
 	private final List<Scene> scenes = new ArrayList<>();
+	private final List<Transcript> transcripts = new ArrayList<>();
 	
 	// TODO -> merge with copyright?
 	private Copyright mediaCopyright;
@@ -349,6 +350,23 @@ public class Item {
 	 */
 	public Rating getRating() {
 		return rating;
+	}
+
+	public void setRating(Rating rating) {
+		if (rating != null) {
+			if (Strings.isNotBlank(rating.getExplicit())) {
+				this.rating.setExplicit(rating.getExplicit());
+			}
+			if (Strings.isNotBlank(rating.getScheme())) {
+				this.rating.setScheme(rating.getScheme());
+			}
+			if (Strings.isNotBlank(rating.getText())) {
+				this.rating.setText(rating.getText());
+			}
+			if (Strings.isNotBlank(rating.getAdultContent())) {
+				this.rating.setAdultContent(rating.getAdultContent());
+			}
+		}
 	}
 
 	/**
@@ -740,6 +758,17 @@ public class Item {
 		// we only add if not null
 		if (scene != null) {
 			scenes.add(scene);
+		}
+	}
+
+	public List<Transcript> getTranscripts() {
+		return transcripts;
+	}
+
+	public void addTranscript(Transcript transcript) {
+		// we only add if not null
+		if (transcript != null) {
+			transcripts.add(transcript);
 		}
 	}
 

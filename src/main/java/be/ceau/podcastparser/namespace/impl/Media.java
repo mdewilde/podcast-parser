@@ -1,5 +1,5 @@
 /*
-	Copyright 2017 Marceau Dewilde <m@ceau.be>
+	Copyright 2018 Marceau Dewilde <m@ceau.be>
 	
 	Licensed under the Apache License, Version 2.0 (the "License");
 	you may not use this file except in compliance with the License.
@@ -17,6 +17,7 @@ package be.ceau.podcastparser.namespace.impl;
 
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -32,10 +33,13 @@ import be.ceau.podcastparser.models.Image;
 import be.ceau.podcastparser.models.Item;
 import be.ceau.podcastparser.models.MediaContent;
 import be.ceau.podcastparser.models.MediaPlayer;
+import be.ceau.podcastparser.models.Rating;
 import be.ceau.podcastparser.models.Scene;
+import be.ceau.podcastparser.models.Transcript;
 import be.ceau.podcastparser.models.TypedString;
 import be.ceau.podcastparser.namespace.Namespace;
 import be.ceau.podcastparser.util.Durations;
+import be.ceau.podcastparser.util.Strings;
 import be.ceau.podcastparser.util.UnmodifiableSet;
 
 /**
@@ -127,86 +131,57 @@ public class Media implements Namespace {
 	}
 
 	@Override
+	public void process(PodParseContext ctx) throws XMLStreamException {
+		String localName = ctx.getReader().getLocalName();
+		switch (localName) {
+		case "category":
+			ctx.getFeed().addCategory(parseCategory(ctx));
+			break;
+		case "copyright":
+			ctx.getFeed().setMediaCopyright(parseCopyright(ctx));
+			break;
+		case "credit":
+			ctx.getFeed().setCredit(parseCredit(ctx));
+			break;
+		case "description":
+			ctx.getFeed().setDescription(parseDescription(ctx));
+			break;
+		case "keywords":
+			ctx.getFeed().addKeywords(parseKeywords(ctx));
+			break;
+		case "rating":
+			ctx.getFeed().setRating(parseRating(ctx));
+			break;
+		case "thumbnail":
+			ctx.getFeed().addImage(parseImage(ctx));
+			break;
+		default : 
+			Namespace.super.process(ctx);
+			break;
+		}
+	}
+
+	@Override
 	public void process(PodParseContext ctx, Item item) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
+		case "adult":
+			// This is deprecated and has been replaced with 'rating'
+			item.getRating().setText(ctx.getElementText()).setScheme("urn:simple");
+			break;
+		case "category":
+			item.addCategory(parseCategory(ctx));
+			break;
 		case "content":
 			item.addMediaContent(parseMediaContent(ctx));
-			return;
+			break;
+		case "description":
+			item.setDescription(parseDescription(ctx));
+			break;
 		case "group":
 			// do not map this as a separate model
 			// extract content elements and add to item directly
 			item.addMediaContents(parseMediaGroup(ctx));
-			return;
-		case "thumbnail":
-			/*
-			 * Allows particular images to be used as representative images for
-			 * the media object. If multiple thumbnails are included, and time
-			 * coding is not at play, it is assumed that the images are in order
-			 * of importance. It has one required attribute and three optional
-			 * attributes.
-			 */
-			item.addImage(parseImage(ctx));
-			return;
-		case "adult": {
-			// This is deprecated and has been replaced with 'rating'
-			item.getRating().setText(ctx.getElementText()).setScheme("urn:simple");
-			return;
-		}
-		case "rating": {
-			// This allows the permissible audience to be declared.
-			String scheme = ctx.getAttribute("scheme");
-			if (scheme == null) {
-				scheme = "urn:simple";
-			}
-			item.getRating().setText(ctx.getElementText()).setScheme(scheme);
-			return;
-		}
-		case "title": {
-			// type specifies the type of text embedded. Possible values are
-			// either "plain" or "html". Default value is "plain". All HTML must
-			// be entity-encoded. It is an optional attribute.
-			TypedString title = new TypedString();
-			title.setType(ctx.getAttribute("type"));
-			title.setText(ctx.getElementText());
-			item.setTitle(title);
-			return;
-		}
-		case "description": {
-			// Short description describing the media object typically a sentence in length. It has one optional attribute.
-			TypedString description = new TypedString();
-			description.setType(ctx.getAttribute("type"));
-			description.setText(ctx.getElementText());
-			item.setDescription(description);
-			return;
-		}
-		case "keywords": {
-			/*
-			 * Comma-delimited keywords describing the media object with
-			 * typically a maximum of 10 words.
-			 */
-			String keywords = ctx.getElementText();
-			if (keywords != null) {
-				String[] split = keywords.split(",");
-				for (int i = 0; i < split.length; i++) {
-					item.addKeyword(split[i].trim());
-				}
-			}
-			return;
-		}
-		case "category": {
-			/*
-			 * Allows a taxonomy to be set that gives an indication of the type
-			 * of media content, and its particular contents.
-			 */
-			String scheme = ctx.getAttribute("scheme");
-			String label = ctx.getAttribute("label");
-			Category category = new Category()
-				.setName(ctx.getElementText())
-				.setScheme(scheme == null ? "http://search.yahoo.com/mrss/category_schema" : scheme)
-				.setLabel(label);
-			item.addCategory(category);
-			return;
-		}
+			break;
 		case "hash": {
 			/*
 			 * This is the hash of the binary media file. It can appear multiple
@@ -217,6 +192,25 @@ public class Media implements Namespace {
 					.setAlgo(algo)
 					.setHash(ctx.getElementText());
 			item.addHash(hash);
+			break;
+		}
+		case "keywords":
+			ctx.getFeed().addKeywords(parseKeywords(ctx));
+			break;
+		case "rating": 
+			item.setRating(parseRating(ctx));
+			break;
+		case "thumbnail":
+			item.addImage(parseImage(ctx));
+			return;
+		case "title": {
+			// type specifies the type of text embedded. Possible values are
+			// either "plain" or "html". Default value is "plain". All HTML must
+			// be entity-encoded. It is an optional attribute.
+			TypedString title = new TypedString();
+			title.setType(ctx.getAttribute("type"));
+			title.setText(ctx.getElementText());
+			item.setTitle(title);
 			return;
 		}
 		case "player":
@@ -233,92 +227,15 @@ public class Media implements Namespace {
 			} catch (NumberFormatException e) {
 			}
 			item.setMediaPlayer(player);
-			return;
+			break;
 		case "credit":
-			/*
-			 * Notable entity and the contribution to the creation of the media
-			 * object. Current entities can include people, companies,
-			 * locations, etc. Specific entities can have multiple roles, and
-			 * several entities can have the same role. These should appear as
-			 * distinct <media:credit> elements. It has two optional attributes.
-			 * 
-			 * <media:credit role="producer" scheme="urn:ebu">entity
-			 * name</media:credit>
-			 * 
-			 * <media:credit role="owner" scheme="urn:yvs">copyright holder of
-			 * the entity</media:credit>
-			 * 
-			 * role specifies the role the entity played. Must be lowercase. It
-			 * is an optional attribute.
-			 * 
-			 * scheme is the URI that identifies the role scheme. It is an
-			 * optional attribute and possible values for this attribute are (
-			 * urn:ebu | urn:yvs ) . The default scheme is "urn:ebu". The list
-			 * of roles supported under urn:ebu scheme can be found at European
-			 * Broadcasting Union Role Codes. The roles supported under urn:yvs
-			 * scheme are ( uploader | owner ).
-			 */
-			Credit credit = new Credit();
-			credit.setScheme(ctx.getAttribute("scheme"));
-			credit.setRole(ctx.getAttribute("role"));
-			credit.setEntity(ctx.getElementText());
-			item.addCredit(credit);
-			return;
+			item.addCredit(parseCredit(ctx));
+			break;
 		case "copyright":
-			/*
-			 * Copyright information for the media object. It has one optional
-			 * attribute.
-			 * 
-			 * <media:copyright url="http://blah.com/additional-info.html">2005
-			 * FooBar Media</media:copyright>
-			 * 
-			 * url is the URL for a terms of use page or additional copyright
-			 * information. If the media is operating under a Creative Commons
-			 * license, the Creative Commons module should be used instead. It
-			 * is an optional attribute.
-			 */
-			Copyright copyright = new Copyright();
-			copyright.setText(ctx.getElementText());
-			copyright.setUrl(ctx.getAttribute("url"));
-			item.setMediaCopyright(copyright);
-			return;
+			item.setMediaCopyright(parseCopyright(ctx));
+			break;
 		case "text":
-			/*
-			 * Allows the inclusion of a text transcript, closed captioning or
-			 * lyrics of the media content. Many of these elements are permitted
-			 * to provide a time series of text. In such cases, it is
-			 * encouraged, but not required, that the elements be grouped by
-			 * language and appear in time sequence order based on the start
-			 * time. Elements can have overlapping start and end times. It has
-			 * four optional attributes.
-			 * 
-			 * <media:text type="plain" lang="en" start="00:00:03.000"
-			 * end="00:00:10.000"> Oh, say, can you see</media:text>
-			 * 
-			 * <media:text type="plain" lang="en" start="00:00:10.000"
-			 * end="00:00:17.000">By the dawn's early light</media:text>
-			 * 
-			 * type specifies the type of text embedded. Possible values are
-			 * either "plain" or "html". Default value is "plain". All HTML must
-			 * be entity-encoded. It is an optional attribute.
-			 * 
-			 * lang is the primary language encapsulated in the media object.
-			 * Language codes possible are detailed in RFC 3066. This attribute
-			 * is used similar to the xml:lang attribute detailed in the XML 1.0
-			 * Specification (Third Edition). It is an optional attribute.
-			 * 
-			 * start specifies the start time offset that the text starts being
-			 * relevant to the media object. An example of this would be for
-			 * closed captioning. It uses the NTP time code format (see: the
-			 * time attribute used in <media:thumbnail>). It is an optional
-			 * attribute.
-			 * 
-			 * end specifies the end time that the text is relevant. If this
-			 * attribute is not provided, and a start time is used, it is
-			 * expected that the end time is either the end of the clip or the
-			 * start of the next <media:text> element.
-			 */
-			Namespace.super.process(ctx, item);
+			item.addTranscript(parseText(ctx));
 			return;
 		case "restriction":
 			/*
@@ -550,35 +467,131 @@ public class Media implements Namespace {
 			 * circulate it. Supported values are "userCreated" and "official".
 			 */
 			Namespace.super.process(ctx, item);
-			return;
+			break;
 		case "scenes":
 			parseScenes(ctx).forEach(item::addScene);
-			return;
+			break;
 		default : 
 			Namespace.super.process(ctx, item);
 			break;
 		}
 	}
 
-	private List<MediaContent> parseMediaGroup(PodParseContext ctx) throws XMLStreamException {
-		List<MediaContent> list = new ArrayList<>();
-		while (ctx.getReader().hasNext()) {
-			switch (ctx.getReader().next()) {
-			case XMLStreamConstants.END_ELEMENT:
-				if ("group".equals(ctx.getReader().getLocalName())) {
-					return list;
-				}
-				break;
-			case XMLStreamConstants.START_ELEMENT:
-				if ("content".equals(ctx.getReader().getLocalName())) {
-					list.add(parseMediaContent(ctx));
-				}
-				break;
-			}
+	/*
+	 * Allows a taxonomy to be set that gives an indication of the type
+	 * of media content, and its particular contents.
+	 */
+	private Category parseCategory(PodParseContext ctx) throws XMLStreamException {
+		Category category = new Category();
+		String scheme = ctx.getAttribute("scheme");
+		if (Strings.isBlank(scheme)) {
+			// scheme is an optional attribute. If not included, the default is
+			// "http://search.yahoo.com/mrss/category_schema".
+			scheme = "http://search.yahoo.com/mrss/category_schema";
 		}
-		return list;
+		category.setScheme(scheme);
+		category.setLabel(ctx.getAttribute("label"));
+		category.setName(ctx.getElementText());
+		return category;
+	}
+	
+	private Copyright parseCopyright(PodParseContext ctx) throws XMLStreamException {
+		Copyright copyright = new Copyright();
+		copyright.setText(ctx.getElementText());
+		copyright.setUrl(ctx.getAttribute("url"));
+		return copyright;
+	}
+	
+	/*
+	 * Notable entity and the contribution to the creation of the media
+	 * object. Current entities can include people, companies,
+	 * locations, etc. Specific entities can have multiple roles, and
+	 * several entities can have the same role. These should appear as
+	 * distinct <media:credit> elements. It has two optional attributes.
+	 * 
+	 * <media:credit role="producer" scheme="urn:ebu">entity
+	 * name</media:credit>
+	 * 
+	 * <media:credit role="owner" scheme="urn:yvs">copyright holder of
+	 * the entity</media:credit>
+	 * 
+	 * role specifies the role the entity played. Must be lowercase. It
+	 * is an optional attribute.
+	 * 
+	 * scheme is the URI that identifies the role scheme. It is an
+	 * optional attribute and possible values for this attribute are (
+	 * urn:ebu | urn:yvs ) . The default scheme is "urn:ebu". The list
+	 * of roles supported under urn:ebu scheme can be found at European
+	 * Broadcasting Union Role Codes. The roles supported under urn:yvs
+	 * scheme are ( uploader | owner ).
+	 */
+	private Credit parseCredit(PodParseContext ctx) throws XMLStreamException {
+		Credit credit = new Credit();
+		credit.setScheme(ctx.getAttribute("scheme"));
+		credit.setRole(ctx.getAttribute("role"));
+		credit.setEntity(ctx.getElementText());
+		return credit;
 	}
 
+	/**
+	 * Short description describing the media object typically a sentence in length. It has one optional
+	 * attribute.
+	 * {@code 
+	 * <media:description type="plain">This was some really bizarre band I listened to as a young
+	 * lad.</media:description>
+	 * }
+	 * type specifies the type of text embedded. Possible values are either "plain" or "html". Default
+	 * value is "plain". All HTML must be entity-encoded. It is an optional attribute.
+	 * 
+	 * @return
+	 */
+	private TypedString parseDescription(PodParseContext ctx) throws XMLStreamException {
+		TypedString typedString = new TypedString();
+		if ("html".equals(ctx.getAttribute("type"))) {
+			typedString.setType("html");
+		} else {
+			typedString.setType("plain");
+		}
+		typedString.setText(ctx.getElementText());
+		return typedString;
+	}
+	
+	/*
+	 * Allows particular images to be used as representative images for
+	 * the media object. If multiple thumbnails are included, and time
+	 * coding is not at play, it is assumed that the images are in order
+	 * of importance. It has one required attribute and three optional
+	 * attributes.
+	 */
+	private Image parseImage(PodParseContext ctx) throws XMLStreamException {
+		String url = ctx.getAttribute("url");
+		String width = ctx.getAttribute("width");
+		String height = ctx.getAttribute("width");
+		String time = ctx.getAttribute("time");
+		return new Image()
+				.setUrl(url)
+				.setWidth(width)
+				.setHeight(height)
+				.setTime(Durations.parse(time))
+				.setTitle("thumbnail");
+	}
+
+	/*
+	 * Comma-delimited keywords describing the media object with
+	 * typically a maximum of 10 words.
+	 */
+	private Set<String> parseKeywords(PodParseContext ctx) throws XMLStreamException {
+		Set<String> set = new HashSet<>();
+		String keywords = ctx.getElementText();
+		if (keywords != null) {
+			String[] split = keywords.split(",");
+			for (int i = 0; i < split.length; i++) {
+				set.add(split[i].trim());
+			}
+		}
+		return set;
+	}
+	
 	private MediaContent parseMediaContent(PodParseContext ctx) throws XMLStreamException {
 		MediaContent mediaContent = new MediaContent();
 		mediaContent.setUrl(ctx.getAttribute("url"));
@@ -633,20 +646,53 @@ public class Media implements Namespace {
 		return mediaContent;
 	}
 
-	private Image parseImage(PodParseContext ctx) throws XMLStreamException {
-		String url = ctx.getAttribute("url");
-		String width = ctx.getAttribute("width");
-		String height = ctx.getAttribute("width");
-		String time = ctx.getAttribute("time");
-		return new Image()
-				.setUrl(url)
-				.setWidth(width)
-				.setHeight(height)
-				.setTime(Durations.parse(time))
-				.setTitle("thumbnail");
+	private List<MediaContent> parseMediaGroup(PodParseContext ctx) throws XMLStreamException {
+		List<MediaContent> list = new ArrayList<>();
+		while (ctx.getReader().hasNext()) {
+			switch (ctx.getReader().next()) {
+			case XMLStreamConstants.END_ELEMENT:
+				if ("group".equals(ctx.getReader().getLocalName())) {
+					return list;
+				}
+				break;
+			case XMLStreamConstants.START_ELEMENT:
+				if ("content".equals(ctx.getReader().getLocalName())) {
+					list.add(parseMediaContent(ctx));
+				}
+				break;
+			}
+		}
+		return list;
 	}
 
-	private List<Scene> parseScenes(PodParseContext ctx)throws XMLStreamException {
+	/**
+	 * This allows the permissible audience to be declared. If this element is not included, it assumes
+	 * that no restrictions are necessary. It has one optional attribute.
+	 * 
+	 * <media:rating scheme="urn:simple">adult</media:rating>
+	 * <media:rating scheme="urn:icra">r (cz 1 lz 1 nz 1 oz 1 vz 1)</media:rating>
+	 * <media:rating scheme="urn:mpaa">pg</media:rating>
+	 * <media:rating scheme="urn:v-chip">tv-y7-fv</media:rating>
+	 * 
+	 * scheme is the URI that identifies the rating scheme. It is an optional attribute. If this
+	 * attribute is not included, the default scheme is urn:simple (adult | nonadult).
+	 * 
+	 * @param ctx
+	 * @return
+	 * @throws XMLStreamException
+	 */
+	private Rating parseRating(PodParseContext ctx)throws XMLStreamException {
+		String scheme = ctx.getAttribute("scheme");
+		if (Strings.isBlank(scheme)) {
+			scheme = "urn:simple";
+		}
+		Rating rating = new Rating();
+		rating.setText(ctx.getElementText());
+		rating.setScheme(scheme);
+		return rating;
+	}
+	
+	private List<Scene> parseScenes(PodParseContext ctx) throws XMLStreamException {
 		/*
 		 * Optional element to specify various scenes within a media object.
 		 * It can have multiple child <media:scene> elements, where each
@@ -689,245 +735,64 @@ public class Media implements Namespace {
 
 	}
 	
+	/*
+	 * Allows the inclusion of a text transcript, closed captioning or
+	 * lyrics of the media content. Many of these elements are permitted
+	 * to provide a time series of text. In such cases, it is
+	 * encouraged, but not required, that the elements be grouped by
+	 * language and appear in time sequence order based on the start
+	 * time. Elements can have overlapping start and end times. It has
+	 * four optional attributes.
+	 * 
+	 * <media:text type="plain" lang="en" start="00:00:03.000"
+	 * end="00:00:10.000"> Oh, say, can you see</media:text>
+	 * 
+	 * <media:text type="plain" lang="en" start="00:00:10.000"
+	 * end="00:00:17.000">By the dawn's early light</media:text>
+	 * 
+	 * type specifies the type of text embedded. Possible values are
+	 * either "plain" or "html". Default value is "plain". All HTML must
+	 * be entity-encoded. It is an optional attribute.
+	 * 
+	 * lang is the primary language encapsulated in the media object.
+	 * Language codes possible are detailed in RFC 3066. This attribute
+	 * is used similar to the xml:lang attribute detailed in the XML 1.0
+	 * Specification (Third Edition). It is an optional attribute.
+	 * 
+	 * start specifies the start time offset that the text starts being
+	 * relevant to the media object. An example of this would be for
+	 * closed captioning. It uses the NTP time code format (see: the
+	 * time attribute used in <media:thumbnail>). It is an optional
+	 * attribute.
+	 * 
+	 * end specifies the end time that the text is relevant. If this
+	 * attribute is not provided, and a start time is used, it is
+	 * expected that the end time is either the end of the clip or the
+	 * start of the next <media:text> element.
+	 */
+	private Transcript parseText(PodParseContext ctx) throws XMLStreamException {
+		
+		Transcript transcript = new Transcript();
+		transcript.setText(ctx.getElementText());
+		transcript.setLang(ctx.getAttribute("lang"));
+
+		String type = ctx.getAttribute("type");
+		if (Strings.isBlank(type)) {
+			type = "plain";
+		}
+		transcript.setType(type);
+		
+		String start = ctx.getAttribute("start");
+		if (Strings.isNotBlank(start)) {
+			transcript.setStart(Durations.parse(start));
+		}
+		
+		String end = ctx.getAttribute("end");
+		if (Strings.isNotBlank(end)) {
+			transcript.setEnd(Durations.parse(end));
+		}
+
+		return transcript;
+		
+	}
 }
-
-/*
-
-	corpus stats
-	
-    975653 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[fileSize, type, url]]
-    222037 	--> http://search.yahoo.com/mrss/ level=item localName=keywords attributes=[]]
-    210790 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[medium, url]]
-    207406 	--> http://search.yahoo.com/mrss/ level=item localName=rights attributes=[status]]
-    175765 	--> http://search.yahoo.com/mrss/ level=item localName=title attributes=[type]]
-    169383 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[type, url]]
-    146950 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[medium, type, url]]
-    101757 	--> http://search.yahoo.com/mrss/ level=item localName=thumbnail attributes=[url]]
-     91487 	--> http://search.yahoo.com/mrss/ level=item localName=thumbnail attributes=[width, url, height]]
-     79898 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[duration, medium, type, lang, url]]
-     70156 	--> http://search.yahoo.com/mrss/ level=item localName=title attributes=[]]
-     69699 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[duration, fileSize, medium, type, lang, url]]
-     51576 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[duration, expression, fileSize, medium, type, url]]
-     46977 	--> http://search.yahoo.com/mrss/ level=feed localName=category attributes=[scheme]]
-     43166 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[duration, fileSize, type, url]]
-     42661 	--> http://search.yahoo.com/mrss/ level=item localName=text attributes=[type]]
-     38565 	--> http://search.yahoo.com/mrss/ level=item localName=player attributes=[url]]
-     36922 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[duration, medium, type, url]]
-     31702 	--> http://search.yahoo.com/mrss/ level=feed localName=rating attributes=[]]
-     28050 	--> http://search.yahoo.com/mrss/ level=feed localName=thumbnail attributes=[url]]
-     27594 	--> http://search.yahoo.com/mrss/ level=feed localName=credit attributes=[role]]
-     25930 	--> http://search.yahoo.com/mrss/ level=feed localName=keywords attributes=[]]
-     25782 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[]]
-     24486 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[duration, fileSize, bitrate, type, url]]
-     24392 	--> http://search.yahoo.com/mrss/ level=feed localName=description attributes=[type]]
-     22049 	--> http://search.yahoo.com/mrss/ level=item localName=group attributes=[]]
-     21794 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[duration, fileSize, medium, type, url]]
-     20570 	--> http://search.yahoo.com/mrss/ level=feed localName=copyright attributes=[]]
-     18689 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[width, medium, type, url, height]]
-     18330 	--> http://search.yahoo.com/mrss/ level=item localName=credit attributes=[role]]
-     16120 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[vcodec, isDefault, role, expression, fileSize, acodec, width, type, url, height]]
-     14409 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[length, medium, type, url]]
-     12333 	--> http://search.yahoo.com/mrss/ level=item localName=description attributes=[type]]
-      9814 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[url]]
-      9391 	--> http://search.yahoo.com/mrss/ level=item localName=category attributes=[scheme]]
-      9276 	--> http://search.yahoo.com/mrss/ level=item localName=description attributes=[]]
-      6636 	--> http://search.yahoo.com/mrss/ level=item localName=rating attributes=[scheme]]
-      5317 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[duration, fileSize, width, bitrate, medium, type, url, height]]
-      4167 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[expression, medium, type, url]]
-      3909 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[duration]]
-      3699 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[duration, expression, fileSize, width, bitrate, medium, type, lang, url, height]]
-      3675 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[isDefault, width, medium, type, url, height]]
-      3262 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[duration, isDefault, fileSize, width, bitrate, medium, type, url, height]]
-      2539 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[fileSize, medium, type, url]]
-      2516 	--> http://search.yahoo.com/mrss/ level=item localName=rating attributes=[]]
-      2493 	--> http://search.yahoo.com/mrss/ level=item localName=copyright attributes=[]]
-      1813 	--> http://search.yahoo.com/mrss/ level=item localName=thumbnail attributes=[href]]
-      1766 	--> http://search.yahoo.com/mrss/ level=item localName=credit attributes=[role, scheme]]
-      1749 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[duration, isDefault, expression, width, medium, type, url, height]]
-      1552 	--> http://search.yahoo.com/mrss/ level=item localName=category attributes=[]]
-      1287 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[isDefault, role, expression, fileSize, acodec, type, url]]
-      1178 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[expression, fileSize, medium, url]]
-      1061 	--> http://search.yahoo.com/mrss level=item localName=content attributes=[duration, expression, fileSize, bitrate, type, url]]
-      1047 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[duration, expression, fileSize, bitrate, type, url]]
-       971 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[width, type, url, height]]
-       968 	--> http://search.yahoo.com/mrss/ level=item localName=thumbnail attributes=[width, type, url, height]]
-       914 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[duration, expression, medium, type, url]]
-       911 	--> http://search.yahoo.com/mrss/ level=item localName=player attributes=[width, url, height]]
-       902 	--> http://search.yahoo.com/mrss/ level=item localName=thumbnail attributes=[]]
-       876 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[expression, medium, url]]
-       842 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[isDefault, role, expression, fileSize, width, type, url, height]]
-       764 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[fileSize, width, medium, type, url, height]]
-       753 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[isDefault, expression, fileSize, bitrate, medium, type, url]]
-       739 	--> http://search.yahoo.com/mrss/ level=item localName=restriction attributes=[relationship, type]]
-       737 	--> http://search.yahoo.com/mrss level=item localName=content attributes=[fileSize, type, url]]
-       691 	--> http://search.yahoo.com/mrss/ level=feed localName=rating attributes=[scheme]]
-       691 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[duration, url]]
-       681 	--> http://search.yahoo.com/mrss level=item localName=credit attributes=[]]
-       662 	--> http://search.yahoo.com/mrss/ level=item localName=hash attributes=[algo]]
-       605 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[isDefault, expression, bitrate, medium, type, url]]
-       567 	--> http://search.yahoo.com/mrss level=item localName=thumbnail attributes=[url]]
-       535 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[type]]
-       535 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[lang]]
-       535 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[fileSize]]
-       511 	--> http://search.yahoo.com/mrss level=item localName=adult attributes=[]]
-       498 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[isDefault, role, expression, fileSize, acodec, width, type, url, height]]
-       495 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[isDefault, role, expression, fileSize, type, url]]
-       493 	--> http://search.yahoo.com/mrss/ level=item localName=credit attributes=[]]
-       469 	--> http://search.yahoo.com/mrss/ level=item localName=adult attributes=[]]
-       421 	--> http://search.yahoo.com/mrss/ level=item localName=category attributes=[scheme, label]]
-       420 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[duration, channels, width, medium, type, lang, url, height]]
-       401 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[expression, fileSize, type, url]]
-       375 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[isDefault, fileSize, type, url]]
-       372 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[duration, isDefault, expression, fileSize, framerate, width, bitrate, type, url, height]]
-       356 	--> http://search.yahoo.com/mrss level=item localName=category attributes=[label]]
-       348 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[duration, medium]]
-       338 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[duration, bitrate, medium, type, url]]
-       334 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[length, type, url]]
-       314 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[isDefault, width, medium, type, lang, url, height]]
-       309 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[width, medium, url, height]]
-       308 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[duration, isDefault, fileSize, type, url]]
-       285 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[width, height]]
-       285 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[framerate]]
-       235 	--> http://search.yahoo.com/mrss level=item localName=content attributes=[length, type, url]]
-       234 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[expression, fileSize, medium, type, url]]
-       216 	--> http://search.yahoo.com/mrss/ level=item localName=category attributes=[label]]
-       200 	--> http://search.yahoo.com/mrss level=item localName=restriction attributes=[relationship, type]]
-       200 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[duration, isDefault, fileSize, width, medium, type, url, height]]
-       199 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[duration, fileSize, width, type, url, height]]
-       196 	--> http://search.yahoo.com/mrss/ level=item localName=text attributes=[]]
-       171 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[duration, isDefault, channels, fileSize, framerate, width, bitrate, type, url, height]]
-       164 	--> http://search.yahoo.com/mrss/ level=item localName=backLinks attributes=[]]
-       164 	--> http://search.yahoo.com/mrss level=item localName=content attributes=[type, url]]
-       164 	--> http://search.yahoo.com/mrss/ level=item localName=backLink attributes=[]]
-       164 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[expression, width, bitrate, medium, type, lang, url, height]]
-       164 	--> http://search.yahoo.com/mrss/ level=item localName=embed attributes=[url]]
-       164 	--> http://search.yahoo.com/mrss/ level=item localName=status attributes=[state]]
-       164 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[isDefault, expression, width, bitrate, medium, type, lang, url, height]]
-       152 	--> http://search.yahoo.com/mrss level=item localName=keywords attributes=[]]
-       147 	--> http://search.yahoo.com/mrss level=item localName=content attributes=[duration, width, type, url, height]]
-       141 	--> http://search.yahoo.com/mrss level=item localName=adult attributes=[scheme]]
-       140 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[duration, bitrate, type, url, height]]
-       134 	--> http://search.yahoo.com/mrss level=item localName=title attributes=[]]
-       112 	--> http://search.yahoo.com/mrss level=item localName=rating attributes=[scheme]]
-       110 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[duration, channels, fileSize, bitrate, samplingrate, medium, type, url]]
-       109 	--> http://search.yahoo.com/mrss level=item localName=content attributes=[url]]
-       108 	--> http://search.yahoo.com/mrss level=item localName=title attributes=[type]]
-       108 	--> http://search.yahoo.com/mrss level=item localName=description attributes=[type]]
-        99 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[duration, isDefault, expression, fileSize, bitrate, type, url]]
-        97 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[fileSize, type, lang, url]]
-        96 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[expression, channels, bitrate, medium, url]]
-        95 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[duration, expression, fileSize, width, bitrate, type, url]]
-        93 	--> http://search.yahoo.com/mrss level=item localName=thumbnail attributes=[width, url, height]]
-        86 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[duration, fileSize, aspectRatio, medium, type, url]]
-        83 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[filesize, type, url]]
-        76 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[duration, type, url]]
-        73 	--> http://search.yahoo.com/mrss level=item localName=player attributes=[width, url, height]]
-        73 	--> http://search.yahoo.com/mrss level=item localName=group attributes=[]]
-        70 	--> http://search.yahoo.com/mrss/ level=item localName=text attributes=[start, end, type, lang]]
-        69 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[expression, fileSize, medium, type, lang, url]]
-        68 	--> http://video.search.yahoo.com/mrss level=item localName=title attributes=[]]
-        68 	--> http://video.search.yahoo.com/mrss level=item localName=content attributes=[medium, type, lang, url]]
-        68 	--> http://video.search.yahoo.com/mrss level=item localName=keywords attributes=[]]
-        68 	--> http://video.search.yahoo.com/mrss level=item localName=description attributes=[]]
-        65 	--> http://search.yahoo.com/mrss/ level=item localName=thumb attributes=[width, url, height]]
-        63 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[isDefault, expression, fileSize, medium, type, url]]
-        62 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[isDefault, expression, fileSize, medium, lang, type, url]]
-        61 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[duration, isDefault, expression, fileSize, framerate, bitrate, type, url]]
-        55 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[duration, expression, fileSize, medium, type, lang, url]]
-        53 	--> http://search.yahoo.com/mrss/ level=item localName=thumbnail attributes=[width, time, url, height]]
-        52 	--> http://search.yahoo.com/mrss/ level=item localName=enclosure attributes=[length, type, url]]
-        50 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[isDefault, expression, medium, url]]
-        50 	--> http://search.yahoo.com/mrss/ level=item localName=enclosure attributes=[type]]
-        39 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[duration, fileSize, type, lang, url]]
-        37 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[duration, isDefault, expression, fileSize, medium, lang, url]]
-        36 	--> http://search.yahoo.com/mrss level=item localName=description attributes=[]]
-        35 	--> https://search.yahoo.com/mrss/ level=item localName=rating attributes=[scheme]]
-        35 	--> https://search.yahoo.com/mrss/ level=item localName=content attributes=[fileSize, medium, type, url]]
-        35 	--> https://search.yahoo.com/mrss/ level=item localName=title attributes=[]]
-        35 	--> https://search.yahoo.com/mrss/ level=item localName=credit attributes=[]]
-        35 	--> https://search.yahoo.com/mrss/ level=item localName=description attributes=[]]
-        35 	--> https://search.yahoo.com/mrss/ level=item localName=keywords attributes=[]]
-        35 	--> https://search.yahoo.com/mrss/ level=item localName=player attributes=[width, url, height]]
-        35 	--> https://search.yahoo.com/mrss/ level=item localName=thumbnail attributes=[url]]
-        35 	--> https://search.yahoo.com/mrss/ level=item localName=category attributes=[]]
-        34 	--> http://search.yahoo.com/mrss/ level=feed localName=thumbnail attributes=[width, url, height]]
-        32 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[expression, idDefault, medium, url]]
-        31 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[duration, bitrate, type, url]]
-        30 	--> http://search.yahoo.com/mrss/ level=item localName=thumbnail attributes=[width, medium, type, url, height]]
-        30 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[duration, isDefault, expression, fileSize, medium, lang, type, url]]
-        28 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[duration, expression, fileSize, type, url]]
-        27 	--> http://search.yahoo.com/mrss/ level=item localName=text attributes=[lang, type]]
-        26 	--> http://search.yahoo.com/mrss level=item localName=content attributes=[medium, url]]
-        25 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[isDefault, expression, fileSize, type, url]]
-        24 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[width, bitrate, url]]
-        21 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[isDefault, type, lang, url]]
-        21 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[isDefault, expression, medium, type, url]]
-        20 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[duration, width, medium, type, url, height]]
-        19 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[vcodec, isDefault, role, expression, fileSize, width, type, url, height]]
-        18 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[duration, mediaformat, bitrate, type, url]]
-        16 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[expression, type, url]]
-        16 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[isDefault, medium, type, url]]
-        15 	--> http://search.yahoo.com/mrss level=item localName=player attributes=[url]]
-        14 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[isDefault, expression, fileSize, width, type, url, height]]
-        13 	--> http://search.yahoo.com/mrss/ level=feed localName=copyright attributes=[url]]
-        12 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[width, url, height]]
-        11 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[expression, bitrate, medium, type, url]]
-        11 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[vcodec, isDefault, role, expression, acodec, width, type, url, height]]
-        10 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[duration, isDefault, channels, fileSize, bitrate, type, url]]
-        10 	--> http://search.yahoo.com/mrss level=item localName=thumbnail attributes=[width, url]]
-        10 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[duration, isDefault, medium, type, url]]
-        10 	--> http://search.yahoo.com/mrss level=item localName=content attributes=[width, medium, type, url, height]]
-         9 	--> http://search.yahoo.com/mrss/ level=feed localName=title attributes=[type]]
-         8 	--> http://search.yahoo.com/mrss level=item localName=copyright attributes=[]]
-         8 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[duration, expression, fileSize, framerate, width, bitrate, medium, type, lang, url, height]]
-         8 	--> http://search.yahoo.com/mrss level=item localName=content attributes=[expression, channels, bitrate, medium]]
-         8 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[expression, bitrate, samplingrate, medium, type, url, duration, isDefault, channels, fileSize, width, lang, height]]
-         7 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[expression, width, type, url, height]]
-         7 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[duration, isDefault, expression, fileSize, width, medium, type, lang, url, height]]
-         7 	--> http://search.yahoo.com/mrss/ level=feed localName=credit attributes=[role, scheme]]
-         4 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[duration, channels, fileSize, bitrate, medium, type, url]]
-         4 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[fileSize, bitrate, medium, type, lang, url]]
-         3 	--> http://search.yahoo.com/mrss level=item localName=item attributes=[fileSize, type, url]]
-         2 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[expression, framerate, bitrate, samplingrate, medium, type, url, duration, isDefault, channels, fileSize, width, lang, height]]
-         2 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[duration, isDefault, expression, fileSize, bitrate, medium, type, lang, url]]
-         2 	--> http://search.yahoo.com/mrss level=feed localName=rating attributes=[scheme]]
-         2 	--> http://search.yahoo.com/mrss/ level=feed localName=content attributes=[fileSize, type, url]]
-         2 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[vcodec, isDefault, role, expression, fileSize, acodec, type, url]]
-         2 	--> http://search.yahoo.com/mrss/ level=feed localName=description attributes=[]]
-         1 	--> https://search.yahoo.com/mrss/ level=feed localName=copyright attributes=[]]
-         1 	--> http://search.yahoo.com/mrss/ level=feed localName=backlink attributes=[]]
-         1 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[duration, fileSize, bitrate, medium, type, lang, url]]
-         1 	--> https://search.yahoo.com/mrss/ level=feed localName=credit attributes=[role]]
-         1 	--> http://search.yahoo.com/mrss/ level=feed localName=content attributes=[width, type, url, height]]
-         1 	--> http://search.yahoo.com/mrss level=feed localName=keywords attributes=[]]
-         1 	--> http://search.yahoo.com/mrss/ level=feed localName=title attributes=[]]
-         1 	--> http://search.yahoo.com/mrss/ level=feed localName=backLinks attributes=[]]
-         1 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[isDefault, expression, fileSize, bitrate, samplingrate, medium, type, lang, url]]
-         1 	--> http://search.yahoo.com/mrss level=feed localName=description attributes=[type]]
-         1 	--> https://search.yahoo.com/mrss/ level=feed localName=keywords attributes=[]]
-         1 	--> https://search.yahoo.com/mrss/ level=feed localName=rating attributes=[]]
-         1 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[duration, fileSize, framerate, width, medium, type, url, height]]
-         1 	--> http://search.yahoo.com/mrss level=feed localName=title attributes=[type]]
-         1 	--> http://video.search.yahoo.com/mrss level=feed localName=keywords attributes=[]]
-         1 	--> http://search.yahoo.com/mrss/ level=feed localName=content attributes=[type, url]]
-         1 	--> https://search.yahoo.com/mrss/ level=feed localName=category attributes=[scheme]]
-         1 	--> https://search.yahoo.com/mrss/ level=feed localName=thumbnail attributes=[url]]
-         1 	--> http://search.yahoo.com/mrss/ level=feed localName=text attributes=[type, lang]]
-         1 	--> https://search.yahoo.com/mrss/ level=feed localName=description attributes=[type]]
-         1 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[fileSize, medium, url]]
-         1 	--> http://search.yahoo.com/mrss/ level=item localName=content attributes=[fileSize, medium, type, lang, url]]
-         1 	--> http://search.yahoo.com/mrss level=item localName=content attributes=[duration, width, url, height]]
-         1 	--> http://video.search.yahoo.com/mrss level=feed localName=thumbail attributes=[url]]
-
-
-     60083 	--> http://www.rssboard.org/media-rss level=item localName=title attributes=[type]]
-     60083 	--> http://www.rssboard.org/media-rss level=item localName=content attributes=[isDefault, width, medium, type, url, height]]
-       300 	--> http://www.rssboard.org/media-rss level=feed localName=category attributes=[scheme]]
-       279 	--> http://www.rssboard.org/media-rss level=feed localName=rating attributes=[]]
-       279 	--> http://www.rssboard.org/media-rss level=feed localName=credit attributes=[role]]
-       279 	--> http://www.rssboard.org/media-rss level=feed localName=description attributes=[type]]
-       168 	--> http://www.rssboard.org/media-rss level=feed localName=keywords attributes=[]]
-        76 	--> http://www.rssboard.org/media-rss level=feed localName=copyright attributes=[]]
-        73 	--> http://www.rssboard.org/media-rss level=item localName=content attributes=[length, type, url]]
-
-*/

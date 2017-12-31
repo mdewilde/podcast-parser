@@ -16,21 +16,20 @@
 package be.ceau.podcastparser.models;
 
 /**
- * <p>
- * Instances represent copyright information for an enclosure
- * </p>
- * <p>
- * As specified in the Media namespace.
- * </p>
+ * A text transcript as specified in the Media namespace
  */
-public class Copyright {
+public class Transcript {
+	/*
+	 * <media:text type="plain" lang="en" start="00:00:03.000" end="00:00:10.000"> Oh, say, can you
+	 * see</media:text>
+	 */
 
 	private String text;
-	private String url;
+	private String type;
+	private String lang;
+	private Long start;
+	private Long end;
 
-	/**
-	 * @return a {@link String} or {@code null}
-	 */
 	public String getText() {
 		return text;
 	}
@@ -39,18 +38,36 @@ public class Copyright {
 		this.text = text;
 	}
 
-	/**
-	 * Url is the URL for a terms of use page or additional copyright information. It is an optional
-	 * attribute.
-	 * 
-	 * @return a {@link String} or {@code null}
-	 */
-	public String getUrl() {
-		return url;
+	public String getType() {
+		return type;
 	}
 
-	public void setUrl(String url) {
-		this.url = url;
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public String getLang() {
+		return lang;
+	}
+
+	public void setLang(String lang) {
+		this.lang = lang;
+	}
+
+	public Long getStart() {
+		return start;
+	}
+
+	public void setStart(Long start) {
+		this.start = start;
+	}
+
+	public Long getEnd() {
+		return end;
+	}
+
+	public void setEnd(Long end) {
+		this.end = end;
 	}
 
 }

@@ -1,5 +1,5 @@
 /*
-	Copyright 2017 Marceau Dewilde <m@ceau.be>
+	Copyright 2018 Marceau Dewilde <m@ceau.be>
 	
 	Licensed under the Apache License, Version 2.0 (the "License");
 	you may not use this file except in compliance with the License.
@@ -61,4 +61,37 @@ public class Strings {
 		return WHITE_SPACE.matcher(string).replaceAll(" ");
 	}
 
+	// adapted from https://stackoverflow.com/a/22581832
+	private final static Pattern HTML_PATTERN;
+
+	static {
+		String tagStart =
+				"\\<\\w+((\\s+\\w+(\\s*\\=\\s*(?:\".*?\"|'.*?'|[^'\"\\>\\s]+))?)+\\s*|\\s*)\\>";
+		
+		String tagEnd =
+				"\\</\\w+\\>";
+		
+		String tagSelfClosing =
+				"\\<\\w+((\\s+\\w+(\\s*\\=\\s*(?:\".*?\"|'.*?'|[^'\"\\>\\s]+))?)+\\s*|\\s*)/\\>";
+		
+		String htmlEntity =
+				"&[a-zA-Z][a-zA-Z0-9]+;";
+
+		String pattern = 
+				"(" + tagStart + ".*" + tagEnd + ")|(" + tagSelfClosing + ")|(" + htmlEntity + ")";
+		
+		HTML_PATTERN = Pattern.compile(pattern, Pattern.DOTALL);
+	}
+	
+	/**
+	 * Check if string contains HTML markup tags or entities.
+	 *
+	 * @param s
+	 *            String to test
+	 * @return true if string contains HTML
+	 * @see https://stackoverflow.com/a/22581832
+	 */
+	public static boolean isHtml(String string) {
+		return HTML_PATTERN.matcher(string).find();
+    }
 }

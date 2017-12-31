@@ -1,5 +1,5 @@
 /*
-	Copyright 2017 Marceau Dewilde <m@ceau.be>
+	Copyright 2018 Marceau Dewilde <m@ceau.be>
 	
 	Licensed under the Apache License, Version 2.0 (the "License");
 	you may not use this file except in compliance with the License.
@@ -18,6 +18,7 @@ package be.ceau.podcastparser.models;
 import java.time.Duration;
 import java.time.temporal.Temporal;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
@@ -29,7 +30,7 @@ public class Feed {
 	private String id;
 	private String title;
 	private final List<Link> links = new ArrayList<>();
-	private String description;
+	private TypedString description;
 	private final List<Item> items = new ArrayList<>();
 	private String language;
 	private String copyright;
@@ -60,7 +61,9 @@ public class Feed {
 	private String summary;
 	private String type;
 	private String email;
-	
+	private Copyright mediaCopyright;
+	private Credit credit;
+
 	/**
 	 * <p>
 	 * The {@code id} element conveys a permanent, universally unique identifier
@@ -117,11 +120,11 @@ public class Feed {
 	/**
 	 * Phrase or sentence describing the channel.
 	 */
-	public String getDescription() {
+	public TypedString getDescription() {
 		return description;
 	}
 
-	public void setDescription(String description) {
+	public void setDescription(TypedString description) {
 		this.description = description;
 	}
 
@@ -439,9 +442,17 @@ public class Feed {
 	}
 
 	public void addKeyword(String keyword) {
-		keywords.add(keyword);
+		if (Strings.isNotBlank(keyword)) {
+			keywords.add(keyword);
+		}
 	}
 	
+	public void addKeywords(Collection<String> keywords) {
+		if (keywords != null) {
+			keywords.forEach(this::addKeyword);
+		}
+	}
+
 	/**
 	 * <p>
 	 * Update information for this feed.
@@ -476,6 +487,23 @@ public class Feed {
 	 */
 	public Rating getRating() {
 		return rating;
+	}
+
+	public void setRating(Rating rating) {
+		if (rating != null) {
+			if (Strings.isNotBlank(rating.getExplicit())) {
+				this.rating.setExplicit(rating.getExplicit());
+			}
+			if (Strings.isNotBlank(rating.getScheme())) {
+				this.rating.setScheme(rating.getScheme());
+			}
+			if (Strings.isNotBlank(rating.getText())) {
+				this.rating.setText(rating.getText());
+			}
+			if (Strings.isNotBlank(rating.getAdultContent())) {
+				this.rating.setAdultContent(rating.getAdultContent());
+			}
+		}
 	}
 
 	/**
@@ -585,6 +613,22 @@ public class Feed {
 	 */
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public Copyright getMediaCopyright() {
+		return mediaCopyright;
+	}
+
+	public void setMediaCopyright(Copyright mediaCopyright) {
+		this.mediaCopyright = mediaCopyright;
+	}
+
+	public Credit getCredit() {
+		return credit;
+	}
+
+	public void setCredit(Credit credit) {
+		this.credit = credit;
 	}
 
 	@Override

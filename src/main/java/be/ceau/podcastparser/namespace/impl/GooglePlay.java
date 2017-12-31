@@ -1,5 +1,5 @@
 /*
-	Copyright 2017 Marceau Dewilde <m@ceau.be>
+	Copyright 2018 Marceau Dewilde <m@ceau.be>
 	
 	Licensed under the Apache License, Version 2.0 (the "License");
 	you may not use this file except in compliance with the License.
@@ -20,10 +20,12 @@ import java.util.Set;
 import javax.xml.stream.XMLStreamException;
 
 import be.ceau.podcastparser.PodParseContext;
+import be.ceau.podcastparser.models.Category;
 import be.ceau.podcastparser.models.Image;
 import be.ceau.podcastparser.models.Item;
 import be.ceau.podcastparser.models.Person;
 import be.ceau.podcastparser.models.Rating;
+import be.ceau.podcastparser.models.TypedString;
 import be.ceau.podcastparser.namespace.Namespace;
 import be.ceau.podcastparser.util.UnmodifiableSet;
 
@@ -57,6 +59,12 @@ public class GooglePlay implements Namespace {
 			String block = ctx.getElementText();
 			ctx.getFeed().setBlock("yes".equalsIgnoreCase(block));
 			break;
+		case "category":
+			ctx.getFeed().addCategory(parseCategory(ctx));
+			break;
+		case "description":
+			ctx.getFeed().setDescription(parseDescription(ctx));
+			break;
 		case "email":
 			// The email address of the podcast owner. This email will be used
 			// to verify the ownership of the podcast during registration. The
@@ -71,26 +79,11 @@ public class GooglePlay implements Namespace {
 			// The image can be specified in the <channel> or <item> tags.
 			ctx.getFeed().addImage(parseImage(ctx));
 			break;
-		case "description":
-			// A description of the podcast or episode. The description can be
-			// specified in the <channel> or <item> tags and must be plain-text
-			// (no markup allowed).
-			ctx.getFeed().setDescription(ctx.getElementText());
-			break;
 		case "newFeedUrl":
 			// Allows the podcast owner to change the URL where the RSS podcast
 			// feed is located. After adding the tag, you should maintain the
 			// old feed for 48 hours before retiring it. newFeedUrl is only
 			// specified in the <channel> tag.
-			Namespace.super.process(ctx);
-			break;
-		case "category":
-			// Specify the category that your podcast relates to. If more than
-			// one category is specified, only the first one will be used.
-			// Categories can only be specified in the <channel> tag. The 'text'
-			// must match one of the pre-defined categories specified in the
-			// help center article:
-			// https://support.google.com/googleplay/podcasts/answer/6260341#spt
 			Namespace.super.process(ctx);
 			break;
 		default : 
@@ -114,10 +107,7 @@ public class GooglePlay implements Namespace {
 			item.setBlock("yes".equalsIgnoreCase(block));
 			break;
 		case "description":
-			// A description of the podcast or episode. The description can be
-			// specified in the <channel> or <item> tags and must be plain-text
-			// (no markup allowed).
-			item.setDescription(ctx.getElementText());
+			item.setDescription(parseDescription(ctx));
 			break;
 		case "explicit":
 			parseExplicit(ctx, item);
@@ -131,6 +121,36 @@ public class GooglePlay implements Namespace {
 		}
 	}
 
+	private Person parseAuthor(PodParseContext ctx) throws XMLStreamException {
+		Person author = new Person();
+		author.setName(ctx.getElementText());
+		return author;
+	}
+
+	// Specify the category that your podcast relates to. If more than
+	// one category is specified, only the first one will be used.
+	// Categories can only be specified in the <channel> tag. The 'text'
+	// must match one of the pre-defined categories specified in the
+	// help center article:
+	// https://support.google.com/googleplay/podcasts/answer/6260341#spt
+	private Category parseCategory(PodParseContext ctx) throws XMLStreamException {
+		Category category = new Category();
+		category.setName(ctx.getElementText());
+		category.setScheme(NAME);
+		return category;
+	}
+	
+	/**
+	 * A description of the podcast or episode. The description can be specified in the
+	 * {@code <channel>} or {@code <item>} tags and must be plain-text (no markup allowed).
+	 */
+	private TypedString parseDescription(PodParseContext ctx) throws XMLStreamException {
+		TypedString typedString = new TypedString();
+		typedString.setText(ctx.getElementText());
+		typedString.setType("plain");
+		return typedString;
+	}
+	
 	private void parseExplicit(PodParseContext ctx) throws XMLStreamException {
 		parseExplicit(ctx, ctx.getFeed().getRating());
 	}
@@ -150,12 +170,6 @@ public class GooglePlay implements Namespace {
 		rating.setExplicit(ctx.getElementText());
 	}
 	
-	private Person parseAuthor(PodParseContext ctx) throws XMLStreamException {
-		Person author = new Person();
-		author.setName(ctx.getElementText());
-		return author;
-	}
-
 	private Image parseImage(PodParseContext ctx) {
 		String href = ctx.getAttribute("href");
 		Image image = new Image();

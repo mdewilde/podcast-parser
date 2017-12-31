@@ -1,5 +1,5 @@
 /*
-	Copyright 2017 Marceau Dewilde <m@ceau.be>
+	Copyright 2018 Marceau Dewilde <m@ceau.be>
 	
 	Licensed under the Apache License, Version 2.0 (the "License");
 	you may not use this file except in compliance with the License.
@@ -28,11 +28,13 @@ import be.ceau.podcastparser.models.Image;
 import be.ceau.podcastparser.models.Item;
 import be.ceau.podcastparser.models.Link;
 import be.ceau.podcastparser.models.Person;
+import be.ceau.podcastparser.models.TypedString;
 import be.ceau.podcastparser.namespace.Namespace;
 import be.ceau.podcastparser.namespace.NamespaceFactory;
 import be.ceau.podcastparser.namespace.RootNamespace;
 import be.ceau.podcastparser.util.Attributes;
 import be.ceau.podcastparser.util.Dates;
+import be.ceau.podcastparser.util.Strings;
 
 /**
  * <h1>Really Simple Syndication</h1>
@@ -117,7 +119,7 @@ public class RSS implements RootNamespace, Namespace {
 			ctx.getFeed().addLink(link);
 			break;
 		case "description":
-			ctx.getFeed().setDescription(ctx.getElementText());
+			ctx.getFeed().setDescription(parseDescription(ctx));
 			break;
 		case "item":
 			ctx.getFeed().addItem(parseItem(ctx));
@@ -254,6 +256,23 @@ public class RSS implements RootNamespace, Namespace {
 		}
 	}
 
+	/**
+	 * Phrase or sentence describing the channel, or item synopsis. Entity-encoded HTML is allowed
+	 * 
+	 * @param ctx
+	 *            {@link PodParseContext}, not {@code null}
+	 * @return a new {@link TypedString}, never {@code null}
+	 * @throws XMLStreamException
+	 */
+	private TypedString parseDescription(PodParseContext ctx) throws XMLStreamException {
+		String text = ctx.getElementText();
+		String type = Strings.isHtml(text) ? "html" : "plain";
+		TypedString typedString = new TypedString();
+		typedString.setText(ctx.getElementText());
+		typedString.setType(type);
+		return typedString;
+	}
+	
 	/**
 	 * @param ctx.getReader()
 	 *            {@link XMLStreamReader} instance, just having processed a
