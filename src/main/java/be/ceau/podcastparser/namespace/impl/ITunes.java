@@ -71,24 +71,7 @@ public class ITunes implements Namespace {
 			ctx.getFeed().addAuthor(author);
 			return;
 		case "block":
-			/**
-			 * Use this inside a <channel> element to prevent the entire podcast
-			 * from appearing in the iTunes Podcast directory. Use this inside
-			 * an <item> element to prevent that episode from appearing in the
-			 * iTunes Podcast directory. For example, you may want a specific
-			 * episode blocked from iTunes if it's content might cause the feed
-			 * to be removed from iTunes.
-			 * 
-			 * If this tag is present and set to "yes" (case insensitive), that
-			 * means to block the feed or the episode. If the tag's value is any
-			 * other value, including empty string, it's indicated as a signal
-			 * to unblock the feed or episode. At the feed level, if there is no
-			 * block tag, then the block status of the feed is left unchanged.
-			 * At the episode level, if there is no block tag, it is the same as
-			 * if a block=no were present.
-			 */
-			String block = ctx.getElementText();
-			ctx.getFeed().setBlock("yes".equalsIgnoreCase(block));
+			ctx.getFeed().setBlock(parseBlock(ctx));
 			return;
 		case "category":
 			ctx.getFeed().addCategory(parseCategory(ctx));
@@ -167,19 +150,7 @@ public class ITunes implements Namespace {
 			item.addAuthor(person);
 			return;
 		case "block":
-			/*
-			 * The episode show or hide status.
-			 * 
-			 * Specifying the <itunes:block> tag with a Yes value at the item level (episode), prevents that
-			 * episode from appearing in Apple Podcasts.
-			 * 
-			 * For example, you might want to block a specific episode if you know that its content would
-			 * otherwise cause the entire podcast to be removed from Apple Podcasts.
-			 * 
-			 * Specifying any value other than Yes has no effect.
-			 */
-			String block = ctx.getElementText();
-			item.setBlock("yes".equalsIgnoreCase(block));
+			item.setBlock(parseBlock(ctx));
 			return;
 		case "category":
 			item.addCategory(parseCategory(ctx));
@@ -269,6 +240,26 @@ public class ITunes implements Namespace {
 
 	}
 
+	/**
+	 * Use this inside a <channel> element to prevent the entire podcast
+	 * from appearing in the iTunes Podcast directory. Use this inside
+	 * an <item> element to prevent that episode from appearing in the
+	 * iTunes Podcast directory. For example, you may want a specific
+	 * episode blocked from iTunes if it's content might cause the feed
+	 * to be removed from iTunes.
+	 * 
+	 * If this tag is present and set to "yes" (case insensitive), that
+	 * means to block the feed or the episode. If the tag's value is any
+	 * other value, including empty string, it's indicated as a signal
+	 * to unblock the feed or episode. At the feed level, if there is no
+	 * block tag, then the block status of the feed is left unchanged.
+	 * At the episode level, if there is no block tag, it is the same as
+	 * if a block=no were present.
+	 */
+	private boolean parseBlock(PodParseContext ctx) throws XMLStreamException {
+		return "yes".equalsIgnoreCase(ctx.getElementText());
+	}
+	
 	/*
 	 * When browsing Podcasts in the iTunes Music Store, categories are shown in
 	 * the 2nd column and subcategories are shown in the 3rd column. Not all

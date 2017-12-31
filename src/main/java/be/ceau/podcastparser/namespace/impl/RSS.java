@@ -214,17 +214,6 @@ public class RSS implements RootNamespace, Namespace {
 		}
 
 		switch (ctx.getReader().getLocalName()) {
-		case "title":
-			item.setTitle(ctx.getElementText());
-			break;
-		case "link":
-			Link link = new Link();
-			link.setHref(ctx.getElementText());
-			item.addLink(link);
-			break;
-		case "description":
-			item.setDescription(ctx.getElementText());
-			break;
 		case "author":
 			Person person = new Person();
 			person.setEmail(ctx.getElementText());
@@ -238,17 +227,31 @@ public class RSS implements RootNamespace, Namespace {
 			commentLink.setHref(ctx.getElementText());
 			item.computeCommentsIfAbsent().setLink(commentLink);
 			break;
+		case "description":
+			item.setDescription(ctx.getElementText());
+			break;
 		case "enclosure":
 			item.setEnclosure(parseEnclosure(ctx));
 			break;
 		case "guid":
 			item.setGuid(ctx.getElementText());
 			break;
+		case "image":
+			item.addImage(parseImage(ctx));
+			break;
+		case "link":
+			Link link = new Link();
+			link.setHref(ctx.getElementText());
+			item.addLink(link);
+			break;
 		case "pubDate":
 			item.setPubDate(Dates.parse(ctx.getElementText()));
 			break;
 		case "source":
 			item.setSource(ctx.getElementText());
+			break;
+		case "title":
+			item.setTitle(ctx.getElementText());
 			break;
 		default : 
 			Namespace.super.process(ctx, item);

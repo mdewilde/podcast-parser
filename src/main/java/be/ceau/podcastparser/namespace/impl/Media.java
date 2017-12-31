@@ -497,8 +497,8 @@ public class Media implements Namespace {
 	
 	private Copyright parseCopyright(PodParseContext ctx) throws XMLStreamException {
 		Copyright copyright = new Copyright();
-		copyright.setText(ctx.getElementText());
 		copyright.setUrl(ctx.getAttribute("url"));
+		copyright.setText(ctx.getElementText());
 		return copyright;
 	}
 	
