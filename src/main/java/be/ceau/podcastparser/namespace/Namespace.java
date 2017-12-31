@@ -108,6 +108,7 @@ public interface Namespace {
 			return;
 		}
 
+		String namespaceUri = ctx.getReader().getNamespaceURI();
 		String localName = ctx.getReader().getLocalName();
 		String attributes = Attributes.toString(ctx.getReader());
 		String namespace = ctx.getReader().getName().getPrefix();
@@ -115,7 +116,7 @@ public interface Namespace {
 			namespace = ctx.getRootNamespace();
 		}
 		LoggerFactory.getLogger(Namespace.class)
-				.info("{}:{} [@{}] {}", namespace, localName, level, attributes);
+				.info("{}:{}:{} [@{}] {}", namespaceUri, namespace, localName, level, attributes);
 
 		if (ctx.getReader().isStartElement()) {
 			// parse this hierarchy before returning
