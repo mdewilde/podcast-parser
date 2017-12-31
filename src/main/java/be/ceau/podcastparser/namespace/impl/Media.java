@@ -17,7 +17,6 @@ package be.ceau.podcastparser.namespace.impl;
 
 import java.time.Duration;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -581,15 +580,7 @@ public class Media implements Namespace {
 	 * typically a maximum of 10 words.
 	 */
 	private Set<String> parseKeywords(PodParseContext ctx) throws XMLStreamException {
-		Set<String> set = new HashSet<>();
-		String keywords = ctx.getElementText();
-		if (keywords != null) {
-			String[] split = keywords.split(",");
-			for (int i = 0; i < split.length; i++) {
-				set.add(split[i].trim());
-			}
-		}
-		return set;
+		return Strings.splitOnComma(ctx.getElementText());
 	}
 	
 	private MediaContent parseMediaContent(PodParseContext ctx) throws XMLStreamException {

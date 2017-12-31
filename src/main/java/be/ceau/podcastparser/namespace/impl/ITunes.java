@@ -69,38 +69,31 @@ public class ITunes implements Namespace {
 			Person author = new Person();
 			author.setName(ctx.getElementText());
 			ctx.getFeed().addAuthor(author);
-			return;
+			break;
 		case "block":
 			ctx.getFeed().setBlock(parseBlock(ctx));
-			return;
+			break;
 		case "category":
 			ctx.getFeed().addCategory(parseCategory(ctx));
-			return;
+			break;
 		case "explicit":
 			ctx.getFeed().getRating().setExplicit(ctx.getElementText());
-			return;
+			break;
 		case "image":
 			ctx.getFeed().addImage(parseImage(ctx));
-			return;
+			break;
 		case "link":
 			ctx.getFeed().addLink(parseLink(ctx));
-			return;
+			break;
 		case "keywords":
-			// comma separated list of keywords
-			String keywords = ctx.getElementText();
-			if (keywords != null) {
-				String[] split = keywords.split(",");
-				for (int i = 0; i < split.length; i++) {
-					ctx.getFeed().addKeyword(split[i].trim());
-				}
-			}
-			return;
+			ctx.getFeed().addKeywords(parseKeywords(ctx));
+			break;
 		case "new-feed-url":
 			Link link = new Link();
 			link.setHref(ctx.getElementText());
 			link.setTitle("new-feed-url");
 			ctx.getFeed().addLink(link);
-			return;
+			break;
 		case "owner":
 			ctx.getFeed().setOwner(parseOwner(ctx));
 			return;
@@ -111,19 +104,19 @@ public class ITunes implements Namespace {
 			if (StringUtils.isNotBlank(subtitle)) {
 				ctx.getFeed().setSubtitle(subtitle);
 			}
-			return;
+			break;
 		case "summary":
 			String summary = ctx.getElementText();
 			if (StringUtils.isNotBlank(summary)) {
 				ctx.getFeed().setSummary(summary);
 			}
-			return;
+			break;
 		case "type":
 			String type = ctx.getElementText();
 			if (StringUtils.isNotBlank(type)) {
 				ctx.getFeed().setType(type);
 			}
-			return;
+			break;
 		default : 
 			logger.warn("iTunes {} @FEED --> [ATTRIBUTES {}] [TEXT {}]", localName, Attributes.toString(ctx.getReader()), ctx.getElementText());
 			break;
@@ -193,14 +186,7 @@ public class ITunes implements Namespace {
 			item.addImage(parseImage(ctx));
 			return;
 		case "keywords":
-			// comma separated list of keywords
-			String keywords = ctx.getElementText();
-			if (keywords != null) {
-				String[] split = keywords.split(",");
-				for (int i = 0; i < split.length; i++) {
-					item.addKeyword(split[i].trim());
-				}
-			}
+			item.addKeywords(parseKeywords(ctx));
 			return;
 		case "order":
 			item.setOrder(Integer.parseInt(ctx.getElementText()));
@@ -324,6 +310,10 @@ public class ITunes implements Namespace {
 				.setUrl(ctx.getAttribute("href"));
 	}
 
+	private Set<String> parseKeywords(PodParseContext ctx) throws XMLStreamException {
+		return Strings.splitOnComma(ctx.getElementText());
+	}
+
 	private Person parseOwner(PodParseContext ctx) throws XMLStreamException {
 		Person person = new Person();
 		while (ctx.getReader().hasNext()) {
@@ -347,6 +337,10 @@ public class ITunes implements Namespace {
 		return person;
 	}
 
+	private String parseProvider(PodParseContext ctx) throws XMLStreamException {
+		return ctx.getElementText();
+	}
+	
 	// XXX duplicate code -> see Atom
 	private Link parseLink(PodParseContext ctx) throws XMLStreamException {
 		Link link = new Link();
@@ -360,289 +354,3 @@ public class ITunes implements Namespace {
 	}
 	
 }
-
-/*
-
-	corpus stats
-	
-   7799656 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=duration attributes=[]]
-   7707696 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=subtitle attributes=[]]
-   6934210 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=author attributes=[]]
-   6911181 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=explicit attributes=[]]
-   6825643 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=summary attributes=[]]
-   5512949 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=keywords attributes=[]]
-   4414316 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=image attributes=[href]]
-    703209 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=block attributes=[]]
-    272165 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=category attributes=[text]]
-    194437 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=author attributes=[]]
-    189391 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=image attributes=[href]]
-    189127 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=order attributes=[]]
-    182775 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=explicit attributes=[]]
-    178869 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=subtitle attributes=[]]
-    168997 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=owner attributes=[]]
-    162615 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=summary attributes=[]]
-     98654 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=keywords attributes=[]]
-     45938 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=block attributes=[]]
-     43811 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=category attributes=[text]]
-     17952 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=image attributes=[]]
-      6324 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=new-feed-url attributes=[]]
-      3607 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=isClosedCaptioned attributes=[]]
-      3499 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=image attributes=[url]]
-      3086 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=album attributes=[]]
-      2247 	--> https://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=author attributes=[]]
-      2203 	--> https://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=duration attributes=[]]
-      2166 	--> https://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=keywords attributes=[]]
-      1965 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=email attributes=[]]
-      1840 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=description attributes=[]]
-      1688 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=owner attributes=[]]
-      1450 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=new-feed-url attributes=[]]
-      1219 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=link attributes=[rel, href, type]]
-      1086 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=name attributes=[]]
-      1038 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=pubDate attributes=[]]
-       835 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=category attributes=[]]
-       824 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=subitle attributes=[]]
-       546 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=keyword attributes=[]]
-       514 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=title attributes=[]]
-       502 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=author attributes=[text]]
-       432 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=artist attributes=[]]
-       395 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=email attributes=[]]
-       384 	--> https://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=summary attributes=[]]
-       289 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=copyright attributes=[]]
-       271 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=complete attributes=[]]
-       246 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=image attributes=[alt, href]]
-       242 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=url attributes=[]]
-       238 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=category attributes=[code]]
-       237 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=link attributes=[]]
-       212 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=link attributes=[href]]
-       202 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=length attributes=[]]
-       202 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=link attributes=[rel, href, type]]
-       163 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=image attributes=[]]
-       148 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=synopsis attributes=[]]
-       129 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=category attributes=[]]
-       118 	--> https://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=subtitle attributes=[]]
-       106 	--> http://www.itunes.com/dtds/podcast,1.0.dtd level=item localName=subtitle attributes=[]]
-       106 	--> http://www.itunes.com/dtds/podcast,1.0.dtd level=item localName=summary attributes=[]]
-       106 	--> http://www.itunes.com/dtds/podcast,1.0.dtd level=item localName=keywords attributes=[]]
-       106 	--> http://www.itunes.com/dtds/podcast,1.0.dtd level=item localName=explicit attributes=[]]
-       106 	--> http://www.itunes.com/dtds/podcast,1.0.dtd level=item localName=duration attributes=[]]
-       106 	--> http://www.itunes.com/dtds/podcast,1.0.dtd level=item localName=author attributes=[]]
-       105 	--> https://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=explicit attributes=[]]
-       105 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=pic attributes=[]]
-        85 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=isCloseCaptioned attributes=[]]
-        70 	--> https://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=image attributes=[href]]
-        64 	--> http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0" level=item localName=author attributes=[]]
-        64 	--> http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0" level=item localName=summary attributes=[]]
-        64 	--> http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0" level=item localName=keywords attributes=[]]
-        63 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=image attributes=[WIDTH, href, HEIGHT]]
-        53 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=provider attributes=[]]
-        33 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=name attributes=[]]
-        31 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=image-small attributes=[href]]
-        29 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=excplicit attributes=[]]
-        28 	--> http//www.itunes.com/dtds/podcast-1.0.dtd level=item localName=duration attributes=[]]
-        28 	--> http//www.itunes.com/dtds/podcast-1.0.dtd level=item localName=summary attributes=[]]
-        28 	--> http//www.itunes.com/dtds/podcast-1.0.dtd level=item localName=author attributes=[]]
-        28 	--> http//www.itunes.com/dtds/podcast-1.0.dtd level=item localName=keywords attributes=[]]
-        28 	--> http//www.itunes.com/dtds/podcast-1.0.dtd level=item localName=subtitle attributes=[]]
-        25 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=podcastskeywords attributes=[]]
-        23 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=subtitle attributes=[lang]]
-        23 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=subTitle attributes=[]]
-        21 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=copyright attributes=[]]
-        19 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=duration attributes=[]]
-        18 	--> https://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=category attributes=[text]]
-        17 	--> https://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=author attributes=[]]
-        17 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=artwork attributes=[]]
-        16 	--> https://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=summary attributes=[]]
-        16 	--> https://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=image attributes=[href]]
-        15 	--> https://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=email attributes=[]]
-        15 	--> https://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=name attributes=[]]
-        15 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=author attributes=[actor, director]]
-        15 	--> https://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=owner attributes=[]]
-        14 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=description attributes=[]]
-        14 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=catago attributes=[text]]
-        12 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=image attributes=[rel, href, type]]
-        12 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=link attributes=[href]]
-        11 	--> https://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=subtitle attributes=[]]
-        11 	--> http://www.itunes.com/dtds/podcast-1.0.dtd/ level=feed localName=owner attributes=[]]
-        11 	--> http://www.itunes.com/dtds/podcast-1.0.dtd/ level=feed localName=category attributes=[text]]
-        11 	--> http://www.itunes.com/dtds/podcast-1.0.dtd/ level=feed localName=name attributes=[]]
-        11 	--> http://www.itunes.com/dtds/podcast-1.0.dtd/ level=feed localName=summary attributes=[]]
-        11 	--> http://www.itunes.com/dtds/podcast-1.0.dtd/ level=feed localName=email attributes=[]]
-        11 	--> http://www.itunes.com/dtds/podcast-1.0.dtd/ level=feed localName=subtitle attributes=[]]
-        11 	--> http://www.itunes.com/dtds/podcast-1.0.dtd/ level=feed localName=author attributes=[]]
-        11 	--> http://www.itunes.com/dtds/podcast-1.0.dtd/ level=feed localName=explicit attributes=[]]
-        11 	--> http://www.itunes.com/dtds/podcast-1.0.dtd/ level=feed localName=image attributes=[href]]
-        10 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=isClosedCaptioned attributes=[text]]
-        10 	--> www.itunes.com/dtds/podcast-1.0.dtd level=item localName=subtitle attributes=[]]
-        10 	--> www.itunes.com/dtds/podcast-1.0.dtd level=item localName=keywords attributes=[]]
-        10 	--> www.itunes.com/dtds/podcast-1.0.dtd level=item localName=duration attributes=[]]
-        10 	--> www.itunes.com/dtds/podcast-1.0.dtd level=item localName=summary attributes=[]]
-        10 	--> www.itunes.com/dtds/podcast-1.0.dtd level=item localName=author attributes=[]]
-         9 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=explicit attributes=[text]]
-         9 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=image attributes=[alt, href]]
-         9 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=link attributes=[]]
-         8 	--> https://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=explicit attributes=[]]
-         8 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=link attributes=[rel, width, href, type, height]]
-         8 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=image attributes=[rel, href]]
-         8 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=new_feed_url attributes=[]]
-         7 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=keyword attributes=[]]
-         6 	--> http://www.itunes.com/dtds/podcast=1.0.dtd level=item localName=duration attributes=[]]
-         6 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=year attributes=[]]
-         6 	--> http://www.itunes.com/dtds/podcast=1.0.dtd level=item localName=keywords attributes=[]]
-         6 	--> http://www.itunes.com/dtds/podcast=1.0.dtd level=item localName=subtitle attributes=[]]
-         6 	--> http://www.itunes.com/dtds/podcast=1.0.dtd level=item localName=author attributes=[]]
-         6 	--> https://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=keywords attributes=[]]
-         6 	--> http://www.itunes.com/dtds/podcast=1.0.dtd level=item localName=summary attributes=[]]
-         6 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=subitle attributes=[]]
-         5 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=br attributes=[]]
-         5 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=subcategory attributes=[text]]
-         4 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=category attributes=[Text]]
-         4 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=pubDate attributes=[]]
-         3 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=link attributes=[rel, href]]
-         3 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=language attributes=[]]
-         3 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=image attributes=[href, title]]
-         3 	-->  http://www.itunes.com/dtds/podcast-1.0.dtd  level=item localName=keywords attributes=[]]
-         3 	-->  http://www.itunes.com/dtds/podcast-1.0.dtd  level=item localName=summary attributes=[]]
-         3 	-->  http://www.itunes.com/dtds/podcast-1.0.dtd  level=item localName=duration attributes=[]]
-         3 	-->  http://www.itunes.com/dtds/podcast-1.0.dtd  level=item localName=author attributes=[]]
-         3 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=provider attributes=[]]
-         3 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=image attributes=[url]]
-         3 	--> https://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=new-feed-url attributes=[]]
-         3 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=image attributes=[href, type]]
-         3 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=catagory attributes=[text]]
-         3 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=isClosedCaptioned attributes=[]]
-         3 	-->  http://www.itunes.com/dtds/podcast-1.0.dtd  level=item localName=subtitle attributes=[]]
-         3 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=bitrate attributes=[]]
-         3 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=explicit attributes=[text]]
-         2 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=title attributes=[]]
-         2 	--> http//www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=owner attributes=[]]
-         2 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=a attributes=[href]]
-         2 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=explict attributes=[]]
-         2 	--> http//www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=category attributes=[text]]
-         2 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=artist attributes=[]]
-         2 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=u attributes=[]]
-         2 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=i attributes=[]]
-         2 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=track attributes=[]]
-         2 	--> //www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=image attributes=[href]]
-         2 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=image attributes=[width, href, height]]
-         2 	--> http//www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=subtitle attributes=[]]
-         2 	--> //www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=owner attributes=[]]
-         2 	--> //www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=author attributes=[]]
-         2 	--> http//www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=email attributes=[]]
-         2 	--> http//www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=name attributes=[]]
-         2 	--> http//www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=image attributes=[href]]
-         2 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=authors attributes=[]]
-         2 	--> http//www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=explicit attributes=[]]
-         2 	--> http//www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=summary attributes=[]]
-         2 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=image attributes=[src]]
-         2 	--> //www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=name attributes=[]]
-         2 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=subtitel attributes=[]]
-         2 	--> //www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=subtitle attributes=[]]
-         2 	--> http//www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=author attributes=[]]
-         2 	--> //www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=category attributes=[text]]
-         2 	--> //www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=email attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=pubdate attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast-2.0.dtd level=feed localName=subtitle attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast-2.0.dtd level=feed localName=summary attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast-'1.0'.dtd level=feed localName=email attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast-2.0.dtd level=feed localName=author attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast-1.0dtd level=feed localName=image attributes=[href]]
-         1 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=new-feed-url attributes=[href]]
-         1 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=image attributes=[link, href]]
-         1 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=images attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast-'1.0'.dtd level=feed localName=summary attributes=[]]
-         1 	-->  http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=duration attributes=[]]
-         1 	-->  http://www.itunes.com/dtds/podcast-1.0.dtd  level=feed localName=author attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast-1.0dtd level=feed localName=explicit attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast-1.0dtd level=feed localName=name attributes=[]]
-         1 	--> hhtp://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=category attributes=[text]]
-         1 	--> http://www.itunes.com/dtds/podcast=1.0.dtd level=feed localName=category attributes=[text]]
-         1 	--> http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0" level=feed localName=owner attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=creator attributes=[]]
-         1 	-->  http://www.itunes.com/dtds/podcast-1.0.dtd  level=feed localName=image attributes=[href]]
-         1 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=owner attributes=[name, email]]
-         1 	--> http://www.itunes.com/dtds/podcast,1.0.dtd level=feed localName=owner attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast-'1.0'.dtd level=feed localName=author attributes=[]]
-         1 	--> www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=explicit attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast-'1.0'.dtd level=feed localName=subtitle attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=category attributes=[name]]
-         1 	--> http://www.itunes.com/dtds/podcast-1.0dtd level=feed localName=author attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=subtitles attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast=1.0.dtd level=feed localName=author attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast- 1.0.dtd level=feed localName=name attributes=[]]
-         1 	--> www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=image attributes=[href]]
-         1 	-->  http://www.itunes.com/dtds/podcast-1.0.dtd  level=feed localName=category attributes=[text]]
-         1 	--> http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0" level=feed localName=email attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast-2.0.dtd level=feed localName=image attributes=[href]]
-         1 	--> http://www.itunes.com/dtds/podcast-'1.0'.dtd level=feed localName=category attributes=[text]]
-         1 	--> http://www.itunes.com/dtds/podcast,1.0.dtd level=feed localName=explicit attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast-2.0.dtd level=feed localName=owner attributes=[]]
-         1 	-->  http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=subtitle attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast-1.0dtd level=feed localName=summary attributes=[]]
-         1 	--> www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=owner attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=keywords attributes=[text]]
-         1 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=managingEditor attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=series attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast-'1.0'.dtd level=feed localName=name attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast=1.0.dtd level=feed localName=image attributes=[href]]
-         1 	-->  http://www.itunes.com/dtds/podcast-1.0.dtd  level=feed localName=subtitle attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0" level=feed localName=name attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast-1.0dtd level=feed localName=owner attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=album attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast- 1.0.dtd level=feed localName=email attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast- 1.0.dtd level=feed localName=category attributes=[text]]
-         1 	-->  http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=category attributes=[text]]
-         1 	--> www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=summary attributes=[]]
-         1 	-->  http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=author attributes=[]]
-         1 	--> www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=email attributes=[]]
-         1 	-->  http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=subtitle attributes=[]]
-         1 	--> www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=author attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast- 1.0.dtd level=feed localName=subtitle attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=publisher attributes=[]]
-         1 	-->  http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=owner attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast,1.0.dtd level=feed localName=name attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=catagory attributes=[]]
-         1 	-->  http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=summary attributes=[]]
-         1 	--> www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=subtitle attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast,1.0.dtd level=feed localName=summary attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast,1.0.dtd level=feed localName=subtitle attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast,1.0.dtd level=feed localName=author attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=summmary attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast,1.0.dtd level=feed localName=email attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast- 1.0.dtd level=feed localName=summary attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast-2.0.dtd level=feed localName=explicit attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=news-feed-url attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=Riverbroncs.com attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast-'1.0'.dtd level=feed localName=owner attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast=1.0.dtd level=feed localName=owner attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast=1.0.dtd level=feed localName=subtitle attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=summary attributes=[space]]
-         1 	--> http://www.itunes.com/dtds/podcast- 1.0.dtd level=feed localName=image attributes=[href]]
-         1 	--> http://www.itunes.com/dtds/podcast=1.0.dtd level=feed localName=summary attributes=[]]
-         1 	-->  http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=keywords attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast-1.0dtd level=feed localName=subtitle attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast,1.0.dtd level=feed localName=category attributes=[text]]
-         1 	--> http://www.itunes.com/dtds/podcast=1.0.dtd level=feed localName=email attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast- 1.0.dtd level=feed localName=owner attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=artwork attributes=[href]]
-         1 	-->  http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=summary attributes=[]]
-         1 	-->  http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=author attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast-1.0dtd level=feed localName=email attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=link attributes=[rel, type]]
-         1 	-->  http://www.itunes.com/dtds/podcast-1.0.dtd level=item localName=explicit attributes=[]]
-         1 	--> www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=category attributes=[text]]
-         1 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=subTitle attributes=[]]
-         1 	-->  http://www.itunes.com/dtds/podcast-1.0.dtd  level=feed localName=owner attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast=1.0.dtd level=feed localName=name attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=webMaster attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast-1.0dtd level=feed localName=category attributes=[text]]
-         1 	--> www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=name attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=image attributes=[href, type]]
-         1 	--> http://www.itunes.com/dtds/podcast-'1.0'.dtd level=feed localName=image attributes=[href]]
-         1 	--> http://www.itunes.com/dtds/podcast-2.0.dtd level=feed localName=name attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast- 1.0.dtd level=feed localName=author attributes=[]]
-         1 	-->  http://www.itunes.com/dtds/podcast-1.0.dtd  level=feed localName=summary attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast-2.0.dtd level=feed localName=email attributes=[]]
-         1 	--> www.itunes.com/dtds/podcast-1.0.dtd level=feed localName=keywords attributes=[]]
-         1 	--> http://www.itunes.com/dtds/podcast-2.0.dtd level=feed localName=category attributes=[text]]
-
-*/

@@ -18,6 +18,7 @@ package be.ceau.podcastparser.models;
 import java.time.Duration;
 import java.time.temporal.Temporal;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.List;
@@ -474,11 +475,19 @@ public class Item {
 	 * @return a {@link List}, not {@code null}
 	 */
 	public List<String> getKeywords() {
-		return keywords;
+		return this.keywords;
 	}
 
 	public void addKeyword(String keyword) {
-		keywords.add(keyword);	
+		if (Strings.isNotBlank(keyword)) {
+			this.keywords.add(keyword.trim());
+		}
+	}
+
+	public void addKeywords(Collection<String> keywords) {
+		if (keywords != null) {
+			keywords.forEach(this::addKeyword);
+		}
 	}
 
 	/**

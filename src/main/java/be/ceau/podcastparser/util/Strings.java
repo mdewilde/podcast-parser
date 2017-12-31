@@ -15,7 +15,10 @@
 */
 package be.ceau.podcastparser.util;
 
+import java.util.Collections;
+import java.util.Set;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 /**
  * Utility methods for working with {@link String} objects
@@ -23,7 +26,8 @@ import java.util.regex.Pattern;
 public class Strings {
 
 	private static final Pattern WHITE_SPACE = Pattern.compile("\\s+");
-	
+	private static final Pattern COMMA = Pattern.compile(",");
+
 	public static boolean isNotBlank(final String string) {
 		return !isBlank(string);
 	}
@@ -45,6 +49,16 @@ public class Strings {
 		if (isBlank(string)) {
 			throw new IllegalArgumentException();
 		}
+	}
+
+	public static Set<String> splitOnComma(final String string) {
+		if (Strings.isBlank(string)) {
+			return Collections.emptySet();
+		}
+		return COMMA.splitAsStream(string)
+			.map(String::trim)
+			.filter(Strings::isNotBlank)
+			.collect(Collectors.toSet());
 	}
 
 	/**

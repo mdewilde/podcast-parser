@@ -438,12 +438,12 @@ public class Feed {
 	 * @return a {@link List}, not {@code null}
 	 */
 	public List<String> getKeywords() {
-		return keywords;
+		return this.keywords;
 	}
 
 	public void addKeyword(String keyword) {
 		if (Strings.isNotBlank(keyword)) {
-			keywords.add(keyword);
+			this.keywords.add(keyword);
 		}
 	}
 	
