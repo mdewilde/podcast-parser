@@ -63,7 +63,8 @@ public class Feed {
 	private String email;
 	private Copyright mediaCopyright;
 	private Credit credit;
-
+	private boolean complete;
+	
 	/**
 	 * <p>
 	 * The {@code id} element conveys a permanent, universally unique identifier
@@ -629,6 +630,14 @@ public class Feed {
 
 	public void setCredit(Credit credit) {
 		this.credit = credit;
+	}
+
+	public boolean isComplete() {
+		return complete;
+	}
+
+	public void setComplete(boolean complete) {
+		this.complete = complete;
 	}
 
 	@Override

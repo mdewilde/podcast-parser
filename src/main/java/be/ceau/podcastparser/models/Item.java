@@ -70,7 +70,9 @@ public class Item {
 	private boolean hd;
 	private TypedString embed;
 	private final List<Metamark> metamarks = new ArrayList<>();
-
+	private String provider;
+	private Visibility visibility;
+	
 	// TODO -> merge with copyright?
 	private Copyright mediaCopyright;
 
@@ -822,6 +824,22 @@ public class Item {
 		if (metamark != null) {
 			metamarks.add(metamark);
 		}
+	}
+
+	public String getProvider() {
+		return provider;
+	}
+
+	public void setProvider(String provider) {
+		this.provider = provider;
+	}
+
+	public Visibility getVisibility() {
+		return visibility;
+	}
+
+	public void setVisibility(Visibility visibility) {
+		this.visibility = visibility;
 	}
 
 	@Override

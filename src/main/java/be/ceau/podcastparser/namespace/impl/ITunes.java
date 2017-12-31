@@ -66,15 +66,16 @@ public class ITunes implements Namespace {
 		String localName = ctx.getReader().getLocalName();
 		switch (localName) {
 		case "author":
-			Person author = new Person();
-			author.setName(ctx.getElementText());
-			ctx.getFeed().addAuthor(author);
+			ctx.getFeed().addAuthor(parseAuthor(ctx));
 			break;
 		case "block":
 			ctx.getFeed().setBlock(parseBlock(ctx));
 			break;
 		case "category":
 			ctx.getFeed().addCategory(parseCategory(ctx));
+			break;
+		case "complete":
+			ctx.getFeed().setComplete(parseComplete(ctx));
 			break;
 		case "explicit":
 			ctx.getFeed().getRating().setExplicit(ctx.getElementText());
@@ -191,6 +192,9 @@ public class ITunes implements Namespace {
 		case "order":
 			item.setOrder(Integer.parseInt(ctx.getElementText()));
 			return;
+		case "provider":
+			item.setProvider(ctx.getElementText());
+			return;
 		case "subtitle":
 			String subtitle = ctx.getElementText();
 			if (Strings.isNotBlank(subtitle)) {
@@ -220,12 +224,27 @@ public class ITunes implements Namespace {
 		case "isClosedCaptioned":
 			// fallthrough intended
 		default : 
-			logger.warn("iTunes {} @ITEM --> [ATTRIBUTES {}] [TEXT {}]", localName, Attributes.toString(ctx.getReader()), ctx.getElementText());
+			Namespace.super.process(ctx, item);
 			return;
 		}
 
 	}
 
+	/**
+	 * If the {@link <itunes:author>} tag isn’t present at the channel level, Apple Podcasts uses the
+	 * contents of the {@link <itunes:author>} tag at the item level. If {@link <itunes:author>} isn’t
+	 * present at the item level, Apple Podcasts uses the contents of the {@code <managingEditor>} tag.
+	 * 
+	 * @param ctx
+	 * @return
+	 * @throws XMLStreamException
+	 */
+	private Person parseAuthor(PodParseContext ctx) throws XMLStreamException {
+		Person person = new Person();
+		person.setName(ctx.getElementText());
+		return person;
+	}
+	
 	/**
 	 * Use this inside a <channel> element to prevent the entire podcast
 	 * from appearing in the iTunes Podcast directory. Use this inside
@@ -294,6 +313,19 @@ public class ITunes implements Namespace {
 		return new Category().setName(text);
 	}
 
+	/**
+	 * The podcast update status.
+	 * 
+	 * Specifying the {@link <itunes:complete>} tag with a Yes value indicates that a podcast is complete and
+	 * you will not post any more episodes in the future. This tag is only supported at the channel
+	 * level (podcast).
+	 * 
+	 * Specifying any value other than Yes has no effect.
+	 */
+	private boolean parseComplete(PodParseContext ctx) throws XMLStreamException {
+		return "yes".equalsIgnoreCase(ctx.getElementText());
+	}
+	
 	/*
 	 * This tag specifies the artwork for your podcast. Put the url to the image
 	 * in the href attribute. iTunes prefers square .jpg images that are at
@@ -337,10 +369,6 @@ public class ITunes implements Namespace {
 		return person;
 	}
 
-	private String parseProvider(PodParseContext ctx) throws XMLStreamException {
-		return ctx.getElementText();
-	}
-	
 	// XXX duplicate code -> see Atom
 	private Link parseLink(PodParseContext ctx) throws XMLStreamException {
 		Link link = new Link();
