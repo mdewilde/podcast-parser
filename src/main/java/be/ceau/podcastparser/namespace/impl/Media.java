@@ -773,7 +773,6 @@ public class Media implements Namespace {
 	private Transcript parseText(PodParseContext ctx) throws XMLStreamException {
 		
 		Transcript transcript = new Transcript();
-		transcript.setText(ctx.getElementText());
 		transcript.setLang(ctx.getAttribute("lang"));
 
 		String type = ctx.getAttribute("type");
@@ -791,7 +790,7 @@ public class Media implements Namespace {
 		if (Strings.isNotBlank(end)) {
 			transcript.setEnd(Durations.parse(end));
 		}
-
+		transcript.setText(ctx.getElementText());
 		return transcript;
 		
 	}
