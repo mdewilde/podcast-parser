@@ -15,6 +15,11 @@
 */
 package be.ceau.podcastparser.namespace.impl;
 
+import javax.xml.stream.XMLStreamException;
+
+import be.ceau.podcastparser.PodParseContext;
+import be.ceau.podcastparser.models.Item;
+import be.ceau.podcastparser.models.OtherValueKey;
 import be.ceau.podcastparser.namespace.Namespace;
 
 public class SverigesRadio implements Namespace {
@@ -24,6 +29,21 @@ public class SverigesRadio implements Namespace {
 	@Override
 	public String getName() {
 		return NAME;
+	}
+
+	@Override
+	public void process(PodParseContext ctx, Item item) throws XMLStreamException {
+		switch (ctx.getReader().getLocalName()) {
+		case "poddid":
+			item.addOtherValue(OtherValueKey.SVERIGES_PODD_ID, ctx.getElementText());
+			break;
+		case "programid":
+			item.addOtherValue(OtherValueKey.SVERIGES_PROGRAM_ID, ctx.getElementText());
+			break;
+		default : 
+			Namespace.super.process(ctx, item);
+			break;
+		}
 	}
 
 }

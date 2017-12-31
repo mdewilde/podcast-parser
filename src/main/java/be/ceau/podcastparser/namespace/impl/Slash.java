@@ -23,7 +23,6 @@ import org.slf4j.LoggerFactory;
 import be.ceau.podcastparser.PodParseContext;
 import be.ceau.podcastparser.models.Item;
 import be.ceau.podcastparser.namespace.Namespace;
-import be.ceau.podcastparser.util.Attributes;
 
 /**
  * Slash is the source code and database that was originally used to create

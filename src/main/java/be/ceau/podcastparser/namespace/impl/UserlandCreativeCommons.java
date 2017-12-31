@@ -17,12 +17,9 @@ package be.ceau.podcastparser.namespace.impl;
 
 import javax.xml.stream.XMLStreamException;
 
-import org.slf4j.LoggerFactory;
-
 import be.ceau.podcastparser.PodParseContext;
 import be.ceau.podcastparser.models.Item;
 import be.ceau.podcastparser.namespace.Namespace;
-import be.ceau.podcastparser.util.Attributes;
 
 /**
  * <h1>creativeCommons RSS Module</h1>

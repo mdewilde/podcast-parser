@@ -15,6 +15,11 @@
 */
 package be.ceau.podcastparser.namespace.impl;
 
+import javax.xml.stream.XMLStreamException;
+
+import be.ceau.podcastparser.PodParseContext;
+import be.ceau.podcastparser.models.Item;
+import be.ceau.podcastparser.models.OtherValueKey;
 import be.ceau.podcastparser.namespace.Namespace;
 
 public class DiscoveryCdn implements Namespace {
@@ -24,6 +29,27 @@ public class DiscoveryCdn implements Namespace {
 	@Override
 	public String getName() {
 		return NAME;
+	}
+
+	@Override
+	public void process(PodParseContext ctx, Item item) throws XMLStreamException {
+		switch (ctx.getReader().getLocalName()) {
+		case "episode_id":
+			item.addOtherValue(OtherValueKey.DISCOVERY_EPISODE_ID, ctx.getElementText());
+			break;
+		case "expires":
+			item.addOtherValue(OtherValueKey.DISCOVERY_EXPIRES, ctx.getElementText());
+			break;
+		case "id":
+			item.addOtherValue(OtherValueKey.DISCOVERY_ID, ctx.getElementText());
+			break;
+		case "special":
+			item.addOtherValue(OtherValueKey.DISCOVERY_SPECIAL, ctx.getElementText());
+			break;
+		default : 
+			Namespace.super.process(ctx, item);
+			break;
+		}
 	}
 
 }

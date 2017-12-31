@@ -15,6 +15,10 @@
 */
 package be.ceau.podcastparser.namespace.impl;
 
+import javax.xml.stream.XMLStreamException;
+
+import be.ceau.podcastparser.PodParseContext;
+import be.ceau.podcastparser.models.Item;
 import be.ceau.podcastparser.namespace.Namespace;
 
 public class Longtailvideo implements Namespace {
@@ -24,6 +28,21 @@ public class Longtailvideo implements Namespace {
 	@Override
 	public String getName() {
 		return NAME;
+	}
+
+	@Override
+	public void process(PodParseContext ctx, Item item) throws XMLStreamException {
+		switch (ctx.getReader().getLocalName()) {
+		case "talkId":
+		case "file":
+		case "sharing.link":
+		case "captions.file":
+		case "provider":
+		case "http.startparam":
+		default : 
+			Namespace.super.process(ctx, item);
+			break;
+		}
 	}
 
 }

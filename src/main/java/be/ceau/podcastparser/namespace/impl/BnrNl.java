@@ -27,3 +27,13 @@ public class BnrNl implements Namespace {
 	}
 
 }
+/*
+	694 	--> http://www.bnr.nl/rss/podcast level=item localName=name attributes=[]]
+	694 	--> http://www.bnr.nl/rss/podcast level=item localName=description attributes=[]]
+	694 	--> http://www.bnr.nl/rss/podcast level=item localName=title attributes=[]]
+	694 	--> http://www.bnr.nl/rss/podcast level=item localName=type attributes=[]]
+	694 	--> http://www.bnr.nl/rss/podcast level=item localName=category attributes=[]]
+	694 	--> http://www.bnr.nl/rss/podcast level=item localName=spotlight attributes=[]]
+	694 	--> http://www.bnr.nl/rss/podcast level=item localName=brandStory attributes=[]]
+	182 	--> http://www.bnr.nl/rss/podcast/meta level=item localName=broadcastDate attributes=[]]
+*/
