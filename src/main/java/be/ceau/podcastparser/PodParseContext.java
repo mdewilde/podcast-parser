@@ -119,6 +119,22 @@ public class PodParseContext {
 	}
 
 	/**
+	 * @param localName
+	 *            {@link String} attribute name
+	 * @return attribute value parsed as {@link Integer}, or {@code null}
+	 */
+	public Integer getAttributeAsInteger(String localName) {
+		String value = getAttribute(localName);
+		if (value != null) {
+			try {
+				return Integer.valueOf(value);
+			} catch (NumberFormatException e) {
+			}
+		}
+		return null;
+	}
+
+	/**
 	 * If called after having processed a {@link XMLStreamConstants#START_ELEMENT} event, will skip
 	 * until the end of the newly opened element is reached.
 	 * 

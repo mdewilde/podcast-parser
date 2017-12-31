@@ -66,7 +66,10 @@ public class Item {
 	private MediaPlayer mediaPlayer;
 	private final List<Scene> scenes = new ArrayList<>();
 	private final List<Transcript> transcripts = new ArrayList<>();
-	
+	private boolean hd;
+	private TypedString embed;
+	private final List<Metamark> metamarks = new ArrayList<>();
+
 	// TODO -> merge with copyright?
 	private Copyright mediaCopyright;
 
@@ -769,6 +772,46 @@ public class Item {
 		// we only add if not null
 		if (transcript != null) {
 			transcripts.add(transcript);
+		}
+	}
+
+	/**
+	 * As specified in the RawVoice namespace
+	 * 
+	 * @return {@code true} if the video media specified in the child {@code <enclosure>} is in High
+	 *         Definition (ie. any video that is widescreen (16:9 aspect ratio) with a 720p, 720i, 1080p
+	 *         or 1080i resolution, or better)
+	 */
+	public boolean isHd() {
+		return hd;
+	}
+
+	public void setHd(boolean hd) {
+		this.hd = hd;
+	}
+
+	/**
+	 * As specified in the RawVoice namespace
+	 * 
+	 * @return {@code TypedString} block of embed HTML markup that corresponds to the item’s media
+	 *         content, or {@code null} if not part of the feed
+	 */
+	public TypedString getEmbed() {
+		return embed;
+	}
+
+	public void setEmbed(TypedString embed) {
+		this.embed = embed;
+	}
+
+	public List<Metamark> getMetamarks() {
+		return metamarks;
+	}
+
+	public void addMetamark(Metamark metamark) {
+		// we only add if not null
+		if (metamark != null) {
+			metamarks.add(metamark);
 		}
 	}
 
