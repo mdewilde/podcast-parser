@@ -31,7 +31,7 @@ import be.ceau.podcastparser.WrappedXml;
 
 public class FilesProvider implements TestXmlProvider {
 
-	private static final Path BASE_DIRECTORY = Paths.get(System.getProperty("user.home"), "podcastxml", "samples");
+	private static final Path BASE_DIRECTORY = Paths.get(System.getProperty("user.home"), "podcastfinder", "xml");
 
 	private static final List<File> FILES;
 	

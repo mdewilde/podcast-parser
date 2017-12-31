@@ -40,11 +40,6 @@ public class ParseTest {
 	
 	private static final Random RANDOM = new SecureRandom();
 	
-	// @Test
-	public void stax() {
-		handleStax("983394039.txt");
-	}
-	
 	@Test
 	public void staxTest() throws IOException, SAXException, ParserConfigurationException {
 

@@ -33,7 +33,7 @@
 	<Loggers>
 	
 		<AsyncLogger name="be.ceau" level="TRACE" includeLocation="false" additivity="false">
-<!-- 			<AppenderRef ref="console" /> -->
+			<AppenderRef ref="console" />
 			<AppenderRef ref="event" />
 		</AsyncLogger>
 

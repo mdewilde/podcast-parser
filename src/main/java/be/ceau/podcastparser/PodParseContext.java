@@ -25,6 +25,8 @@ import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
+import org.slf4j.LoggerFactory;
+
 import be.ceau.podcastparser.models.Feed;
 import be.ceau.podcastparser.models.Item;
 import be.ceau.podcastparser.models.SkippableElement;
@@ -79,6 +81,8 @@ public class PodParseContext {
 	}
 
 	public void registerUnknownNamespace(String level) {
+		LoggerFactory.getLogger(PodParseContext.class)
+			.error("registerUnknownNamespace(String {}) unknown namespace {}", level, getReader().getNamespaceURI());
 		namespaceCallbackHandler.registerUnknownNamespace(reader, level);
 	}
 
