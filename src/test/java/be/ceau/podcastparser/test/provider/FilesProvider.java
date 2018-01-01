@@ -32,11 +32,12 @@ import be.ceau.podcastparser.WrappedXml;
 public class FilesProvider implements TestXmlProvider {
 
 	private static final Path BASE_DIRECTORY = Paths.get(System.getProperty("user.home"), "podcastfinder", "xml");
+	private static final Path CORPUS_2017_04_15 = Paths.get(System.getProperty("user.home"), "podcastxml", "corpus");
 
 	private static final List<File> FILES;
 	
 	static {
-		File directory = BASE_DIRECTORY.toFile();
+		File directory = CORPUS_2017_04_15.toFile();
 		if (!directory.isDirectory()) {
 			throw new IllegalStateException(
 					"base directory containing XML samples not found at " + BASE_DIRECTORY.toString());

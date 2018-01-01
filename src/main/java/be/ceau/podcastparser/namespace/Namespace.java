@@ -81,7 +81,6 @@ public interface Namespace {
 	public default void process(PodParseContext ctx) throws XMLStreamException {
 		// default is to do nothing
 		ctx.registerUnhandledElement("FEED");
-		log(ctx, "FEED");
 	}
 
 	/**
@@ -102,7 +101,6 @@ public interface Namespace {
 	public default void process(PodParseContext ctx, Item item) throws XMLStreamException {
 		// default is to do nothing
 		ctx.registerUnhandledElement("ITEM");
-		log(ctx, "ITEM");
 	}
 
 	public static void log(PodParseContext ctx, String level) throws XMLStreamException {

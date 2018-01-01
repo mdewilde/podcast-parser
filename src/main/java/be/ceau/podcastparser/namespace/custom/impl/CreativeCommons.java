@@ -48,21 +48,10 @@ public class CreativeCommons implements Namespace {
 	public void process(PodParseContext ctx, Item item) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
 		case "requires":
-			LoggerFactory.getLogger(Namespace.class).info("CreativeCommons requires --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
-			break;
 		case "permits":
-			LoggerFactory.getLogger(Namespace.class).info("CreativeCommons permits --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
-			break;
 		case "License":
-		case "license":
-			LoggerFactory.getLogger(Namespace.class).info("CreativeCommons License --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
-			break;
 		case "Work":
-			LoggerFactory.getLogger(Namespace.class).info("CreativeCommons Work --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
-			break;
 		case "prohibits":
-			LoggerFactory.getLogger(Namespace.class).info("CreativeCommons prohibits --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
-			break;
 		default : 
 			Namespace.super.process(ctx, item);
 			break;

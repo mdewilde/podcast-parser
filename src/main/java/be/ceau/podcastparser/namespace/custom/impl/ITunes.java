@@ -120,7 +120,7 @@ public class ITunes implements Namespace {
 			}
 			break;
 		default : 
-			logger.warn("iTunes {} @FEED --> [ATTRIBUTES {}] [TEXT {}]", localName, Attributes.toString(ctx.getReader()), ctx.getElementText());
+			Namespace.super.process(ctx);
 			break;
 		}
 

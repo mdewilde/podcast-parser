@@ -16,10 +16,8 @@
 package be.ceau.podcastparser;
 
 import java.io.IOException;
-import java.security.SecureRandom;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 
 import javax.xml.parsers.ParserConfigurationException;
 
@@ -38,8 +36,6 @@ public class ParseTest {
 	private static final Logger logger = LoggerFactory.getLogger(ParseTest.class);
 
 	private static final FilesProvider FILES_PROVIDER = new FilesProvider();
-	
-	private static final Random RANDOM = new SecureRandom();
 	
 	public void countEverything() throws IOException, SAXException, ParserConfigurationException {
 

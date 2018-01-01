@@ -17,8 +17,6 @@ package be.ceau.podcastparser.namespace.custom.impl;
 
 import javax.xml.stream.XMLStreamException;
 
-import org.slf4j.LoggerFactory;
-
 import be.ceau.podcastparser.PodParseContext;
 import be.ceau.podcastparser.models.Item;
 import be.ceau.podcastparser.models.Link;
@@ -60,7 +58,7 @@ public class Feedburner implements Namespace {
 			 * publisher's feed and its content items are consumed, clicked on,
 			 * and referred to by independent sources (i.e., "syndicated").
 			 */
-			LoggerFactory.getLogger(Namespace.class).info("Feedburner awareness --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			Namespace.super.process(ctx);
 			break;
 		case "browserFriendly":
 			/*
@@ -73,7 +71,7 @@ public class Feedburner implements Namespace {
 			 * this element is a message displayed to the end user to explain
 			 * what they just clicked on.
 			 */
-			LoggerFactory.getLogger(Namespace.class).info("Feedburner browserFriendly --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			Namespace.super.process(ctx);
 			break;
 		case "emailServiceId":
 			// child text is integer
@@ -83,7 +81,7 @@ public class Feedburner implements Namespace {
 			 * present if the feed publisher has enabled the Email Subscriptions
 			 * service.
 			 */
-			LoggerFactory.getLogger(Namespace.class).info("Feedburner emailServiceId --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			Namespace.super.process(ctx);
 			break;
 		case "feedburnerHostname":
 			// child text is URI
@@ -96,7 +94,7 @@ public class Feedburner implements Namespace {
 			 * FeedBurner email is a service that allows publishers to deliver
 			 * their feed content to subscribers via email.
 			 */
-			LoggerFactory.getLogger(Namespace.class).info("Feedburner feedburnerHostname --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			Namespace.super.process(ctx);
 			break;
 		case "feedFlare":
 			/*
@@ -111,7 +109,7 @@ public class Feedburner implements Namespace {
 			 * src attribute is a link to an image. The element also has text
 			 * content, which is used as alternate text for the image.
 			 */
-			LoggerFactory.getLogger(Namespace.class).info("Feedburner feedFlare --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			Namespace.super.process(ctx);
 			break;
 		case "info":
 			/*
@@ -143,7 +141,7 @@ public class Feedburner implements Namespace {
 			 * to current item awareness data for the item. It is only present
 			 * if the feed publisher has enabled the Awareness API for the feed.
 			 */
-			LoggerFactory.getLogger(Namespace.class).info("Feedburner awareness --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			Namespace.super.process(ctx, item);
 			break;
 		case "origEnclosureLink": {
 			/*

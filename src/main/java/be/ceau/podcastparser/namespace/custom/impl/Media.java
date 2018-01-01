@@ -118,7 +118,6 @@ public class Media implements Namespace {
 			"http://search.yahoo.com/mrss", 
 			"http://www.rssboard.org/media-rss");
 	
-
 	@Override
 	public String getName() {
 		return NAME;
@@ -181,18 +180,9 @@ public class Media implements Namespace {
 			// extract content elements and add to item directly
 			item.addMediaContents(parseMediaGroup(ctx));
 			break;
-		case "hash": {
-			/*
-			 * This is the hash of the binary media file. It can appear multiple
-			 * times as long as each instance is a different algo.
-			 */
-			String algo = ctx.getAttribute("algo");
-			Hash hash = new Hash()
-					.setAlgo(algo)
-					.setHash(ctx.getElementText());
-			item.addHash(hash);
+		case "hash":
+			item.addHash(parseHash(ctx));
 			break;
-		}
 		case "keywords":
 			ctx.getFeed().addKeywords(parseKeywords(ctx));
 			break;
@@ -213,19 +203,7 @@ public class Media implements Namespace {
 			return;
 		}
 		case "player":
-			MediaPlayer player = new MediaPlayer();
-			player.setUrl(ctx.getAttribute("url"));
-			try {
-				int height = Integer.parseInt(ctx.getAttribute("height"));
-				player.setHeight(height);
-			} catch (NumberFormatException e) {
-			}
-			try {
-				int width = Integer.parseInt(ctx.getAttribute("width"));
-				player.setWidth(width);
-			} catch (NumberFormatException e) {
-			}
-			item.setMediaPlayer(player);
+			item.setMediaPlayer(parseMediaPlayer(ctx));
 			break;
 		case "credit":
 			item.addCredit(parseCredit(ctx));
@@ -237,55 +215,6 @@ public class Media implements Namespace {
 			item.addTranscript(parseText(ctx));
 			return;
 		case "restriction":
-			/*
-			 * Allows restrictions to be placed on the aggregator rendering the
-			 * media in the feed. Currently, restrictions are based on
-			 * distributor (URI), country codes and sharing of a media object.
-			 * This element is purely informational and no obligation can be
-			 * assumed or implied. Only one <media:restriction> element of the
-			 * same type can be applied to a media object -- all others will be
-			 * ignored. Entities in this element should be space-separated. To
-			 * allow the producer to explicitly declare his/her intentions, two
-			 * literals are reserved: "all", "none". These literals can only be
-			 * used once. This element has one required attribute and one
-			 * optional attribute (with strict requirements for its exclusion).
-			 * 
-			 * <media:restriction relationship="allow" type="country">au
-			 * us</media:restriction>
-			 * 
-			 * relationship indicates the type of relationship that the
-			 * restriction represents (allow | deny). In the example above, the
-			 * media object should only be syndicated in Australia and the
-			 * United States. It is a required attribute.
-			 * 
-			 * Note: If the "allow" element is empty and the type of
-			 * relationship is "allow", it is assumed that the empty list means
-			 * "allow nobody" and the media should not be syndicated.
-			 * 
-			 * A more explicit method would be:
-			 * 
-			 * <media:restriction relationship="allow" type="country">au
-			 * us</media:restriction>
-			 * 
-			 * type specifies the type of restriction (country | uri | sharing )
-			 * that the media can be syndicated. It is an optional attribute;
-			 * however can only be excluded when using one of the literal values
-			 * "all" or "none".
-			 * 
-			 * "country" allows restrictions to be placed based on country code.
-			 * [ISO 3166]
-			 * 
-			 * "uri" allows restrictions based on URI. Examples: urn:apple,
-			 * http://images.google.com, urn:yahoo, etc.
-			 * 
-			 * "sharing" allows restriction on sharing.
-			 * 
-			 * "deny" means content cannot be shared -- for example via embed
-			 * tags. If the sharing type is not present, the default
-			 * functionality is to allow sharing. For example:
-			 * 
-			 * <media:restriction type="sharing" relationship="deny" />
-			 */
 			Namespace.super.process(ctx, item);
 			return;
 		case "community":
@@ -453,19 +382,7 @@ public class Media implements Namespace {
 			Namespace.super.process(ctx, item);
 			return;
 		case "rights":
-			/*
-			 * Optional element to specify the rights information of a media
-			 * object.
-			 * 
-			 * <media:rights status="userCreated" />
-			 * 
-			 * <media:rights status="official" />
-			 * 
-			 * status is the status of the media object saying whether a media
-			 * object has been created by the publisher or they have rights to
-			 * circulate it. Supported values are "userCreated" and "official".
-			 */
-			Namespace.super.process(ctx, item);
+			item.setRights(parseRights(ctx));
 			break;
 		case "scenes":
 			parseScenes(ctx).forEach(item::addScene);
@@ -493,14 +410,14 @@ public class Media implements Namespace {
 		category.setName(ctx.getElementText());
 		return category;
 	}
-	
+
 	private Copyright parseCopyright(PodParseContext ctx) throws XMLStreamException {
 		Copyright copyright = new Copyright();
 		copyright.setUrl(ctx.getAttribute("url"));
 		copyright.setText(ctx.getElementText());
 		return copyright;
 	}
-	
+
 	/*
 	 * Notable entity and the contribution to the creation of the media
 	 * object. Current entities can include people, companies,
@@ -555,6 +472,17 @@ public class Media implements Namespace {
 		return typedString;
 	}
 	
+	/*
+	 * This is the hash of the binary media file. It can appear multiple
+	 * times as long as each instance is a different algo.
+	 */
+	private Hash parseHash(PodParseContext ctx) throws XMLStreamException {
+		Hash hash = new Hash();
+		hash.setAlgo(ctx.getAttribute("algo"));
+		hash.setHash(ctx.getElementText());
+		return hash;
+	}
+
 	/*
 	 * Allows particular images to be used as representative images for
 	 * the media object. If multiple thumbnails are included, and time
@@ -656,6 +584,22 @@ public class Media implements Namespace {
 		return list;
 	}
 
+	private MediaPlayer parseMediaPlayer(PodParseContext ctx) throws XMLStreamException {
+		MediaPlayer player = new MediaPlayer();
+		player.setUrl(ctx.getAttribute("url"));
+		try {
+			int height = Integer.parseInt(ctx.getAttribute("height"));
+			player.setHeight(height);
+		} catch (NumberFormatException e) {
+		}
+		try {
+			int width = Integer.parseInt(ctx.getAttribute("width"));
+			player.setWidth(width);
+		} catch (NumberFormatException e) {
+		}
+		return player;
+	}
+	
 	/**
 	 * This allows the permissible audience to be declared. If this element is not included, it assumes
 	 * that no restrictions are necessary. It has one optional attribute.
@@ -683,6 +627,77 @@ public class Media implements Namespace {
 		return rating;
 	}
 	
+	/*
+	 * Allows restrictions to be placed on the aggregator rendering the
+	 * media in the feed. Currently, restrictions are based on
+	 * distributor (URI), country codes and sharing of a media object.
+	 * This element is purely informational and no obligation can be
+	 * assumed or implied. Only one <media:restriction> element of the
+	 * same type can be applied to a media object -- all others will be
+	 * ignored. Entities in this element should be space-separated. To
+	 * allow the producer to explicitly declare his/her intentions, two
+	 * literals are reserved: "all", "none". These literals can only be
+	 * used once. This element has one required attribute and one
+	 * optional attribute (with strict requirements for its exclusion).
+	 * 
+	 * <media:restriction relationship="allow" type="country">au
+	 * us</media:restriction>
+	 * 
+	 * relationship indicates the type of relationship that the
+	 * restriction represents (allow | deny). In the example above, the
+	 * media object should only be syndicated in Australia and the
+	 * United States. It is a required attribute.
+	 * 
+	 * Note: If the "allow" element is empty and the type of
+	 * relationship is "allow", it is assumed that the empty list means
+	 * "allow nobody" and the media should not be syndicated.
+	 * 
+	 * A more explicit method would be:
+	 * 
+	 * <media:restriction relationship="allow" type="country">au
+	 * us</media:restriction>
+	 * 
+	 * type specifies the type of restriction (country | uri | sharing )
+	 * that the media can be syndicated. It is an optional attribute;
+	 * however can only be excluded when using one of the literal values
+	 * "all" or "none".
+	 * 
+	 * "country" allows restrictions to be placed based on country code.
+	 * [ISO 3166]
+	 * 
+	 * "uri" allows restrictions based on URI. Examples: urn:apple,
+	 * http://images.google.com, urn:yahoo, etc.
+	 * 
+	 * "sharing" allows restriction on sharing.
+	 * 
+	 * "deny" means content cannot be shared -- for example via embed
+	 * tags. If the sharing type is not present, the default
+	 * functionality is to allow sharing. For example:
+	 * 
+	 * <media:restriction type="sharing" relationship="deny" />
+	 */
+//	private Restriction parseRestriction(PodParseContext ctx) throws XMLStreamException {
+//		return null;
+//	}
+	
+	/*
+	 * Optional element to specify the rights information of a media
+	 * object.
+	 * 
+	 * <media:rights status="userCreated" />
+	 * 
+	 * <media:rights status="official" />
+	 * 
+	 * status is the status of the media object saying whether a media
+	 * object has been created by the publisher or they have rights to
+	 * circulate it.
+	 * 
+	 * Supported values are "userCreated" and "official".
+	 */
+	private String parseRights(PodParseContext ctx) throws XMLStreamException {
+		return ctx.getAttribute("status");
+	}
+
 	private List<Scene> parseScenes(PodParseContext ctx) throws XMLStreamException {
 		/*
 		 * Optional element to specify various scenes within a media object.

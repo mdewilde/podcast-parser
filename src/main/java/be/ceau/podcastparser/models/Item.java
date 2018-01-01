@@ -73,6 +73,7 @@ public class Item {
 	private final List<Metamark> metamarks = new ArrayList<>();
 	private String provider;
 	private Visibility visibility;
+	private String rights;
 	
 	// TODO -> merge with copyright?
 	private Copyright mediaCopyright;
@@ -849,6 +850,14 @@ public class Item {
 
 	public void setVisibility(Visibility visibility) {
 		this.visibility = visibility;
+	}
+
+	public String getRights() {
+		return rights;
+	}
+
+	public void setRights(String rights) {
+		this.rights = rights;
 	}
 
 	@Override

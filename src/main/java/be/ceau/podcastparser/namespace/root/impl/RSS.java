@@ -15,6 +15,8 @@
 */
 package be.ceau.podcastparser.namespace.root.impl;
 
+import static be.ceau.podcastparser.namespace.Namespace.log;
+
 import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
@@ -243,6 +245,9 @@ public class RSS implements RootNamespace, Namespace {
 			Link link = new Link();
 			link.setHref(ctx.getElementText());
 			item.addLink(link);
+			break;
+		case "reader":
+			Namespace.log(ctx, "ITEM");
 			break;
 		case "pubDate":
 			item.setPubDate(Dates.parse(ctx.getElementText()));

@@ -44,7 +44,7 @@ public class YahooVideo implements Namespace {
 		case "name" : 
 		case "value" : 
 		default : 
-			LoggerFactory.getLogger(Namespace.class).info("YahooVideo {} --> {} {}", ctx.getReader().getLocalName(), Attributes.toString(ctx.getReader()), ctx.getElementText());
+			Namespace.super.process(ctx, item);
 			break;
 		}
 	}

@@ -85,9 +85,6 @@ public class GeoRSS implements Namespace {
 			item.setGeoBox(parseGeoBox(ctx));
 			break;
 		case "where":
-			LoggerFactory.getLogger(Namespace.class).info("GeoRSS where --> {} {}",
-					Attributes.toString(ctx.getReader()), ctx.getElementText());
-			break;
 		default : 
 			Namespace.super.process(ctx, item);
 			break;

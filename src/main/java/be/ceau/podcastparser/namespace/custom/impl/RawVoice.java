@@ -18,7 +18,6 @@ package be.ceau.podcastparser.namespace.custom.impl;
 import javax.xml.stream.XMLStreamException;
 
 import org.apache.commons.lang3.StringUtils;
-import org.slf4j.LoggerFactory;
 
 import be.ceau.podcastparser.PodParseContext;
 import be.ceau.podcastparser.models.Image;
@@ -27,7 +26,6 @@ import be.ceau.podcastparser.models.Link;
 import be.ceau.podcastparser.models.Metamark;
 import be.ceau.podcastparser.models.TypedString;
 import be.ceau.podcastparser.namespace.Namespace;
-import be.ceau.podcastparser.util.Attributes;
 
 /**
  * <p>
@@ -165,7 +163,7 @@ public class RawVoice implements Namespace {
 			 * 
 			 * length value should specify the size of source file in bytes.
 			 */
-			LoggerFactory.getLogger(Namespace.class).info("RawVoice webm --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
+			Namespace.super.process(ctx, item);
 			break;
 		case "metamark":
 			item.addMetamark(parseMetaMark(ctx));

@@ -53,14 +53,9 @@ public class BBC implements Namespace {
 		switch (ctx.getReader().getLocalName()) {
 		case "systemRef":
 			ctx.getFeed().addOtherValue(OtherValueKey.BBC_SYSTEM_REF, ctx.getElementText());
-			LoggerFactory.getLogger(Namespace.class).info("BBC systemRef --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
 			break;
 		case "seriesDetails":
-			LoggerFactory.getLogger(Namespace.class).info("BBC seriesDetails --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
-			break;
 		case "network":
-			LoggerFactory.getLogger(Namespace.class).info("BBC network --> {} {}", Attributes.toString(ctx.getReader()), ctx.getElementText());
-			break;
 		default : 
 			Namespace.super.process(ctx);
 			break;
