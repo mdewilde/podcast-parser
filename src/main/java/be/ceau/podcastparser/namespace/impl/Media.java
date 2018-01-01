@@ -579,7 +579,7 @@ public class Media implements Namespace {
 	 * Comma-delimited keywords describing the media object with
 	 * typically a maximum of 10 words.
 	 */
-	private Set<String> parseKeywords(PodParseContext ctx) throws XMLStreamException {
+	private List<String> parseKeywords(PodParseContext ctx) throws XMLStreamException {
 		return Strings.splitOnComma(ctx.getElementText());
 	}
 	

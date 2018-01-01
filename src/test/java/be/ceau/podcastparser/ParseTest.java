@@ -29,6 +29,7 @@ import org.slf4j.LoggerFactory;
 import org.xml.sax.SAXException;
 
 import be.ceau.podcastparser.namespace.callback.NamespaceCountingCallbackHandler;
+import be.ceau.podcastparser.namespace.callback.UnhandledElementCounter;
 import be.ceau.podcastparser.test.provider.FileProvider;
 import be.ceau.podcastparser.test.provider.FilesProvider;
 
@@ -40,8 +41,7 @@ public class ParseTest {
 	
 	private static final Random RANDOM = new SecureRandom();
 	
-	@Test
-	public void staxTest() throws IOException, SAXException, ParserConfigurationException {
+	public void countEverything() throws IOException, SAXException, ParserConfigurationException {
 
 		NamespaceCountingCallbackHandler callback = new NamespaceCountingCallbackHandler();
 		PodcastParser parser = new PodcastParser(callback);
@@ -64,6 +64,26 @@ public class ParseTest {
 
 	}
 	
+	@Test
+	public void countUnhandledElements() throws IOException, SAXException, ParserConfigurationException {
+
+		UnhandledElementCounter counter = new UnhandledElementCounter();
+		PodcastParser parser = new PodcastParser(counter);
+
+		FILES_PROVIDER
+			.parallelStream()
+			.forEach(wrap -> {
+				try {
+					parser.parse(wrap.getXml());
+				} catch (Exception e) {
+					// logger.error("{} -> {}", wrap.getDescription(), e.getMessage());
+				}
+			});
+
+		System.out.println(counter);
+
+	}
+
 	// @Test
 	public void randomlyParseFeeds() throws IOException, SAXException, ParserConfigurationException {
 		

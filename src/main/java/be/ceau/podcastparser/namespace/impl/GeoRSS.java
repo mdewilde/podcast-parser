@@ -16,12 +16,16 @@
 package be.ceau.podcastparser.namespace.impl;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import javax.xml.stream.XMLStreamException;
 
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import be.ceau.podcastparser.PodParseContext;
+import be.ceau.podcastparser.models.GeoBox;
+import be.ceau.podcastparser.models.GeoPoint;
 import be.ceau.podcastparser.models.Item;
 import be.ceau.podcastparser.models.OtherValueKey;
 import be.ceau.podcastparser.namespace.Namespace;
@@ -59,6 +63,8 @@ import be.ceau.podcastparser.util.Strings;
  */
 public class GeoRSS implements Namespace {
 
+	private static final Logger logger = LoggerFactory.getLogger(GeoRSS.class);
+	
 	private static final String NAME = "http://www.georss.org/georss";
 
 	@Override
@@ -70,28 +76,13 @@ public class GeoRSS implements Namespace {
 	public void process(PodParseContext ctx, Item item) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
 		case "point":
-			// A point contains a single latitude-longitude pair, separated by
-			// whitespace.
-			String point = ctx.getElementText();
-			if (Strings.isNotBlank(point)) {
-				String[] split = point.trim().split("\\s+");
-				if (split.length == 2) {
-					item.computeGeoPointIfAbsent().setLatitude(new BigDecimal(split[0].trim()));
-					item.computeGeoPointIfAbsent().setLongitude(new BigDecimal(split[1].trim()));
-				}
-			}
+			item.setGeoPoint(parseGeoPoint(ctx));
 			break;
 		case "featurename":
 			item.addOtherValue(OtherValueKey.GEO_RSS_FEATURE_NAME, ctx.getElementText());
 			break;
 		case "box":
-			// A bounding box is a rectangular region, often used to define the
-			// extents of a map or a rough area of interest. A box contains two
-			// space separate latitude-longitude pairs, with each pair separated
-			// by whitespace. The first pair is the lower corner, the second is
-			// the upper corner.
-			LoggerFactory.getLogger(Namespace.class).info("GeoRSS box --> {} {}", Attributes.toString(ctx.getReader()),
-					ctx.getElementText());
+			item.setGeoBox(parseGeoBox(ctx));
 			break;
 		case "where":
 			LoggerFactory.getLogger(Namespace.class).info("GeoRSS where --> {} {}",
@@ -103,6 +94,52 @@ public class GeoRSS implements Namespace {
 		}
 	}
 
+	private GeoPoint parseGeoPoint(PodParseContext ctx) throws XMLStreamException {
+		String text = ctx.getElementText();
+		List<String> split = Strings.splitOnWhitespace(text);
+		if (split.size() != 2) {
+			logger.warn("GeoRSS point should contain two numbers separated by whitespace, but found {}", text);
+			return null;
+		}
+
+		try {
+			GeoPoint geoPoint = new GeoPoint();
+			geoPoint.setLatitude(new BigDecimal(split.get(0)));
+			geoPoint.setLongitude(new BigDecimal(split.get(1)));
+			return geoPoint;
+		} catch (NumberFormatException e) {
+			logger.warn("GeoRSS point should contain four numbers separated by whitespace, but found {}", text);
+			return null;
+		}
+
+	}
+	
+	private GeoBox parseGeoBox(PodParseContext ctx) throws XMLStreamException {
+		String text = ctx.getElementText();
+		List<String> split = Strings.splitOnWhitespace(text);
+		if (split.size() != 4) {
+			logger.warn("GeoRSS box should contain four numbers separated by whitespace, but found {}", text);
+			return null;
+		}
+
+		try {
+			GeoPoint lowerCorner = new GeoPoint();
+			lowerCorner.setLatitude(new BigDecimal(split.get(0)));
+			lowerCorner.setLongitude(new BigDecimal(split.get(1)));
+			GeoPoint upperCorner = new GeoPoint();
+			upperCorner.setLatitude(new BigDecimal(split.get(2)));
+			upperCorner.setLongitude(new BigDecimal(split.get(3)));
+			GeoBox geoBox = new GeoBox();
+			geoBox.setLowerCorner(lowerCorner);
+			geoBox.setUpperCorner(upperCorner);
+			return geoBox;
+		} catch (NumberFormatException e) {
+			logger.warn("GeoRSS box should contain four numbers separated by whitespace, but found {}", text);
+			return null;
+		}
+
+	}
+	
 }
 
 /*

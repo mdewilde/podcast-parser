@@ -58,6 +58,7 @@ public class Item {
 	private final Map<OtherValueKey, String> values = new EnumMap<>(OtherValueKey.class);
 	private final Map<String, Enclosure> otherEnclosures = new HashMap<>();
 	private GeoPoint geoPoint;
+	private GeoBox geoBox;
 	private int order;
 	private String summary;
 	private boolean block;
@@ -693,6 +694,14 @@ public class Item {
 
 	public void setGeoPoint(GeoPoint geoPoint) {
 		this.geoPoint = geoPoint;
+	}
+
+	public GeoBox getGeoBox() {
+		return geoBox;
+	}
+
+	public void setGeoBox(GeoBox geoBox) {
+		this.geoBox = geoBox;
 	}
 
 	public int getOrder() {

@@ -15,6 +15,7 @@
 */
 package be.ceau.podcastparser.namespace.impl;
 
+import java.util.List;
 import java.util.Set;
 
 import javax.xml.stream.XMLStreamConstants;
@@ -342,7 +343,7 @@ public class ITunes implements Namespace {
 				.setUrl(ctx.getAttribute("href"));
 	}
 
-	private Set<String> parseKeywords(PodParseContext ctx) throws XMLStreamException {
+	private List<String> parseKeywords(PodParseContext ctx) throws XMLStreamException {
 		return Strings.splitOnComma(ctx.getElementText());
 	}
 

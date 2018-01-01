@@ -16,6 +16,7 @@
 package be.ceau.podcastparser.util;
 
 import java.util.Collections;
+import java.util.List;
 import java.util.Set;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -51,14 +52,24 @@ public class Strings {
 		}
 	}
 
-	public static Set<String> splitOnComma(final String string) {
+	public static List<String> splitOnWhitespace(final String string) {
 		if (Strings.isBlank(string)) {
-			return Collections.emptySet();
+			return Collections.emptyList();
 		}
-		return COMMA.splitAsStream(string)
+		return WHITE_SPACE.splitAsStream(string.trim())
 			.map(String::trim)
 			.filter(Strings::isNotBlank)
-			.collect(Collectors.toSet());
+			.collect(Collectors.toList());
+	}
+
+	public static List<String> splitOnComma(final String string) {
+		if (Strings.isBlank(string)) {
+			return Collections.emptyList();
+		}
+		return COMMA.splitAsStream(string.trim())
+			.map(String::trim)
+			.filter(Strings::isNotBlank)
+			.collect(Collectors.toList());
 	}
 
 	/**

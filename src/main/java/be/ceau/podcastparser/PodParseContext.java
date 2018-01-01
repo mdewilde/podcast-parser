@@ -25,12 +25,11 @@ import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
-import org.slf4j.LoggerFactory;
-
 import be.ceau.podcastparser.models.Feed;
 import be.ceau.podcastparser.models.Item;
 import be.ceau.podcastparser.models.SkippableElement;
 import be.ceau.podcastparser.namespace.callback.NamespaceCallbackHandler;
+import be.ceau.podcastparser.util.RequiredState;
 
 public class PodParseContext {
 
@@ -72,18 +71,28 @@ public class PodParseContext {
 		return feed;
 	}
 
-	public void beforeProcess() {
+	public void beforeProcess() throws XMLStreamException {
+		RequiredState state = RequiredState.from(reader);
 		namespaceCallbackHandler.beforeProcess(rootNamespace, feed, reader);
+		state.validate(reader);
 	}
 
-	public void beforeProcess(Item item) {
+	public void beforeProcess(Item item) throws XMLStreamException {
+		RequiredState state = RequiredState.from(reader);
 		namespaceCallbackHandler.beforeProcess(rootNamespace, item, reader);
+		state.validate(reader);
 	}
 
-	public void registerUnknownNamespace(String level) {
-		LoggerFactory.getLogger(PodParseContext.class)
-			.error("registerUnknownNamespace(String {}) unknown namespace {}", level, getReader().getNamespaceURI());
+	public void registerUnknownNamespace(String level) throws XMLStreamException {
+		RequiredState state = RequiredState.from(reader);
 		namespaceCallbackHandler.registerUnknownNamespace(reader, level);
+		state.validate(reader);
+	}
+
+	public void registerUnhandledElement(String level) throws XMLStreamException {
+		RequiredState state = RequiredState.from(reader);
+		namespaceCallbackHandler.registerUnhandledElement(reader, level);
+		state.validate(reader);
 	}
 
 	/**
