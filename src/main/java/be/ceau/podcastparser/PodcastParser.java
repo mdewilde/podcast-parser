@@ -31,8 +31,8 @@ import be.ceau.podcastparser.exceptions.PodcastParserException;
 import be.ceau.podcastparser.models.Feed;
 import be.ceau.podcastparser.namespace.callback.NamespaceCallbackHandler;
 import be.ceau.podcastparser.namespace.callback.NoOpNamespaceCallback;
-import be.ceau.podcastparser.namespace.impl.Atom;
-import be.ceau.podcastparser.namespace.impl.RSS;
+import be.ceau.podcastparser.namespace.root.impl.Atom;
+import be.ceau.podcastparser.namespace.root.impl.RSS;
 import be.ceau.podcastparser.util.Strings;
 
 /**

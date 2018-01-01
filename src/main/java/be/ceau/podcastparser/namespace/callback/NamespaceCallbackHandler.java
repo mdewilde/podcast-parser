@@ -74,13 +74,15 @@ public interface NamespaceCallbackHandler {
 	 * {@link IllegalStateException} to be thrown.
 	 * </p>
 	 * 
+	 * @param rootNamespace
+	 *            {@link String} name of the root namespace (RSS|Atom)
 	 * @param reader
 	 *            {@link XMLStreamReader} instance, having just processed a
 	 *            {@link XMLStreamConstants#START_ELEMENT} event with the given namespace.
 	 * @param level
 	 *            {@link String} name of the level at which the element is encountered (feed|item)
 	 */
-	public default void registerUnknownNamespace(XMLStreamReader reader, String level) {
+	public default void registerUnknownNamespace(String rootNamespace, XMLStreamReader reader, String level) {
 		// default is to do nothing
 	}
 
@@ -94,13 +96,15 @@ public interface NamespaceCallbackHandler {
 	 * {@link IllegalStateException} to be thrown.
 	 * </p>
 	 * 
+	 * @param rootNamespace
+	 *            {@link String} name of the root namespace (RSS|Atom)
 	 * @param reader
 	 *            {@link XMLStreamReader} instance, having just processed a
 	 *            {@link XMLStreamConstants#START_ELEMENT} event.
 	 * @param level
 	 *            {@link String} name of the level at which the element is encountered (feed|item)
 	 */
-	public default void registerUnhandledElement(XMLStreamReader reader, String level) {
+	public default void registerUnhandledElement(String rootNamespace, XMLStreamReader reader, String level) {
 		// default is to do nothing
 	}
 

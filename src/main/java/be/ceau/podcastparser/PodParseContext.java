@@ -85,13 +85,13 @@ public class PodParseContext {
 
 	public void registerUnknownNamespace(String level) throws XMLStreamException {
 		RequiredState state = RequiredState.from(reader);
-		namespaceCallbackHandler.registerUnknownNamespace(reader, level);
+		namespaceCallbackHandler.registerUnknownNamespace(rootNamespace, reader, level);
 		state.validate(reader);
 	}
 
 	public void registerUnhandledElement(String level) throws XMLStreamException {
 		RequiredState state = RequiredState.from(reader);
-		namespaceCallbackHandler.registerUnhandledElement(reader, level);
+		namespaceCallbackHandler.registerUnhandledElement(rootNamespace, reader, level);
 		state.validate(reader);
 	}
 
