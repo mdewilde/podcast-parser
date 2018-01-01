@@ -62,6 +62,7 @@ import be.ceau.podcastparser.namespace.custom.impl.Wordpress;
 import be.ceau.podcastparser.namespace.custom.impl.YahooVideo;
 import be.ceau.podcastparser.namespace.root.impl.Atom;
 import be.ceau.podcastparser.namespace.root.impl.RSS;
+import be.ceau.podcastparser.util.Strings;
 
 public class NamespaceFactory {
 
@@ -100,7 +101,6 @@ public class NamespaceFactory {
 	}
 	
 	static {
-		
 		Map<String, Namespace> map = new HashMap<>();
 		add(map, new ARD());
 		add(map, Atom.instance());
@@ -147,19 +147,18 @@ public class NamespaceFactory {
 	}
 	
 	/**
-	 * Static factory method that instantiates an appropriate {@code Namespace}
-	 * implementation for the given prefix and url
+	 * Static factory method that returns the appropriate {@code Namespace}
+	 * implementation for the given uri
 	 * 
 	 * @param uri
 	 *            a uri, not {@code null}
 	 * @return a {@code Namespace} implementation, or {@code null}
 	 */
 	public static Namespace getInstance(String uri) {
-
-		if (uri == null) {
+		if (Strings.isBlank(uri)) {
 			return null;
 		}
-		
+
 		Namespace namespace = NAMESPACES.get(uri);
 		
 		if (namespace == null) {
@@ -169,6 +168,21 @@ public class NamespaceFactory {
 		return namespace;
 	}
 
+	/**
+	 * Static factory method that returns an instance of the {@code Namespace} with the given canoncial
+	 * class name implementation for the given uri
+	 * 
+	 * @param canonicalName
+	 *            a {@link String}, not {@code null}
+	 * @return a {@code Namespace} implementation, or {@code null}
+	 */
+	public static Namespace getByCanonicalName(String canonicalName) {
+		if (Strings.isBlank(canonicalName)) {
+			return null;
+		}
+		return NAMESPACES.get(canonicalName);
+	}
+	
 	/**
 	 * @return collection with all {@link Namespace} instances in this factory
 	 */
