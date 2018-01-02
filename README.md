@@ -9,7 +9,7 @@ Java library for parsing podcast feed XML files.
 ### Usage
 
 ```Java
-Optional<Feed> feed = new PodcastParser().parse(xml);
+Feed feed = new PodcastParser().parse(xml);
 ```
 
 ### Requirements
