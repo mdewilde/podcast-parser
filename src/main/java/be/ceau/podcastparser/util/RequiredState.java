@@ -34,6 +34,12 @@ public class RequiredState {
 		return new RequiredState(reader.getEventType(), reader.getNamespaceURI(), reader.getLocalName());
 	}
 	
+	public boolean test(XMLStreamReader reader) throws XMLStreamException {
+		return type == reader.getEventType()
+				&& namespaceURI.equals(reader.getNamespaceURI())
+				&& localName.equals(reader.getLocalName());
+	}
+
 	public void validate(XMLStreamReader reader) throws XMLStreamException {
 		reader.require(type, namespaceURI, localName);
 	}

@@ -64,6 +64,7 @@ public class Feed {
 	private Copyright mediaCopyright;
 	private Credit credit;
 	private boolean complete;
+	private TypedString browserFriendly;
 	
 	/**
 	 * <p>
@@ -638,6 +639,14 @@ public class Feed {
 
 	public void setComplete(boolean complete) {
 		this.complete = complete;
+	}
+
+	public TypedString getBrowserFriendly() {
+		return browserFriendly;
+	}
+
+	public void setBrowserFriendly(TypedString browserFriendly) {
+		this.browserFriendly = browserFriendly;
 	}
 
 	@Override

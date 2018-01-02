@@ -1,7 +1,12 @@
 package be.ceau.podcastparser;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.Reader;
 import java.io.StringReader;
+import java.nio.charset.StandardCharsets;
+
+import org.apache.commons.io.IOUtils;
 
 public class WrappedXml {
 
@@ -11,6 +16,11 @@ public class WrappedXml {
 	public WrappedXml(String description, String xml) {
 		this.description = description == null ? "" : description;
 		this.xml = xml;
+	}
+
+	public WrappedXml(String description, InputStream in) throws IOException {
+		this.description = description == null ? "" : description;
+		this.xml = IOUtils.toString(in, StandardCharsets.UTF_8);
 	}
 
 	/**

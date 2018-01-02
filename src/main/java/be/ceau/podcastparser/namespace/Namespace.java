@@ -22,13 +22,9 @@ import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
-import org.apache.logging.log4j.util.Strings;
-import org.slf4j.LoggerFactory;
-
 import be.ceau.podcastparser.PodParseContext;
 import be.ceau.podcastparser.models.Feed;
 import be.ceau.podcastparser.models.Item;
-import be.ceau.podcastparser.util.Attributes;
 
 /**
  * <p>
@@ -103,28 +99,6 @@ public interface Namespace {
 		ctx.registerUnhandledElement("ITEM");
 	}
 
-	public static void log(PodParseContext ctx, String level) throws XMLStreamException {
-		if (!ctx.getReader().isStartElement() && !ctx.getReader().isEndElement()) {
-			return;
-		}
-
-		String namespaceUri = ctx.getReader().getNamespaceURI();
-		String localName = ctx.getReader().getLocalName();
-		String attributes = Attributes.toString(ctx.getReader());
-		String namespace = ctx.getReader().getName().getPrefix();
-		if (Strings.isBlank(namespace)) {
-			namespace = ctx.getRootNamespace();
-		}
-		LoggerFactory.getLogger(Namespace.class)
-				.info("{}:{}:{} [@{}] {}", namespaceUri, namespace, localName, level, attributes);
-
-		if (ctx.getReader().isStartElement()) {
-			// parse this hierarchy before returning
-			ctx.skip();
-		}
-
-	}
-	
 	/**
 	 * @param namespace
 	 *            a {@link Namespace} implementation, or {@code null}

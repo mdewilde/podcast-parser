@@ -29,20 +29,20 @@ import org.xml.sax.SAXException;
 import be.ceau.podcastparser.namespace.callback.NamespaceCountingCallbackHandler;
 import be.ceau.podcastparser.namespace.callback.UnhandledElementCounter;
 import be.ceau.podcastparser.test.provider.FileProvider;
-import be.ceau.podcastparser.test.provider.FilesProvider;
+import be.ceau.podcastparser.test.provider.ZipFilesProvider;
 
 public class ParseTest {
 
 	private static final Logger logger = LoggerFactory.getLogger(ParseTest.class);
 
-	private static final FilesProvider FILES_PROVIDER = new FilesProvider();
 	
 	public void countEverything() throws IOException, SAXException, ParserConfigurationException {
 
 		NamespaceCountingCallbackHandler callback = new NamespaceCountingCallbackHandler();
 		PodcastParser parser = new PodcastParser(callback);
 
-		FILES_PROVIDER
+		try (ZipFilesProvider provider = new ZipFilesProvider()) {
+			provider
 			.parallelStream()
 //			.stream()
 			.limit(50000)
@@ -54,7 +54,7 @@ public class ParseTest {
 				}
 				// c.stop().log(wrap.getDescription());
 			});
-
+		}
 		System.out.println(callback);
 	//	logger.info("{} {}", System.lineSeparator(), handler.toString());
 
@@ -66,7 +66,8 @@ public class ParseTest {
 		UnhandledElementCounter counter = new UnhandledElementCounter();
 		PodcastParser parser = new PodcastParser(counter);
 
-		FILES_PROVIDER
+		try (ZipFilesProvider provider = new ZipFilesProvider()) {
+			provider
 			.parallelStream()
 			.forEach(wrap -> {
 				try {
@@ -75,7 +76,7 @@ public class ParseTest {
 					// logger.error("{} -> {}", wrap.getDescription(), e.getMessage());
 				}
 			});
-
+		}
 		System.out.println(counter);
 
 	}
@@ -84,27 +85,27 @@ public class ParseTest {
 	public void randomlyParseFeeds() throws IOException, SAXException, ParserConfigurationException {
 		
 		//PodcastXmlParser parser = new PodcastXmlParser();
-		PodcastParser parser = new PodcastParser();
-
-		FILES_PROVIDER.parallelStream()
-//				.limit(10000)
-				.forEach(wrap -> {
-					Bench c = new Bench();
-					try {
-						parser.parse(wrap.getXml());
-//							.ifPresent(feed -> logger.info("{}", feed));
-
-					//	Optional<Feed> feed = parser.parse(wrap.getXml());
-					//	logger.info("{}", feed.get());
-					} catch (Exception e) {
-						logger.error("{} -> {}", wrap.getDescription(), e.getMessage());
-					}
-					c.stop().log(wrap.getDescription());
-				});
-
-		Bench b = new Bench();
-		//logger.warn(parser.getStatistics().forPrint());
-		b.stop().log("prepped stats for print");
+//		PodcastParser parser = new PodcastParser();
+//
+//		FILES_PROVIDER.parallelStream()
+////				.limit(10000)
+//				.forEach(wrap -> {
+//					Bench c = new Bench();
+//					try {
+//						parser.parse(wrap.getXml());
+////							.ifPresent(feed -> logger.info("{}", feed));
+//
+//					//	Optional<Feed> feed = parser.parse(wrap.getXml());
+//					//	logger.info("{}", feed.get());
+//					} catch (Exception e) {
+//						logger.error("{} -> {}", wrap.getDescription(), e.getMessage());
+//					}
+//					c.stop().log(wrap.getDescription());
+//				});
+//
+//		Bench b = new Bench();
+//		//logger.warn(parser.getStatistics().forPrint());
+//		b.stop().log("prepped stats for print");
 	}
 	
 	private List<String> list = Arrays.asList("261623322.txt", "136732182.txt", "257164947.txt", "309562478.txt");

@@ -15,13 +15,9 @@
 */
 package be.ceau.podcastparser.namespace.root.impl;
 
-import static be.ceau.podcastparser.namespace.Namespace.log;
-
 import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
-
-import org.apache.commons.lang3.StringUtils;
 
 import be.ceau.podcastparser.PodParseContext;
 import be.ceau.podcastparser.models.Category;
@@ -97,7 +93,7 @@ public class RSS implements RootNamespace, Namespace {
 	@Override
 	public void process(PodParseContext ctx) throws XMLStreamException {
 		String ns = ctx.getReader().getNamespaceURI();
-		if (StringUtils.isNotBlank(ns) && !NAME.equals(ns) && !getAlternativeNames().contains(ns)) {
+		if (Strings.isNotBlank(ns) && !NAME.equals(ns) && !getAlternativeNames().contains(ns)) {
 			Namespace namespace = NamespaceFactory.getInstance(ns);
 			if (mustDelegateTo(namespace)) {
 				namespace.process(ctx);
@@ -204,7 +200,7 @@ public class RSS implements RootNamespace, Namespace {
 	@Override
 	public void process(PodParseContext ctx, Item item) throws XMLStreamException {
 		String ns = ctx.getReader().getNamespaceURI();
-		if (StringUtils.isNotBlank(ns) && !NAME.equals(ns) && !getAlternativeNames().contains(ns)) {
+		if (Strings.isNotBlank(ns) && !NAME.equals(ns) && !getAlternativeNames().contains(ns)) {
 			Namespace namespace = NamespaceFactory.getInstance(ns);
 			if (mustDelegateTo(namespace)) {
 				namespace.process(ctx, item);
@@ -247,7 +243,7 @@ public class RSS implements RootNamespace, Namespace {
 			item.addLink(link);
 			break;
 		case "reader":
-			Namespace.log(ctx, "ITEM");
+//			ctx.log("ITEM");
 			break;
 		case "pubDate":
 			item.setPubDate(Dates.parse(ctx.getElementText()));

@@ -25,9 +25,13 @@ import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
+import org.apache.logging.log4j.util.Strings;
+import org.slf4j.LoggerFactory;
+
 import be.ceau.podcastparser.models.Feed;
 import be.ceau.podcastparser.models.Item;
 import be.ceau.podcastparser.models.SkippableElement;
+import be.ceau.podcastparser.namespace.Namespace;
 import be.ceau.podcastparser.namespace.callback.NamespaceCallbackHandler;
 import be.ceau.podcastparser.util.RequiredState;
 
@@ -160,12 +164,84 @@ public class PodParseContext {
 	public void skip() throws XMLStreamException {
 		if (reader.isStartElement()) {
 			String localname = reader.getLocalName();
-			while (getReader().hasNext()) {
-				if (getReader().next() == XMLStreamConstants.END_ELEMENT && localname.equals(getReader().getLocalName())) {
+			while (reader.hasNext()) {
+				if (reader.next() == XMLStreamConstants.END_ELEMENT && localname.equals(reader.getLocalName())) {
 					return;
 				}
 			}
 		}
 	}
 
+	/**
+	 * Log, non-repeatably, the current element, including its internal hierarchy
+	 * @param level
+	 * @throws XMLStreamException
+	 */
+	public void log(String level) throws XMLStreamException {
+		if (!reader.isStartElement() && !reader.isEndElement()) {
+			return;
+		}
+		if (reader.isStartElement()) {
+			final String localName = reader.getLocalName();
+			StringBuilder xml = new StringBuilder();
+			xml.append(asStartElementString(reader));
+
+			while (reader.hasNext()) {
+				switch (reader.next()) {
+				case XMLStreamConstants.COMMENT:
+					xml.append("<!-- ");
+					xml.append(reader.getText().trim());
+					xml.append(" -->");
+					break;
+				case XMLStreamConstants.CHARACTERS:
+					xml.append(reader.getText().trim());
+					break;
+				case XMLStreamConstants.START_ELEMENT:
+					xml.append(System.lineSeparator());
+					xml.append(asStartElementString(reader));
+					xml.append(getElementText());
+					break;
+				case XMLStreamConstants.END_ELEMENT:
+					xml.append(asEndElementString(reader));
+					if (localName.equals(reader.getLocalName())) {
+						LoggerFactory.getLogger(Namespace.class).info(xml.toString());
+						return;
+					}
+					break;
+				}
+			}
+		}
+	}
+	
+	private String asStartElementString(XMLStreamReader reader) {
+		return new StringBuilder()
+				.append("<")
+				.append(Strings.isBlank(reader.getName().getPrefix()) ? getRootNamespace() : reader.getName().getPrefix())
+				.append(":")
+				.append(reader.getLocalName())
+				.append(asAttributes(reader))
+				.append(reader.isStandalone() ? "/" : "")
+				.append(">")
+				.toString();
+	}
+	
+	private String asAttributes(XMLStreamReader reader) {
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < reader.getAttributeCount(); i++) {
+			sb.append(" ").append(reader.getAttributeLocalName(i)).append("=\"").append(reader.getAttributeValue(i)).append("\"");
+		}
+		return sb.toString();
+	}
+	
+	private String asEndElementString(XMLStreamReader reader) {
+		return new StringBuilder()
+				.append("</")
+				.append(Strings.isBlank(reader.getName().getPrefix()) ? getRootNamespace() : reader.getName().getPrefix())
+				.append(":")
+				.append(reader.getLocalName())
+				.append(">")
+				.toString();
+	}
+
+	
 }

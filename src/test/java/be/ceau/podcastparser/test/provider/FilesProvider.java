@@ -37,7 +37,7 @@ public class FilesProvider implements TestXmlProvider {
 	private static final List<File> FILES;
 	
 	static {
-		File directory = CORPUS_2017_04_15.toFile();
+		File directory = BASE_DIRECTORY.toFile();
 		if (!directory.isDirectory()) {
 			throw new IllegalStateException(
 					"base directory containing XML samples not found at " + BASE_DIRECTORY.toString());
@@ -54,13 +54,13 @@ public class FilesProvider implements TestXmlProvider {
 				byte[] bytes = Files.readAllBytes(file.toPath());
 				return new WrappedXml(file.getName(), new String(bytes, StandardCharsets.UTF_8));
 			} catch (IOException e) {
-				return new WrappedXml(e.getMessage(), null);
+				return new WrappedXml(e.getMessage(), "");
 			}
 		});
 	}
 
 	public WrappedXml get() {
-		return xmlStream.findAny().orElse(new WrappedXml("stream empty", null));
+		return xmlStream.findAny().orElse(new WrappedXml("stream empty", ""));
 	}
 
 	public Stream<WrappedXml> stream() {
@@ -73,7 +73,7 @@ public class FilesProvider implements TestXmlProvider {
 				byte[] bytes = Files.readAllBytes(file.toPath());
 				return new WrappedXml(file.getName(), new String(bytes, StandardCharsets.UTF_8));
 			} catch (IOException e) {
-				return new WrappedXml(e.getMessage(), null);
+				return new WrappedXml(e.getMessage(), "");
 			}
 		});
 	}

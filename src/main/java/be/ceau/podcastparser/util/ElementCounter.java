@@ -29,8 +29,8 @@ public class ElementCounter {
 
 	private static final int COUNT_WIDTH = 8;
 	private static final int LEVEL_WIDTH = 8;
-	private static final int NAME_WIDTH = 24;
-	private static final int ATTRIBUTES_WIDTH = 18;
+	private static final int NAME_WIDTH = 40;
+	private static final int ATTRIBUTES_WIDTH = 34;
 	private static final int NAMESPACE_WIDTH = 80;
 
 	private final Map<EncounteredElement, LongAdder> map = new ConcurrentHashMap<>();
