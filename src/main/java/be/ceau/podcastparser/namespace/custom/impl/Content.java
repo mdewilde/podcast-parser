@@ -20,7 +20,7 @@ import java.util.Set;
 import javax.xml.stream.XMLStreamException;
 
 import be.ceau.podcastparser.PodParseContext;
-import be.ceau.podcastparser.models.Item;
+import be.ceau.podcastparser.models.core.Item;
 import be.ceau.podcastparser.namespace.Namespace;
 import be.ceau.podcastparser.util.UnmodifiableSet;
 

@@ -17,8 +17,8 @@ package be.ceau.podcastparser.namespace.callback;
 
 import javax.xml.stream.XMLStreamReader;
 
-import be.ceau.podcastparser.models.Feed;
-import be.ceau.podcastparser.models.Item;
+import be.ceau.podcastparser.models.core.Feed;
+import be.ceau.podcastparser.models.core.Item;
 import be.ceau.podcastparser.util.ElementCounter;
 import be.ceau.podcastparser.util.EncounteredElement;
 

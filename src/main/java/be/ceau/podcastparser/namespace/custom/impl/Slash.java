@@ -21,7 +21,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import be.ceau.podcastparser.PodParseContext;
-import be.ceau.podcastparser.models.Item;
+import be.ceau.podcastparser.models.core.Item;
 import be.ceau.podcastparser.namespace.Namespace;
 
 /**

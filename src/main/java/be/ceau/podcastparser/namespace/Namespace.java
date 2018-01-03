@@ -23,8 +23,8 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
 import be.ceau.podcastparser.PodParseContext;
-import be.ceau.podcastparser.models.Feed;
-import be.ceau.podcastparser.models.Item;
+import be.ceau.podcastparser.models.core.Feed;
+import be.ceau.podcastparser.models.core.Item;
 
 /**
  * <p>

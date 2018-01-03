@@ -13,7 +13,7 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
 */
-package be.ceau.podcastparser.models;
+package be.ceau.podcastparser.models.support;
 
 import java.time.Duration;
 

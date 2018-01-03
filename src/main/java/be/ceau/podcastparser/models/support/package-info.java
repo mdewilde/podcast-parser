@@ -13,16 +13,7 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
 */
-package be.ceau.podcastparser.namespace.callback;
-
 /**
- * <p>
- * {@link NamespaceCallbackHandler} that does nothing.
- * </p>
- * <p>
- * Implementations should be threadsafe.
- * </p>
+ * Additional models representing custom data constructs
  */
-public class NoOpNamespaceCallback implements NamespaceCallbackHandler {
-
-}
+package be.ceau.podcastparser.models.support;

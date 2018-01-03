@@ -2,7 +2,7 @@ package be.ceau.podcastparser;
 
 import org.junit.Test;
 
-import be.ceau.podcastparser.models.Feed;
+import be.ceau.podcastparser.models.core.Feed;
 import be.ceau.podcastparser.test.provider.ClasspathFileProvider;
 
 public class AttributeIssueTest {

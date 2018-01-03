@@ -13,29 +13,8 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
 */
-package be.ceau.podcastparser.models;
+package be.ceau.podcastparser.models.support;
 
-import java.time.temporal.Temporal;
-
-public class Visibility {
-
-	private Temporal from;
-	private Temporal to;
-
-	public Temporal getFrom() {
-		return from;
-	}
-
-	public void setFrom(Temporal from) {
-		this.from = from;
-	}
-
-	public Temporal getTo() {
-		return to;
-	}
-
-	public void setTo(Temporal to) {
-		this.to = to;
-	}
+public class Cloud {
 
 }

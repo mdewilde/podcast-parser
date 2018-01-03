@@ -13,24 +13,13 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
 */
-package be.ceau.podcastparser.models;
+package be.ceau.podcastparser.models.support;
 
-/**
- * <p>
- * Instances represent copyright information for an enclosure
- * </p>
- * <p>
- * As specified in the Media namespace.
- * </p>
- */
-public class Copyright {
+public class TypedString {
 
 	private String text;
-	private String url;
+	private String type;
 
-	/**
-	 * @return a {@link String} or {@code null}
-	 */
 	public String getText() {
 		return text;
 	}
@@ -39,18 +28,12 @@ public class Copyright {
 		this.text = text;
 	}
 
-	/**
-	 * Url is the URL for a terms of use page or additional copyright information. It is an optional
-	 * attribute.
-	 * 
-	 * @return a {@link String} or {@code null}
-	 */
-	public String getUrl() {
-		return url;
+	public String getType() {
+		return type;
 	}
 
-	public void setUrl(String url) {
-		this.url = url;
+	public void setType(String type) {
+		this.type = type;
 	}
 
 }

@@ -18,8 +18,8 @@ package be.ceau.podcastparser.namespace.custom.impl;
 import javax.xml.stream.XMLStreamException;
 
 import be.ceau.podcastparser.PodParseContext;
-import be.ceau.podcastparser.models.Item;
-import be.ceau.podcastparser.models.OtherValueKey;
+import be.ceau.podcastparser.models.core.Item;
+import be.ceau.podcastparser.models.support.OtherValueKey;
 import be.ceau.podcastparser.namespace.Namespace;
 
 public class ItunesU implements Namespace {

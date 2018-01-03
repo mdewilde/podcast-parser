@@ -13,7 +13,7 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
 */
-package be.ceau.podcastparser.models;
+package be.ceau.podcastparser.models.core;
 
 import java.time.Duration;
 import java.time.temporal.Temporal;
@@ -23,6 +23,17 @@ import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
 
+import be.ceau.podcastparser.models.support.Category;
+import be.ceau.podcastparser.models.support.Copyright;
+import be.ceau.podcastparser.models.support.Credit;
+import be.ceau.podcastparser.models.support.GeoPoint;
+import be.ceau.podcastparser.models.support.Image;
+import be.ceau.podcastparser.models.support.Link;
+import be.ceau.podcastparser.models.support.OtherValueKey;
+import be.ceau.podcastparser.models.support.Person;
+import be.ceau.podcastparser.models.support.Rating;
+import be.ceau.podcastparser.models.support.TypedString;
+import be.ceau.podcastparser.models.support.UpdateInfo;
 import be.ceau.podcastparser.util.Strings;
 
 public class Feed {

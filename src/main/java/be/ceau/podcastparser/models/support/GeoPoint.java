@@ -13,16 +13,37 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
 */
-package be.ceau.podcastparser.namespace.callback;
+package be.ceau.podcastparser.models.support;
+
+import java.math.BigDecimal;
 
 /**
  * <p>
- * {@link NamespaceCallbackHandler} that does nothing.
+ * A single latitude-longitude pair.
  * </p>
  * <p>
- * Implementations should be threadsafe.
+ * Used in Geo and GeoRSS namespace specifications.
  * </p>
  */
-public class NoOpNamespaceCallback implements NamespaceCallbackHandler {
+public class GeoPoint {
+
+	private BigDecimal latitude;
+	private BigDecimal longitude;
+
+	public BigDecimal getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(BigDecimal latitude) {
+		this.latitude = latitude;
+	}
+
+	public BigDecimal getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(BigDecimal longitude) {
+		this.longitude = longitude;
+	}
 
 }

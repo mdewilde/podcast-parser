@@ -13,7 +13,7 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
 */
-package be.ceau.podcastparser.models;
+package be.ceau.podcastparser.models.core;
 
 import java.time.Duration;
 import java.time.temporal.Temporal;
@@ -24,6 +24,28 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import be.ceau.podcastparser.models.support.Category;
+import be.ceau.podcastparser.models.support.Chapter;
+import be.ceau.podcastparser.models.support.Comments;
+import be.ceau.podcastparser.models.support.Copyright;
+import be.ceau.podcastparser.models.support.Credit;
+import be.ceau.podcastparser.models.support.Enclosure;
+import be.ceau.podcastparser.models.support.GeoBox;
+import be.ceau.podcastparser.models.support.GeoPoint;
+import be.ceau.podcastparser.models.support.Hash;
+import be.ceau.podcastparser.models.support.Image;
+import be.ceau.podcastparser.models.support.License;
+import be.ceau.podcastparser.models.support.Link;
+import be.ceau.podcastparser.models.support.MediaContent;
+import be.ceau.podcastparser.models.support.MediaPlayer;
+import be.ceau.podcastparser.models.support.Metamark;
+import be.ceau.podcastparser.models.support.OtherValueKey;
+import be.ceau.podcastparser.models.support.Person;
+import be.ceau.podcastparser.models.support.Rating;
+import be.ceau.podcastparser.models.support.Scene;
+import be.ceau.podcastparser.models.support.Transcript;
+import be.ceau.podcastparser.models.support.TypedString;
+import be.ceau.podcastparser.models.support.Visibility;
 import be.ceau.podcastparser.util.Strings;
 
 public class Item {

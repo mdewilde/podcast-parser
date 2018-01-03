@@ -20,12 +20,12 @@ import java.util.Set;
 import javax.xml.stream.XMLStreamException;
 
 import be.ceau.podcastparser.PodParseContext;
-import be.ceau.podcastparser.models.Category;
-import be.ceau.podcastparser.models.Image;
-import be.ceau.podcastparser.models.Item;
-import be.ceau.podcastparser.models.Person;
-import be.ceau.podcastparser.models.Rating;
-import be.ceau.podcastparser.models.TypedString;
+import be.ceau.podcastparser.models.core.Item;
+import be.ceau.podcastparser.models.support.Category;
+import be.ceau.podcastparser.models.support.Image;
+import be.ceau.podcastparser.models.support.Person;
+import be.ceau.podcastparser.models.support.Rating;
+import be.ceau.podcastparser.models.support.TypedString;
 import be.ceau.podcastparser.namespace.Namespace;
 import be.ceau.podcastparser.util.UnmodifiableSet;
 

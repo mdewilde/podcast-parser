@@ -24,10 +24,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import be.ceau.podcastparser.PodParseContext;
-import be.ceau.podcastparser.models.GeoBox;
-import be.ceau.podcastparser.models.GeoPoint;
-import be.ceau.podcastparser.models.Item;
-import be.ceau.podcastparser.models.OtherValueKey;
+import be.ceau.podcastparser.models.core.Item;
+import be.ceau.podcastparser.models.support.GeoBox;
+import be.ceau.podcastparser.models.support.GeoPoint;
+import be.ceau.podcastparser.models.support.OtherValueKey;
 import be.ceau.podcastparser.namespace.Namespace;
 import be.ceau.podcastparser.util.Attributes;
 import be.ceau.podcastparser.util.Strings;

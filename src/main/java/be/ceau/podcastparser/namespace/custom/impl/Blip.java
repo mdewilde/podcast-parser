@@ -23,11 +23,11 @@ import javax.xml.stream.XMLStreamException;
 import org.apache.commons.lang3.StringUtils;
 
 import be.ceau.podcastparser.PodParseContext;
-import be.ceau.podcastparser.models.Category;
-import be.ceau.podcastparser.models.Image;
-import be.ceau.podcastparser.models.Item;
-import be.ceau.podcastparser.models.Link;
-import be.ceau.podcastparser.models.OtherValueKey;
+import be.ceau.podcastparser.models.core.Item;
+import be.ceau.podcastparser.models.support.Category;
+import be.ceau.podcastparser.models.support.Image;
+import be.ceau.podcastparser.models.support.Link;
+import be.ceau.podcastparser.models.support.OtherValueKey;
 import be.ceau.podcastparser.namespace.Namespace;
 import be.ceau.podcastparser.util.Dates;
 import be.ceau.podcastparser.util.Strings;
