@@ -18,7 +18,6 @@ package be.ceau.podcastparser.namespace.custom.impl;
 import javax.xml.stream.XMLStreamException;
 
 import org.apache.commons.lang3.StringUtils;
-import org.slf4j.LoggerFactory;
 
 import be.ceau.podcastparser.PodParseContext;
 import be.ceau.podcastparser.models.core.Item;
@@ -26,7 +25,6 @@ import be.ceau.podcastparser.models.support.Enclosure;
 import be.ceau.podcastparser.models.support.Link;
 import be.ceau.podcastparser.models.support.OtherValueKey;
 import be.ceau.podcastparser.namespace.Namespace;
-import be.ceau.podcastparser.util.Attributes;
 
 public class BBC implements Namespace {
 

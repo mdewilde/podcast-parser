@@ -17,6 +17,7 @@ package be.ceau.podcastparser.namespace.callback;
 
 import javax.xml.stream.XMLStreamReader;
 
+import be.ceau.podcastparser.ParseLevel;
 import be.ceau.podcastparser.models.core.Feed;
 import be.ceau.podcastparser.models.core.Item;
 import be.ceau.podcastparser.util.ElementCounter;
@@ -40,16 +41,16 @@ public class NamespaceCountingCallbackHandler implements NamespaceCallbackHandle
 
 	@Override
 	public void beforeProcess(String rootNamespace, Feed feed, XMLStreamReader reader) {
-		counter.count(new EncounteredElement(rootNamespace, reader, "feed"));
+		counter.count(new EncounteredElement(rootNamespace, reader, ParseLevel.FEED));
 	}
 
 	@Override
 	public void beforeProcess(String rootNamespace, Item item, XMLStreamReader reader) {
-		counter.count(new EncounteredElement(rootNamespace, reader, "item"));
+		counter.count(new EncounteredElement(rootNamespace, reader, ParseLevel.ITEM));
 	}
 
 	@Override
-	public void registerUnknownNamespace(String rootNamespace, XMLStreamReader reader, String level) {
+	public void registerUnknownNamespace(String rootNamespace, XMLStreamReader reader, ParseLevel level) {
 		counter.count(new EncounteredElement(rootNamespace, reader, level));
 	}
 

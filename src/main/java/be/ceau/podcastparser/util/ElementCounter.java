@@ -22,6 +22,8 @@ import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.StringUtils;
 
+import be.ceau.podcastparser.ParseLevel;
+
 /**
  * Utility class to count elements
  */
@@ -29,8 +31,8 @@ public class ElementCounter {
 
 	private static final int COUNT_WIDTH = 8;
 	private static final int LEVEL_WIDTH = 8;
-	private static final int NAME_WIDTH = 40;
-	private static final int ATTRIBUTES_WIDTH = 34;
+	private static final int NAME_WIDTH = 50;
+	private static final int ATTRIBUTES_WIDTH = 42;
 	private static final int NAMESPACE_WIDTH = 80;
 
 	private final Map<EncounteredElement, LongAdder> map = new ConcurrentHashMap<>();
@@ -69,8 +71,8 @@ public class ElementCounter {
 				.toString();
 	}
 	
-	private static String row(long count, String level, String localName, String attributes, String namespace) {
-		return row(String.valueOf(count), level, localName, attributes, namespace);
+	private static String row(long count, ParseLevel level, String localName, String attributes, String namespace) {
+		return row(String.valueOf(count), level.name(), localName, attributes, namespace);
 	}
 
 	private static String row(String count, String level, String localName, String attributes, String namespace) {

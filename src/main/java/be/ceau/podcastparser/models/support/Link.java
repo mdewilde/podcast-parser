@@ -88,20 +88,20 @@ public class Link {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("\n\tLink [\n\t\t");
+		builder.append("Link [");
 		if (href != null)
-			builder.append("href=").append(href).append(", \n\t\t");
+			builder.append("href=").append(href).append(", ");
 		if (rel != null)
-			builder.append("rel=").append(rel).append(", \n\t\t");
+			builder.append("rel=").append(rel).append(", ");
 		if (type != null)
-			builder.append("type=").append(type).append(", \n\t\t");
+			builder.append("type=").append(type).append(", ");
 		if (hreflang != null)
-			builder.append("hreflang=").append(hreflang).append(", \n\t\t");
+			builder.append("hreflang=").append(hreflang).append(", ");
 		if (title != null)
-			builder.append("title=").append(title).append(", \n\t\t");
+			builder.append("title=").append(title).append(", ");
 		if (length != null)
-			builder.append("length=").append(length).append(", \n");
-		builder.append("\t]\n");
+			builder.append("length=").append(length);
+		builder.append("]");
 		return builder.toString();
 	}
 

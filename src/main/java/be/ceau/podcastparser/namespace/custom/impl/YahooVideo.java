@@ -18,12 +18,9 @@ package be.ceau.podcastparser.namespace.custom.impl;
 import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 
-import org.slf4j.LoggerFactory;
-
 import be.ceau.podcastparser.PodParseContext;
 import be.ceau.podcastparser.models.core.Item;
 import be.ceau.podcastparser.namespace.Namespace;
-import be.ceau.podcastparser.util.Attributes;
 
 public class YahooVideo implements Namespace {
 

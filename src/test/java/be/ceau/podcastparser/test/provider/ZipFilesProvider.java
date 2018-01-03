@@ -25,7 +25,7 @@ import be.ceau.podcastparser.WrappedXml;
 
 public class ZipFilesProvider implements TestXmlProvider, AutoCloseable {
 
-	private static final Path CORPUS_2017_04_15 = Paths.get(System.getProperty("user.home"), "podcastxml", "corpus_2017-04-15.zip");
+	private static final Path CORPUS_2017_04_15 = Paths.get(System.getProperty("user.home"), "podcastfinder", "corpus_2017-04-15.zip");
 
 	private final ZipFile zipFile;
 	private final Stream<WrappedXml> xmlStream;

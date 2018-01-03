@@ -61,12 +61,3 @@ public class AtomPublishing implements Namespace {
 	}
 
 }
-
-/*
-
-	corpus stats
-	
-       746 	--> http://www.w3.org/2007/app level=item localName=edited attributes=[]]
-         1 	--> http://www.w3.org/2007/app level=item localName=control attributes=[]]
-
-*/

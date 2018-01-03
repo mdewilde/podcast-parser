@@ -21,7 +21,9 @@ import javax.xml.stream.XMLStreamException;
 
 import be.ceau.podcastparser.PodParseContext;
 import be.ceau.podcastparser.models.core.Item;
+import be.ceau.podcastparser.models.support.TypedString;
 import be.ceau.podcastparser.namespace.Namespace;
+import be.ceau.podcastparser.util.Strings;
 import be.ceau.podcastparser.util.UnmodifiableSet;
 
 /**
@@ -38,7 +40,6 @@ public class Content implements Namespace {
 	private static final Set<String> ALTERNATIVE_NAMES = UnmodifiableSet.of(
 			"http://purl.org/rss/1.0/modules/content",
 			"https://purl.org/rss/1.0/modules/content");
-	
 
 	@Override
 	public String getName() {
@@ -54,7 +55,7 @@ public class Content implements Namespace {
 	public void process(PodParseContext ctx, Item item) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
 		case "encoded":
-			item.setContent(ctx.getElementText());
+			item.setContent(parseEncoded(ctx));
 			break;
 		default : 
 			Namespace.super.process(ctx, item);
@@ -62,18 +63,11 @@ public class Content implements Namespace {
 		}
 	}
 
-}
-
-/*
-
-	corpus stats
+	private TypedString parseEncoded(PodParseContext ctx) throws XMLStreamException {
+		TypedString typedString = new TypedString();
+		typedString.setText(ctx.getElementText());
+		typedString.setType(Strings.isHtml(typedString.getText()) ? "html" : "plain");
+		return typedString;
+	}
 	
-   1669369 	--> http://purl.org/rss/1.0/modules/content/ level=item localName=encoded attributes=[]]
-       145 	--> http://purl.org/rss/1.0/modules/content level=item localName=encoded attributes=[]]
-        40 	--> http://purl.org/rss/1.0/modules/content/ level=item localName=enconded attributes=[]]
-        18 	--> http://purl.org/rss/1.0/modules/content/ level=item localName=featuredImageUrl attributes=[]]
-        18 	--> http://purl.org/rss/1.0/modules/content/ level=item localName=featuredImageDescription attributes=[]]
-        10 	--> https://purl.org/rss/1.0/modules/content/ level=item localName=encoded attributes=[]]
-         3 	--> http://purl.org/rss/1.0/modules/content/ level=feed localName=encoded attributes=[]]
-
-*/
+}

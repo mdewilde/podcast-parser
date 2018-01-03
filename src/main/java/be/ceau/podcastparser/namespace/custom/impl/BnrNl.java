@@ -15,25 +15,50 @@
 */
 package be.ceau.podcastparser.namespace.custom.impl;
 
+import java.util.Set;
+
+import javax.xml.stream.XMLStreamException;
+
+import be.ceau.podcastparser.PodParseContext;
+import be.ceau.podcastparser.models.core.Item;
 import be.ceau.podcastparser.namespace.Namespace;
+import be.ceau.podcastparser.util.UnmodifiableSet;
 
 public class BnrNl implements Namespace {
 
 	private static final String NAME = "http://www.bnr.nl/rss/podcast";
+
+	private static final Set<String> ALTERNATIVE_NAMES = UnmodifiableSet.of("http://www.bnr.nl/rss/podcast/meta");
 
 	@Override
 	public String getName() {
 		return NAME;
 	}
 
+	@Override
+	public Set<String> getAlternativeNames() {
+		return ALTERNATIVE_NAMES;
+	}
+
+	@Override
+	public void process(PodParseContext ctx, Item item) throws XMLStreamException {
+		switch (ctx.getReader().getLocalName()) {
+		case "title":
+			item.setTitle(ctx.getElementText());
+			break;
+		case "description":
+			item.setDescription(ctx.getElementText());
+			break;
+		case "brandStory":
+		case "broadcastDate":
+		case "category":
+		case "name":
+		case "spotlight":
+		case "type":
+		default : 
+			Namespace.super.process(ctx, item);
+			break;
+		}
+	}
+
 }
-/*
-	694 	--> http://www.bnr.nl/rss/podcast level=item localName=name attributes=[]]
-	694 	--> http://www.bnr.nl/rss/podcast level=item localName=description attributes=[]]
-	694 	--> http://www.bnr.nl/rss/podcast level=item localName=title attributes=[]]
-	694 	--> http://www.bnr.nl/rss/podcast level=item localName=type attributes=[]]
-	694 	--> http://www.bnr.nl/rss/podcast level=item localName=category attributes=[]]
-	694 	--> http://www.bnr.nl/rss/podcast level=item localName=spotlight attributes=[]]
-	694 	--> http://www.bnr.nl/rss/podcast level=item localName=brandStory attributes=[]]
-	182 	--> http://www.bnr.nl/rss/podcast/meta level=item localName=broadcastDate attributes=[]]
-*/

@@ -17,8 +17,16 @@ package be.ceau.podcastparser.models.support;
 
 public class TypedString {
 
-	private String text;
 	private String type;
+	private String text;
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
 
 	public String getText() {
 		return text;
@@ -28,12 +36,16 @@ public class TypedString {
 		this.text = text;
 	}
 
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("TypedString [");
+		if (type != null)
+			builder.append("type=").append(type).append(", ");
+		if (text != null)
+			builder.append("text=").append(text);
+		builder.append("]");
+		return builder.toString();
 	}
 
 }

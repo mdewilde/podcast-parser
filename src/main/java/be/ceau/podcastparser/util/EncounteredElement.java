@@ -23,22 +23,20 @@ import java.util.stream.Collectors;
 import javax.xml.stream.XMLStreamReader;
 
 import org.apache.commons.lang3.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import be.ceau.podcastparser.ParseLevel;
 
 /**
  * Encapsulate a full element for logging and debugging purposes.
  */
 public class EncounteredElement {
 
-	private static final Logger logger = LoggerFactory.getLogger(EncounteredElement.class);
-
-	private final String level;
+	private final ParseLevel level;
 	private final String localName;
 	private final Set<String> attributes;
 	private final String namespaceUri;
 
-	public EncounteredElement(String rootNamespace, XMLStreamReader reader, String level) {
+	public EncounteredElement(String rootNamespace, XMLStreamReader reader, ParseLevel level) {
 		String uri = reader.getNamespaceURI();
 		this.namespaceUri = StringUtils.isBlank(uri) ? rootNamespace : uri;
 		this.localName = reader.getLocalName();
@@ -46,7 +44,7 @@ public class EncounteredElement {
 		this.level = level;
 	}
 
-	public String getLevel() {
+	public ParseLevel getLevel() {
 		return level;
 	}
 
@@ -129,7 +127,6 @@ public class EncounteredElement {
 			}
 			return attributes;
 		}
-		logger.warn("cannot extract attributes because reader state not valid", new Throwable());
 		return Collections.emptySet();
 	}
 

@@ -109,12 +109,16 @@ public class Category {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("\n\tCategory [\n\t\t");
+		builder.append("Category [");
 		if (name != null)
-			builder.append("name=").append(name).append(", \n\t\t");
+			builder.append("name=").append(name).append(", ");
 		if (subcategory != null)
-			builder.append("subcategory=").append(subcategory).append("\n");
-		builder.append("\t]\n");
+			builder.append("subcategory=").append(subcategory).append(", ");
+		if (scheme != null)
+			builder.append("scheme=").append(scheme).append(", ");
+		if (label != null)
+			builder.append("label=").append(label);
+		builder.append("]");
 		return builder.toString();
 	}
 

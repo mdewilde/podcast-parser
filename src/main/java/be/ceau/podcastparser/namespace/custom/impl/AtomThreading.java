@@ -18,6 +18,7 @@ package be.ceau.podcastparser.namespace.custom.impl;
 import javax.xml.stream.XMLStreamException;
 
 import be.ceau.podcastparser.PodParseContext;
+import be.ceau.podcastparser.exceptions.PodcastParserException;
 import be.ceau.podcastparser.models.core.Item;
 import be.ceau.podcastparser.models.support.Link;
 import be.ceau.podcastparser.models.support.OtherValueKey;
@@ -47,15 +48,7 @@ public class AtomThreading implements Namespace {
 			ctx.getFeed().addOtherValue(OtherValueKey.ATOM_THREADING_TOTAL, ctx.getElementText());
 			break;
 		case "in-reply-to":
-			// The "in-reply-to" element is used to indicate that an entry is a
-			// response to another resource. The element MUST contain a "ref"
-			// attribute identifying the resource that is being responded to.
-			Link link = new Link();
-			link.setHref(ctx.getAttribute("href"));
-			link.setType(ctx.getAttribute("type"));
-			link.setRel("in-reply-to");
-			link.setTitle(ctx.getAttribute("ref"));
-			item.addLink(link);
+			item.addLink(parseInReplyTo(ctx));
 			break;
 		default : 
 			Namespace.super.process(ctx, item);
@@ -63,13 +56,16 @@ public class AtomThreading implements Namespace {
 		}
 	}
 
-}
-
-/*
-
-	corpus stats
+	// The "in-reply-to" element is used to indicate that an entry is a
+	// response to another resource. The element MUST contain a "ref"
+	// attribute identifying the resource that is being responded to.
+	private Link parseInReplyTo(PodParseContext ctx) throws PodcastParserException {
+		Link link = new Link();
+		link.setHref(ctx.getAttribute("href"));
+		link.setType(ctx.getAttribute("type"));
+		link.setRel("in-reply-to");
+		link.setTitle(ctx.getAttribute("ref"));
+		return link;
+	}
 	
-    116578 	--> http://purl.org/syndication/thread/1.0 level=item localName=total attributes=[]]
-       348 	--> http://purl.org/syndication/thread/1.0 level=item localName=in-reply-to attributes=[ref, href, type]]
-
-*/
+}

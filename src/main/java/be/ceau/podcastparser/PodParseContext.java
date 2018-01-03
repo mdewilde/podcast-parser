@@ -87,13 +87,13 @@ public class PodParseContext {
 		state.validate(reader);
 	}
 
-	public void registerUnknownNamespace(String level) throws XMLStreamException {
+	public void registerUnknownNamespace(ParseLevel level) throws XMLStreamException {
 		RequiredState state = RequiredState.from(reader);
 		namespaceCallbackHandler.registerUnknownNamespace(rootNamespace, reader, level);
 		state.validate(reader);
 	}
 
-	public void registerUnhandledElement(String level) throws XMLStreamException {
+	public void registerUnhandledElement(ParseLevel level) throws XMLStreamException {
 		RequiredState state = RequiredState.from(reader);
 		namespaceCallbackHandler.registerUnhandledElement(rootNamespace, reader, level);
 		state.validate(reader);
@@ -174,13 +174,21 @@ public class PodParseContext {
 
 	/**
 	 * Log, non-repeatably, the current element, including its internal hierarchy
-	 * @param level
+	 * 
 	 * @throws XMLStreamException
 	 */
-	public void log(String level) throws XMLStreamException {
-		if (!reader.isStartElement() && !reader.isEndElement()) {
-			return;
+	public void log() throws XMLStreamException {
+		if (reader.isStartElement()) {
+			LoggerFactory.getLogger(Namespace.class).info(serialize());
 		}
+	}
+	
+	/**
+	 * Serialize, non-repeatably, the current element, including its internal hierarchy
+	 * 
+	 * @throws XMLStreamException
+	 */
+	public String serialize() throws XMLStreamException {
 		if (reader.isStartElement()) {
 			final String localName = reader.getLocalName();
 			StringBuilder xml = new StringBuilder();
@@ -199,18 +207,17 @@ public class PodParseContext {
 				case XMLStreamConstants.START_ELEMENT:
 					xml.append(System.lineSeparator());
 					xml.append(asStartElementString(reader));
-					xml.append(getElementText());
 					break;
 				case XMLStreamConstants.END_ELEMENT:
 					xml.append(asEndElementString(reader));
 					if (localName.equals(reader.getLocalName())) {
-						LoggerFactory.getLogger(Namespace.class).info(xml.toString());
-						return;
+						return xml.toString();
 					}
 					break;
 				}
 			}
 		}
+		return "";
 	}
 	
 	private String asStartElementString(XMLStreamReader reader) {

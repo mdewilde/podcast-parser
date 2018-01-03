@@ -195,22 +195,22 @@ public class Image {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("\n\tImage [\n\t\t");
+		builder.append("Image [");
 		if (url != null)
-			builder.append("url=").append(url).append(", \n\t\t");
+			builder.append("url=").append(url).append(", ");
 		if (title != null)
-			builder.append("title=").append(title).append(", \n\t\t");
+			builder.append("title=").append(title).append(", ");
 		if (link != null)
-			builder.append("link=").append(link).append(", \n\t\t");
+			builder.append("link=").append(link).append(", ");
 		if (width != null)
-			builder.append("width=").append(width).append(", \n\t\t");
+			builder.append("width=").append(width).append(", ");
 		if (height != null)
-			builder.append("height=").append(height).append(", \n\t\t");
+			builder.append("height=").append(height).append(", ");
 		if (description != null)
-			builder.append("description=").append(description).append(", \n\t\t");
+			builder.append("description=").append(description).append(", ");
 		if (time != null)
 			builder.append("time=").append(time);
-		builder.append("\n\t]\n");
+		builder.append("]");
 		return builder.toString();
 	}
 

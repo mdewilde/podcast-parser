@@ -22,6 +22,7 @@ import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
+import be.ceau.podcastparser.ParseLevel;
 import be.ceau.podcastparser.PodParseContext;
 import be.ceau.podcastparser.models.core.Feed;
 import be.ceau.podcastparser.models.core.Item;
@@ -76,7 +77,7 @@ public interface Namespace {
 	 */
 	public default void process(PodParseContext ctx) throws XMLStreamException {
 		// default is to do nothing
-		ctx.registerUnhandledElement("FEED");
+		ctx.registerUnhandledElement(ParseLevel.FEED);
 	}
 
 	/**
@@ -96,7 +97,7 @@ public interface Namespace {
 	 */
 	public default void process(PodParseContext ctx, Item item) throws XMLStreamException {
 		// default is to do nothing
-		ctx.registerUnhandledElement("ITEM");
+		ctx.registerUnhandledElement(ParseLevel.ITEM);
 	}
 
 	/**

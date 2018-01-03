@@ -18,6 +18,7 @@ package be.ceau.podcastparser.namespace.callback;
 import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamReader;
 
+import be.ceau.podcastparser.ParseLevel;
 import be.ceau.podcastparser.models.core.Feed;
 import be.ceau.podcastparser.models.core.Item;
 import be.ceau.podcastparser.namespace.Namespace;
@@ -95,9 +96,9 @@ public interface NamespaceCallbackHandler {
 	 *            {@link XMLStreamReader} instance, having just processed a
 	 *            {@link XMLStreamConstants#START_ELEMENT} event with the given namespace.
 	 * @param level
-	 *            {@link String} name of the level at which the element is encountered (feed|item)
+	 *            {@link ParseLevel} level at which the element is encountered
 	 */
-	public default void registerUnknownNamespace(String rootNamespace, XMLStreamReader reader, String level) {
+	public default void registerUnknownNamespace(String rootNamespace, XMLStreamReader reader, ParseLevel level) {
 		// default is to do nothing
 	}
 
@@ -117,9 +118,9 @@ public interface NamespaceCallbackHandler {
 	 *            {@link XMLStreamReader} instance, having just processed a
 	 *            {@link XMLStreamConstants#START_ELEMENT} event.
 	 * @param level
-	 *            {@link String} name of the level at which the element is encountered (feed|item)
+	 *            {@link ParseLevel} level at which the element is encountered
 	 */
-	public default void registerUnhandledElement(String rootNamespace, XMLStreamReader reader, String level) {
+	public default void registerUnhandledElement(String rootNamespace, XMLStreamReader reader, ParseLevel level) {
 		// default is to do nothing
 	}
 

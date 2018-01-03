@@ -20,6 +20,7 @@ import javax.xml.stream.XMLStreamReader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import be.ceau.podcastparser.ParseLevel;
 import be.ceau.podcastparser.util.ElementCounter;
 import be.ceau.podcastparser.util.EncounteredElement;
 
@@ -42,7 +43,7 @@ public class UnhandledElementCounter implements NamespaceCallbackHandler {
 	private final ElementCounter counter = new ElementCounter();
 
 	@Override
-	public void registerUnhandledElement(String rootNamespace, XMLStreamReader reader, String level) {
+	public void registerUnhandledElement(String rootNamespace, XMLStreamReader reader, ParseLevel level) {
 		EncounteredElement element = new EncounteredElement(rootNamespace, reader, level);
 		counter.count(element);
 	}

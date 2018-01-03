@@ -69,7 +69,7 @@ public class Item {
 	private final List<MediaContent> mediaContents = new ArrayList<>();
 	private final List<Image> images = new ArrayList<>();
 	private final List<String> keywords = new ArrayList<>();
-	private String content;
+	private TypedString content;
 	private String subject;
 	private Comments comments;
 	private final List<Chapter> chapters = new ArrayList<>();
@@ -521,13 +521,13 @@ public class Item {
 	 * Not in RSS specification. Part of Content namespace.
 	 * </p>
 	 * 
-	 * @return a {@link String} or {@code null}
+	 * @return a {@link TypedString} or {@code null}
 	 */
-	public String getContent() {
+	public TypedString getContent() {
 		return content;
 	}
 
-	public void setContent(String content) {
+	public void setContent(TypedString content) {
 		this.content = content;
 	}
 
@@ -583,7 +583,9 @@ public class Item {
 	}
 
 	public void addChapter(Chapter chapter) {
-		chapters.add(chapter);
+		if (chapter != null) {
+			chapters.add(chapter);
+		}
 	}
 
 	/**

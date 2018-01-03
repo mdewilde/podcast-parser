@@ -17,12 +17,15 @@ package be.ceau.podcastparser.namespace.custom.impl;
 
 import javax.xml.stream.XMLStreamException;
 
+import org.apache.logging.log4j.util.Strings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import be.ceau.podcastparser.PodParseContext;
 import be.ceau.podcastparser.models.core.Item;
 import be.ceau.podcastparser.models.support.Chapter;
+import be.ceau.podcastparser.models.support.Image;
+import be.ceau.podcastparser.models.support.Link;
 import be.ceau.podcastparser.namespace.Namespace;
 import be.ceau.podcastparser.util.Durations;
 
@@ -53,44 +56,40 @@ public class SimpleChapters implements Namespace {
 	public void process(PodParseContext ctx, Item item) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
 		case "chapter":
-			String aTime = ctx.getAttribute("start");
-			Long millis = Durations.parse(aTime);
-			if (millis == null) {
-				logger.debug("failure parsing {} to milliseconds", aTime);
-				return;
-			}
-			Chapter chapter = new Chapter();
-			chapter.setStart(millis);
-			chapter.setTitle(ctx.getAttribute("title"));
-			String href = ctx.getAttribute("href");
-			if (href != null) {
-				chapter.computeLinkIfAbsent().setHref(href);
-			}
-			String image = ctx.getAttribute("image");
-			if (image != null) {
-				chapter.computeImageIfAbsent().setLink(image);
-			}
-			item.addChapter(chapter);
+			item.addChapter(parseChapter(ctx));
 			break;
 		case "chapters":
 			// no special handling -> chapters is represented by a List
+			break;
 		default : 
 			Namespace.super.process(ctx, item);
 			break;
 		}
 	}
 
-}
-
-/*
-	corpus stats
+	private Chapter parseChapter(PodParseContext ctx) throws XMLStreamException {
+		String aTime = ctx.getAttribute("start");
+		Long millis = Durations.parse(aTime);
+		if (millis == null) {
+			logger.debug("failure parsing {} to milliseconds", aTime);
+			return null;
+		}
+		Chapter chapter = new Chapter();
+		chapter.setStart(millis);
+		chapter.setTitle(ctx.getAttribute("title"));
+		String href = ctx.getAttribute("href");
+		if (Strings.isNotBlank(href)) {
+			Link link = new Link();
+			link.setHref(href);
+			chapter.setHref(link);
+		}
+		String img = ctx.getAttribute("image");
+		if (Strings.isNotBlank(img)) {
+			Image image = new Image();
+			image.setLink(img);
+			chapter.setImage(image);
+		}
+		return chapter;
+	}
 	
-     52486 	--> http://podlove.org/simple-chapters level=item localName=chapter attributes=[start, title]]
-      5677 	--> http://podlove.org/simple-chapters level=item localName=chapters attributes=[version]]
-      5213 	--> http://podlove.org/simple-chapters level=item localName=chapter attributes=[image, start, href, title]]
-      2930 	--> http://podlove.org/simple-chapters level=item localName=chapter attributes=[start, href, title]]
-       138 	--> http://podlove.org/simple-chapters level=item localName=chapter attributes=[image, start, title]]
-        73 	--> http://podlove.org/simple-chapters level=item localName=chapter attributes=[start]]
-         3 	--> http://podlove.org/simple-chapters level=item localName=chapters attributes=[]]
-
-*/
+}

@@ -107,7 +107,7 @@ public class Dates {
 	private static final Pattern PATTERN = Pattern.compile("\\s+");
 
 	public static Temporal parse(String string) {
-		if (string == null) {
+		if (Strings.isBlank(string)) {
 			return null;
 		}
 		string = cleanup(string);

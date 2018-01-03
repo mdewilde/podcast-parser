@@ -90,14 +90,14 @@ public class Person {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("\n\tPerson [\n\t\t");
+		builder.append("Person [");
 		if (name != null)
-			builder.append("name=").append(name).append(", \n\t\t");
+			builder.append("name=").append(name).append(", ");
 		if (uri != null)
-			builder.append("uri=").append(uri).append(", \n\t\t");
+			builder.append("uri=").append(uri).append(", ");
 		if (email != null)
 			builder.append("email=").append(email);
-		builder.append("\n\t]\n");
+		builder.append("]");
 		return builder.toString();
 	}
 

@@ -72,13 +72,6 @@ public class Chapter implements Comparable<Chapter> {
 		return href;
 	}
 
-	public Link computeLinkIfAbsent() {
-		if (href == null) {
-			href = new Link();
-		}
-		return href;
-	}
-
 	public void setHref(Link href) {
 		this.href = href;
 	}
@@ -97,13 +90,6 @@ public class Chapter implements Comparable<Chapter> {
 		return image;
 	}
 
-	public Image computeImageIfAbsent() {
-		if (image == null) {
-			image = new Image();
-		}
-		return image;
-	}
-
 	public void setImage(Image image) {
 		this.image = image;
 	}
@@ -111,6 +97,20 @@ public class Chapter implements Comparable<Chapter> {
 	@Override
 	public int compareTo(Chapter o) {
 		return (int) (start - o.start);
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Chapter [start=").append(start).append(", ");
+		if (title != null)
+			builder.append("title=").append(title).append(", ");
+		if (href != null)
+			builder.append("href=").append(href).append(", ");
+		if (image != null)
+			builder.append("image=").append(image);
+		builder.append("]");
+		return builder.toString();
 	}
 
 }
