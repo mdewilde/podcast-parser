@@ -24,6 +24,7 @@ import javax.xml.stream.XMLStreamException;
 
 import org.xml.sax.EntityResolver;
 
+import be.ceau.podcastparser.exceptions.NotPodcastFeedException;
 import be.ceau.podcastparser.util.UnmodifiableSet;
 
 /**
@@ -72,11 +73,8 @@ public class QuietResolver implements XMLResolver {
 	@Override
 	public InputStream resolveEntity(String publicId, String systemId, String baseURI, String namespace) throws XMLStreamException {
 		if (PUBLIC_IDS_HTML.contains(publicId) || SYSTEM_IDS_HTML.contains(systemId)) {
-			throw new XMLStreamException("the document appears to be HTML");
+			throw new NotPodcastFeedException("the document appears to be HTML");
 		}
-
-//		logger.info("resolveEntity{} \"{}\" {} \"{}\" {} ", System.lineSeparator(), publicId, System.lineSeparator(), systemId, System.lineSeparator());
-		
 		return QuietStream.INSTANCE;
 	}
 
