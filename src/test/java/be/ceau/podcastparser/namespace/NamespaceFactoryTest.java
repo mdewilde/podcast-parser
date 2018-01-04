@@ -19,7 +19,10 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.reflections.Reflections;
 
-
+/**
+ * Ensure that {@link NamespaceFactory} can provide an instance of every {@link Namespace} in this
+ * library
+ */
 public class NamespaceFactoryTest {
 
 	@Test

@@ -18,6 +18,7 @@ package be.ceau.podcastparser;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicLong;
 
 import javax.xml.parsers.ParserConfigurationException;
 
@@ -26,6 +27,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.xml.sax.SAXException;
 
+import be.ceau.podcastparser.exceptions.NotPodcastFeedException;
 import be.ceau.podcastparser.namespace.callback.NamespaceCountingCallbackHandler;
 import be.ceau.podcastparser.namespace.callback.UnhandledElementCounter;
 import be.ceau.podcastparser.test.provider.FileProvider;
@@ -49,8 +51,18 @@ public class ParseTest {
 			.forEach(wrap -> {
 				try {
 					parser.parse(wrap.getXml());
+				} catch (NotPodcastFeedException e) {
+					if ("root element must be rss or feed but it is html".equals(e.getMessage())) {
+						try {
+							if (!wrap.getLocation().delete()) {
+								logger.warn("delete failed -> {}", wrap.getLocation().getAbsolutePath());
+							}
+						} catch (Exception ioe) {
+							logger.error("{} -> {}", wrap.getLocation().getAbsolutePath(), ioe.getMessage());
+						}
+					}
 				} catch (Exception e) {
-					logger.error("{} -> {}", wrap.getDescription(), e.getMessage());
+					logger.error("{} -> {}", wrap.getLocation().getAbsolutePath(), e.getMessage());
 				}
 				// c.stop().log(wrap.getDescription());
 			});
@@ -65,11 +77,16 @@ public class ParseTest {
 
 		UnhandledElementCounter counter = new UnhandledElementCounter();
 		PodcastParser parser = new PodcastParser(counter);
-
+		final AtomicLong adder = new AtomicLong(0L);
 		try (ZipFilesProvider provider = new ZipFilesProvider()) {
 			provider
 			.parallelStream()
+			.limit(50000)
 			.forEach(wrap -> {
+				long l = adder.incrementAndGet();
+				if (l % 100 == 0) {
+					logger.info("instance {}", l);
+				}
 				try {
 					parser.parse(wrap.getXml());
 				} catch (Exception e) {
@@ -81,73 +98,5 @@ public class ParseTest {
 
 	}
 
-	// @Test
-	public void randomlyParseFeeds() throws IOException, SAXException, ParserConfigurationException {
-		
-		//PodcastXmlParser parser = new PodcastXmlParser();
-//		PodcastParser parser = new PodcastParser();
-//
-//		FILES_PROVIDER.parallelStream()
-////				.limit(10000)
-//				.forEach(wrap -> {
-//					Bench c = new Bench();
-//					try {
-//						parser.parse(wrap.getXml());
-////							.ifPresent(feed -> logger.info("{}", feed));
-//
-//					//	Optional<Feed> feed = parser.parse(wrap.getXml());
-//					//	logger.info("{}", feed.get());
-//					} catch (Exception e) {
-//						logger.error("{} -> {}", wrap.getDescription(), e.getMessage());
-//					}
-//					c.stop().log(wrap.getDescription());
-//				});
-//
-//		Bench b = new Bench();
-//		//logger.warn(parser.getStatistics().forPrint());
-//		b.stop().log("prepped stats for print");
-	}
-	
-	private List<String> list = Arrays.asList("261623322.txt", "136732182.txt", "257164947.txt", "309562478.txt");
-
-	
-	// @Test
-	public void atomTest() {
-		for (int i = 0; i < 1; i++) {
-			handleStax("418166339.txt");
-		}
-	}
-	
-	// @Test
-	public void mediaTest() {
-		handleStax("334638865.txt");
-	}
-
-	private void handleStax(String filename) {
-		
-		WrappedXml wrap = new FileProvider(filename).get();
-		Bench bench = new Bench();
-		try {
-			logger.info("{}", new PodcastParser().parse(wrap.getXml()));
-		} catch (Exception e) {
-			logger.error("{} -> {}", wrap.getDescription(), e.getMessage());
-		}
-		bench.stop().log(filename);
-
-	}
-
-	// @Test
-	public void uhh() throws IOException {
-
-//	    File uhh = new File("src/test/resources/uhh.txt");
-//		String xml = FileProvider.toString(uhh);
-//		PodcastXmlParser parser = new PodcastXmlParser();
-//		try {
-//			logger.debug(parser.parse(xml).toString());
-//		} catch (Exception e) {
-//			logger.error("uhh()", e);
-//		}
-		
-	}
 	
 }

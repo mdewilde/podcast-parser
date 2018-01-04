@@ -243,9 +243,6 @@ public class RSS implements RootNamespace, Namespace {
 			link.setHref(ctx.getElementText());
 			item.addLink(link);
 			break;
-		case "reader":
-//			ctx.log("ITEM");
-			break;
 		case "pubDate":
 			item.setPubDate(Dates.parse(ctx.getElementText()));
 			break;
@@ -255,6 +252,7 @@ public class RSS implements RootNamespace, Namespace {
 		case "title":
 			item.setTitle(ctx.getElementText());
 			break;
+		case "reader":
 		default : 
 			Namespace.super.process(ctx, item);
 			break;

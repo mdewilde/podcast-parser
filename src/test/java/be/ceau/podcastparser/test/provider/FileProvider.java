@@ -16,13 +16,11 @@
 package be.ceau.podcastparser.test.provider;
 
 import java.io.File;
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import be.ceau.podcastparser.WrappedXml;
+import be.ceau.podcastparser.test.wrappedxml.FileXml;
+import be.ceau.podcastparser.test.wrappedxml.WrappedXml;
 
 public class FileProvider implements TestXmlProvider {
 
@@ -36,13 +34,7 @@ public class FileProvider implements TestXmlProvider {
 			throw new IllegalStateException(
 					"no file named " + name + " in directory " + BASE_DIRECTORY.toString());
 		}
-		byte[] bytes;
-		try {
-			bytes = Files.readAllBytes(file.toPath());
-		} catch (IOException e) {
-			throw new IllegalStateException(e);
-		}
-		this.wrappedXml = new WrappedXml(file.getName(), new String(bytes, StandardCharsets.UTF_8));
+		this.wrappedXml = FileXml.instance(file);
 	}
 
 	public WrappedXml get() {

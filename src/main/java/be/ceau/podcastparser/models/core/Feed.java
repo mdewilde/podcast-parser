@@ -97,10 +97,9 @@ public class Feed {
 	}
 
 	/**
-	 * The name of the channel. It's how people refer to your service. If you
-	 * have an HTML website that contains the same information as your RSS file,
-	 * the title of your channel should be the same as the title of your
-	 * website.
+	 * The name of the channel or feed
+	 * 
+	 * @return a {@link String} or {@code null}
 	 */
 	public String getTitle() {
 		return title;
@@ -112,7 +111,7 @@ public class Feed {
 
 	/**
 	 * <p>
-	 * The URL to the HTML website corresponding to the channel in RSS spec.
+	 * Collection of all links defined at the feed or channel level.
 	 * </p>
 	 * 
 	 * <p>
@@ -120,7 +119,7 @@ public class Feed {
 	 * {@code link}.
 	 * </p>
 	 * 
-	 * @return {@link List}
+	 * @return a {@link List}, never {@code null}
 	 */
 	public List<Link> getLinks() {
 		return links;

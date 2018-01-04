@@ -17,7 +17,6 @@ package be.ceau.podcastparser.util;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.Set;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
@@ -86,27 +85,8 @@ public class Strings {
 		return WHITE_SPACE.matcher(string).replaceAll(" ");
 	}
 
-	// adapted from https://stackoverflow.com/a/22581832
-	private final static Pattern HTML_PATTERN;
-
-	static {
-		String tagStart =
-				"\\<\\w+((\\s+\\w+(\\s*\\=\\s*(?:\".*?\"|'.*?'|[^'\"\\>\\s]+))?)+\\s*|\\s*)\\>";
-		
-		String tagEnd =
-				"\\</\\w+\\>";
-		
-		String tagSelfClosing =
-				"\\<\\w+((\\s+\\w+(\\s*\\=\\s*(?:\".*?\"|'.*?'|[^'\"\\>\\s]+))?)+\\s*|\\s*)/\\>";
-		
-		String htmlEntity =
-				"&[a-zA-Z][a-zA-Z0-9]+;";
-
-		String pattern = 
-				"(" + tagStart + ".*" + tagEnd + ")|(" + tagSelfClosing + ")|(" + htmlEntity + ")";
-		
-		HTML_PATTERN = Pattern.compile(pattern, Pattern.DOTALL);
-	}
+	// adapted from https://stackoverflow.com/a/21278906
+	private final static Pattern HTML_PATTERN = Pattern.compile(".*\\<[^>]+>.*", Pattern.DOTALL);
 	
 	/**
 	 * Check if string contains HTML markup tags or entities.

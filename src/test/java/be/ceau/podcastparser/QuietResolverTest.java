@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import be.ceau.podcastparser.exceptions.NotPodcastFeedException;
 import be.ceau.podcastparser.test.provider.ClasspathFileProvider;
+import be.ceau.podcastparser.test.wrappedxml.WrappedXml;
 
 public class QuietResolverTest {
 

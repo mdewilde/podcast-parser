@@ -25,6 +25,7 @@ import org.junit.Test;
 import be.ceau.podcastparser.exceptions.PodcastParserException;
 import be.ceau.podcastparser.models.core.Feed;
 import be.ceau.podcastparser.test.provider.ClasspathFileProvider;
+import be.ceau.podcastparser.test.wrappedxml.WrappedXml;
 
 /**
  * <p>

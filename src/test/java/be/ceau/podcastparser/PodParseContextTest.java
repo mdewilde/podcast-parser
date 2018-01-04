@@ -10,13 +10,14 @@ import org.junit.Test;
 
 import be.ceau.podcastparser.namespace.callback.NoOpNamespaceCallback;
 import be.ceau.podcastparser.test.provider.ClasspathFileProvider;
+import be.ceau.podcastparser.test.wrappedxml.FileXml;
 
 public class PodParseContextTest {
 
 	@Test
 	public void skip() throws XMLStreamException {
 		
-		WrappedXml xml = ClasspathFileProvider.read("/uyd.xml");
+		FileXml xml = ClasspathFileProvider.read("/uyd.xml");
 		
 		XMLInputFactory factory = XMLInputFactory.newFactory();
 		factory.setXMLResolver(new QuietResolver());

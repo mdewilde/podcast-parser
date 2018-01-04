@@ -13,22 +13,38 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
 */
-package be.ceau.podcastparser.test.provider;
+package be.ceau.podcastparser.test.wrappedxml;
 
-import java.net.URL;
+import java.io.Reader;
+import java.io.StringReader;
 
-import be.ceau.podcastparser.test.wrappedxml.ClasspathXml;
-import be.ceau.podcastparser.test.wrappedxml.EmptyXml;
-import be.ceau.podcastparser.test.wrappedxml.WrappedXml;
+public class EmptyXml implements WrappedXml {
 
-public class ClasspathFileProvider {
-
-	public static WrappedXml read(String filename) {
-		URL url = ClasspathFileProvider.class.getResource(filename);
-		if (url == null) {
-			return EmptyXml.INSTANCE;
-		}
-		return ClasspathXml.instance(url);
+	public static final WrappedXml INSTANCE = new EmptyXml();
+	
+	@Override
+	public String getFullPath() {
+		return "";
 	}
 
+	@Override
+	public String getName() {
+		return "";
+	}
+
+	@Override
+	public String getXml() {
+		return "";
+	}
+
+	@Override
+	public Reader getReader() {
+		return new StringReader("");
+	}
+
+	@Override
+	public boolean delete() {
+		return false;
+	}
+	
 }

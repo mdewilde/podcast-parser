@@ -16,66 +16,42 @@
 package be.ceau.podcastparser.test.provider;
 
 import java.io.File;
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 import java.util.stream.Stream;
 
-import be.ceau.podcastparser.WrappedXml;
+import be.ceau.podcastparser.test.wrappedxml.FileXml;
 
 public class FilesProvider implements TestXmlProvider {
 
-	private static final Path BASE_DIRECTORY = Paths.get(System.getProperty("user.home"), "podcastfinder", "xml");
-	private static final Path CORPUS_2017_04_15 = Paths.get(System.getProperty("user.home"), "podcastxml", "corpus");
-
-	private static final List<File> FILES;
+	private static final Path BASE_DIRECTORY = Paths.get(System.getProperty("user.home"), "podcastfinder", "corpus");
+	private static final File DIRECTORY;
 	
 	static {
-		File directory = BASE_DIRECTORY.toFile();
-		if (!directory.isDirectory()) {
+		DIRECTORY = BASE_DIRECTORY.toFile();
+		if (!DIRECTORY.isDirectory()) {
 			throw new IllegalStateException(
 					"base directory containing XML samples not found at " + BASE_DIRECTORY.toString());
 		}
-		FILES = Collections.unmodifiableList(Arrays.asList(directory.listFiles()));
 	}
 
-	private final Stream<WrappedXml> xmlStream;
+	private final Stream<FileXml> xmlStream;
 
 	public FilesProvider() {
-		List<File> files = new ArrayList<>(FILES);
-		this.xmlStream = files.stream().map(file -> {
-			try {
-				byte[] bytes = Files.readAllBytes(file.toPath());
-				return new WrappedXml(file.getName(), new String(bytes, StandardCharsets.UTF_8));
-			} catch (IOException e) {
-				return new WrappedXml(e.getMessage(), "");
-			}
-		});
+		this.xmlStream = Arrays.stream(DIRECTORY.listFiles()).map(FileXml::instance);
 	}
 
-	public WrappedXml get() {
-		return xmlStream.findAny().orElse(new WrappedXml("stream empty", ""));
+	public FileXml get() {
+		return xmlStream.findAny().orElse(FileXml.EMPTY);
 	}
 
-	public Stream<WrappedXml> stream() {
+	public Stream<FileXml> stream() {
 		return xmlStream;
 	}
 	
-	public Stream<WrappedXml> parallelStream() {
-		return new ArrayList<>(FILES).parallelStream().map(file -> {
-			try {
-				byte[] bytes = Files.readAllBytes(file.toPath());
-				return new WrappedXml(file.getName(), new String(bytes, StandardCharsets.UTF_8));
-			} catch (IOException e) {
-				return new WrappedXml(e.getMessage(), "");
-			}
-		});
+	public Stream<FileXml> parallelStream() {
+		return xmlStream.parallel();
 	}
 
 }

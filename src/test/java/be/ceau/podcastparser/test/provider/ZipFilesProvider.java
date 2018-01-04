@@ -21,11 +21,13 @@ import java.nio.file.Paths;
 import java.util.stream.Stream;
 import java.util.zip.ZipFile;
 
-import be.ceau.podcastparser.WrappedXml;
+import be.ceau.podcastparser.test.wrappedxml.EmptyXml;
+import be.ceau.podcastparser.test.wrappedxml.WrappedXml;
+import be.ceau.podcastparser.test.wrappedxml.ZipXml;
 
 public class ZipFilesProvider implements TestXmlProvider, AutoCloseable {
 
-	private static final Path CORPUS_2017_04_15 = Paths.get(System.getProperty("user.home"), "podcastfinder", "corpus_2017-04-15.zip");
+	private static final Path CORPUS_2017_04_15 = Paths.get(System.getProperty("user.home"), "podcastfinder", "corpus.zip");
 
 	private final ZipFile zipFile;
 	private final Stream<WrappedXml> xmlStream;
@@ -34,21 +36,14 @@ public class ZipFilesProvider implements TestXmlProvider, AutoCloseable {
 		try {
 			zipFile = new ZipFile(CORPUS_2017_04_15.toFile());
 			xmlStream = zipFile.stream()
-				.map(e -> {
-					try {
-						return new WrappedXml(e.getName(), zipFile.getInputStream(e));
-					} catch (IOException e1) {
-						return new WrappedXml("stream empty", "");
-					}
-				});
-				
+				.map(e -> ZipXml.instance(zipFile, e));
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
 	}
 
 	public WrappedXml get() {
-		return xmlStream.findAny().orElse(new WrappedXml("stream empty", ""));
+		return xmlStream.findAny().orElse(EmptyXml.INSTANCE);
 	}
 
 	public Stream<WrappedXml> stream() {

@@ -124,7 +124,7 @@ public class PodcastParser {
 					return ctx.getFeed();
 				}
 				default:
-					throw new NotPodcastFeedException("root element must be <rss> or <feed> but it is {}", streamReader.getLocalName());
+					throw new NotPodcastFeedException("root element must be rss or feed but it is {}", streamReader.getLocalName());
 				}
 			case XMLStreamConstants.END_DOCUMENT:
 				streamReader.close();

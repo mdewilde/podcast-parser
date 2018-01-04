@@ -15,7 +15,7 @@
 */
 package be.ceau.podcastparser.test.provider;
 
-import be.ceau.podcastparser.WrappedXml;
+import be.ceau.podcastparser.test.wrappedxml.WrappedXml;
 
 /**
  * Contract for any class able to provide XML samples for testing this library.
