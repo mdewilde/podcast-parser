@@ -1,16 +1,11 @@
 package be.ceau.podcastparser;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
-import java.time.temporal.Temporal;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.stream.Collectors;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.time.ZonedDateTime;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.logging.log4j.util.Strings;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,35 +17,39 @@ public class DatesTest {
 	private static final Logger logger = LoggerFactory.getLogger(DatesTest.class);
 
 	@Test
-	public void test() {
-		Set<String> set = new HashSet<>();
-		try (InputStream in = getClass().getClassLoader().getResourceAsStream("dates.txt")) {
-			try (InputStreamReader reader = new InputStreamReader(in, StandardCharsets.UTF_8)) {
-				try (BufferedReader b = new BufferedReader(reader)) {
-					String line;
-					int count = 0;
-					while ((line = b.readLine()) != null) {
-						if (StringUtils.isNotBlank(line)) {
+	public void test() throws IOException {
+
+		Files.readAllLines(Paths.get(System.getProperty("user.home"), "dates.txt"))
+				.forEach(line -> {
+					if (Strings.isNotBlank(line)) {
 						try {
-							Temporal temporal = Dates.parse(line);
-							if (temporal == null)
+							ZonedDateTime temporal = Dates.parse(line);
+							if (temporal == null) {
 								logger.info("{}", line);
-//							logger.info("{}", line);
-						} catch (StackOverflowError e) {
+							}
+						} catch (Exception e) {
 							logger.error("{}", line, e);
 						}
-						}
-//						count++;
-//						if (count > 10000) {
-//							break;
-//						}
 					}
-				}
+				});
+
+	}
+
+	// @Test
+	public void teste() throws IOException {
+		final String line = "May, 12 2016 09:16:04 -0600";
+		try {
+			ZonedDateTime temporal = Dates.parse(line);
+			if (temporal == null) {
+				logger.info("{}", line);
+			} else {
+				logger.info("{} -> {}", line, temporal);
 			}
-		} catch (IOException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+			logger.error("{}", line, e);
 		}
-		logger.info(set.stream().collect(Collectors.joining(System.lineSeparator())));
+
+		
 	}
 
 }

@@ -20,11 +20,11 @@ import java.time.DateTimeException;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
 import java.time.format.DateTimeParseException;
-import java.time.temporal.Temporal;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
@@ -38,18 +38,21 @@ public class Dates {
 	private Dates() {
 		// static methods only
 	}
-	
+
 	private static final Pattern TIMESTAMP_SECONDS = Pattern.compile("[0-9]{10}");
 	private static final Pattern TIMESTAMP_MILLISECONDS = Pattern.compile("[0-9]{13}");
 
 	private static final Pattern COMMA = Pattern.compile(",");
 
-	private static final Pattern ORDINAL_ND = Pattern.compile("nd ");
-	private static final Pattern ORDINAL_TH = Pattern.compile("th ");
-	private static final Pattern ORDINAL_RD = Pattern.compile("rd ");
+	private static final Pattern ORDINAL_ND = Pattern.compile("([0-9])nd ");
+	private static final Pattern ORDINAL_RD = Pattern.compile("([0-9])rd ");
+	private static final Pattern ORDINAL_ST = Pattern.compile("([0-9])st ");
+	private static final Pattern ORDINAL_TH = Pattern.compile("([0-9])th ");
+
+	private static final Pattern WHITE_SPACE = Pattern.compile("\\s+");
 
 	private static final Set<String> ZONED_DATE_TIME_PATTERNS = UnmodifiableSet.of(
-			"EEE, dd MMM uuuu H:mm:ss xx", 
+			"EEE, dd MMM uuuu H:mm:ss xx",
 			"EEE, dd MMM uuuu H:mm:ss z",
 			"EEEE, dd MMMM uuuu H:mm:ss xx",
 			"EEEE, dd MMMM uuuu H:mm:ss z",
@@ -61,8 +64,12 @@ public class Dates {
 			"EEE, dd MMM uuuu H:mm z",
 			"dd MMM uuuu HH:mm:ss xx",
 			"dd MMM uuuu HH:mm:ss z",
-			"uuuu-MM-dd'T'HH:mm:ssxx");
-	
+			"uuuu-MM-dd'T'HH:mm:ssxx",
+			"MMMM dd uuuu HH:mm:ss Z",
+			"MMMM dd uuuu hh:mm a z",
+			"MMMM, dd uuuu HH:mm:ss Z"
+			);
+
 	private static final Set<String> LOCAL_DATE_TIME_PATTERNS = UnmodifiableSet.of(
 			"uuuu-MM-dd HH:mm:ss",
 			"EEE, dd MMM uuuu HH:mm:ss",
@@ -88,7 +95,7 @@ public class Dates {
 				.appendPattern(pattern)
 				.toFormatter(Locale.ENGLISH);
 	}
-	
+
 	static {
 		List<DateTimeFormatter> formatters1 = ZONED_DATE_TIME_PATTERNS.stream()
 				.map(Dates::prepare)
@@ -103,29 +110,44 @@ public class Dates {
 				.collect(Collectors.toList());
 		LOCAL_DATE_FORMATTERS = UnmodifiableSet.of(formatters3);
 	}
-	
-	private static final Pattern PATTERN = Pattern.compile("\\s+");
 
-	public static Temporal parse(String string) {
+	/**
+	 * <p>
+	 * Parse the given input {@link String} to a {@link ZonedDateTime} instance.
+	 * </p>
+	 * <p>
+	 * The aim of this method is to be as lenient as possible, so very few assumptions are made about
+	 * the input format. However, if no possible date can be parsed from the input, {@code null} is
+	 * returned.
+	 * </p>
+	 * <p>
+	 * If time is missing from the input, start of day will be set instead.
+	 * </p>
+	 * <p>
+	 * If timezone is missing from the input, UTC will be substituted.
+	 * </p>
+	 * 
+	 * @param string
+	 *            a {@link String}
+	 * @return parsed {@link ZonedDateTime}, or {@code null}
+	 */
+	public static ZonedDateTime parse(final String string) {
 		if (Strings.isBlank(string)) {
 			return null;
 		}
-		string = cleanup(string);
-		Temporal t = parse(string, true);
-		if (t == null) {
+		final String cleaned = cleanup(string);
+		ZonedDateTime zonedDateTime = parse(cleaned, true);
+		if (zonedDateTime == null) {
 			// last try
-			string = deepClean(string);
-			t = parse(string, true);
+			final String deepCleaned = deepClean(cleaned);
+			zonedDateTime = parse(deepCleaned, true);
 		}
-		return t;
+		return zonedDateTime;
 	}
-	
-	private static Temporal parse(String string, boolean recurse) {
-		if (string == null) {
-			return null;
-		}
-		string = cleanup(string);
-		ParsePosition position = new ParsePosition(0);
+
+	private static ZonedDateTime parse(String string, boolean recurse) {
+
+		final ParsePosition position = new ParsePosition(0);
 
 		for (DateTimeFormatter formatter : ZONED_DATE_TIME_FORMATTERS) {
 			try {
@@ -149,7 +171,7 @@ public class Dates {
 			try {
 				formatter.parseUnresolved(string, position);
 				if (position.getErrorIndex() < 0) {
-					return LocalDateTime.parse(string, formatter);
+					return LocalDateTime.parse(string, formatter).atZone(ZoneId.of("UTC"));
 				}
 			} catch (DateTimeParseException ex) {
 				if (recurse && isDayOfWeekMismatch(ex)) {
@@ -167,7 +189,7 @@ public class Dates {
 			try {
 				formatter.parseUnresolved(string, position);
 				if (position.getErrorIndex() < 0) {
-					return LocalDate.parse(string, formatter);
+					return LocalDate.parse(string, formatter).atStartOfDay().atZone(ZoneId.of("UTC"));
 				}
 			} catch (DateTimeParseException ex) {
 				if (recurse && isDayOfWeekMismatch(ex)) {
@@ -182,10 +204,10 @@ public class Dates {
 			position.setErrorIndex(-1);
 		}
 		if (TIMESTAMP_MILLISECONDS.matcher(string).matches()) {
-			return Instant.ofEpochMilli(Long.parseLong(string));
+			return Instant.ofEpochMilli(Long.parseLong(string)).atZone(ZoneId.of("UTC"));
 		}
 		if (TIMESTAMP_SECONDS.matcher(string).matches()) {
-			return Instant.ofEpochSecond(Long.parseLong(string));
+			return Instant.ofEpochSecond(Long.parseLong(string)).atZone(ZoneId.of("UTC"));
 		}
 
 		return null;
@@ -196,7 +218,7 @@ public class Dates {
 		string = removeComma(string);
 		string = removeOrdinal(string);
 		string = removeExtraWhitespace(string);
-		return string;
+		return string.trim();
 	}
 
 	private static String removeComma(String string) {
@@ -204,16 +226,17 @@ public class Dates {
 	}
 
 	private static String removeOrdinal(String string) {
-		string = ORDINAL_ND.matcher(string).replaceAll(" ");
+		string = ORDINAL_ND.matcher(string).replaceAll("$1 ");
 		string = ORDINAL_RD.matcher(string).replaceAll(" ");
+		string = ORDINAL_ST.matcher(string).replaceAll("$1 ");
 		string = ORDINAL_TH.matcher(string).replaceAll(" ");
 		return string;
 	}
-	
+
 	private static boolean isDayOfWeekMismatch(DateTimeException e) {
 		return e.getMessage().contains("DayOfWeek") && e.getMessage().contains("differs");
 	}
-	
+
 	private static String removeDayOfWeek(String string) {
 		string = StringUtils.removeIgnoreCase(string, "Mon,");
 		string = StringUtils.removeIgnoreCase(string, "Tue,");
@@ -224,20 +247,18 @@ public class Dates {
 		string = StringUtils.removeIgnoreCase(string, "Sun,");
 		return string;
 	}
-	
+
 	private static String chompFirstPart(String string) {
 		Pattern pattern = Pattern.compile("^[a-zA-Z]*(,| )");
 		return pattern.matcher(string).replaceFirst("");
 	}
-	
-	private static String cleanup(String string) {
-		string = string.trim();
-		string = removeExtraWhitespace(string);
-		return string;
+
+	private static String cleanup(final String string) {
+		return removeExtraWhitespace(string).trim();
 	}
 
 	private static String removeExtraWhitespace(String string) {
-		return PATTERN.matcher(string).replaceAll(" ");
+		return WHITE_SPACE.matcher(string).replaceAll(" ");
 	}
 
 }
