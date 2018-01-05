@@ -8,16 +8,15 @@ import javax.xml.stream.XMLStreamReader;
 import org.junit.Assert;
 import org.junit.Test;
 
-import be.ceau.podcastparser.namespace.callback.NoOpNamespaceCallback;
 import be.ceau.podcastparser.test.provider.ClasspathFileProvider;
-import be.ceau.podcastparser.test.wrappedxml.FileXml;
+import be.ceau.podcastparser.test.wrappedxml.WrappedXml;
 
 public class PodParseContextTest {
 
 	@Test
 	public void skip() throws XMLStreamException {
 		
-		FileXml xml = ClasspathFileProvider.read("/uyd.xml");
+		WrappedXml xml = ClasspathFileProvider.read("/uyd.xml");
 		
 		XMLInputFactory factory = XMLInputFactory.newFactory();
 		factory.setXMLResolver(new QuietResolver());
@@ -28,7 +27,7 @@ public class PodParseContextTest {
 			case XMLStreamConstants.START_ELEMENT:
 				switch (streamReader.getLocalName()) {
 				case "rss": {
-					PodParseContext ctx = new PodParseContext("rss", streamReader, new NoOpNamespaceCallback());
+					PodParseContext ctx = new PodParseContext("rss", streamReader);
 					
 					while (streamReader.hasNext()) {
 						if (streamReader.next() == XMLStreamConstants.START_ELEMENT) {

@@ -18,6 +18,10 @@ package be.ceau.podcastparser;
 import java.io.InputStream;
 import java.io.Reader;
 import java.io.StringReader;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 import java.util.Objects;
 
 import javax.xml.stream.XMLInputFactory;
@@ -30,7 +34,6 @@ import be.ceau.podcastparser.exceptions.NotPodcastFeedException;
 import be.ceau.podcastparser.exceptions.PodcastParserException;
 import be.ceau.podcastparser.models.core.Feed;
 import be.ceau.podcastparser.namespace.callback.NamespaceCallbackHandler;
-import be.ceau.podcastparser.namespace.callback.NoOpNamespaceCallback;
 import be.ceau.podcastparser.namespace.root.impl.Atom;
 import be.ceau.podcastparser.namespace.root.impl.RSS;
 import be.ceau.podcastparser.util.Strings;
@@ -41,37 +44,48 @@ import be.ceau.podcastparser.util.Strings;
 public class PodcastParser {
 
 	private final XMLInputFactory factory;
-	private final NamespaceCallbackHandler namespaceCallbackHandler;
+	private final List<NamespaceCallbackHandler> namespaceCallbackHandlers;
 
 	/**
-	 * <p>
 	 * No-arg constructor
-	 * </p>
 	 */
 	public PodcastParser() {
-		this(new NoOpNamespaceCallback());
+		this(Collections.emptySet());
 	}
 
 	/**
-	 * <p>
-	 * Constructor with {@link NamespaceCallbackHandler}. Use this constructor if you want to add custom logic to the
-	 * parsing process. 
-	 * </p>
+	 * Constructor with {@link NamespaceCallbackHandler}. Use this constructor if you want to add custom
+	 * logic to the parsing process.
 	 *
 	 * @param callbackHandler
-	 *            a {@link be.ceau.podcastparser.namespace.callback.NamespaceCallbackHandler} object.
+	 *            a {@link be.ceau.podcastparser.namespace.callback.NamespaceCallbackHandler} implementation
+	 * @throws NullPointerException
+	 *             if argument is {@code null}
 	 */
 	public PodcastParser(NamespaceCallbackHandler callbackHandler) {
-		Objects.requireNonNull(callbackHandler);
-		factory = XMLInputFactory.newFactory();
-		factory.setXMLResolver(new QuietResolver());
-		namespaceCallbackHandler = callbackHandler;
+		this(Collections.singleton(callbackHandler));
 	}
 
 	/**
-	 * <p>
+	 * Constructor with {@link NamespaceCallbackHandler}. Use this constructor if you want to multiple
+	 * callback handlers to execute custom logic to the parsing process.
+	 *
+	 * @param callbackHandlers
+	 *            a {@link Collection} of
+	 *            {@link be.ceau.podcastparser.namespace.callback.NamespaceCallbackHandler} implementations
+	 * @throws NullPointerException
+	 *             if argument is {@code null} or contains {@code null}
+	 */
+	public PodcastParser(Collection<NamespaceCallbackHandler> callbackHandlers) {
+		Objects.requireNonNull(callbackHandlers);
+		this.factory = XMLInputFactory.newFactory();
+		this.factory.setXMLResolver(new QuietResolver());
+		this.namespaceCallbackHandlers = Collections.unmodifiableList(new ArrayList<>(callbackHandlers));
+		this.namespaceCallbackHandlers.forEach(Objects::requireNonNull);
+	}
+
+	/**
 	 * Parse the given XML {@link String} into a {@link Feed} object.
-	 * </p>
 	 *
 	 * @param xml
 	 *            a {@link java.lang.String} object.
@@ -89,9 +103,7 @@ public class PodcastParser {
 	}
 
 	/**
-	 * <p>
 	 * Parse the given XML {@link InputStream} into a {@link Feed} object.
-	 * </p>
 	 *
 	 * @param reader
 	 *            a {@link java.io.Reader} object.
@@ -114,12 +126,12 @@ public class PodcastParser {
 			case XMLStreamConstants.START_ELEMENT:
 				switch (streamReader.getLocalName()) {
 				case "rss": {
-					PodParseContext ctx = new PodParseContext("rss", streamReader, namespaceCallbackHandler);
+					PodParseContext ctx = new PodParseContext("rss", streamReader, namespaceCallbackHandlers);
 					RSS.instance().parseFeed(ctx);
 					return ctx.getFeed();
 				}
 				case "feed": {
-					PodParseContext ctx = new PodParseContext("atom", streamReader, namespaceCallbackHandler);
+					PodParseContext ctx = new PodParseContext("atom", streamReader, namespaceCallbackHandlers);
 					Atom.instance().parseFeed(ctx);
 					return ctx.getFeed();
 				}

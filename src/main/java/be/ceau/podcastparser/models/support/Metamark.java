@@ -103,4 +103,22 @@ public class Metamark {
 		this.duration = duration;
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Metamark [");
+		if (text != null)
+			builder.append("text=").append(text).append(", ");
+		if (link != null)
+			builder.append("link=").append(link).append(", ");
+		if (type != null)
+			builder.append("type=").append(type).append(", ");
+		if (position != null)
+			builder.append("position=").append(position).append(", ");
+		if (duration != null)
+			builder.append("duration=").append(duration);
+		builder.append("]");
+		return builder.toString();
+	}
+
 }

@@ -38,4 +38,16 @@ public class Visibility {
 		this.to = to;
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Visibility [");
+		if (from != null)
+			builder.append("from=").append(from).append(", ");
+		if (to != null)
+			builder.append("to=").append(to);
+		builder.append("]");
+		return builder.toString();
+	}
+
 }

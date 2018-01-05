@@ -56,4 +56,16 @@ public class Comments {
 		this.link = link;
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Comments [");
+		if (number != null)
+			builder.append("number=").append(number).append(", ");
+		if (link != null)
+			builder.append("link=").append(link);
+		builder.append("]");
+		return builder.toString();
+	}
+
 }

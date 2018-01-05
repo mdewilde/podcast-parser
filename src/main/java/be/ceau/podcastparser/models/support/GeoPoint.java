@@ -46,4 +46,16 @@ public class GeoPoint {
 		this.longitude = longitude;
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("GeoPoint [");
+		if (latitude != null)
+			builder.append("latitude=").append(latitude).append(", ");
+		if (longitude != null)
+			builder.append("longitude=").append(longitude);
+		builder.append("]");
+		return builder.toString();
+	}
+
 }

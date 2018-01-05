@@ -93,4 +93,18 @@ public class UpdateInfo {
 		this.base = base;
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("UpdateInfo [");
+		if (frequency != null)
+			builder.append("frequency=").append(frequency).append(", ");
+		if (period != null)
+			builder.append("period=").append(period).append(", ");
+		if (base != null)
+			builder.append("base=").append(base);
+		builder.append("]");
+		return builder.toString();
+	}
+
 }

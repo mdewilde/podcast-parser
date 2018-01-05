@@ -100,4 +100,18 @@ public class Credit {
 		this.scheme = scheme;
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Credit [");
+		if (entity != null)
+			builder.append("entity=").append(entity).append(", ");
+		if (role != null)
+			builder.append("role=").append(role).append(", ");
+		if (scheme != null)
+			builder.append("scheme=").append(scheme);
+		builder.append("]");
+		return builder.toString();
+	}
+
 }

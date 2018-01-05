@@ -107,13 +107,15 @@ public class Enclosure {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("\n\tEnclosure [\n\t\t");
+		builder.append("Enclosure [");
 		if (url != null)
-			builder.append("url=").append(url).append(", \n\t\t");
-		builder.append("length=").append(length).append(", \n\t\t");
+			builder.append("url=").append(url).append(", ");
+		builder.append("length=").append(length).append(", ");
 		if (type != null)
-			builder.append("type=").append(type);
-		builder.append("\n\t]\n");
+			builder.append("type=").append(type).append(", ");
+		if (description != null)
+			builder.append("description=").append(description);
+		builder.append("]");
 		return builder.toString();
 	}
 

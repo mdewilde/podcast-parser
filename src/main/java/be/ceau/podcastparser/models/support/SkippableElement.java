@@ -76,4 +76,16 @@ public final class SkippableElement implements Serializable {
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("SkippableElement [");
+		if (namespace != null)
+			builder.append("namespace=").append(namespace).append(", ");
+		if (localName != null)
+			builder.append("localName=").append(localName);
+		builder.append("]");
+		return builder.toString();
+	}
+
 }

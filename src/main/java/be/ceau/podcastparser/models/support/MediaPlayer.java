@@ -64,4 +64,14 @@ public class MediaPlayer {
 		this.width = width;
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("MediaPlayer [");
+		if (url != null)
+			builder.append("url=").append(url).append(", ");
+		builder.append("height=").append(height).append(", width=").append(width).append("]");
+		return builder.toString();
+	}
+
 }

@@ -18,6 +18,7 @@ package be.ceau.podcastparser;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -39,22 +40,26 @@ public class PodParseContext {
 
 	private final String rootNamespace;
 	private final XMLStreamReader reader;
-	private final NamespaceCallbackHandler namespaceCallbackHandler;
+	private final List<NamespaceCallbackHandler> namespaceCallbackHandlers;
 	private final Feed feed;
 	private final Set<SkippableElement> skippableElements;
 
-	public PodParseContext(String rootNamespace, XMLStreamReader reader, NamespaceCallbackHandler namespaceCallbackHandler) {
-		this(rootNamespace, reader, namespaceCallbackHandler, Collections.emptySet());
+	public PodParseContext(String rootNamespace, XMLStreamReader reader) {
+		this(rootNamespace, reader, Collections.emptyList(), Collections.emptySet());
 	}
 
-	public PodParseContext(String rootNamespace, XMLStreamReader reader, NamespaceCallbackHandler namespaceCallbackHandler, Collection<SkippableElement> skippableElements) {
+	public PodParseContext(String rootNamespace, XMLStreamReader reader, List<NamespaceCallbackHandler> namespaceCallbackHandlers) {
+		this(rootNamespace, reader, namespaceCallbackHandlers, Collections.emptySet());
+	}
+
+	public PodParseContext(String rootNamespace, XMLStreamReader reader, List<NamespaceCallbackHandler> namespaceCallbackHandlers, Collection<SkippableElement> skippableElements) {
 		Objects.requireNonNull(rootNamespace);
 		Objects.requireNonNull(reader);
-		Objects.requireNonNull(namespaceCallbackHandler);
+		Objects.requireNonNull(namespaceCallbackHandlers);
 		Objects.requireNonNull(skippableElements);
 		this.rootNamespace = rootNamespace;
 		this.reader = reader;
-		this.namespaceCallbackHandler = namespaceCallbackHandler;
+		this.namespaceCallbackHandlers = namespaceCallbackHandlers;
 		this.feed = new Feed();
 		this.skippableElements = Collections.unmodifiableSet(new HashSet<>(skippableElements));
 	}
@@ -67,35 +72,31 @@ public class PodParseContext {
 		return reader;
 	}
 
-	public NamespaceCallbackHandler getNamespaceCallbackHandler() {
-		return namespaceCallbackHandler;
-	}
-
 	public Feed getFeed() {
 		return feed;
 	}
 
 	public void beforeProcess() throws XMLStreamException {
 		RequiredState state = RequiredState.from(reader);
-		namespaceCallbackHandler.beforeProcess(rootNamespace, feed, reader);
+		namespaceCallbackHandlers.forEach(h -> h.beforeProcess(rootNamespace, feed, reader));
 		state.validate(reader);
 	}
 
 	public void beforeProcess(Item item) throws XMLStreamException {
 		RequiredState state = RequiredState.from(reader);
-		namespaceCallbackHandler.beforeProcess(rootNamespace, item, reader);
+		namespaceCallbackHandlers.forEach(h -> h.beforeProcess(rootNamespace, item, reader));
 		state.validate(reader);
 	}
 
 	public void registerUnknownNamespace(ParseLevel level) throws XMLStreamException {
 		RequiredState state = RequiredState.from(reader);
-		namespaceCallbackHandler.registerUnknownNamespace(rootNamespace, reader, level);
+		namespaceCallbackHandlers.forEach(h -> h.registerUnknownNamespace(rootNamespace, reader, level));
 		state.validate(reader);
 	}
 
 	public void registerUnhandledElement(ParseLevel level) throws XMLStreamException {
 		RequiredState state = RequiredState.from(reader);
-		namespaceCallbackHandler.registerUnhandledElement(rootNamespace, reader, level);
+		namespaceCallbackHandlers.forEach(h -> h.registerUnhandledElement(rootNamespace, reader, level));
 		state.validate(reader);
 	}
 
@@ -106,7 +107,24 @@ public class PodParseContext {
 	 * @throws XMLStreamException
 	 */
 	public String getElementText() throws XMLStreamException {
-		if (reader.isStartElement()) {
+		if (reader.isStartElement() && !reader.isStandalone()) {
+			final String localName = reader.getLocalName();
+			StringBuilder sb = new StringBuilder();
+			while (reader.hasNext()) {
+				switch (reader.next()) {
+				case XMLStreamReader.END_ELEMENT : 
+					if (localName.equals(reader.getLocalName())) {
+						return sb.toString();
+					}
+					break;
+				case XMLStreamReader.CHARACTERS :
+					sb.append(reader.getText());
+					break;
+				case XMLStreamReader.CDATA :
+					sb.append(reader.getText());
+					break;
+				}
+			}
 			return reader.getElementText();
 		}
 		return null;

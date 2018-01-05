@@ -103,14 +103,16 @@ public class Rating {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("\n\tRating [\n\t\t");
+		builder.append("Rating [");
 		if (text != null)
-			builder.append("text=").append(text).append(", \n\t\t");
+			builder.append("text=").append(text).append(", ");
 		if (scheme != null)
-			builder.append("scheme=").append(scheme).append(", \n\t\t");
+			builder.append("scheme=").append(scheme).append(", ");
 		if (explicit != null)
-			builder.append("explicit=").append(explicit).append("\n");
-		builder.append("\t]\n");
+			builder.append("explicit=").append(explicit).append(", ");
+		if (adultContent != null)
+			builder.append("adultContent=").append(adultContent);
+		builder.append("]");
 		return builder.toString();
 	}
 

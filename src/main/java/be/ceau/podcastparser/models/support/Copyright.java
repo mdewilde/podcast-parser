@@ -53,4 +53,16 @@ public class Copyright {
 		this.url = url;
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Copyright [");
+		if (text != null)
+			builder.append("text=").append(text).append(", ");
+		if (url != null)
+			builder.append("url=").append(url);
+		builder.append("]");
+		return builder.toString();
+	}
+
 }

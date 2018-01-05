@@ -70,4 +70,22 @@ public class Transcript {
 		this.end = end;
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Transcript [");
+		if (text != null)
+			builder.append("text=").append(text).append(", ");
+		if (type != null)
+			builder.append("type=").append(type).append(", ");
+		if (lang != null)
+			builder.append("lang=").append(lang).append(", ");
+		if (start != null)
+			builder.append("start=").append(start).append(", ");
+		if (end != null)
+			builder.append("end=").append(end);
+		builder.append("]");
+		return builder.toString();
+	}
+
 }

@@ -16,8 +16,6 @@
 package be.ceau.podcastparser;
 
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -30,7 +28,6 @@ import org.xml.sax.SAXException;
 import be.ceau.podcastparser.exceptions.NotPodcastFeedException;
 import be.ceau.podcastparser.namespace.callback.NamespaceCountingCallbackHandler;
 import be.ceau.podcastparser.namespace.callback.UnhandledElementCounter;
-import be.ceau.podcastparser.test.provider.FileProvider;
 import be.ceau.podcastparser.test.provider.ZipFilesProvider;
 
 public class ParseTest {
@@ -54,15 +51,15 @@ public class ParseTest {
 				} catch (NotPodcastFeedException e) {
 					if ("root element must be rss or feed but it is html".equals(e.getMessage())) {
 						try {
-							if (!wrap.getLocation().delete()) {
-								logger.warn("delete failed -> {}", wrap.getLocation().getAbsolutePath());
+							if (!wrap.delete()) {
+								logger.warn("delete failed -> {}", wrap.getFullPath());
 							}
 						} catch (Exception ioe) {
-							logger.error("{} -> {}", wrap.getLocation().getAbsolutePath(), ioe.getMessage());
+							logger.error("{} -> {}", wrap.getFullPath(), ioe.getMessage());
 						}
 					}
 				} catch (Exception e) {
-					logger.error("{} -> {}", wrap.getLocation().getAbsolutePath(), e.getMessage());
+					logger.error("{} -> {}", wrap.getFullPath(), e.getMessage());
 				}
 				// c.stop().log(wrap.getDescription());
 			});

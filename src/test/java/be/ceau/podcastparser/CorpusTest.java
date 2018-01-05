@@ -20,7 +20,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import be.ceau.podcastparser.exceptions.NotPodcastFeedException;
-import be.ceau.podcastparser.namespace.callback.UnhandledElementCounter;
 import be.ceau.podcastparser.test.provider.FilesProvider;
 
 public class CorpusTest {
@@ -30,30 +29,32 @@ public class CorpusTest {
 	@Test
 	public void corpusParseTest() {
 
-		UnhandledElementCounter counter = new UnhandledElementCounter();
-		PodcastParser parser = new PodcastParser(counter);
-		new FilesProvider().parallelStream()
+		PodcastParser parser = new PodcastParser();
+		new FilesProvider().stream()
 				.forEach(wrap -> {
 					try {
 						parser.parse(wrap.getXml());
 					} catch (NotPodcastFeedException e) {
 						if ("root element must be rss or feed but it is html".equals(e.getMessage())) {
 							try {
-								if (!wrap.getLocation().delete()) {
-									logger.warn("delete failed -> {}", wrap.getLocation().getAbsolutePath());
+								if (!wrap.delete()) {
+									logger.warn("delete failed -> {}", wrap.getFullPath());
 								}
 							} catch (Exception ioe) {
-								logger.error("{} -> {}", wrap.getLocation().getAbsolutePath(), ioe.getMessage());
+								logger.error("{} -> {}", wrap.getFullPath(), ioe.getMessage());
 							}
 						}
 					} catch (Exception e) {
-//						logger.error("{} -> {}", wrap.getLocation().getAbsolutePath(), e.getMessage());
+						if (e.getMessage().contains("elementGetText() function expects")) {
+							logger.error("{}", wrap.getFullPath(), e);
+						} else {
+							logger.error("{} -> {}", wrap.getFullPath(), e.getMessage());
+						}
 					}
 					// c.stop().log(wrap.getDescription());
 				});
-		logger.debug("end of parallelstream");
+		logger.debug("end of stream");
 
-		System.out.println(counter);
 
 	}
 

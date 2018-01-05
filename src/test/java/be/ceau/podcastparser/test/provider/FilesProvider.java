@@ -21,7 +21,9 @@ import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.stream.Stream;
 
+import be.ceau.podcastparser.test.wrappedxml.EmptyXml;
 import be.ceau.podcastparser.test.wrappedxml.FileXml;
+import be.ceau.podcastparser.test.wrappedxml.WrappedXml;
 
 public class FilesProvider implements TestXmlProvider {
 
@@ -36,21 +38,21 @@ public class FilesProvider implements TestXmlProvider {
 		}
 	}
 
-	private final Stream<FileXml> xmlStream;
+	private final Stream<WrappedXml> xmlStream;
 
 	public FilesProvider() {
 		this.xmlStream = Arrays.stream(DIRECTORY.listFiles()).map(FileXml::instance);
 	}
 
-	public FileXml get() {
-		return xmlStream.findAny().orElse(FileXml.EMPTY);
+	public WrappedXml get() {
+		return xmlStream.findAny().orElse(EmptyXml.INSTANCE);
 	}
 
-	public Stream<FileXml> stream() {
+	public Stream<WrappedXml> stream() {
 		return xmlStream;
 	}
-	
-	public Stream<FileXml> parallelStream() {
+
+	public Stream<WrappedXml> parallelStream() {
 		return xmlStream.parallel();
 	}
 

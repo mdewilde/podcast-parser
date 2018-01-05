@@ -76,6 +76,22 @@ public class Scene {
 
 	public void setEndTime(String endTime) {
 		this.endTime = endTime;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Scene [");
+		if (title != null)
+			builder.append("title=").append(title).append(", ");
+		if (description != null)
+			builder.append("description=").append(description).append(", ");
+		if (startTime != null)
+			builder.append("startTime=").append(startTime).append(", ");
+		if (endTime != null)
+			builder.append("endTime=").append(endTime);
+		builder.append("]");
+		return builder.toString();
 	}	
 
 }

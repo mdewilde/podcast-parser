@@ -81,4 +81,18 @@ public class License {
 		return this;
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("License [");
+		if (href != null)
+			builder.append("href=").append(href).append(", ");
+		if (type != null)
+			builder.append("type=").append(type).append(", ");
+		if (label != null)
+			builder.append("label=").append(label);
+		builder.append("]");
+		return builder.toString();
+	}
+
 }

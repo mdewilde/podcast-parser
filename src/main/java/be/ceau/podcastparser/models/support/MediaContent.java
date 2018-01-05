@@ -298,36 +298,37 @@ public class MediaContent {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("\n\tMediaContent [\n\t\t");
+		builder.append("MediaContent [");
 		if (url != null)
-			builder.append("url=").append(url).append(", \n\t\t");
-		builder.append("fileSize=").append(fileSize).append(", \n\t\t");
+			builder.append("url=").append(url).append(", ");
+		if (fileSize != null)
+			builder.append("fileSize=").append(fileSize).append(", ");
 		if (type != null)
-			builder.append("type=").append(type).append(", \n\t\t");
+			builder.append("type=").append(type).append(", ");
 		if (medium != null)
-			builder.append("medium=").append(medium).append(", \n\t\t");
+			builder.append("medium=").append(medium).append(", ");
 		if (isDefault != null)
-			builder.append("isDefault=").append(isDefault).append(", \n\t\t");
+			builder.append("isDefault=").append(isDefault).append(", ");
 		if (expression != null)
-			builder.append("expression=").append(expression).append(", \n\t\t");
+			builder.append("expression=").append(expression).append(", ");
 		if (bitrate != null)
-			builder.append("bitrate=").append(bitrate).append(", \n\t\t");
+			builder.append("bitrate=").append(bitrate).append(", ");
 		if (framerate != null)
-			builder.append("framerate=").append(framerate).append(", \n\t\t");
+			builder.append("framerate=").append(framerate).append(", ");
 		if (samplingrate != null)
-			builder.append("samplingrate=").append(samplingrate).append(", \n\t\t");
+			builder.append("samplingrate=").append(samplingrate).append(", ");
 		if (channels != null)
-			builder.append("channels=").append(channels).append(", \n\t\t");
+			builder.append("channels=").append(channels).append(", ");
 		if (duration != null)
-			builder.append("duration=").append(duration).append(", \n\t\t");
+			builder.append("duration=").append(duration).append(", ");
 		if (height != null)
-			builder.append("height=").append(height).append(", \n\t\t");
+			builder.append("height=").append(height).append(", ");
 		if (width != null)
-			builder.append("width=").append(width).append(", \n\t\t");
+			builder.append("width=").append(width).append(", ");
 		if (lang != null)
-			builder.append("lang=").append(lang).append(", \n");
-		builder.append("]\n");
+			builder.append("lang=").append(lang);
+		builder.append("]");
 		return builder.toString();
 	}
-
+	
 }

@@ -69,4 +69,16 @@ public class Hash {
 		return this;
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Hash [");
+		if (hash != null)
+			builder.append("hash=").append(hash).append(", ");
+		if (algo != null)
+			builder.append("algo=").append(algo);
+		builder.append("]");
+		return builder.toString();
+	}
+
 }

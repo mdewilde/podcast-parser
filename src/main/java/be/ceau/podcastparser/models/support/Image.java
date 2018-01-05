@@ -99,7 +99,7 @@ public class Image {
 	 * 
 	 * @return Integer or {@code null}
 	 */
-	public int getWidth() {
+	public Integer getWidth() {
 		return width;
 	}
 
@@ -129,7 +129,7 @@ public class Image {
 	 * 
 	 * @return Integer or {@code null}
 	 */
-	public int getHeight() {
+	public Integer getHeight() {
 		return height;
 	}
 

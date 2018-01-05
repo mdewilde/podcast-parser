@@ -97,6 +97,7 @@ public class Strings {
 	 * @see https://stackoverflow.com/a/22581832
 	 */
 	public static boolean isHtml(String string) {
-		return HTML_PATTERN.matcher(string).find();
+		return false;
+	//	return HTML_PATTERN.matcher(string).find();
     }
 }

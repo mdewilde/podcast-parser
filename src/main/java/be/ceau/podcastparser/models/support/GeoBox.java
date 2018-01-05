@@ -46,4 +46,16 @@ public class GeoBox {
 		this.upperCorner = upperCorner;
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("GeoBox [");
+		if (lowerCorner != null)
+			builder.append("lowerCorner=").append(lowerCorner).append(", ");
+		if (upperCorner != null)
+			builder.append("upperCorner=").append(upperCorner);
+		builder.append("]");
+		return builder.toString();
+	}
+
 }

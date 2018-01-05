@@ -20,12 +20,21 @@ import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.stream.Collectors;
 
 public class FileXml implements WrappedXml {
 
 	private final File file;
 	private final String xml;
+
+	public static WrappedXml instance(Path path) {
+		try {
+			return new FileXml(path.toFile());
+		} catch (IOException e) {
+			return EmptyXml.INSTANCE;
+		}
+	}
 
 	public static WrappedXml instance(File file) {
 		try {
