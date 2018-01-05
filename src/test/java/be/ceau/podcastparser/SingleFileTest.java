@@ -22,8 +22,7 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
+import be.ceau.podcastparser.json.JsonFactory;
 import be.ceau.podcastparser.models.core.Feed;
 import be.ceau.podcastparser.test.wrappedxml.FileXml;
 import be.ceau.podcastparser.test.wrappedxml.WrappedXml;
@@ -32,7 +31,7 @@ public class SingleFileTest {
 
 	private static final Logger logger = LoggerFactory.getLogger(SingleFileTest.class);
 
-	private static final Path PATH = Paths.get(System.getProperty("user.home"), "podcastfinder", "corpus", "117859.xml");
+	private static final Path PATH = Paths.get(System.getProperty("user.home"), "podcastfinder", "corpus", "38998.xml");
 
 	@Test
 	public void singleFileTest() {
@@ -42,7 +41,7 @@ public class SingleFileTest {
 
 		try {
 			Feed feed = parser.parse(wrap.getXml());
-			logger.info("{} -> {}", PATH, new ObjectMapper().writer().withDefaultPrettyPrinter().writeValueAsString(feed));
+			logger.info("{} -> {}", PATH, JsonFactory.write(feed));
 		} catch (Exception e) {
 			logger.error("{}", wrap.getFullPath(), e);
 		}

@@ -275,11 +275,11 @@ public class RawVoice implements Namespace {
 	 */
 	private Metamark parseMetaMark(PodParseContext ctx) throws XMLStreamException {
 		Metamark metamark = new Metamark();
-		metamark.setText(ctx.getElementText());
 		metamark.setLink(ctx.getAttribute("link"));
 		metamark.setType(ctx.getAttribute("type"));
 		metamark.setPosition(ctx.getAttributeAsInteger("position"));
 		metamark.setDuration(ctx.getAttributeAsInteger("duration"));
+		metamark.setText(ctx.getElementText());
 		return metamark;
 	}
 
