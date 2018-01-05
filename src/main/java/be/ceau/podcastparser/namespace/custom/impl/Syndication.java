@@ -15,7 +15,7 @@
 */
 package be.ceau.podcastparser.namespace.custom.impl;
 
-import java.time.temporal.Temporal;
+import java.time.ZonedDateTime;
 import java.util.Set;
 
 import javax.xml.stream.XMLStreamException;
@@ -95,7 +95,7 @@ public class Syndication implements Namespace {
 			break;
 		case "updateBase" :
 			// base date to calculate the publishing schedule
-			Temporal temporal = Dates.parse(ctx.getElementText());
+			ZonedDateTime temporal = Dates.parse(ctx.getElementText());
 			ctx.getFeed().computeUpdateInfoIfAbsent().setBase(temporal);
 			break;
 		default : 

@@ -16,7 +16,7 @@
 package be.ceau.podcastparser.models.core;
 
 import java.time.Duration;
-import java.time.temporal.Temporal;
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.EnumMap;
@@ -47,8 +47,8 @@ public class Feed {
 	private String copyright;
 	private String managingEditor;
 	private String webMaster;
-	private Temporal pubDate;
-	private Temporal lastBuildDate;
+	private ZonedDateTime pubDate;
+	private ZonedDateTime lastBuildDate;
 	private final List<Category> categories = new ArrayList<>();
 	private String generator;
 	private String docs;
@@ -220,11 +220,11 @@ public class Feed {
 	 * with the exception that the year may be expressed with two characters or
 	 * four characters (four preferred).
 	 */
-	public Temporal getPubDate() {
+	public ZonedDateTime getPubDate() {
 		return pubDate;
 	}
 
-	public void setPubDate(Temporal pubDate) {
+	public void setPubDate(ZonedDateTime pubDate) {
 		this.pubDate = pubDate;
 	}
 
@@ -238,13 +238,13 @@ public class Feed {
 	 * {@code updated}.
 	 * </p>
 	 * 
-	 * @return {@link Temporal} or {@code null}
+	 * @return {@link ZonedDateTime} or {@code null}
 	 */
-	public Temporal getLastBuildDate() {
+	public ZonedDateTime getLastBuildDate() {
 		return lastBuildDate;
 	}
 
-	public void setLastBuildDate(Temporal lastBuildDate) {
+	public void setLastBuildDate(ZonedDateTime lastBuildDate) {
 		this.lastBuildDate = lastBuildDate;
 	}
 

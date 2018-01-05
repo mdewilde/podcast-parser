@@ -15,7 +15,8 @@
 */
 package be.ceau.podcastparser.namespace.custom.impl;
 
-import java.time.temporal.Temporal;
+
+import java.time.ZonedDateTime;
 
 import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
@@ -72,7 +73,7 @@ public class Blip implements Namespace {
 			item.addOtherValue(OtherValueKey.BLIP_CORE_VALUE, ctx.getElementText());
 			break;
 		case "datestamp":
-			Temporal datestamp = Dates.parse(ctx.getElementText());
+			ZonedDateTime datestamp = Dates.parse(ctx.getElementText());
 			if (datestamp != null) {
 				// TODO -> might be overwriting a different date
 				item.setPubDate(datestamp);

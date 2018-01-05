@@ -15,7 +15,7 @@
 */
 package be.ceau.podcastparser.models.support;
 
-import java.time.temporal.Temporal;
+import java.time.ZonedDateTime;
 
 /**
  * <p>
@@ -29,7 +29,7 @@ public class UpdateInfo {
 
 	private Integer frequency;
 	private String period;
-	private Temporal base;
+	private ZonedDateTime base;
 
 	/**
 	 * <p>
@@ -83,13 +83,13 @@ public class UpdateInfo {
 	 * Part of Syndication namespace specification.
 	 * </p>
 	 * 
-	 * @return an {@link Temporal} or {@code null}
+	 * @return an {@link ZonedDateTime} or {@code null}
 	 */
-	public Temporal getBase() {
+	public ZonedDateTime getBase() {
 		return base;
 	}
 
-	public void setBase(Temporal base) {
+	public void setBase(ZonedDateTime base) {
 		this.base = base;
 	}
 

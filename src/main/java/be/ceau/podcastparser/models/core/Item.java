@@ -16,7 +16,7 @@
 package be.ceau.podcastparser.models.core;
 
 import java.time.Duration;
-import java.time.temporal.Temporal;
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.EnumMap;
@@ -59,10 +59,10 @@ public class Item {
 	private String copyright;
 	private Enclosure enclosure;
 	private String guid;
-	private Temporal pubDate;
-	private Temporal updated;
-	private Temporal validity;
-	private Temporal edited;
+	private ZonedDateTime pubDate;
+	private ZonedDateTime updated;
+	private ZonedDateTime validity;
+	private ZonedDateTime edited;
 	private String source;
 	private final Rating rating = new Rating();
 	private Duration duration;
@@ -285,13 +285,13 @@ public class Item {
 	 * Optional for {@code entry} elements in Atom specification. Not part of RSS specification.
 	 * </p>
 	 * 
-	 * @return a {@link Temporal} or {@code null}
+	 * @return a {@link ZonedDateTime} or {@code null}
 	 */
-	public Temporal getPubDate() {
+	public ZonedDateTime getPubDate() {
 		return pubDate;
 	}
 
-	public void setPubDate(Temporal pubDate) {
+	public void setPubDate(ZonedDateTime pubDate) {
 		this.pubDate = pubDate;
 	}
 
@@ -304,13 +304,13 @@ public class Item {
 	 * Optional for {@code item} elements in RSS specification. Optional for {@code entry} elements in Atom specification.
 	 * </p>
 	 * 
-	 * @return a {@link TeepisodeTypemporal} or {@code null}
+	 * @return a {@link ZonedDateTime} or {@code null}
 	 */
-	public Temporal getUpdated() {
+	public ZonedDateTime getUpdated() {
 		return updated;
 	}
 
-	public void setUpdated(Temporal updated) {
+	public void setUpdated(ZonedDateTime updated) {
 		this.updated = updated;
 	}
 
@@ -322,13 +322,13 @@ public class Item {
 	 * Specified in Dublin Core Terms RSS specification.
 	 * </p>
 	 * 
-	 * @return a {@link Temporal} or {@code null}
+	 * @return a {@link ZonedDateTime} or {@code null}
 	 */
-	public Temporal getValidity() {
+	public ZonedDateTime getValidity() {
 		return validity;
 	}
 
-	public void setValidity(Temporal validity) {
+	public void setValidity(ZonedDateTime validity) {
 		this.validity = validity;
 	}
 
@@ -340,13 +340,13 @@ public class Item {
 	 * Specified in Atom Publishing namespace specification.
 	 * </p>
 	 * 
-	 * @return a {@link Temporal} or {@code null}
+	 * @return a {@link ZonedDateTime} or {@code null}
 	 */
-	public Temporal getEdited() {
+	public ZonedDateTime getEdited() {
 		return edited;
 	}
 
-	public void setEdited(Temporal edited) {
+	public void setEdited(ZonedDateTime edited) {
 		this.edited = edited;
 	}
 
