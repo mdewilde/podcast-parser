@@ -16,7 +16,7 @@ public class QuietResolverTest {
 			new PodcastParser().parse(xml.getXml());
 		} catch (Exception e) {
 			Assert.assertEquals(NotPodcastFeedException.class, e.getClass());
-			Assert.assertEquals("the document appears to be HTML", e.getMessage());
+			Assert.assertEquals("the input appears to be HTML", e.getMessage());
 		}
 	}
 	
