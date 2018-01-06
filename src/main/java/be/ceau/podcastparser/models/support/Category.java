@@ -107,6 +107,49 @@ public class Category {
 	}
 
 	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((label == null) ? 0 : label.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((scheme == null) ? 0 : scheme.hashCode());
+		result = prime * result + ((subcategory == null) ? 0 : subcategory.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Category other = (Category) obj;
+		if (label == null) {
+			if (other.label != null)
+				return false;
+		} else if (!label.equals(other.label))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (scheme == null) {
+			if (other.scheme != null)
+				return false;
+		} else if (!scheme.equals(other.scheme))
+			return false;
+		if (subcategory == null) {
+			if (other.subcategory != null)
+				return false;
+		} else if (!subcategory.equals(other.subcategory))
+			return false;
+		return true;
+	}
+
+	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Category [");

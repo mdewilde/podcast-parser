@@ -15,14 +15,11 @@
 */
 package be.ceau.podcastparser.namespace.custom.impl;
 
-import java.math.BigDecimal;
-
 import javax.xml.stream.XMLStreamException;
 
 import be.ceau.podcastparser.PodParseContext;
 import be.ceau.podcastparser.models.core.Item;
 import be.ceau.podcastparser.namespace.Namespace;
-import be.ceau.podcastparser.util.Strings;
 
 /**
  * <h1>WGS84 Geo Positioning: an RDF vocabulary</h1>
@@ -44,18 +41,13 @@ public class Geo implements Namespace {
 	public void process(PodParseContext ctx) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
 		case "long":
-			String longitude = ctx.getElementText();
-			if (Strings.isNotBlank(longitude)) {
-				ctx.getFeed().computeGeoPointIfAbsent().setLongitude(new BigDecimal(longitude.trim()));
-			}
+			ctx.getFeed().setLongitude(ctx.getElementTextAsBigDecimal());
 			break;
 		case "lat":
-			String latitude = ctx.getElementText();
-			if (Strings.isNotBlank(latitude)) {
-				ctx.getFeed().computeGeoPointIfAbsent().setLatitude(new BigDecimal(latitude.trim()));
-			}
+			ctx.getFeed().setLatitude(ctx.getElementTextAsBigDecimal());
 			break;
 		default : 
+			ctx.log();
 			Namespace.super.process(ctx);
 			break;
 		}
@@ -65,35 +57,17 @@ public class Geo implements Namespace {
 	public void process(PodParseContext ctx, Item item) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
 		case "long":
-			String longitude = ctx.getElementText();
-			if (Strings.isNotBlank(longitude)) {
-				item.computeGeoPointIfAbsent().setLongitude(new BigDecimal(longitude.trim()));
-			}
+			ctx.getFeed().setLongitude(ctx.getElementTextAsBigDecimal());
 			break;
 		case "lat":
-			String latitude = ctx.getElementText();
-			if (Strings.isNotBlank(latitude)) {
-				item.computeGeoPointIfAbsent().setLatitude(new BigDecimal(latitude.trim()));
-			}
+			ctx.getFeed().setLatitude(ctx.getElementTextAsBigDecimal());
 			break;
 		case "Point":
 		default : 
+			ctx.log();
 			Namespace.super.process(ctx, item);
 			break;
 		}
 	}
 
 }
-
-/*
-
-	corpus stats
-	
-      5143 	--> http://www.w3.org/2003/01/geo/wgs84_pos# level=item localName=long attributes=[]]
-      4861 	--> http://www.w3.org/2003/01/geo/wgs84_pos# level=item localName=lat attributes=[]]
-      1908 	--> http://www.w3.org/2003/01/geo/wgs84_pos# level=feed localName=long attributes=[]]
-      1908 	--> http://www.w3.org/2003/01/geo/wgs84_pos# level=feed localName=lat attributes=[]]
-        21 	--> http://www.w3.org/2003/01/geo/wgs84_pos# level=item localName=Point attributes=[]]
-
-*/
-

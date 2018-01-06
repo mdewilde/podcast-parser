@@ -19,6 +19,7 @@ import javax.xml.stream.XMLStreamException;
 
 import be.ceau.podcastparser.PodParseContext;
 import be.ceau.podcastparser.models.core.Item;
+import be.ceau.podcastparser.models.support.Copyright;
 import be.ceau.podcastparser.namespace.Namespace;
 
 /**
@@ -41,7 +42,7 @@ public class UserlandCreativeCommons implements Namespace {
 	public void process(PodParseContext ctx) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
 		case "license" :
-			ctx.getFeed().setCopyright(ctx.getElementText());
+			ctx.getFeed().setCopyright(parseCopyright(ctx));
 			break;
 		default : 
 			Namespace.super.process(ctx);
@@ -53,7 +54,7 @@ public class UserlandCreativeCommons implements Namespace {
 	public void process(PodParseContext ctx, Item item) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
 		case "license" :
-			item.setCopyright(ctx.getElementText());
+			item.setCopyright(parseCopyright(ctx));
 			break;
 		default : 
 			Namespace.super.process(ctx, item);
@@ -61,6 +62,12 @@ public class UserlandCreativeCommons implements Namespace {
 		}
 	}
 
+	private Copyright parseCopyright(PodParseContext ctx) throws XMLStreamException {
+		Copyright copyright = new Copyright();
+		copyright.setText(ctx.getElementText());
+		return copyright;
+	}
+	
 }
 
 /*

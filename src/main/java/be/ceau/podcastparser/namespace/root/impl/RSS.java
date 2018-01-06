@@ -23,6 +23,8 @@ import be.ceau.podcastparser.ParseLevel;
 import be.ceau.podcastparser.PodParseContext;
 import be.ceau.podcastparser.models.core.Item;
 import be.ceau.podcastparser.models.support.Category;
+import be.ceau.podcastparser.models.support.Comments;
+import be.ceau.podcastparser.models.support.Copyright;
 import be.ceau.podcastparser.models.support.Enclosure;
 import be.ceau.podcastparser.models.support.Image;
 import be.ceau.podcastparser.models.support.Link;
@@ -127,7 +129,7 @@ public class RSS implements RootNamespace, Namespace {
 			ctx.getFeed().setLanguage(ctx.getElementText());
 			break;
 		case "copyright":
-			ctx.getFeed().setCopyright(ctx.getElementText());
+			ctx.getFeed().setCopyright(parseCopyright(ctx));
 			break;
 		case "managingEditor":
 			ctx.getFeed().setManagingEditor(ctx.getElementText());
@@ -222,9 +224,7 @@ public class RSS implements RootNamespace, Namespace {
 			item.addCategory(new Category().setName(ctx.getElementText()));
 			break;
 		case "comments": 
-			Link commentLink = new Link();
-			commentLink.setHref(ctx.getElementText());
-			item.computeCommentsIfAbsent().setLink(commentLink);
+			item.setComments(parseComments(ctx));
 			break;
 		case "description":
 			item.setDescription(ctx.getElementText());
@@ -257,6 +257,20 @@ public class RSS implements RootNamespace, Namespace {
 			Namespace.super.process(ctx, item);
 			break;
 		}
+	}
+
+	private Comments parseComments(PodParseContext ctx) throws XMLStreamException {
+		Link link = new Link();
+		link.setHref(ctx.getElementText());
+		Comments comments = new Comments();
+		comments.setLink(link);
+		return comments;
+	}
+
+	private Copyright parseCopyright(PodParseContext ctx) throws XMLStreamException {
+		Copyright copyright = new Copyright();
+		copyright.setText(ctx.getElementText());
+		return copyright;
 	}
 
 	/**

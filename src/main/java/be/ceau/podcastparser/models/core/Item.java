@@ -15,14 +15,17 @@
 */
 package be.ceau.podcastparser.models.core;
 
+import java.math.BigDecimal;
 import java.time.Duration;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.EnumMap;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import be.ceau.podcastparser.models.support.Category;
 import be.ceau.podcastparser.models.support.Chapter;
@@ -52,11 +55,11 @@ public class Item {
 
 	private TypedString title;
 	private String subtitle;
-	private final List<Link> links = new ArrayList<>();
+	private final Set<Link> links = new HashSet<>();
 	private TypedString description;
 	private final List<Person> authors = new ArrayList<>();
-	private final List<Category> categories = new ArrayList<>();
-	private String copyright;
+	private final Set<Category> categories = new HashSet<>();
+	private Copyright copyright;
 	private Enclosure enclosure;
 	private String guid;
 	private ZonedDateTime pubDate;
@@ -96,9 +99,6 @@ public class Item {
 	private String provider;
 	private Visibility visibility;
 	private String rights;
-	
-	// TODO -> merge with copyright?
-	private Copyright mediaCopyright;
 
 	/**
 	 * <p>
@@ -151,14 +151,16 @@ public class Item {
 	 * Required in RSS specification. Listed in Atom specification as element {@code link}.
 	 * </p>
 	 * 
-	 * @return {@link List}
+	 * @return {@link Set}
 	 */
-	public List<Link> getLinks() {
+	public Set<Link> getLinks() {
 		return links;
 	}
 
 	public void addLink(Link link) {
-		this.links.add(link);
+		if (link != null) {
+			this.links.add(link);
+		}
 	}
 
 	/**
@@ -198,13 +200,18 @@ public class Item {
 
 	/**
 	 * Includes the item in one or more categories.
+	 * 
+	 * @return a {@link Set} of {@link Category} instances, never {@code null}, never containing
+	 *         {@code null}
 	 */
-	public List<Category> getCategories() {
+	public Set<Category> getCategories() {
 		return categories;
 	}
 
 	public void addCategory(Category category) {
-		this.categories.add(category);
+		if (category != null) {
+			this.categories.add(category);
+		}
 	}
 
 	/**
@@ -216,13 +223,13 @@ public class Item {
 	 * Listed as optional element {@code rights} in Atom specification.
 	 * </p>
 	 * 
-	 * @return a {@link String} or {@code null}
+	 * @return a {@link Copyright} or {@code null}
 	 */
-	public String getCopyright() {
+	public Copyright getCopyright() {
 		return copyright;
 	}
 
-	public void setCopyright(String copyright) {
+	public void setCopyright(Copyright copyright) {
 		this.copyright = copyright;
 	}
 
@@ -557,18 +564,15 @@ public class Item {
 		return comments;
 	}
 
-	/**
-	 * @return a {@link Comments} instance, never {@code null}
-	 */
-	public Comments computeCommentsIfAbsent() {
+	public void setComments(Comments comments) {
+		this.comments = comments;
+	}
+
+	public void setNumberOfComments(int number) {
 		if (comments == null) {
 			comments = new Comments();
 		}
-		return comments;
-	}
-
-	public void setComments(Comments comments) {
-		this.comments = comments;
+		comments.setNumber(number);
 	}
 
 	/**
@@ -611,13 +615,6 @@ public class Item {
 	 * @return a {@link License} or {@code null}
 	 */
 	public License getLicense() {
-		return license;
-	}
-
-	public License computeLicenseIfAbsent() {
-		if (license == null) {
-			license = new License();
-		}
 		return license;
 	}
 
@@ -710,17 +707,32 @@ public class Item {
 		return geoPoint;
 	}
 
-	public GeoPoint computeGeoPointIfAbsent() {
-		if (geoPoint == null) {
-			geoPoint = new GeoPoint();
-		}
-		return geoPoint;
-	}
-
 	public void setGeoPoint(GeoPoint geoPoint) {
 		this.geoPoint = geoPoint;
 	}
 
+	public void setLatitude(BigDecimal latitude) {
+		if (latitude != null) {
+			if (this.geoPoint == null) {
+				this.geoPoint = new GeoPoint();
+			}
+			this.geoPoint.setLatitude(latitude);
+		} else if (this.geoPoint != null) {
+			this.geoPoint.setLatitude(null);
+		}
+	}
+	
+	public void setLongitude(BigDecimal longitude) {
+		if (longitude != null) {
+			if (this.geoPoint == null) {
+				this.geoPoint = new GeoPoint();
+			}
+			this.geoPoint.setLongitude(longitude);
+		} else if (this.geoPoint != null) {
+			this.geoPoint.setLongitude(null);
+		}
+	}
+	
 	public GeoBox getGeoBox() {
 		return geoBox;
 	}
@@ -788,14 +800,6 @@ public class Item {
 
 	public void setMediaPlayer(MediaPlayer mediaPlayer) {
 		this.mediaPlayer = mediaPlayer;
-	}
-
-	public Copyright getMediaCopyright() {
-		return mediaCopyright;
-	}
-
-	public void setMediaCopyright(Copyright mediaCopyright) {
-		this.mediaCopyright = mediaCopyright;
 	}
 
 	public List<Scene> getScenes() {

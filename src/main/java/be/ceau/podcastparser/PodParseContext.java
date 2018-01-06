@@ -15,6 +15,7 @@
 */
 package be.ceau.podcastparser;
 
+import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
@@ -139,6 +140,20 @@ public class PodParseContext {
 	public Integer getElementTextAsInteger() throws XMLStreamException {
 		try {
 			return Integer.valueOf(reader.getElementText().trim());
+		} catch (NumberFormatException e) {
+			return null;
+		}
+	}
+
+	/**
+	 * Extract and attempt parsing current element text as {@link BigDecimal}, catching any exception
+	 * 
+	 * @return {@link BigDecimal} or {@code null}
+	 * @throws XMLStreamException
+	 */
+	public BigDecimal getElementTextAsBigDecimal() throws XMLStreamException {
+		try {
+			return new BigDecimal(reader.getElementText().trim());
 		} catch (NumberFormatException e) {
 			return null;
 		}

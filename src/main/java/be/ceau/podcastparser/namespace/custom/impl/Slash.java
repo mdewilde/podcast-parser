@@ -17,9 +17,6 @@ package be.ceau.podcastparser.namespace.custom.impl;
 
 import javax.xml.stream.XMLStreamException;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import be.ceau.podcastparser.PodParseContext;
 import be.ceau.podcastparser.models.core.Item;
 import be.ceau.podcastparser.namespace.Namespace;
@@ -36,8 +33,6 @@ import be.ceau.podcastparser.namespace.Namespace;
  */
 public class Slash implements Namespace {
 
-	private static final Logger logger = LoggerFactory.getLogger(Slash.class);
-	
 	private static final String NAME = "http://purl.org/rss/1.0/modules/slash/";
 
 	@Override
@@ -49,12 +44,9 @@ public class Slash implements Namespace {
 	public void process(PodParseContext ctx, Item item) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
 		case "comments":
-			String num = ctx.getElementText();
-			try {
-				int number = Integer.parseInt(num);
-				item.computeCommentsIfAbsent().setNumber(number);
-			} catch (NumberFormatException e) {
-				logger.debug("{} on {}", e.getMessage(), num);
+			Integer num = ctx.getElementTextAsInteger();
+			if (num != null) {
+				item.setNumberOfComments(num);
 			}
 			break;
 		case "section":
@@ -70,11 +62,3 @@ public class Slash implements Namespace {
 	}
 
 }
-
-/*
-
-	corpus stats
-	
-    736937 	--> http://purl.org/rss/1.0/modules/slash/ level=item localName=comments attributes=[]]
-
-*/

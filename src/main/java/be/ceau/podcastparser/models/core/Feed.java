@@ -15,13 +15,16 @@
 */
 package be.ceau.podcastparser.models.core;
 
+import java.math.BigDecimal;
 import java.time.Duration;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.EnumMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import be.ceau.podcastparser.models.support.Category;
 import be.ceau.podcastparser.models.support.Copyright;
@@ -40,16 +43,16 @@ public class Feed {
 
 	private String id;
 	private String title;
-	private final List<Link> links = new ArrayList<>();
+	private final Set<Link> links = new HashSet<>();
 	private TypedString description;
 	private final List<Item> items = new ArrayList<>();
 	private String language;
-	private String copyright;
+	private Copyright copyright;
 	private String managingEditor;
 	private String webMaster;
 	private ZonedDateTime pubDate;
 	private ZonedDateTime lastBuildDate;
-	private final List<Category> categories = new ArrayList<>();
+	private final Set<Category> categories = new HashSet<>();
 	private String generator;
 	private String docs;
 	private String cloud;
@@ -62,7 +65,7 @@ public class Feed {
 	private final List<Person> authors = new ArrayList<>();
 	private Person owner;
 	private final List<Person> contributors = new ArrayList<>();
-	private final List<String> keywords = new ArrayList<>();
+	private final Set<String> keywords = new HashSet<>();
 	private UpdateInfo updateInfo;
 	private final Rating rating = new Rating();
 	private String location;
@@ -72,7 +75,6 @@ public class Feed {
 	private String summary;
 	private String type;
 	private String email;
-	private Copyright mediaCopyright;
 	private Credit credit;
 	private boolean complete;
 	private TypedString browserFriendly;
@@ -119,14 +121,16 @@ public class Feed {
 	 * {@code link}.
 	 * </p>
 	 * 
-	 * @return a {@link List}, never {@code null}
+	 * @return a {@link Set}, never {@code null}
 	 */
-	public List<Link> getLinks() {
+	public Set<Link> getLinks() {
 		return links;
 	}
 
 	public void addLink(Link link) {
-		this.links.add(link);
+		if (link != null) {
+			this.links.add(link);
+		}
 	}
 
 	/**
@@ -152,23 +156,14 @@ public class Feed {
 		return items;
 	}
 
-	// TODO needed by Atom?
-	public void setItems(List<Item> items) {
-		this.items.clear();
-		if (items != null) {
-			this.items.addAll(items);
+	public void addItem(Item item) {
+		if (item != null) {
+			this.items.add(item);
 		}
 	}
 
-	public void addItem(Item item) {
-		this.items.add(item);
-	}
-
 	/**
-	 * The language the channel is written in. This allows aggregators to group
-	 * all Italian language sites, for example, on a single page. A list of
-	 * allowable values for this element, as provided by Netscape, is here. You
-	 * may also use values defined by the W3C.
+	 * The language the channel is written in.
 	 */
 	public String getLanguage() {
 		return language;
@@ -180,12 +175,14 @@ public class Feed {
 
 	/**
 	 * Copyright notice for content in the channel.
+	 * 
+	 * @return {@link Copyright} instance or {@code null}
 	 */
-	public String getCopyright() {
+	public Copyright getCopyright() {
 		return copyright;
 	}
 
-	public void setCopyright(String copyright) {
+	public void setCopyright(Copyright copyright) {
 		this.copyright = copyright;
 	}
 
@@ -249,15 +246,20 @@ public class Feed {
 	}
 
 	/**
-	 * Specify one or more categories that the channel belongs to. Follows the
-	 * same rules as the {@link Item}-level category element.
+	 * Specify one or more categories that the channel belongs to. Follows the same rules as the
+	 * {@link Item}-level category element.
+	 * 
+	 * @return a {@link Set} of {@link Category} instances, never {@code null}, never containing
+	 *         {@code null}
 	 */
-	public List<Category> getCategories() {
+	public Set<Category> getCategories() {
 		return categories;
 	}
 
 	public void addCategory(Category category) {
-		this.categories.add(category);
+		if (category != null) {
+			this.categories.add(category);
+		}
 	}
 
 	/**
@@ -447,9 +449,9 @@ public class Feed {
 	 * Not in RSS specification. Listed in iTunes RSS spec.
 	 * </p>
 	 * 
-	 * @return a {@link List}, not {@code null}
+	 * @return a {@link Set}, never {@code null}
 	 */
-	public List<String> getKeywords() {
+	public Set<String> getKeywords() {
 		return this.keywords;
 	}
 
@@ -476,17 +478,31 @@ public class Feed {
 		return updateInfo;
 	}
 
-	public UpdateInfo computeUpdateInfoIfAbsent() {
-		if (updateInfo == null) {
-			updateInfo = new UpdateInfo();
-		}
-		return updateInfo;
-	}
-	
 	public void setUpdateInfo(UpdateInfo updateInfo) {
 		this.updateInfo = updateInfo;
 	}
 
+	public void setUpdatePeriod(String period) {
+		if (updateInfo == null) {
+			updateInfo = new UpdateInfo();
+		}
+		updateInfo.setPeriod(period);
+	}
+	
+	public void setUpdateFrequency(Integer frequency) {
+		if (updateInfo == null) {
+			updateInfo = new UpdateInfo();
+		}
+		updateInfo.setFrequency(frequency);
+	}
+	
+	public void setUpdateBase(ZonedDateTime base) {
+		if (updateInfo == null) {
+			updateInfo = new UpdateInfo();
+		}
+		updateInfo.setBase(base);
+	}
+	
 	/**
 	 * <p>
 	 * The rating for this item.
@@ -569,15 +585,30 @@ public class Feed {
 		return geoPoint;
 	}
 
-	public GeoPoint computeGeoPointIfAbsent() {
-		if (geoPoint == null) {
-			geoPoint = new GeoPoint();
-		}
-		return geoPoint;
-	}
-
 	public void setGeoPoint(GeoPoint geoPoint) {
 		this.geoPoint = geoPoint;
+	}
+
+	public void setLatitude(BigDecimal latitude) {
+		if (latitude != null) {
+			if (this.geoPoint == null) {
+				this.geoPoint = new GeoPoint();
+			}
+			this.geoPoint.setLatitude(latitude);
+		} else if (this.geoPoint != null) {
+			this.geoPoint.setLatitude(null);
+		}
+	}
+	
+	public void setLongitude(BigDecimal longitude) {
+		if (longitude != null) {
+			if (this.geoPoint == null) {
+				this.geoPoint = new GeoPoint();
+			}
+			this.geoPoint.setLongitude(longitude);
+		} else if (this.geoPoint != null) {
+			this.geoPoint.setLongitude(null);
+		}
 	}
 
 	public boolean getBlock() {
@@ -625,14 +656,6 @@ public class Feed {
 	 */
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public Copyright getMediaCopyright() {
-		return mediaCopyright;
-	}
-
-	public void setMediaCopyright(Copyright mediaCopyright) {
-		this.mediaCopyright = mediaCopyright;
 	}
 
 	public Credit getCredit() {

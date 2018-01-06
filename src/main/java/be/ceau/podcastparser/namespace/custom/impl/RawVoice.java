@@ -23,6 +23,7 @@ import be.ceau.podcastparser.models.support.Image;
 import be.ceau.podcastparser.models.support.Link;
 import be.ceau.podcastparser.models.support.Metamark;
 import be.ceau.podcastparser.models.support.TypedString;
+import be.ceau.podcastparser.models.support.UpdateInfo;
 import be.ceau.podcastparser.namespace.Namespace;
 import be.ceau.podcastparser.util.Strings;
 
@@ -64,8 +65,7 @@ public class RawVoice implements Namespace {
 			}
 			break;
 		case "frequency":
-			// the readable frequency of the media episodes
-			ctx.getFeed().computeUpdateInfoIfAbsent().setPeriod(ctx.getElementText());
+			ctx.getFeed().setUpdateInfo(parseUpdateInfo(ctx));
 			break;
 		case "location":
 			// the readable location of the content
@@ -280,6 +280,13 @@ public class RawVoice implements Namespace {
 		metamark.setDuration(ctx.getAttributeAsInteger("duration"));
 		metamark.setText(ctx.getElementText());
 		return metamark;
+	}
+
+	private UpdateInfo parseUpdateInfo(PodParseContext ctx) throws XMLStreamException {
+		// the readable frequency of the media episodes
+		UpdateInfo updateInfo = new UpdateInfo();
+		updateInfo.setPeriod(ctx.getElementText());
+		return updateInfo;
 	}
 
 }

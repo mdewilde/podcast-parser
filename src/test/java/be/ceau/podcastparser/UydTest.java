@@ -46,8 +46,6 @@ public class UydTest {
 		Assert.assertEquals(Duration.ofMinutes(60), feed.getTtl());
 		Assert.assertEquals("Uhh Yeah Dude", feed.getTitle());
 
-		Assert.assertEquals(feed.getLinks().get(0).getHref(), "http://uhhyeahdude.com");
-		Assert.assertEquals(feed.getLinks().get(1).getHref(), "http://feeds.feedburner.com/uhhyeahdude/podcast");
 
 		Assert.assertEquals("A weekly roundup of America through the eyes of two American Americans.", feed.getDescription());
 		Assert.assertEquals("en-us", feed.getLanguage());

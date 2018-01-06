@@ -30,6 +30,7 @@ import be.ceau.podcastparser.models.support.Copyright;
 import be.ceau.podcastparser.models.support.Credit;
 import be.ceau.podcastparser.models.support.Hash;
 import be.ceau.podcastparser.models.support.Image;
+import be.ceau.podcastparser.models.support.License;
 import be.ceau.podcastparser.models.support.MediaContent;
 import be.ceau.podcastparser.models.support.MediaPlayer;
 import be.ceau.podcastparser.models.support.Rating;
@@ -136,7 +137,7 @@ public class Media implements Namespace {
 			ctx.getFeed().addCategory(parseCategory(ctx));
 			break;
 		case "copyright":
-			ctx.getFeed().setMediaCopyright(parseCopyright(ctx));
+			ctx.getFeed().setCopyright(parseCopyright(ctx));
 			break;
 		case "credit":
 			ctx.getFeed().setCredit(parseCredit(ctx));
@@ -191,17 +192,10 @@ public class Media implements Namespace {
 			break;
 		case "thumbnail":
 			item.addImage(parseImage(ctx));
-			return;
-		case "title": {
-			// type specifies the type of text embedded. Possible values are
-			// either "plain" or "html". Default value is "plain". All HTML must
-			// be entity-encoded. It is an optional attribute.
-			TypedString title = new TypedString();
-			title.setType(ctx.getAttribute("type"));
-			title.setText(ctx.getElementText());
-			item.setTitle(title);
-			return;
-		}
+			break;
+		case "title": 
+			item.setTitle(parseTitle(ctx));
+			break;
 		case "player":
 			item.setMediaPlayer(parseMediaPlayer(ctx));
 			break;
@@ -209,14 +203,14 @@ public class Media implements Namespace {
 			item.addCredit(parseCredit(ctx));
 			break;
 		case "copyright":
-			item.setMediaCopyright(parseCopyright(ctx));
+			item.setCopyright(parseCopyright(ctx));
 			break;
 		case "text":
 			item.addTranscript(parseText(ctx));
-			return;
+			break;
 		case "restriction":
 			Namespace.super.process(ctx, item);
-			return;
+			break;
 		case "community":
 			/*
 			 * This element stands for the community related content. This
@@ -244,13 +238,13 @@ public class Media implements Namespace {
 			 * of a particular tag. Default weight is 1.
 			 */
 			Namespace.super.process(ctx, item);
-			return;
+			break;
 		case "comments":
 			/*
 			 * Allows inclusion of all the comments a media object has received.
 			 */
 			Namespace.super.process(ctx, item);
-			return;
+			break;
 		case "embed":
 			/*
 			 * Sometimes player-specific embed code is needed for a player to
@@ -258,19 +252,19 @@ public class Media implements Namespace {
 			 * information in the form of key-value pairs.
 			 */
 			Namespace.super.process(ctx, item);
-			return;
+			break;
 		case "responses":
 			/*
 			 * Allows inclusion of a list of all media responses a media object has received.
 			 */
 			Namespace.super.process(ctx, item);
-			return;
+			break;
 		case "backLinks":
 			/*
 			 * Allows inclusion of all the URLs pointing to a media object.
 			 */
 			Namespace.super.process(ctx, item);
-			return;
+			break;
 		case "status":
 			/*
 			 * Optional tag to specify the status of a media object -- whether
@@ -288,7 +282,7 @@ public class Media implements Namespace {
 			 * blocked/deleted. It can be plain text or a URL.
 			 */
 			Namespace.super.process(ctx, item);
-			return;
+			break;
 		case "price":
 			/*
 			 * Optional tag to include pricing information about a media object.
@@ -321,24 +315,10 @@ public class Media implements Namespace {
 			 * optional attribute.
 			 */
 			Namespace.super.process(ctx, item);
-			return;
-		case "license": {
-			/*
-			 * Optional link to specify the machine-readable license associated
-			 * with the content.
-			 * 
-			 * <media:license type="text/html"
-			 * href="http://creativecommons.org/licenses/by/3.0/us/">Creative
-			 * Commons Attribution 3.0 United States License</media:license>
-			 */
-			String type = ctx.getAttribute("type");
-			String label = ctx.getAttribute("label");
-			item.computeLicenseIfAbsent()
-				.setHref(ctx.getElementText())
-				.setType(type)
-				.setLabel(label);
-			return;
-		}
+			break;
+		case "license": 
+			item.setLicense(parseLicense(ctx));
+			break;
 		case "subTitle":
 			/*
 			 * Optional element for subtitle/CC link. It contains type and
@@ -348,7 +328,7 @@ public class Media implements Namespace {
 			 * information on Timed Text and Real Time Subtitling.
 			 */
 			Namespace.super.process(ctx, item);
-			return;
+			break;
 		case "peerLink":
 			/*
 			 * Optional element for P2P link.
@@ -380,7 +360,7 @@ public class Media implements Namespace {
 			 * the media object.
 			 */
 			Namespace.super.process(ctx, item);
-			return;
+			break;
 		case "rights":
 			item.setRights(parseRights(ctx));
 			break;
@@ -511,6 +491,24 @@ public class Media implements Namespace {
 		return Strings.splitOnComma(ctx.getElementText());
 	}
 	
+	/*
+	 * Optional link to specify the machine-readable license associated
+	 * with the content.
+	 * 
+	 * <media:license type="text/html"
+	 * href="http://creativecommons.org/licenses/by/3.0/us/">Creative
+	 * Commons Attribution 3.0 United States License</media:license>
+	 */
+	private License parseLicense(PodParseContext ctx) throws XMLStreamException {
+		String type = ctx.getAttribute("type");
+		String label = ctx.getAttribute("label");
+		License license = new License();
+		license.setHref(ctx.getElementText());
+		license.setType(type);
+		license.setLabel(label);
+		return license;
+	}
+
 	private MediaContent parseMediaContent(PodParseContext ctx) throws XMLStreamException {
 		MediaContent mediaContent = new MediaContent();
 		mediaContent.setUrl(ctx.getAttribute("url"));
@@ -800,4 +798,15 @@ public class Media implements Namespace {
 		return transcript;
 		
 	}
+	
+	// type specifies the type of text embedded. Possible values are
+	// either "plain" or "html". Default value is "plain". All HTML must
+	// be entity-encoded. It is an optional attribute.
+	private TypedString parseTitle(PodParseContext ctx) throws XMLStreamException {
+		TypedString title = new TypedString();
+		title.setType(ctx.getAttribute("type"));
+		title.setText(ctx.getElementText());
+		return title;
+	}
+
 }

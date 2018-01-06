@@ -25,6 +25,7 @@ import be.ceau.podcastparser.ParseLevel;
 import be.ceau.podcastparser.PodParseContext;
 import be.ceau.podcastparser.models.core.Item;
 import be.ceau.podcastparser.models.support.Category;
+import be.ceau.podcastparser.models.support.Copyright;
 import be.ceau.podcastparser.models.support.Enclosure;
 import be.ceau.podcastparser.models.support.Image;
 import be.ceau.podcastparser.models.support.Link;
@@ -133,7 +134,7 @@ public class Atom implements RootNamespace, Namespace {
 			ctx.getFeed().addLink(parseLink(ctx));
 			break;
 		case "rights":
-			ctx.getFeed().setCopyright(ctx.getElementText());
+			ctx.getFeed().setCopyright(parseCopyright(ctx));
 			break;
 		case "subtitle":
 			ctx.getFeed().setSubtitle(ctx.getElementText());
@@ -194,7 +195,7 @@ public class Atom implements RootNamespace, Namespace {
 			item.setPubDate(Dates.parse(ctx.getElementText()));
 			break;
 		case "rights":
-			item.setCopyright(ctx.getElementText());
+			item.setCopyright(parseCopyright(ctx));
 			break;
 		case "summary":
 			item.setDescription(ctx.getElementText());
@@ -219,6 +220,12 @@ public class Atom implements RootNamespace, Namespace {
 		return typedString;
 	}
 	
+	private Copyright parseCopyright(PodParseContext ctx) throws XMLStreamException {
+		Copyright copyright = new Copyright();
+		copyright.setText(ctx.getElementText());
+		return copyright;
+	}
+
 	/**
 	 * @param ctx.getReader()
 	 *            {@link XMLStreamReader} instance, just having processed a
