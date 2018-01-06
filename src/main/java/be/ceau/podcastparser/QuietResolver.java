@@ -69,11 +69,11 @@ public class QuietResolver implements XMLResolver {
 			"http://www.w3.org/TR/xhtml-basic/xhtml-basic10.dtd", 
 			"http://www.w3.org/TR/xhtml-basic/xhtml-basic11.dtd" 
 		);
-
+	
 	@Override
 	public InputStream resolveEntity(String publicId, String systemId, String baseURI, String namespace) throws XMLStreamException {
 		if (PUBLIC_IDS_HTML.contains(publicId) || SYSTEM_IDS_HTML.contains(systemId)) {
-			throw new NotPodcastFeedException("the document appears to be HTML");
+			throw new NotPodcastFeedException("the input appears to be HTML");
 		}
 		return QuietStream.INSTANCE;
 	}

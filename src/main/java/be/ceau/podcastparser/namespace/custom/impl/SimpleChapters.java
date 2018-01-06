@@ -17,7 +17,6 @@ package be.ceau.podcastparser.namespace.custom.impl;
 
 import javax.xml.stream.XMLStreamException;
 
-import org.apache.logging.log4j.util.Strings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -28,6 +27,7 @@ import be.ceau.podcastparser.models.support.Image;
 import be.ceau.podcastparser.models.support.Link;
 import be.ceau.podcastparser.namespace.Namespace;
 import be.ceau.podcastparser.util.Durations;
+import be.ceau.podcastparser.util.Strings;
 
 /**
  * <h1>Podlove Simple Chapters</h1>

@@ -21,8 +21,6 @@ import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
-import org.apache.commons.lang3.StringUtils;
-
 import be.ceau.podcastparser.ParseLevel;
 import be.ceau.podcastparser.PodParseContext;
 import be.ceau.podcastparser.models.core.Item;
@@ -37,6 +35,7 @@ import be.ceau.podcastparser.namespace.NamespaceFactory;
 import be.ceau.podcastparser.namespace.RootNamespace;
 import be.ceau.podcastparser.util.Attributes;
 import be.ceau.podcastparser.util.Dates;
+import be.ceau.podcastparser.util.Strings;
 import be.ceau.podcastparser.util.UnmodifiableSet;
 
 /**
@@ -95,7 +94,7 @@ public class Atom implements RootNamespace, Namespace {
 	@Override
 	public void process(PodParseContext ctx) throws XMLStreamException {
 		String ns = ctx.getReader().getNamespaceURI();
-		if (StringUtils.isNotBlank(ns) && !NAME.equals(ns) && !getAlternativeNames().contains(ns)) {
+		if (Strings.isNotBlank(ns) && !NAME.equals(ns) && !getAlternativeNames().contains(ns)) {
 			Namespace namespace = NamespaceFactory.getInstance(ns);
 			if (mustDelegateTo(namespace)) {
 				namespace.process(ctx);
@@ -157,7 +156,7 @@ public class Atom implements RootNamespace, Namespace {
 	@Override
 	public void process(PodParseContext ctx, Item item) throws XMLStreamException {
 		String ns = ctx.getReader().getNamespaceURI();
-		if (StringUtils.isNotBlank(ns) && !NAME.equals(ns) && !getAlternativeNames().contains(ns)) {
+		if (Strings.isNotBlank(ns) && !NAME.equals(ns) && !getAlternativeNames().contains(ns)) {
 			Namespace namespace = NamespaceFactory.getInstance(ns);
 			if (mustDelegateTo(namespace)) {
 				namespace.process(ctx, item);

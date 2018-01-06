@@ -17,14 +17,13 @@ package be.ceau.podcastparser.namespace.custom.impl;
 
 import javax.xml.stream.XMLStreamException;
 
-import org.apache.commons.lang3.StringUtils;
-
 import be.ceau.podcastparser.PodParseContext;
 import be.ceau.podcastparser.models.core.Item;
 import be.ceau.podcastparser.models.support.Enclosure;
 import be.ceau.podcastparser.models.support.Link;
 import be.ceau.podcastparser.models.support.OtherValueKey;
 import be.ceau.podcastparser.namespace.Namespace;
+import be.ceau.podcastparser.util.Strings;
 
 public class BBC implements Namespace {
 
@@ -85,7 +84,7 @@ public class BBC implements Namespace {
 			// a canonical link to the program this podcast was created from
 			Link link = new Link();
 			String text = ctx.getElementText();
-			if (StringUtils.startsWithIgnoreCase(text, "http")) {
+			if (Strings.startsWithIgnoreCase(text, "http")) {
 				link.setHref(text);
 			} else {
 				link.setHref("https://www.bbc.co.uk" + text);

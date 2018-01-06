@@ -31,7 +31,7 @@ public class SingleFileTest {
 
 	private static final Logger logger = LoggerFactory.getLogger(SingleFileTest.class);
 
-	private static final Path PATH = Paths.get(System.getProperty("user.home"), "podcastfinder", "corpus", "38998.xml");
+	private static final Path PATH = Paths.get(System.getProperty("user.home"), "podcastfinder", "test.xml");
 
 	@Test
 	public void singleFileTest() {

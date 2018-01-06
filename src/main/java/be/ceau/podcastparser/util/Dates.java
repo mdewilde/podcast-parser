@@ -31,8 +31,6 @@ import java.util.Set;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-import org.apache.commons.lang3.StringUtils;
-
 public class Dates {
 
 	private Dates() {
@@ -51,6 +49,14 @@ public class Dates {
 
 	private static final Pattern WHITE_SPACE = Pattern.compile("\\s+");
 
+	private static final Pattern MON = Pattern.compile("Mon,", Pattern.CASE_INSENSITIVE);
+	private static final Pattern TUE = Pattern.compile("Tue,", Pattern.CASE_INSENSITIVE);
+	private static final Pattern WED = Pattern.compile("Wed,", Pattern.CASE_INSENSITIVE);
+	private static final Pattern THU = Pattern.compile("Thu,", Pattern.CASE_INSENSITIVE);
+	private static final Pattern FRI = Pattern.compile("Fri,", Pattern.CASE_INSENSITIVE);
+	private static final Pattern SAT = Pattern.compile("Sat,", Pattern.CASE_INSENSITIVE);
+	private static final Pattern SUN = Pattern.compile("Sun,", Pattern.CASE_INSENSITIVE);
+	
 	private static final Set<String> ZONED_DATE_TIME_PATTERNS = UnmodifiableSet.of(
 			"EEE, dd MMM uuuu H:mm:ss xx",
 			"EEE, dd MMM uuuu H:mm:ss z",
@@ -238,13 +244,13 @@ public class Dates {
 	}
 
 	private static String removeDayOfWeek(String string) {
-		string = StringUtils.removeIgnoreCase(string, "Mon,");
-		string = StringUtils.removeIgnoreCase(string, "Tue,");
-		string = StringUtils.removeIgnoreCase(string, "Wed,");
-		string = StringUtils.removeIgnoreCase(string, "Thu,");
-		string = StringUtils.removeIgnoreCase(string, "Fri,");
-		string = StringUtils.removeIgnoreCase(string, "Sat,");
-		string = StringUtils.removeIgnoreCase(string, "Sun,");
+		string = MON.matcher(string).replaceAll("");
+		string = TUE.matcher(string).replaceAll("");
+		string = WED.matcher(string).replaceAll("");
+		string = THU.matcher(string).replaceAll("");
+		string = FRI.matcher(string).replaceAll("");
+		string = SAT.matcher(string).replaceAll("");
+		string = SUN.matcher(string).replaceAll("");
 		return string;
 	}
 

@@ -22,7 +22,6 @@ import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -103,19 +102,19 @@ public class ITunes implements Namespace {
 			// The contents of this tag are shown in the Description column in iTunes. 
 			// The subtitle displays best if it is only a few words long.
 			String subtitle = ctx.getElementText();
-			if (StringUtils.isNotBlank(subtitle)) {
+			if (Strings.isNotBlank(subtitle)) {
 				ctx.getFeed().setSubtitle(subtitle);
 			}
 			break;
 		case "summary":
 			String summary = ctx.getElementText();
-			if (StringUtils.isNotBlank(summary)) {
+			if (Strings.isNotBlank(summary)) {
 				ctx.getFeed().setSummary(summary);
 			}
 			break;
 		case "type":
 			String type = ctx.getElementText();
-			if (StringUtils.isNotBlank(type)) {
+			if (Strings.isNotBlank(type)) {
 				ctx.getFeed().setType(type);
 			}
 			break;

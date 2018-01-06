@@ -20,8 +20,6 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.LongAdder;
 import java.util.stream.Collectors;
 
-import org.apache.commons.lang3.StringUtils;
-
 import be.ceau.podcastparser.ParseLevel;
 
 /**
@@ -57,11 +55,11 @@ public class ElementCounter {
 	private static String header() {
 		String line = new StringBuilder()
 				.append(System.lineSeparator())
-				.append(StringUtils.repeat("-", COUNT_WIDTH))
-				.append(StringUtils.repeat("-", LEVEL_WIDTH))
-				.append(StringUtils.repeat("-", NAME_WIDTH))
-				.append(StringUtils.repeat("-", ATTRIBUTES_WIDTH))
-				.append(StringUtils.repeat("-", NAMESPACE_WIDTH))
+				.append(Strings.repeat('-', COUNT_WIDTH))
+				.append(Strings.repeat('-', LEVEL_WIDTH))
+				.append(Strings.repeat('-', NAME_WIDTH))
+				.append(Strings.repeat('-', ATTRIBUTES_WIDTH))
+				.append(Strings.repeat('-', NAMESPACE_WIDTH))
 				.append(System.lineSeparator())
 				.toString();
 		return new StringBuilder()
@@ -77,15 +75,15 @@ public class ElementCounter {
 
 	private static String row(String count, String level, String localName, String attributes, String namespace) {
 		return new StringBuilder()
-				.append(StringUtils.leftPad(count, COUNT_WIDTH))
+				.append(Strings.leftPad(count, COUNT_WIDTH))
 				.append(" | ")
-				.append(StringUtils.rightPad(level, LEVEL_WIDTH))
+				.append(Strings.rightPad(level, LEVEL_WIDTH))
 				.append(" | ")
-				.append(StringUtils.rightPad(localName, NAME_WIDTH))
+				.append(Strings.rightPad(localName, NAME_WIDTH))
 				.append(" | ")
-				.append(StringUtils.rightPad(attributes, ATTRIBUTES_WIDTH))
+				.append(Strings.rightPad(attributes, ATTRIBUTES_WIDTH))
 				.append(" | ")
-				.append(StringUtils.rightPad(namespace, NAMESPACE_WIDTH))
+				.append(Strings.rightPad(namespace, NAMESPACE_WIDTH))
 				.toString();
 	}
 	

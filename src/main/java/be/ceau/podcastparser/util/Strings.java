@@ -28,10 +28,6 @@ public class Strings {
 	private static final Pattern WHITE_SPACE = Pattern.compile("\\s+");
 	private static final Pattern COMMA = Pattern.compile(",");
 
-	public static boolean isNotBlank(final String string) {
-		return !isBlank(string);
-	}
-
 	public static boolean isBlank(final String string) {
 		int strLen;
 		if (string == null || (strLen = string.length()) == 0) {
@@ -45,6 +41,10 @@ public class Strings {
 		return true;
 	}
 
+	public static boolean isNotBlank(final String string) {
+		return !isBlank(string);
+	}
+
 	public static void requireNonBlank(final String string) {
 		if (isBlank(string)) {
 			throw new IllegalArgumentException();
@@ -56,9 +56,9 @@ public class Strings {
 			return Collections.emptyList();
 		}
 		return WHITE_SPACE.splitAsStream(string.trim())
-			.map(String::trim)
-			.filter(Strings::isNotBlank)
-			.collect(Collectors.toList());
+				.map(String::trim)
+				.filter(Strings::isNotBlank)
+				.collect(Collectors.toList());
 	}
 
 	public static List<String> splitOnComma(final String string) {
@@ -66,9 +66,9 @@ public class Strings {
 			return Collections.emptyList();
 		}
 		return COMMA.splitAsStream(string.trim())
-			.map(String::trim)
-			.filter(Strings::isNotBlank)
-			.collect(Collectors.toList());
+				.map(String::trim)
+				.filter(Strings::isNotBlank)
+				.collect(Collectors.toList());
 	}
 
 	/**
@@ -87,7 +87,7 @@ public class Strings {
 
 	// adapted from https://stackoverflow.com/a/21278906
 	private final static Pattern HTML_PATTERN = Pattern.compile(".*\\<[^>]+>.*", Pattern.DOTALL);
-	
+
 	/**
 	 * Check if string contains HTML markup tags or entities.
 	 *
@@ -98,6 +98,54 @@ public class Strings {
 	 */
 	public static boolean isHtml(String string) {
 		return false;
-	//	return HTML_PATTERN.matcher(string).find();
-    }
+		// return HTML_PATTERN.matcher(string).find();
+	}
+
+	/**
+	 * Check if string starts with prefix, case insensitive
+	 *
+	 * @param string
+	 *            {@link String} to test
+	 * @param prefix
+	 *            {@link String} to check, not {@code null}
+	 * @return {@code true} if {@code string} starts with {@code prefix}
+	 * @throws NullPointerException
+	 *             if {@link prefix} is {@code null}
+	 */
+	public static boolean startsWithIgnoreCase(String string, String prefix) {
+		if (string == null) {
+			return false;
+		}
+		if (string.length() < prefix.length()) {
+			return false;
+		}
+		String substring = string.substring(0, prefix.length());
+		return prefix.equalsIgnoreCase(substring);
+	}
+
+	/**
+	 * Create a {@link String} consisting of {@code count} repetitions of {@code character}
+	 *
+	 * @param character
+	 *            {@code char} to repeat
+	 * @param count
+	 *            {@code int}
+	 * @return {@code String}, not {@code null}
+	 */
+	public static String repeat(char character, int count) {
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < count; i++) {
+			sb.append(character);
+		}
+		return sb.toString();
+	}
+
+	public static String rightPad(String s, int n) {
+	     return String.format("%1$-" + n + "s", s);  
+	}
+
+	public static String leftPad(String s, int n) {
+	    return String.format("%1$" + n + "s", s);  
+	}
+
 }

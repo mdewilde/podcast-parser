@@ -17,8 +17,6 @@ package be.ceau.podcastparser.namespace.custom.impl;
 
 import javax.xml.stream.XMLStreamException;
 
-import org.apache.commons.lang3.StringUtils;
-
 import be.ceau.podcastparser.PodParseContext;
 import be.ceau.podcastparser.models.core.Item;
 import be.ceau.podcastparser.models.support.Image;
@@ -26,6 +24,7 @@ import be.ceau.podcastparser.models.support.Link;
 import be.ceau.podcastparser.models.support.Metamark;
 import be.ceau.podcastparser.models.support.TypedString;
 import be.ceau.podcastparser.namespace.Namespace;
+import be.ceau.podcastparser.util.Strings;
 
 /**
  * <p>
@@ -55,7 +54,7 @@ public class RawVoice implements Namespace {
 		case "donate":
 			// one required attribute "href"
 			String href = ctx.getAttribute("href");
-			if (StringUtils.isNotBlank(href)) {
+			if (Strings.isNotBlank(href)) {
 				Link link = new Link();
 				link.setHref(href);
 				// value may be specified but is not required

@@ -22,8 +22,6 @@ import java.util.stream.Collectors;
 
 import javax.xml.stream.XMLStreamReader;
 
-import org.apache.commons.lang3.StringUtils;
-
 import be.ceau.podcastparser.ParseLevel;
 
 /**
@@ -38,7 +36,7 @@ public class EncounteredElement {
 
 	public EncounteredElement(String rootNamespace, XMLStreamReader reader, ParseLevel level) {
 		String uri = reader.getNamespaceURI();
-		this.namespaceUri = StringUtils.isBlank(uri) ? rootNamespace : uri;
+		this.namespaceUri = Strings.isBlank(uri) ? rootNamespace : uri;
 		this.localName = reader.getLocalName();
 		this.attributes = Collections.unmodifiableSet(extractAttributes(reader));
 		this.level = level;

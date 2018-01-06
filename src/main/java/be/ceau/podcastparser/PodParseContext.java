@@ -26,7 +26,6 @@ import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
-import org.apache.logging.log4j.util.Strings;
 import org.slf4j.LoggerFactory;
 
 import be.ceau.podcastparser.models.core.Feed;
@@ -35,6 +34,7 @@ import be.ceau.podcastparser.models.support.SkippableElement;
 import be.ceau.podcastparser.namespace.Namespace;
 import be.ceau.podcastparser.namespace.callback.NamespaceCallbackHandler;
 import be.ceau.podcastparser.util.RequiredState;
+import be.ceau.podcastparser.util.Strings;
 
 public class PodParseContext {
 

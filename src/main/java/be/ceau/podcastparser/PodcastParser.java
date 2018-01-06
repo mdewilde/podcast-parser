@@ -123,6 +123,12 @@ public class PodcastParser {
 		XMLStreamReader streamReader = factory.createXMLStreamReader(reader);
 		while (streamReader.hasNext()) {
 			switch (streamReader.next()) {
+			case XMLStreamConstants.DTD:
+				String text = streamReader.getText();
+				if ("<!DOCTYPE html>".equals(text) || "<!DOCTYPE HTML>".equals(text)) {
+					throw new NotPodcastFeedException("the input appears to be HTML");
+				}
+				break;
 			case XMLStreamConstants.START_ELEMENT:
 				switch (streamReader.getLocalName()) {
 				case "rss": {

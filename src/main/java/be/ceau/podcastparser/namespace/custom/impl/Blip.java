@@ -21,8 +21,6 @@ import java.time.ZonedDateTime;
 import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 
-import org.apache.commons.lang3.StringUtils;
-
 import be.ceau.podcastparser.PodParseContext;
 import be.ceau.podcastparser.models.core.Item;
 import be.ceau.podcastparser.models.support.Category;
@@ -53,7 +51,7 @@ public class Blip implements Namespace {
 		case "channel_name":
 			// these contain category-type information
 			String name = ctx.getElementText();
-			if (StringUtils.isNotBlank(name)) {
+			if (Strings.isNotBlank(name)) {
 				Category category = new Category();
 				category.setName(ctx.getElementText());
 				item.addCategory(category);
