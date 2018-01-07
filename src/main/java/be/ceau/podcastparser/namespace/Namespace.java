@@ -23,14 +23,13 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
 import be.ceau.podcastparser.ParseLevel;
-import be.ceau.podcastparser.PodParseContext;
+import be.ceau.podcastparser.PodcastParserContext;
 import be.ceau.podcastparser.models.core.Feed;
 import be.ceau.podcastparser.models.core.Item;
 
 /**
  * <p>
- * Implements logic specific to a specific XML namespace used in podcasting RSS
- * feeds.
+ * Implements logic specific to a specific XML namespace used in podcasting RSS feeds.
  * </p>
  * <p>
  * Implementations should be threadsafe.
@@ -39,23 +38,20 @@ import be.ceau.podcastparser.models.core.Item;
 public interface Namespace {
 
 	/**
-	 * A namespace has a single, specific, agreed upon name. However, quite a
-	 * few namespaces are denoted by multiple names in real world podcast XML
-	 * files.
+	 * A namespace has a single, specific, agreed upon name. However, quite a few namespaces are denoted
+	 * by multiple names in real world podcast XML files.
 	 * 
-	 * @return the canonical name for this {@link Namespace}, not {@code null}
-	 *         identified.
+	 * @return the canonical name for this {@link Namespace}, not {@code null} identified.
 	 * @see #getAlternativeNames()
 	 */
 	public String getName();
 
 	/**
-	 * A namespace has a single, specific, agreed upon name. However, quite a
-	 * few namespaces are denoted by multiple names in real world podcast XML
-	 * files.
+	 * A namespace has a single, specific, agreed upon name. However, quite a few namespaces are denoted
+	 * by multiple names in real world podcast XML files.
 	 * 
-	 * @return a {@link Set} of names by which this {@link Namespace} is also
-	 *         identified, may be empty, never {@code null}
+	 * @return a {@link Set} of names by which this {@link Namespace} is also identified, may be empty,
+	 *         never {@code null}
 	 * @see #getName()
 	 */
 	public default Set<String> getAlternativeNames() {
@@ -63,39 +59,51 @@ public interface Namespace {
 	}
 
 	/**
-	 * Process any additional information from the {@link XMLStreamReader}, at
-	 * its current position, onto the given {@link Feed} in the
-	 * {@link PodParseContext} according to the namespace specification.
+	 * Check if the given namespaceURI is for {@code this} {@link Namespace}
+	 * 
+	 * @param namespaceURI
+	 *            {@link String} or {@null}
+	 * @return {@code true} if the given {@code namespaceURI} is associated with {@code this}
+	 *         {@link Namespace}
+	 */
+	public default boolean isMatch(String namespaceURI) {
+		if (namespaceURI == null) {
+			return false;
+		}
+		return getName().equals(namespaceURI) || getAlternativeNames().contains(namespaceURI);
+	}
+
+	/**
+	 * Process any additional information from the {@link XMLStreamReader}, at its current position,
+	 * onto the given {@link Feed} in the {@link PodcastParserContext} according to the namespace
+	 * specification.
 	 *
 	 * @param ctx
-	 *            {@link PodParseContext} instance in the process of being built
+	 *            {@link PodcastParserContext} instance in the process of being built
 	 * @param reader
 	 *            {@link XMLStreamReader} instance, having just processed a
-	 *            {@link XMLStreamConstants#START_ELEMENT} event with this
-	 *            namespace.
+	 *            {@link XMLStreamConstants#START_ELEMENT} event with this namespace.
 	 * @throws XMLStreamException
 	 */
-	public default void process(PodParseContext ctx) throws XMLStreamException {
+	public default void process(PodcastParserContext ctx) throws XMLStreamException {
 		// default is to do nothing
 		ctx.registerUnhandledElement(ParseLevel.FEED);
 	}
 
 	/**
-	 * Process any additional information from the {@link XMLStreamReader}, at
-	 * its current position, onto the given {@link Item} according to the
-	 * namespace specification.
+	 * Process any additional information from the {@link XMLStreamReader}, at its current position,
+	 * onto the given {@link Item} according to the namespace specification.
 	 * 
 	 * @param ctx
-	 *            {@link PodParseContext} instance in the process of being built
+	 *            {@link PodcastParserContext} instance in the process of being built
 	 * @param item
 	 *            {@link Item} instance in the process of being built
 	 * @param reader
 	 *            {@link XMLStreamReader} instance, having just processed a
-	 *            {@link XMLStreamConstants#START_ELEMENT} event with this
-	 *            namespace.
+	 *            {@link XMLStreamConstants#START_ELEMENT} event with this namespace.
 	 * @throws XMLStreamException
 	 */
-	public default void process(PodParseContext ctx, Item item) throws XMLStreamException {
+	public default void process(PodcastParserContext ctx, Item item) throws XMLStreamException {
 		// default is to do nothing
 		ctx.registerUnhandledElement(ParseLevel.ITEM);
 	}
@@ -103,8 +111,7 @@ public interface Namespace {
 	/**
 	 * @param namespace
 	 *            a {@link Namespace} implementation, or {@code null}
-	 * @return true if the given {@link Namespace} is not {@code this}
-	 *         {@link Namespace}
+	 * @return true if the given {@link Namespace} is not {@code this} {@link Namespace}
 	 */
 	public default boolean mustDelegateTo(Namespace namespace) {
 		return namespace != null && !this.getClass().equals(namespace.getClass());

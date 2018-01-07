@@ -21,7 +21,7 @@ import java.time.ZonedDateTime;
 import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 
-import be.ceau.podcastparser.PodParseContext;
+import be.ceau.podcastparser.PodcastParserContext;
 import be.ceau.podcastparser.models.core.Item;
 import be.ceau.podcastparser.models.support.Category;
 import be.ceau.podcastparser.models.support.Image;
@@ -44,7 +44,7 @@ public class Blip implements Namespace {
 	}
 
 	@Override
-	public void process(PodParseContext ctx, Item item) throws XMLStreamException {
+	public void process(PodcastParserContext ctx, Item item) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
 		case "adChannel":
 		case "channel_list":
@@ -171,7 +171,7 @@ public class Blip implements Namespace {
 		}
 	}
 
-	private void parseCategories(PodParseContext ctx, Item item) throws XMLStreamException {
+	private void parseCategories(PodcastParserContext ctx, Item item) throws XMLStreamException {
 		while (ctx.getReader().hasNext()) {
 			switch (ctx.getReader().next()) {
 			case XMLStreamConstants.START_DOCUMENT:

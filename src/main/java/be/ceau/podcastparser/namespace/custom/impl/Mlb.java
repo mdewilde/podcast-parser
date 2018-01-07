@@ -15,34 +15,18 @@
 */
 package be.ceau.podcastparser.namespace.custom.impl;
 
-import javax.xml.stream.XMLStreamException;
-
-import be.ceau.podcastparser.PodcastParserContext;
-import be.ceau.podcastparser.models.core.Item;
 import be.ceau.podcastparser.namespace.Namespace;
 
-public class Longtailvideo implements Namespace {
+public class Mlb implements Namespace {
 
-	private static final String NAME = "http://developer.longtailvideo.com/";
+	private static final String NAME = "http://mlb.mlb.com/rss/";
 
 	@Override
 	public String getName() {
 		return NAME;
 	}
 
-	@Override
-	public void process(PodcastParserContext ctx, Item item) throws XMLStreamException {
-		switch (ctx.getReader().getLocalName()) {
-		case "talkId":
-		case "file":
-		case "sharing.link":
-		case "captions.file":
-		case "provider":
-		case "http.startparam":
-		default : 
-			Namespace.super.process(ctx, item);
-			break;
-		}
-	}
-
 }
+
+// 3811 | ITEM     | display-date                                       | http://mlb.mlb.com/rss/                                                         
+// 3811 | ITEM     | display-date-epoch                                 | http://mlb.mlb.com/rss/                                                         

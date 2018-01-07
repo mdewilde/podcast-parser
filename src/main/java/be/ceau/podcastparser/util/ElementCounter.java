@@ -15,6 +15,7 @@
 */
 package be.ceau.podcastparser.util;
 
+import java.util.Collections;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.LongAdder;
@@ -30,7 +31,7 @@ public class ElementCounter {
 	private static final int COUNT_WIDTH = 8;
 	private static final int LEVEL_WIDTH = 8;
 	private static final int NAME_WIDTH = 50;
-	private static final int ATTRIBUTES_WIDTH = 42;
+	private static final int ATTRIBUTES_WIDTH = 70;
 	private static final int NAMESPACE_WIDTH = 80;
 
 	private final Map<EncounteredElement, LongAdder> map = new ConcurrentHashMap<>();
@@ -39,6 +40,10 @@ public class ElementCounter {
 		map.computeIfAbsent(encounteredElement, x -> new LongAdder()).increment();
 	}
 	
+	public Map<EncounteredElement, LongAdder> getMap() {
+		return Collections.unmodifiableMap(map);
+	}
+
 	@Override
 	public String toString() {
 		String rows = map.entrySet()

@@ -15,6 +15,11 @@
 */
 package be.ceau.podcastparser.namespace;
 
+import javax.xml.stream.XMLStreamException;
+
+import be.ceau.podcastparser.PodcastParserContext;
+import be.ceau.podcastparser.models.core.Item;
+
 /**
  * <p>
  * One of the root namespaces used in podcast feed XML files.
@@ -25,5 +30,8 @@ package be.ceau.podcastparser.namespace;
  */
 public interface RootNamespace {
 
+	public void parseFeed(PodcastParserContext ctx) throws XMLStreamException;
+
+	public Item parseItem(PodcastParserContext ctx) throws XMLStreamException;
 
 }

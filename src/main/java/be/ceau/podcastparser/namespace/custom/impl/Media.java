@@ -23,7 +23,7 @@ import java.util.Set;
 import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 
-import be.ceau.podcastparser.PodParseContext;
+import be.ceau.podcastparser.PodcastParserContext;
 import be.ceau.podcastparser.models.core.Item;
 import be.ceau.podcastparser.models.support.Category;
 import be.ceau.podcastparser.models.support.Copyright;
@@ -130,7 +130,7 @@ public class Media implements Namespace {
 	}
 
 	@Override
-	public void process(PodParseContext ctx) throws XMLStreamException {
+	public void process(PodcastParserContext ctx) throws XMLStreamException {
 		String localName = ctx.getReader().getLocalName();
 		switch (localName) {
 		case "category":
@@ -161,7 +161,7 @@ public class Media implements Namespace {
 	}
 
 	@Override
-	public void process(PodParseContext ctx, Item item) throws XMLStreamException {
+	public void process(PodcastParserContext ctx, Item item) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
 		case "adult":
 			// This is deprecated and has been replaced with 'rating'
@@ -377,7 +377,7 @@ public class Media implements Namespace {
 	 * Allows a taxonomy to be set that gives an indication of the type
 	 * of media content, and its particular contents.
 	 */
-	private Category parseCategory(PodParseContext ctx) throws XMLStreamException {
+	private Category parseCategory(PodcastParserContext ctx) throws XMLStreamException {
 		Category category = new Category();
 		String scheme = ctx.getAttribute("scheme");
 		if (Strings.isBlank(scheme)) {
@@ -391,7 +391,7 @@ public class Media implements Namespace {
 		return category;
 	}
 
-	private Copyright parseCopyright(PodParseContext ctx) throws XMLStreamException {
+	private Copyright parseCopyright(PodcastParserContext ctx) throws XMLStreamException {
 		Copyright copyright = new Copyright();
 		copyright.setUrl(ctx.getAttribute("url"));
 		copyright.setText(ctx.getElementText());
@@ -421,7 +421,7 @@ public class Media implements Namespace {
 	 * Broadcasting Union Role Codes. The roles supported under urn:yvs
 	 * scheme are ( uploader | owner ).
 	 */
-	private Credit parseCredit(PodParseContext ctx) throws XMLStreamException {
+	private Credit parseCredit(PodcastParserContext ctx) throws XMLStreamException {
 		Credit credit = new Credit();
 		credit.setScheme(ctx.getAttribute("scheme"));
 		credit.setRole(ctx.getAttribute("role"));
@@ -441,7 +441,7 @@ public class Media implements Namespace {
 	 * 
 	 * @return
 	 */
-	private TypedString parseDescription(PodParseContext ctx) throws XMLStreamException {
+	private TypedString parseDescription(PodcastParserContext ctx) throws XMLStreamException {
 		TypedString typedString = new TypedString();
 		if ("html".equals(ctx.getAttribute("type"))) {
 			typedString.setType("html");
@@ -456,7 +456,7 @@ public class Media implements Namespace {
 	 * This is the hash of the binary media file. It can appear multiple
 	 * times as long as each instance is a different algo.
 	 */
-	private Hash parseHash(PodParseContext ctx) throws XMLStreamException {
+	private Hash parseHash(PodcastParserContext ctx) throws XMLStreamException {
 		Hash hash = new Hash();
 		hash.setAlgo(ctx.getAttribute("algo"));
 		hash.setHash(ctx.getElementText());
@@ -470,7 +470,7 @@ public class Media implements Namespace {
 	 * of importance. It has one required attribute and three optional
 	 * attributes.
 	 */
-	private Image parseImage(PodParseContext ctx) throws XMLStreamException {
+	private Image parseImage(PodcastParserContext ctx) throws XMLStreamException {
 		String url = ctx.getAttribute("url");
 		String width = ctx.getAttribute("width");
 		String height = ctx.getAttribute("width");
@@ -487,7 +487,7 @@ public class Media implements Namespace {
 	 * Comma-delimited keywords describing the media object with
 	 * typically a maximum of 10 words.
 	 */
-	private List<String> parseKeywords(PodParseContext ctx) throws XMLStreamException {
+	private List<String> parseKeywords(PodcastParserContext ctx) throws XMLStreamException {
 		return Strings.splitOnComma(ctx.getElementText());
 	}
 	
@@ -499,7 +499,7 @@ public class Media implements Namespace {
 	 * href="http://creativecommons.org/licenses/by/3.0/us/">Creative
 	 * Commons Attribution 3.0 United States License</media:license>
 	 */
-	private License parseLicense(PodParseContext ctx) throws XMLStreamException {
+	private License parseLicense(PodcastParserContext ctx) throws XMLStreamException {
 		String type = ctx.getAttribute("type");
 		String label = ctx.getAttribute("label");
 		License license = new License();
@@ -509,7 +509,7 @@ public class Media implements Namespace {
 		return license;
 	}
 
-	private MediaContent parseMediaContent(PodParseContext ctx) throws XMLStreamException {
+	private MediaContent parseMediaContent(PodcastParserContext ctx) throws XMLStreamException {
 		MediaContent mediaContent = new MediaContent();
 		mediaContent.setUrl(ctx.getAttribute("url"));
 		String fileSize = ctx.getAttribute("fileSize");
@@ -563,7 +563,7 @@ public class Media implements Namespace {
 		return mediaContent;
 	}
 
-	private List<MediaContent> parseMediaGroup(PodParseContext ctx) throws XMLStreamException {
+	private List<MediaContent> parseMediaGroup(PodcastParserContext ctx) throws XMLStreamException {
 		List<MediaContent> list = new ArrayList<>();
 		while (ctx.getReader().hasNext()) {
 			switch (ctx.getReader().next()) {
@@ -582,7 +582,7 @@ public class Media implements Namespace {
 		return list;
 	}
 
-	private MediaPlayer parseMediaPlayer(PodParseContext ctx) throws XMLStreamException {
+	private MediaPlayer parseMediaPlayer(PodcastParserContext ctx) throws XMLStreamException {
 		MediaPlayer player = new MediaPlayer();
 		player.setUrl(ctx.getAttribute("url"));
 		try {
@@ -614,7 +614,7 @@ public class Media implements Namespace {
 	 * @return
 	 * @throws XMLStreamException
 	 */
-	private Rating parseRating(PodParseContext ctx)throws XMLStreamException {
+	private Rating parseRating(PodcastParserContext ctx)throws XMLStreamException {
 		String scheme = ctx.getAttribute("scheme");
 		if (Strings.isBlank(scheme)) {
 			scheme = "urn:simple";
@@ -692,11 +692,11 @@ public class Media implements Namespace {
 	 * 
 	 * Supported values are "userCreated" and "official".
 	 */
-	private String parseRights(PodParseContext ctx) throws XMLStreamException {
+	private String parseRights(PodcastParserContext ctx) throws XMLStreamException {
 		return ctx.getAttribute("status");
 	}
 
-	private List<Scene> parseScenes(PodParseContext ctx) throws XMLStreamException {
+	private List<Scene> parseScenes(PodcastParserContext ctx) throws XMLStreamException {
 		/*
 		 * Optional element to specify various scenes within a media object.
 		 * It can have multiple child <media:scene> elements, where each
@@ -774,7 +774,7 @@ public class Media implements Namespace {
 	 * expected that the end time is either the end of the clip or the
 	 * start of the next <media:text> element.
 	 */
-	private Transcript parseText(PodParseContext ctx) throws XMLStreamException {
+	private Transcript parseText(PodcastParserContext ctx) throws XMLStreamException {
 		
 		Transcript transcript = new Transcript();
 		transcript.setLang(ctx.getAttribute("lang"));
@@ -802,7 +802,7 @@ public class Media implements Namespace {
 	// type specifies the type of text embedded. Possible values are
 	// either "plain" or "html". Default value is "plain". All HTML must
 	// be entity-encoded. It is an optional attribute.
-	private TypedString parseTitle(PodParseContext ctx) throws XMLStreamException {
+	private TypedString parseTitle(PodcastParserContext ctx) throws XMLStreamException {
 		TypedString title = new TypedString();
 		title.setType(ctx.getAttribute("type"));
 		title.setText(ctx.getElementText());

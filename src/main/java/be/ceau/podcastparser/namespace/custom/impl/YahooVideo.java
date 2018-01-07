@@ -18,7 +18,7 @@ package be.ceau.podcastparser.namespace.custom.impl;
 import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 
-import be.ceau.podcastparser.PodParseContext;
+import be.ceau.podcastparser.PodcastParserContext;
 import be.ceau.podcastparser.models.core.Item;
 import be.ceau.podcastparser.namespace.Namespace;
 
@@ -32,7 +32,7 @@ public class YahooVideo implements Namespace {
 	}
 
 	@Override
-	public void process(PodParseContext ctx, Item item) throws XMLStreamException {
+	public void process(PodcastParserContext ctx, Item item) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
 		case "adData" : 
 		case "adInfo" : 
@@ -46,7 +46,7 @@ public class YahooVideo implements Namespace {
 		}
 	}
 
-	private void parseAdInfo(PodParseContext ctx) throws XMLStreamException {
+	private void parseAdInfo(PodcastParserContext ctx) throws XMLStreamException {
 		while (ctx.getReader().hasNext()) {
 			switch (ctx.getReader().next()) {
 			case XMLStreamConstants.START_ELEMENT : 

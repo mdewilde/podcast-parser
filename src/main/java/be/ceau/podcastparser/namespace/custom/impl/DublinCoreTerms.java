@@ -17,7 +17,7 @@ package be.ceau.podcastparser.namespace.custom.impl;
 
 import javax.xml.stream.XMLStreamException;
 
-import be.ceau.podcastparser.PodParseContext;
+import be.ceau.podcastparser.PodcastParserContext;
 import be.ceau.podcastparser.models.core.Item;
 import be.ceau.podcastparser.namespace.Namespace;
 import be.ceau.podcastparser.util.Dates;
@@ -37,7 +37,7 @@ public class DublinCoreTerms implements Namespace {
 	}
 
 	@Override
-	public void process(PodParseContext ctx, Item item) throws XMLStreamException {
+	public void process(PodcastParserContext ctx, Item item) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
 		case "modified": 
 			// Date on which the resource was changed.

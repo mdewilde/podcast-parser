@@ -17,7 +17,7 @@ package be.ceau.podcastparser.namespace.custom.impl;
 
 import javax.xml.stream.XMLStreamException;
 
-import be.ceau.podcastparser.PodParseContext;
+import be.ceau.podcastparser.PodcastParserContext;
 import be.ceau.podcastparser.models.core.Item;
 import be.ceau.podcastparser.models.support.OtherValueKey;
 import be.ceau.podcastparser.namespace.Namespace;
@@ -32,7 +32,7 @@ public class Wordpress implements Namespace {
 	}
 
 	@Override
-	public void process(PodParseContext ctx) throws XMLStreamException {
+	public void process(PodcastParserContext ctx) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
 		case "site" :
 			ctx.getFeed().addOtherValue(OtherValueKey.WORDPRESS_SITE, ctx.getElementText());
@@ -44,7 +44,7 @@ public class Wordpress implements Namespace {
 	}
 
 	@Override
-	public void process(PodParseContext ctx, Item item) throws XMLStreamException {
+	public void process(PodcastParserContext ctx, Item item) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
 		case "post-id" :
 			item.addOtherValue(OtherValueKey.WORDPRESS_POST_ID, ctx.getElementText());

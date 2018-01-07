@@ -25,7 +25,7 @@ import javax.xml.stream.XMLStreamReader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import be.ceau.podcastparser.PodParseContext;
+import be.ceau.podcastparser.PodcastParserContext;
 import be.ceau.podcastparser.models.core.Item;
 import be.ceau.podcastparser.models.support.Category;
 import be.ceau.podcastparser.models.support.Image;
@@ -45,10 +45,23 @@ public class ITunes implements Namespace {
 
 	private static final String NAME = "http://www.itunes.com/dtds/podcast-1.0.dtd";
 	private static final Set<String> ALTERNATIVE_NAMES = UnmodifiableSet.of(
-			"http://www.itunes.com/dtds/podcast-1.0.dtd/", 
-			"https://www.itunes.com/dtds/podcast-1.0.dtd", 
-			"http://itunes.com/dtds/podcast-1.0.dtd", 
 			"//www.itunes.com/dtds/podcast-1.0.dtd", 
+			"//www.itunes.com/DTDs/Podcast-1.0.dtd", 
+			"http://itunes.com/dtds/podcast-1.0.dtd", 
+			"http://www.itunes.com/dtds/new_podcast-1.0.dtd",
+			"http://www.itunes.com/dtd/podcast-1.0.dtd",
+			"http://www.itunes.com/dtds/-1.0.dtd",
+			"http://www.itunes.com/dtds/podcast-1.0dtd",
+			"http://www.itunes.com/dtds/podcast-1.0.dtd/", 
+			"http://www.itunes.com/DTDs/Podcast-1.0.dtd", 
+			"http://www.itunes.com/DTDs/podcast-1.0.dtd", 
+			"http://www.itunes.com/dtds/podcast=1.0.dtd",
+			"http://www.itunes.com/DTD/Podcast-1.0dtd",
+			"http://www.itunes.com/dtds/podcast-'1.0'.dtd", 
+			"http://www.itunes.com/dtds/podcast-2.0.dtd", 
+			"http://www.itunes.org/dtds/podcast-1.0.dtd",
+			"https://itunes.com/dtds/podcast-1.0.dtd", 
+			"https://www.itunes.com/dtds/podcast-1.0.dtd", 
 			"itunes");
 
 	@Override
@@ -62,7 +75,7 @@ public class ITunes implements Namespace {
 	}
 
 	@Override
-	public void process(PodParseContext ctx) throws XMLStreamException {
+	public void process(PodcastParserContext ctx) throws XMLStreamException {
 		String localName = ctx.getReader().getLocalName();
 		switch (localName) {
 		case "author":
@@ -135,7 +148,7 @@ public class ITunes implements Namespace {
 	 * @throws XMLStreamException
 	 */
 	@Override
-	public void process(PodParseContext ctx, Item item) throws XMLStreamException {
+	public void process(PodcastParserContext ctx, Item item) throws XMLStreamException {
 		String localName = ctx.getReader().getLocalName();
 		switch (localName) {
 		case "author":
@@ -239,7 +252,7 @@ public class ITunes implements Namespace {
 	 * @return
 	 * @throws XMLStreamException
 	 */
-	private Person parseAuthor(PodParseContext ctx) throws XMLStreamException {
+	private Person parseAuthor(PodcastParserContext ctx) throws XMLStreamException {
 		Person person = new Person();
 		person.setName(ctx.getElementText());
 		return person;
@@ -261,7 +274,7 @@ public class ITunes implements Namespace {
 	 * At the episode level, if there is no block tag, it is the same as
 	 * if a block=no were present.
 	 */
-	private boolean parseBlock(PodParseContext ctx) throws XMLStreamException {
+	private boolean parseBlock(PodcastParserContext ctx) throws XMLStreamException {
 		return "yes".equalsIgnoreCase(ctx.getElementText());
 	}
 	
@@ -294,7 +307,7 @@ public class ITunes implements Namespace {
 	 * text="Games" /> </itunes:category> <itunes:category text="Technology">
 	 * <itunes:category text="Computers" /> </itunes:category>
 	 */
-	private Category parseCategory(PodParseContext ctx) throws XMLStreamException {
+	private Category parseCategory(PodcastParserContext ctx) throws XMLStreamException {
 		String text = ctx.getAttribute("text");
 		while (ctx.getReader().hasNext()) {
 			switch (ctx.getReader().next()) {
@@ -322,7 +335,7 @@ public class ITunes implements Namespace {
 	 * 
 	 * Specifying any value other than Yes has no effect.
 	 */
-	private boolean parseComplete(PodParseContext ctx) throws XMLStreamException {
+	private boolean parseComplete(PodcastParserContext ctx) throws XMLStreamException {
 		return "yes".equalsIgnoreCase(ctx.getElementText());
 	}
 	
@@ -337,16 +350,16 @@ public class ITunes implements Namespace {
 	 * ".jpg" or ".png". If the itunes:image tag is not present, iTunes will use
 	 * the contents of the RSS image tag.
 	 */
-	private Image parseImage(PodParseContext ctx) throws XMLStreamException {
+	private Image parseImage(PodcastParserContext ctx) throws XMLStreamException {
 		return new Image()
 				.setUrl(ctx.getAttribute("href"));
 	}
 
-	private List<String> parseKeywords(PodParseContext ctx) throws XMLStreamException {
+	private List<String> parseKeywords(PodcastParserContext ctx) throws XMLStreamException {
 		return Strings.splitOnComma(ctx.getElementText());
 	}
 
-	private Person parseOwner(PodParseContext ctx) throws XMLStreamException {
+	private Person parseOwner(PodcastParserContext ctx) throws XMLStreamException {
 		Person person = new Person();
 		while (ctx.getReader().hasNext()) {
 			switch (ctx.getReader().next()) {
@@ -370,7 +383,7 @@ public class ITunes implements Namespace {
 	}
 
 	// XXX duplicate code -> see Atom
-	private Link parseLink(PodParseContext ctx) throws XMLStreamException {
+	private Link parseLink(PodcastParserContext ctx) throws XMLStreamException {
 		Link link = new Link();
 		Attributes.get("href").from(ctx.getReader()).ifPresent(link::setHref);
 		Attributes.get("rel").from(ctx.getReader()).ifPresent(link::setRel);

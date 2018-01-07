@@ -18,7 +18,7 @@ package be.ceau.podcastparser.namespace.custom.impl;
 import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 
-import be.ceau.podcastparser.PodParseContext;
+import be.ceau.podcastparser.PodcastParserContext;
 import be.ceau.podcastparser.models.core.Item;
 import be.ceau.podcastparser.models.support.Visibility;
 import be.ceau.podcastparser.namespace.Namespace;
@@ -34,7 +34,7 @@ public class ARD implements Namespace {
 	}
 
 	@Override
-	public void process(PodParseContext ctx) throws XMLStreamException {
+	public void process(PodcastParserContext ctx) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
 		default:
 			Namespace.super.process(ctx);
@@ -42,7 +42,7 @@ public class ARD implements Namespace {
 	}
 
 	@Override
-	public void process(PodParseContext ctx, Item item) throws XMLStreamException {
+	public void process(PodcastParserContext ctx, Item item) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
 		case "visibility" : 
 			item.setVisibility(parseVisibility(ctx));
@@ -53,7 +53,7 @@ public class ARD implements Namespace {
 		}
 	}
 
-	private Visibility parseVisibility(PodParseContext ctx) throws XMLStreamException {
+	private Visibility parseVisibility(PodcastParserContext ctx) throws XMLStreamException {
 		Visibility visibility = new Visibility();
 		while (ctx.getReader().hasNext()) {
 			switch (ctx.getReader().next()) {

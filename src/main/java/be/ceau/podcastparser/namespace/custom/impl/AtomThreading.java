@@ -17,7 +17,7 @@ package be.ceau.podcastparser.namespace.custom.impl;
 
 import javax.xml.stream.XMLStreamException;
 
-import be.ceau.podcastparser.PodParseContext;
+import be.ceau.podcastparser.PodcastParserContext;
 import be.ceau.podcastparser.exceptions.PodcastParserException;
 import be.ceau.podcastparser.models.core.Item;
 import be.ceau.podcastparser.models.support.Link;
@@ -40,7 +40,7 @@ public class AtomThreading implements Namespace {
 	}
 
 	@Override
-	public void process(PodParseContext ctx, Item item) throws XMLStreamException {
+	public void process(PodcastParserContext ctx, Item item) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
 		case "total":
 			// The "total" element is used to indicate the total number of
@@ -59,7 +59,7 @@ public class AtomThreading implements Namespace {
 	// The "in-reply-to" element is used to indicate that an entry is a
 	// response to another resource. The element MUST contain a "ref"
 	// attribute identifying the resource that is being responded to.
-	private Link parseInReplyTo(PodParseContext ctx) throws PodcastParserException {
+	private Link parseInReplyTo(PodcastParserContext ctx) throws PodcastParserException {
 		Link link = new Link();
 		link.setHref(ctx.getAttribute("href"));
 		link.setType(ctx.getAttribute("type"));

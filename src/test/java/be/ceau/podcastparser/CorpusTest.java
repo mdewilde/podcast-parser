@@ -15,12 +15,13 @@
 */
 package be.ceau.podcastparser;
 
+import java.util.stream.Collectors;
+
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import be.ceau.podcastparser.exceptions.NotPodcastFeedException;
-import be.ceau.podcastparser.namespace.callback.UnhandledElementCounter;
+import be.ceau.podcastparser.namespace.callback.UnhandledNamespaceCounter;
 import be.ceau.podcastparser.test.provider.FilesProvider;
 import be.ceau.podcastparser.test.wrappedxml.WrappedXml;
 
@@ -31,26 +32,28 @@ public class CorpusTest {
 	@Test
 	public void corpusParseTest() {
 
-		UnhandledElementCounter counter = new UnhandledElementCounter();
-		PodcastParser parser = new PodcastParser(counter);
-		new FilesProvider().stream()
-				.limit(1999)
+
+		UnhandledNamespaceCounter callback = new UnhandledNamespaceCounter();
+		PodcastParser parser = new PodcastParser(callback);
+		new FilesProvider().parallelStream()
+//				.limit(50000)
 				.forEach(wrap -> {
 					try {
 						parser.parse(wrap.getXml());
-					} catch (NotPodcastFeedException e) {
-						handleHtml(wrap, e.getMessage());
+//					} catch (NotPodcastFeedException e) {
+//						handleHtml(wrap, e.getMessage());
 					} catch (Exception e) {
-						if (e.getMessage().contains("elementGetText() function expects")) {
-							logger.error("{}", wrap.getFullPath(), e);
-						} else {
-							logger.error("{} -> {}", wrap.getFullPath(), e.getMessage());
-						}
+//						if (e.getMessage().contains("elementGetText() function expects")) {
+//							logger.error("{}", wrap.getFullPath(), e);
+//						} else {
+//							logger.error("{} -> {}", wrap.getFullPath(), e.getMessage());
+//						}
 					}
 				});
 		
-		logger.debug("{}", counter);
-		logger.debug("end corpusParseTest()");
+		logger.debug("{}", callback.getNamespaceURIs().stream().collect(Collectors.joining(System.lineSeparator())));
+
+		logger.debug("{}", callback);
 
 	}
 

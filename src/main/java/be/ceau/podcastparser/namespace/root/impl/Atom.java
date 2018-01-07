@@ -22,7 +22,7 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
 import be.ceau.podcastparser.ParseLevel;
-import be.ceau.podcastparser.PodParseContext;
+import be.ceau.podcastparser.PodcastParserContext;
 import be.ceau.podcastparser.models.core.Item;
 import be.ceau.podcastparser.models.support.Category;
 import be.ceau.podcastparser.models.support.Copyright;
@@ -75,7 +75,8 @@ public class Atom implements RootNamespace, Namespace {
 		return ALTERNATIVE_NAMES;
 	}
 
-	public void parseFeed(PodParseContext ctx) throws XMLStreamException {
+	@Override
+	public void parseFeed(PodcastParserContext ctx) throws XMLStreamException {
 		while (ctx.getReader().hasNext()) {
 			switch (ctx.getReader().next()) {
 			case XMLStreamConstants.END_ELEMENT:
@@ -84,6 +85,10 @@ public class Atom implements RootNamespace, Namespace {
 				}
 				break;
 			case XMLStreamConstants.START_ELEMENT:
+				if (ctx.isSkip()) {
+					ctx.skip();
+					break;
+				}
 				ctx.beforeProcess();
 				process(ctx);
 				break;
@@ -93,7 +98,30 @@ public class Atom implements RootNamespace, Namespace {
 	}
 
 	@Override
-	public void process(PodParseContext ctx) throws XMLStreamException {
+	public Item parseItem(PodcastParserContext ctx) throws XMLStreamException {
+		Item item = new Item();
+		while (ctx.getReader().hasNext()) {
+			switch (ctx.getReader().next()) {
+			case XMLStreamConstants.END_ELEMENT:
+				if ("entry".equals(ctx.getReader().getLocalName())) {
+					return item;
+				}
+				break;
+			case XMLStreamConstants.START_ELEMENT:
+				if (ctx.isSkip()) {
+					ctx.skip();
+					break;
+				}
+				ctx.beforeProcess(item);
+				process(ctx, item);
+				break;
+			}
+		}
+		return item;
+	}
+
+	@Override
+	public void process(PodcastParserContext ctx) throws XMLStreamException {
 		String ns = ctx.getReader().getNamespaceURI();
 		if (Strings.isNotBlank(ns) && !NAME.equals(ns) && !getAlternativeNames().contains(ns)) {
 			Namespace namespace = NamespaceFactory.getInstance(ns);
@@ -146,7 +174,7 @@ public class Atom implements RootNamespace, Namespace {
 			ctx.getFeed().setLastBuildDate(Dates.parse(ctx.getElementText()));
 			break;
 		case "entry":
-			ctx.getFeed().addItem(parseEntry(ctx));
+			ctx.getFeed().addItem(parseItem(ctx));
 			break;
 		default : 
 			Namespace.super.process(ctx);
@@ -155,7 +183,7 @@ public class Atom implements RootNamespace, Namespace {
 	}
 
 	@Override
-	public void process(PodParseContext ctx, Item item) throws XMLStreamException {
+	public void process(PodcastParserContext ctx, Item item) throws XMLStreamException {
 		String ns = ctx.getReader().getNamespaceURI();
 		if (Strings.isNotBlank(ns) && !NAME.equals(ns) && !getAlternativeNames().contains(ns)) {
 			Namespace namespace = NamespaceFactory.getInstance(ns);
@@ -213,14 +241,14 @@ public class Atom implements RootNamespace, Namespace {
 		}
 	}
 
-	private TypedString parseContent(PodParseContext ctx) throws XMLStreamException {
+	private TypedString parseContent(PodcastParserContext ctx) throws XMLStreamException {
 		TypedString typedString = new TypedString();
 		typedString.setType(ctx.getAttribute("type"));
 		typedString.setText(ctx.getElementText());
 		return typedString;
 	}
 	
-	private Copyright parseCopyright(PodParseContext ctx) throws XMLStreamException {
+	private Copyright parseCopyright(PodcastParserContext ctx) throws XMLStreamException {
 		Copyright copyright = new Copyright();
 		copyright.setText(ctx.getElementText());
 		return copyright;
@@ -235,7 +263,7 @@ public class Atom implements RootNamespace, Namespace {
 	 *         {@link XMLStreamReader}
 	 * @throws XMLStreamException
 	 */
-	private Enclosure parseEnclosure(PodParseContext ctx) throws XMLStreamException {
+	private Enclosure parseEnclosure(PodcastParserContext ctx) throws XMLStreamException {
 		Enclosure enclosure = new Enclosure();
 		enclosure.setUrl(ctx.getAttribute("href"));
 		enclosure.setType(ctx.getAttribute("type"));
@@ -250,32 +278,14 @@ public class Atom implements RootNamespace, Namespace {
 		return enclosure;
 	}
 
-	private Item parseEntry(PodParseContext ctx) throws XMLStreamException {
-		Item item = new Item();
-		while (ctx.getReader().hasNext()) {
-			switch (ctx.getReader().next()) {
-			case XMLStreamConstants.END_ELEMENT:
-				if ("entry".equals(ctx.getReader().getLocalName())) {
-					return item;
-				}
-				break;
-			case XMLStreamConstants.START_ELEMENT:
-				ctx.beforeProcess(item);
-				process(ctx, item);
-				break;
-			}
-		}
-		return item;
-	}
-
-	private Image parseImage(PodParseContext ctx, String elementName) throws XMLStreamException {
+	private Image parseImage(PodcastParserContext ctx, String elementName) throws XMLStreamException {
 		Image image = new Image();
 		image.setUrl(ctx.getElementText());
 		image.setDescription(elementName);
 		return image;
 	}
 
-	private Link parseLink(PodParseContext ctx) throws XMLStreamException {
+	private Link parseLink(PodcastParserContext ctx) throws XMLStreamException {
 		Link link = new Link();
 		// links in Atom are self-closing
 		Attributes.get("href").from(ctx.getReader()).ifPresent(link::setHref);
@@ -287,7 +297,7 @@ public class Atom implements RootNamespace, Namespace {
 		return link;
 	}
 
-	private Person parsePerson(PodParseContext ctx, String elementName) throws XMLStreamException {
+	private Person parsePerson(PodcastParserContext ctx, String elementName) throws XMLStreamException {
 		Person person = new Person();
 		while (ctx.getReader().hasNext()) {
 			switch (ctx.getReader().next()) {

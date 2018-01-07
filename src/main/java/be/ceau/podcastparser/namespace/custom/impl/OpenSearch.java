@@ -19,7 +19,7 @@ import java.util.Set;
 
 import javax.xml.stream.XMLStreamException;
 
-import be.ceau.podcastparser.PodParseContext;
+import be.ceau.podcastparser.PodcastParserContext;
 import be.ceau.podcastparser.namespace.Namespace;
 import be.ceau.podcastparser.util.UnmodifiableSet;
 
@@ -36,7 +36,10 @@ import be.ceau.podcastparser.util.UnmodifiableSet;
 public class OpenSearch implements Namespace {
 
 	private static final String NAME = "http://a9.com/-/spec/opensearchrss/1.1/";
-	private static final Set<String> ALTERNATIVE_NAMES = UnmodifiableSet.of("http://a9.com/-/spec/opensearch/1.0/");
+	private static final Set<String> ALTERNATIVE_NAMES = UnmodifiableSet.of(
+			"http://a9.com/-/spec/opensearch/1.0/",
+			"http://a9.com/-/spec/opensearchrss/1.0/",
+			"http://a9.com/-/spec/opensearch/1.1/");
 
 	@Override
 	public String getName() {
@@ -49,7 +52,7 @@ public class OpenSearch implements Namespace {
 	}
 
 	@Override
-	public void process(PodParseContext ctx) throws XMLStreamException {
+	public void process(PodcastParserContext ctx) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
 		case "totalResults":
 			// The number of search results available for the current search.

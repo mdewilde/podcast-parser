@@ -17,7 +17,7 @@ package be.ceau.podcastparser.namespace.custom.impl;
 
 import javax.xml.stream.XMLStreamException;
 
-import be.ceau.podcastparser.PodParseContext;
+import be.ceau.podcastparser.PodcastParserContext;
 import be.ceau.podcastparser.models.core.Item;
 import be.ceau.podcastparser.models.support.Enclosure;
 import be.ceau.podcastparser.models.support.Link;
@@ -46,7 +46,7 @@ public class BBC implements Namespace {
 		BBC network --> id=radio4, name=BBC Radio 4 
 	 */
 	@Override
-	public void process(PodParseContext ctx) throws XMLStreamException {
+	public void process(PodcastParserContext ctx) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
 		case "systemRef":
 			ctx.getFeed().addOtherValue(OtherValueKey.BBC_SYSTEM_REF, ctx.getElementText());
@@ -60,7 +60,7 @@ public class BBC implements Namespace {
 	}
 
 	@Override
-	public void process(PodParseContext ctx, Item item) throws XMLStreamException {
+	public void process(PodcastParserContext ctx, Item item) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
 		case "enclosureLegacy":
 			// a legacy link to the enclosure in this item

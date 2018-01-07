@@ -27,7 +27,7 @@ public class PodParseContextTest {
 			case XMLStreamConstants.START_ELEMENT:
 				switch (streamReader.getLocalName()) {
 				case "rss": {
-					PodParseContext ctx = new PodParseContext("rss", streamReader);
+					PodcastParserContext ctx = new PodcastParserContext("rss", streamReader);
 					
 					while (streamReader.hasNext()) {
 						if (streamReader.next() == XMLStreamConstants.START_ELEMENT) {

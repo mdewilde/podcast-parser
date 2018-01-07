@@ -20,7 +20,7 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
 import be.ceau.podcastparser.ParseLevel;
-import be.ceau.podcastparser.PodParseContext;
+import be.ceau.podcastparser.PodcastParserContext;
 import be.ceau.podcastparser.models.core.Item;
 import be.ceau.podcastparser.models.support.Category;
 import be.ceau.podcastparser.models.support.Comments;
@@ -76,7 +76,8 @@ public class RSS implements RootNamespace, Namespace {
 		return NAME;
 	}
 
-	public void parseFeed(PodParseContext ctx) throws XMLStreamException {
+	@Override
+	public void parseFeed(PodcastParserContext ctx) throws XMLStreamException {
 		while (ctx.getReader().hasNext()) {
 			switch (ctx.getReader().next()) {
 			case XMLStreamConstants.END_ELEMENT:
@@ -85,6 +86,10 @@ public class RSS implements RootNamespace, Namespace {
 				}
 				break;
 			case XMLStreamConstants.START_ELEMENT:
+				if (ctx.isSkip()) {
+					ctx.skip();
+					break;
+				}
 				ctx.beforeProcess();
 				process(ctx);
 				break;
@@ -94,7 +99,30 @@ public class RSS implements RootNamespace, Namespace {
 	}
 
 	@Override
-	public void process(PodParseContext ctx) throws XMLStreamException {
+	public Item parseItem(PodcastParserContext ctx) throws XMLStreamException {
+		Item item = new Item();
+		while (ctx.getReader().hasNext()) {
+			switch (ctx.getReader().next()) {
+			case XMLStreamConstants.END_ELEMENT:
+				if ("item".equals(ctx.getReader().getLocalName())) {
+					return item;
+				}
+				break;
+			case XMLStreamConstants.START_ELEMENT:
+				if (ctx.isSkip()) {
+					ctx.skip();
+					break;
+				}
+				ctx.beforeProcess(item);
+				process(ctx, item);
+				break;
+			}
+		}
+		return item;
+	}
+
+	@Override
+	public void process(PodcastParserContext ctx) throws XMLStreamException {
 		String ns = ctx.getReader().getNamespaceURI();
 		if (Strings.isNotBlank(ns) && !NAME.equals(ns) && !getAlternativeNames().contains(ns)) {
 			Namespace namespace = NamespaceFactory.getInstance(ns);
@@ -182,26 +210,8 @@ public class RSS implements RootNamespace, Namespace {
 		}
 	}
 
-	private Item parseItem(PodParseContext ctx) throws XMLStreamException {
-		Item item = new Item();
-		while (ctx.getReader().hasNext()) {
-			switch (ctx.getReader().next()) {
-			case XMLStreamConstants.END_ELEMENT:
-				if ("item".equals(ctx.getReader().getLocalName())) {
-					return item;
-				}
-				break;
-			case XMLStreamConstants.START_ELEMENT:
-				ctx.beforeProcess(item);
-				process(ctx, item);
-				break;
-			}
-		}
-		return item;
-	}
-
 	@Override
-	public void process(PodParseContext ctx, Item item) throws XMLStreamException {
+	public void process(PodcastParserContext ctx, Item item) throws XMLStreamException {
 		String ns = ctx.getReader().getNamespaceURI();
 		if (Strings.isNotBlank(ns) && !NAME.equals(ns) && !getAlternativeNames().contains(ns)) {
 			Namespace namespace = NamespaceFactory.getInstance(ns);
@@ -259,7 +269,7 @@ public class RSS implements RootNamespace, Namespace {
 		}
 	}
 
-	private Comments parseComments(PodParseContext ctx) throws XMLStreamException {
+	private Comments parseComments(PodcastParserContext ctx) throws XMLStreamException {
 		Link link = new Link();
 		link.setHref(ctx.getElementText());
 		Comments comments = new Comments();
@@ -267,7 +277,7 @@ public class RSS implements RootNamespace, Namespace {
 		return comments;
 	}
 
-	private Copyright parseCopyright(PodParseContext ctx) throws XMLStreamException {
+	private Copyright parseCopyright(PodcastParserContext ctx) throws XMLStreamException {
 		Copyright copyright = new Copyright();
 		copyright.setText(ctx.getElementText());
 		return copyright;
@@ -277,11 +287,11 @@ public class RSS implements RootNamespace, Namespace {
 	 * Phrase or sentence describing the channel, or item synopsis. Entity-encoded HTML is allowed
 	 * 
 	 * @param ctx
-	 *            {@link PodParseContext}, not {@code null}
+	 *            {@link PodcastParserContext}, not {@code null}
 	 * @return a new {@link TypedString}, never {@code null}
 	 * @throws XMLStreamException
 	 */
-	private TypedString parseDescription(PodParseContext ctx) throws XMLStreamException {
+	private TypedString parseDescription(PodcastParserContext ctx) throws XMLStreamException {
 		String text = ctx.getElementText();
 		String type = Strings.isHtml(text) ? "html" : "plain";
 		TypedString typedString = new TypedString();
@@ -299,7 +309,7 @@ public class RSS implements RootNamespace, Namespace {
 	 *         {@link XMLStreamReader}
 	 * @throws XMLStreamException
 	 */
-	private Image parseImage(PodParseContext ctx) throws XMLStreamException {
+	private Image parseImage(PodcastParserContext ctx) throws XMLStreamException {
 		Image image = new Image();
 		while (ctx.getReader().hasNext()) {
 			switch (ctx.getReader().next()) {
@@ -356,7 +366,7 @@ public class RSS implements RootNamespace, Namespace {
 	 *         {@link XMLStreamReader}
 	 * @throws XMLStreamException
 	 */
-	private Enclosure parseEnclosure(PodParseContext ctx) throws XMLStreamException {
+	private Enclosure parseEnclosure(PodcastParserContext ctx) throws XMLStreamException {
 		Enclosure enclosure = new Enclosure();
 		Attributes.get("url").from(ctx.getReader()).ifPresent(enclosure::setUrl);
 		Attributes.get("type").from(ctx.getReader()).ifPresent(enclosure::setType);
@@ -381,7 +391,7 @@ public class RSS implements RootNamespace, Namespace {
 	}
 
 	
-	private void parseSkipHours(PodParseContext ctx) throws XMLStreamException {
+	private void parseSkipHours(PodcastParserContext ctx) throws XMLStreamException {
 		while (ctx.getReader().hasNext()) {
 			switch (ctx.getReader().next()) {
 			case XMLStreamConstants.END_ELEMENT:
@@ -399,7 +409,7 @@ public class RSS implements RootNamespace, Namespace {
 		}
 	}
 
-	private void parseSkipDays(PodParseContext ctx) throws XMLStreamException {
+	private void parseSkipDays(PodcastParserContext ctx) throws XMLStreamException {
 		while (ctx.getReader().hasNext()) {
 			switch (ctx.getReader().next()) {
 			case XMLStreamConstants.END_ELEMENT:

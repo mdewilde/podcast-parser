@@ -18,16 +18,6 @@
 			</Policies>
 		</RollingRandomAccessFile>
 
-		<RollingRandomAccessFile
-				name="missing"
-				fileName="${sys:user.home}/localnames_per_namespace.log"
-				filePattern="${sys:user.home}/localnames_per_namespace.log.%d{yyyy-MM-dd}">
-			<PatternLayout pattern="%m%n" />
-			<Policies>
-				<TimeBasedTriggeringPolicy/>
-			</Policies>
-		</RollingRandomAccessFile>
-
 	</Appenders>
 
 	<Loggers>
@@ -37,14 +27,7 @@
 			<AppenderRef ref="event" />
 		</AsyncLogger>
 
-		<AsyncLogger name="org.apache.http" level="OFF" includeLocation="false" additivity="false">
-			<AppenderRef ref="console" />
-		</AsyncLogger>
-
-		<Root level="OFF">
-			<AppenderRef ref="console" />
-			<AppenderRef ref="event" />
-		</Root>
+		<Root level="OFF" />
 	
 	</Loggers>
 

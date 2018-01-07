@@ -15,47 +15,50 @@
 */
 package be.ceau.podcastparser.namespace.callback;
 
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.stream.Collectors;
+
 import javax.xml.stream.XMLStreamReader;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import be.ceau.podcastparser.ParseLevel;
-import be.ceau.podcastparser.models.core.Feed;
-import be.ceau.podcastparser.models.core.Item;
+import be.ceau.podcastparser.PodcastParser;
+import be.ceau.podcastparser.namespace.Namespace;
 import be.ceau.podcastparser.util.ElementCounter;
 import be.ceau.podcastparser.util.EncounteredElement;
 
 /**
  * <p>
- * {@link NamespaceCallbackHandler} implementation that counts every occurrence of any element in any namespace.
+ * {@link NamespaceCallbackHandler} implementation that counts every occurrence of any
+ * {@link Namespace} that is not known to this library.
  * </p>
  * <p>
- * Add an instance to any number of {@link be.ceau.podcastparser.PodcastParser} instances. Generate a report using
+ * Add an instance to any number of {@link PodcastParser} instances. Generate a report using
  * {@link #toString()}.
  * </p>
  * <p>
  * This implementation is threadsafe.
  * </p>
  */
-public class NamespaceCountingCallbackHandler implements NamespaceCallbackHandler {
+public class UnhandledNamespaceCounter implements NamespaceCallbackHandler {
+
+	static final Logger logger = LoggerFactory.getLogger(UnhandledNamespaceCounter.class);
 
 	private final ElementCounter counter = new ElementCounter();
 
 	@Override
-	public void beforeProcess(String rootNamespace, Feed feed, XMLStreamReader reader) {
-		counter.count(new EncounteredElement(rootNamespace, reader, ParseLevel.FEED));
-	}
-
-	@Override
-	public void beforeProcess(String rootNamespace, Item item, XMLStreamReader reader) {
-		counter.count(new EncounteredElement(rootNamespace, reader, ParseLevel.ITEM));
-	}
-
-	@Override
 	public void registerUnknownNamespace(String rootNamespace, XMLStreamReader reader, ParseLevel level) {
-		counter.count(new EncounteredElement(rootNamespace, reader, level));
+		EncounteredElement element = new EncounteredElement(rootNamespace, reader, level);
+		counter.count(element);
 	}
 
-	public ElementCounter getCounter() {
-		return counter;
+	public Set<String> getNamespaceURIs() {
+		return counter.getMap().keySet().stream()
+			.map(EncounteredElement::getNamespaceUri)
+			.collect(Collectors.toCollection(TreeSet::new));
 	}
 	
 	@Override

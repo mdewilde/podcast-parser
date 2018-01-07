@@ -23,7 +23,7 @@ import javax.xml.stream.XMLStreamException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import be.ceau.podcastparser.PodParseContext;
+import be.ceau.podcastparser.PodcastParserContext;
 import be.ceau.podcastparser.models.core.Item;
 import be.ceau.podcastparser.models.support.GeoBox;
 import be.ceau.podcastparser.models.support.GeoPoint;
@@ -73,7 +73,7 @@ public class GeoRSS implements Namespace {
 	}
 
 	@Override
-	public void process(PodParseContext ctx, Item item) throws XMLStreamException {
+	public void process(PodcastParserContext ctx, Item item) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
 		case "point":
 			item.setGeoPoint(parseGeoPoint(ctx));
@@ -91,7 +91,7 @@ public class GeoRSS implements Namespace {
 		}
 	}
 
-	private GeoPoint parseGeoPoint(PodParseContext ctx) throws XMLStreamException {
+	private GeoPoint parseGeoPoint(PodcastParserContext ctx) throws XMLStreamException {
 		String text = ctx.getElementText();
 		List<String> split = Strings.splitOnWhitespace(text);
 		if (split.size() != 2) {
@@ -111,7 +111,7 @@ public class GeoRSS implements Namespace {
 
 	}
 	
-	private GeoBox parseGeoBox(PodParseContext ctx) throws XMLStreamException {
+	private GeoBox parseGeoBox(PodcastParserContext ctx) throws XMLStreamException {
 		String text = ctx.getElementText();
 		List<String> split = Strings.splitOnWhitespace(text);
 		if (split.size() != 4) {

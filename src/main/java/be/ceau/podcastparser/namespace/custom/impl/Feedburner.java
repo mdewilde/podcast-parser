@@ -17,7 +17,7 @@ package be.ceau.podcastparser.namespace.custom.impl;
 
 import javax.xml.stream.XMLStreamException;
 
-import be.ceau.podcastparser.PodParseContext;
+import be.ceau.podcastparser.PodcastParserContext;
 import be.ceau.podcastparser.models.core.Item;
 import be.ceau.podcastparser.models.support.Image;
 import be.ceau.podcastparser.models.support.Link;
@@ -42,7 +42,7 @@ public class Feedburner implements Namespace {
 	}
 
 	@Override
-	public void process(PodParseContext ctx) throws XMLStreamException {
+	public void process(PodcastParserContext ctx) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
 		case "awareness":
 			ctx.getFeed().addLink(parseAwareness(ctx));
@@ -97,7 +97,7 @@ public class Feedburner implements Namespace {
 	}
 
 	@Override
-	public void process(PodParseContext ctx, Item item) throws XMLStreamException {
+	public void process(PodcastParserContext ctx, Item item) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
 		case "awareness":
 			item.addLink(parseAwareness(ctx));
@@ -133,7 +133,7 @@ public class Feedburner implements Namespace {
 	 * to current item awareness data for the item. It is only present
 	 * if the feed publisher has enabled the Awareness API for the feed.
 	 */
-	private Link parseAwareness(PodParseContext ctx) throws XMLStreamException {
+	private Link parseAwareness(PodcastParserContext ctx) throws XMLStreamException {
 		Link link = new Link();
 		link.setHref(ctx.getElementText());
 		link.setHref("feedburner:awareness");
@@ -150,7 +150,7 @@ public class Feedburner implements Namespace {
 	 * this element is a message displayed to the end user to explain
 	 * what they just clicked on.
 	 */
-	private TypedString parseBrowserFriendly(PodParseContext ctx) throws XMLStreamException {
+	private TypedString parseBrowserFriendly(PodcastParserContext ctx) throws XMLStreamException {
 		TypedString typedString = new TypedString();
 		typedString.setText(ctx.getElementText());
 		typedString.setType(Strings.isHtml(typedString.getText()) ? "html" : "text");
@@ -167,7 +167,7 @@ public class Feedburner implements Namespace {
 	 * The src attribute is a link to an image.
 	 * The element also has text content, which is used as alternate text for the image.
 	 */
-	private Image parseFeedFlare(PodParseContext ctx) throws XMLStreamException {
+	private Image parseFeedFlare(PodcastParserContext ctx) throws XMLStreamException {
 		Image image = new Image();
 		image.setUrl(ctx.getAttribute("src"));
 		image.setLink(ctx.getAttribute("href"));
@@ -181,7 +181,7 @@ public class Feedburner implements Namespace {
 	 * only if the feed publisher has opted to track enclosure
 	 * clickthroughs.
 	 */
-	private Link parseOrigEnclosureLink(PodParseContext ctx) throws XMLStreamException {
+	private Link parseOrigEnclosureLink(PodcastParserContext ctx) throws XMLStreamException {
 		Link link = new Link();
 		link.setHref(ctx.getElementText());
 		link.setRel("origEnclosureLink");
@@ -193,7 +193,7 @@ public class Feedburner implements Namespace {
 	 * item. It is only present if the feed publisher has opted to track
 	 * item clickthroughs.
 	 */
-	private Link parseOrigLink(PodParseContext ctx) throws XMLStreamException {
+	private Link parseOrigLink(PodcastParserContext ctx) throws XMLStreamException {
 		Link link = new Link();
 		link.setHref(ctx.getElementText());
 		link.setRel("origLink");

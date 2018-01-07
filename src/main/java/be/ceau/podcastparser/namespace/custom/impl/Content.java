@@ -19,7 +19,7 @@ import java.util.Set;
 
 import javax.xml.stream.XMLStreamException;
 
-import be.ceau.podcastparser.PodParseContext;
+import be.ceau.podcastparser.PodcastParserContext;
 import be.ceau.podcastparser.models.core.Item;
 import be.ceau.podcastparser.models.support.TypedString;
 import be.ceau.podcastparser.namespace.Namespace;
@@ -52,7 +52,7 @@ public class Content implements Namespace {
 	}
 
 	@Override
-	public void process(PodParseContext ctx, Item item) throws XMLStreamException {
+	public void process(PodcastParserContext ctx, Item item) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
 		case "encoded":
 			item.setContent(parseEncoded(ctx));
@@ -63,7 +63,7 @@ public class Content implements Namespace {
 		}
 	}
 
-	private TypedString parseEncoded(PodParseContext ctx) throws XMLStreamException {
+	private TypedString parseEncoded(PodcastParserContext ctx) throws XMLStreamException {
 		TypedString typedString = new TypedString();
 		typedString.setText(ctx.getElementText());
 		typedString.setType(Strings.isHtml(typedString.getText()) ? "html" : "plain");

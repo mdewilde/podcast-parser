@@ -21,8 +21,10 @@ import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamConstants;
@@ -32,6 +34,7 @@ import javax.xml.stream.XMLStreamReader;
 import be.ceau.podcastparser.exceptions.InvalidFeedFormatException;
 import be.ceau.podcastparser.exceptions.NotPodcastFeedException;
 import be.ceau.podcastparser.exceptions.PodcastParserException;
+import be.ceau.podcastparser.filter.ElementFilter;
 import be.ceau.podcastparser.models.core.Feed;
 import be.ceau.podcastparser.namespace.callback.NamespaceCallbackHandler;
 import be.ceau.podcastparser.namespace.root.impl.Atom;
@@ -45,25 +48,54 @@ public class PodcastParser {
 
 	private final XMLInputFactory factory;
 	private final List<NamespaceCallbackHandler> namespaceCallbackHandlers;
+	private final Set<ElementFilter> elementFilters;
 
 	/**
 	 * No-arg constructor
 	 */
 	public PodcastParser() {
-		this(Collections.emptySet());
+		this(Collections.emptySet(), Collections.emptySet());
 	}
 
 	/**
 	 * Constructor with {@link NamespaceCallbackHandler}. Use this constructor if you want to add custom
-	 * logic to the parsing process.
+	 * callbacks to the parsing process.
 	 *
 	 * @param callbackHandler
-	 *            a {@link be.ceau.podcastparser.namespace.callback.NamespaceCallbackHandler} implementation
+	 *            a {@link NamespaceCallbackHandler} implementation
 	 * @throws NullPointerException
 	 *             if argument is {@code null}
 	 */
 	public PodcastParser(NamespaceCallbackHandler callbackHandler) {
-		this(Collections.singleton(callbackHandler));
+		this(Collections.singleton(callbackHandler), Collections.emptySet());
+	}
+
+	/**
+	 * Constructor with {@link ElementFilter}. Use this constructor if you want to filter elements from
+	 * the parsing process.
+	 *
+	 * @param elementFilter
+	 *            a {@link ElementFilter} implementation
+	 * @throws NullPointerException
+	 *             if argument is {@code null}
+	 */
+	public PodcastParser(ElementFilter elementFilter) {
+		this(Collections.emptySet(), Collections.singleton(elementFilter));
+	}
+
+	/**
+	 * Constructor with {@link NamespaceCallbackHandler} and {@link ElementFilter}. Use this constructor
+	 * if you want to add custom callbacks to and filter elements from the parsing process.
+	 *
+	 * @param callbackHandler
+	 *            a {@link NamespaceCallbackHandler} implementation
+	 * @param elementFilter
+	 *            a {@link ElementFilter} implementation
+	 * @throws NullPointerException
+	 *             if argument is {@code null}
+	 */
+	public PodcastParser(NamespaceCallbackHandler callbackHandler, ElementFilter elementFilter) {
+		this(Collections.singleton(callbackHandler), Collections.singleton(elementFilter));
 	}
 
 	/**
@@ -71,17 +103,21 @@ public class PodcastParser {
 	 * callback handlers to execute custom logic to the parsing process.
 	 *
 	 * @param callbackHandlers
-	 *            a {@link Collection} of
-	 *            {@link be.ceau.podcastparser.namespace.callback.NamespaceCallbackHandler} implementations
+	 *            a {@link Collection} of {@link NamespaceCallbackHandler} implementations
+	 * @param elementFilters
+	 *            a {@link Collection} of {@link ElementFilter} implementations
 	 * @throws NullPointerException
-	 *             if argument is {@code null} or contains {@code null}
+	 *             if either argument is {@code null} or contains {@code null}
 	 */
-	public PodcastParser(Collection<NamespaceCallbackHandler> callbackHandlers) {
+	public PodcastParser(Collection<NamespaceCallbackHandler> callbackHandlers, Collection<ElementFilter> elementFilters) {
 		Objects.requireNonNull(callbackHandlers);
+		Objects.requireNonNull(elementFilters);
 		this.factory = XMLInputFactory.newFactory();
 		this.factory.setXMLResolver(new QuietResolver());
 		this.namespaceCallbackHandlers = Collections.unmodifiableList(new ArrayList<>(callbackHandlers));
 		this.namespaceCallbackHandlers.forEach(Objects::requireNonNull);
+		this.elementFilters = Collections.unmodifiableSet(new LinkedHashSet<>(elementFilters));
+		this.elementFilters.forEach(Objects::requireNonNull);
 	}
 
 	/**
@@ -90,14 +126,14 @@ public class PodcastParser {
 	 * @param xml
 	 *            a {@link java.lang.String} object.
 	 * @return a {@link Feed} object
-	 * @throws {@link be.ceau.podcastparser.exceptions.PodcastParserException}
-	 *             if any
+	 * @throws {@link
+	 *             PodcastParserException} if any
 	 */
 	public Feed parse(String xml) throws PodcastParserException {
 		if (Strings.isBlank(xml)) {
 			throw new NotPodcastFeedException("xml input is blank");
 		}
-		try (StringReader reader = new StringReader(xml.trim().replaceFirst("^([\\W]+)<","<"))) {
+		try (StringReader reader = new StringReader(xml.trim().replaceFirst("^([\\W]+)<", "<"))) {
 			return parse(reader);
 		}
 	}
@@ -108,8 +144,8 @@ public class PodcastParser {
 	 * @param reader
 	 *            a {@link java.io.Reader} object.
 	 * @return a {@link Feed} object.
-	 * @throws {@link be.ceau.podcastparser.exceptions.PodcastParserException}
-	 *             if any.
+	 * @throws {@link
+	 *             be.ceau.podcastparser.exceptions.PodcastParserException} if any.
 	 */
 	public Feed parse(Reader reader) throws PodcastParserException {
 		try {
@@ -132,12 +168,12 @@ public class PodcastParser {
 			case XMLStreamConstants.START_ELEMENT:
 				switch (streamReader.getLocalName()) {
 				case "rss": {
-					PodParseContext ctx = new PodParseContext("rss", streamReader, namespaceCallbackHandlers);
+					PodcastParserContext ctx = new PodcastParserContext("rss", streamReader, namespaceCallbackHandlers, elementFilters);
 					RSS.instance().parseFeed(ctx);
 					return ctx.getFeed();
 				}
 				case "feed": {
-					PodParseContext ctx = new PodParseContext("atom", streamReader, namespaceCallbackHandlers);
+					PodcastParserContext ctx = new PodcastParserContext("atom", streamReader, namespaceCallbackHandlers, elementFilters);
 					Atom.instance().parseFeed(ctx);
 					return ctx.getFeed();
 				}
@@ -151,5 +187,5 @@ public class PodcastParser {
 		}
 		throw new PodcastParserException("provided feed XML is empty");
 	}
-	
+
 }

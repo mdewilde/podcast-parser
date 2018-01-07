@@ -19,7 +19,7 @@ import java.util.Set;
 
 import javax.xml.stream.XMLStreamException;
 
-import be.ceau.podcastparser.PodParseContext;
+import be.ceau.podcastparser.PodcastParserContext;
 import be.ceau.podcastparser.namespace.Namespace;
 import be.ceau.podcastparser.util.Dates;
 import be.ceau.podcastparser.util.UnmodifiableSet;
@@ -71,7 +71,7 @@ public class Syndication implements Namespace {
 	}
 
 	@Override
-	public void process(PodParseContext ctx) throws XMLStreamException {
+	public void process(PodcastParserContext ctx) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
 		case "updatePeriod" :
 			// The period over which the channel format is updated.

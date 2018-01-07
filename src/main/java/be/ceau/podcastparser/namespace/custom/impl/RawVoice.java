@@ -17,7 +17,7 @@ package be.ceau.podcastparser.namespace.custom.impl;
 
 import javax.xml.stream.XMLStreamException;
 
-import be.ceau.podcastparser.PodParseContext;
+import be.ceau.podcastparser.PodcastParserContext;
 import be.ceau.podcastparser.models.core.Item;
 import be.ceau.podcastparser.models.support.Image;
 import be.ceau.podcastparser.models.support.Link;
@@ -50,7 +50,7 @@ public class RawVoice implements Namespace {
 	}
 
 	@Override
-	public void process(PodParseContext ctx) throws XMLStreamException {
+	public void process(PodcastParserContext ctx) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
 		case "donate":
 			// one required attribute "href"
@@ -99,7 +99,7 @@ public class RawVoice implements Namespace {
 	}
 
 	@Override
-	public void process(PodParseContext ctx, Item item) throws XMLStreamException {
+	public void process(PodcastParserContext ctx, Item item) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
 		case "embed":
 			item.setEmbed(parseEmbed(ctx));
@@ -177,7 +177,7 @@ public class RawVoice implements Namespace {
 	 * embed, if present as a sub-item of <item>, includes a block of embed HTML markup that corresponds
 	 * to the item’s media content.
 	 */
-	private TypedString parseEmbed(PodParseContext ctx) throws XMLStreamException {
+	private TypedString parseEmbed(PodcastParserContext ctx) throws XMLStreamException {
 		TypedString typedString = new TypedString();
 		typedString.setType("html");
 		typedString.setText(ctx.getElementText());
@@ -199,7 +199,7 @@ public class RawVoice implements Namespace {
 	 * other value, it is assumed the corresponding media content is not
 	 * HD.
 	 */
-	private boolean parseHd(PodParseContext ctx) throws XMLStreamException {
+	private boolean parseHd(PodcastParserContext ctx) throws XMLStreamException {
 		return "yes".equalsIgnoreCase(ctx.getElementText());
 	}
 	
@@ -272,7 +272,7 @@ public class RawVoice implements Namespace {
 	 * value should be to a valid image in png format with appropriate
 	 * transparency set if desired.
 	 */
-	private Metamark parseMetaMark(PodParseContext ctx) throws XMLStreamException {
+	private Metamark parseMetaMark(PodcastParserContext ctx) throws XMLStreamException {
 		Metamark metamark = new Metamark();
 		metamark.setLink(ctx.getAttribute("link"));
 		metamark.setType(ctx.getAttribute("type"));
@@ -282,7 +282,7 @@ public class RawVoice implements Namespace {
 		return metamark;
 	}
 
-	private UpdateInfo parseUpdateInfo(PodParseContext ctx) throws XMLStreamException {
+	private UpdateInfo parseUpdateInfo(PodcastParserContext ctx) throws XMLStreamException {
 		// the readable frequency of the media episodes
 		UpdateInfo updateInfo = new UpdateInfo();
 		updateInfo.setPeriod(ctx.getElementText());

@@ -16,9 +16,10 @@
 package be.ceau.podcastparser;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
@@ -29,44 +30,51 @@ import javax.xml.stream.XMLStreamReader;
 
 import org.slf4j.LoggerFactory;
 
+import be.ceau.podcastparser.filter.ElementFilter;
 import be.ceau.podcastparser.models.core.Feed;
 import be.ceau.podcastparser.models.core.Item;
-import be.ceau.podcastparser.models.support.SkippableElement;
 import be.ceau.podcastparser.namespace.Namespace;
 import be.ceau.podcastparser.namespace.callback.NamespaceCallbackHandler;
 import be.ceau.podcastparser.util.RequiredState;
 import be.ceau.podcastparser.util.Strings;
 
-public class PodParseContext {
+/**
+ * Logic and state for the parse process of a single podcast XML feed
+ */
+public class PodcastParserContext {
 
 	private final String rootNamespace;
 	private final XMLStreamReader reader;
 	private final List<NamespaceCallbackHandler> namespaceCallbackHandlers;
+	private final Set<ElementFilter> elementFilters;
 	private final Feed feed;
-	private final Set<SkippableElement> skippableElements;
 
-	public PodParseContext(String rootNamespace, XMLStreamReader reader) {
+	public PodcastParserContext(String rootNamespace, XMLStreamReader reader) {
 		this(rootNamespace, reader, Collections.emptyList(), Collections.emptySet());
 	}
 
-	public PodParseContext(String rootNamespace, XMLStreamReader reader, List<NamespaceCallbackHandler> namespaceCallbackHandlers) {
-		this(rootNamespace, reader, namespaceCallbackHandlers, Collections.emptySet());
+	public PodcastParserContext(String rootNamespace, XMLStreamReader reader, Collection<NamespaceCallbackHandler> callbacks) {
+		this(rootNamespace, reader, callbacks, Collections.emptySet());
 	}
 
-	public PodParseContext(String rootNamespace, XMLStreamReader reader, List<NamespaceCallbackHandler> namespaceCallbackHandlers, Collection<SkippableElement> skippableElements) {
+	public PodcastParserContext(String rootNamespace, XMLStreamReader reader, Collection<NamespaceCallbackHandler> callbacks, Collection<ElementFilter> filters) {
 		Objects.requireNonNull(rootNamespace);
 		Objects.requireNonNull(reader);
-		Objects.requireNonNull(namespaceCallbackHandlers);
-		Objects.requireNonNull(skippableElements);
 		this.rootNamespace = rootNamespace;
 		this.reader = reader;
-		this.namespaceCallbackHandlers = namespaceCallbackHandlers;
+		if (callbacks != null) {
+			this.namespaceCallbackHandlers = Collections.unmodifiableList(new ArrayList<>(callbacks));
+			this.namespaceCallbackHandlers.forEach(Objects::requireNonNull);
+		} else {
+			this.namespaceCallbackHandlers = Collections.emptyList();
+		}
+		if (filters != null) {
+			this.elementFilters = Collections.unmodifiableSet(new LinkedHashSet<>(filters));
+			this.elementFilters.forEach(Objects::requireNonNull);
+		} else {
+			this.elementFilters = Collections.emptySet();
+		}
 		this.feed = new Feed();
-		this.skippableElements = Collections.unmodifiableSet(new HashSet<>(skippableElements));
-	}
-
-	public String getRootNamespace() {
-		return rootNamespace;
 	}
 
 	public XMLStreamReader getReader() {
@@ -78,27 +86,35 @@ public class PodParseContext {
 	}
 
 	public void beforeProcess() throws XMLStreamException {
-		RequiredState state = RequiredState.from(reader);
-		namespaceCallbackHandlers.forEach(h -> h.beforeProcess(rootNamespace, feed, reader));
-		state.validate(reader);
+		if (!namespaceCallbackHandlers.isEmpty()) {
+			RequiredState state = RequiredState.from(reader);
+			namespaceCallbackHandlers.forEach(h -> h.beforeProcess(rootNamespace, feed, reader));
+			state.validate(reader);
+		}
 	}
 
 	public void beforeProcess(Item item) throws XMLStreamException {
-		RequiredState state = RequiredState.from(reader);
-		namespaceCallbackHandlers.forEach(h -> h.beforeProcess(rootNamespace, item, reader));
-		state.validate(reader);
+		if (!namespaceCallbackHandlers.isEmpty()) {
+			RequiredState state = RequiredState.from(reader);
+			namespaceCallbackHandlers.forEach(h -> h.beforeProcess(rootNamespace, item, reader));
+			state.validate(reader);
+		}
 	}
 
 	public void registerUnknownNamespace(ParseLevel level) throws XMLStreamException {
-		RequiredState state = RequiredState.from(reader);
-		namespaceCallbackHandlers.forEach(h -> h.registerUnknownNamespace(rootNamespace, reader, level));
-		state.validate(reader);
+		if (!namespaceCallbackHandlers.isEmpty()) {
+			RequiredState state = RequiredState.from(reader);
+			namespaceCallbackHandlers.forEach(h -> h.registerUnknownNamespace(rootNamespace, reader, level));
+			state.validate(reader);
+		}
 	}
 
 	public void registerUnhandledElement(ParseLevel level) throws XMLStreamException {
-		RequiredState state = RequiredState.from(reader);
-		namespaceCallbackHandlers.forEach(h -> h.registerUnhandledElement(rootNamespace, reader, level));
-		state.validate(reader);
+		if (!namespaceCallbackHandlers.isEmpty()) {
+			RequiredState state = RequiredState.from(reader);
+			namespaceCallbackHandlers.forEach(h -> h.registerUnhandledElement(rootNamespace, reader, level));
+			state.validate(reader);
+		}
 	}
 
 	/**
@@ -113,15 +129,15 @@ public class PodParseContext {
 			StringBuilder sb = new StringBuilder();
 			while (reader.hasNext()) {
 				switch (reader.next()) {
-				case XMLStreamReader.END_ELEMENT : 
+				case XMLStreamReader.END_ELEMENT:
 					if (localName.equals(reader.getLocalName())) {
 						return sb.toString();
 					}
 					break;
-				case XMLStreamReader.CHARACTERS :
+				case XMLStreamReader.CHARACTERS:
 					sb.append(reader.getText());
 					break;
-				case XMLStreamReader.CDATA :
+				case XMLStreamReader.CDATA:
 					sb.append(reader.getText());
 					break;
 				}
@@ -189,6 +205,21 @@ public class PodParseContext {
 	}
 
 	/**
+	 * Evaluate the current element against the {@link ElementFilter} instances in this
+	 * {@link PodcastParserContext}.
+	 * 
+	 * @return {@code true} if the current element should be skipped
+	 */
+	public boolean isSkip() {
+		for (ElementFilter filter : elementFilters) {
+			if (filter.skip(reader.getNamespaceURI(), reader.getLocalName())) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/**
 	 * If called after having processed a {@link XMLStreamConstants#START_ELEMENT} event, will skip
 	 * until the end of the newly opened element is reached.
 	 * 
@@ -215,7 +246,7 @@ public class PodParseContext {
 			LoggerFactory.getLogger(Namespace.class).info(serialize());
 		}
 	}
-	
+
 	/**
 	 * Serialize, non-repeatably, the current element, including its internal hierarchy
 	 * 
@@ -252,11 +283,11 @@ public class PodParseContext {
 		}
 		return "";
 	}
-	
+
 	private String asStartElementString(XMLStreamReader reader) {
 		return new StringBuilder()
 				.append("<")
-				.append(Strings.isBlank(reader.getName().getPrefix()) ? getRootNamespace() : reader.getName().getPrefix())
+				.append(Strings.isBlank(reader.getName().getPrefix()) ? rootNamespace : reader.getName().getPrefix())
 				.append(":")
 				.append(reader.getLocalName())
 				.append(asAttributes(reader))
@@ -264,7 +295,7 @@ public class PodParseContext {
 				.append(">")
 				.toString();
 	}
-	
+
 	private String asAttributes(XMLStreamReader reader) {
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < reader.getAttributeCount(); i++) {
@@ -272,16 +303,15 @@ public class PodParseContext {
 		}
 		return sb.toString();
 	}
-	
+
 	private String asEndElementString(XMLStreamReader reader) {
 		return new StringBuilder()
 				.append("</")
-				.append(Strings.isBlank(reader.getName().getPrefix()) ? getRootNamespace() : reader.getName().getPrefix())
+				.append(Strings.isBlank(reader.getName().getPrefix()) ? rootNamespace : reader.getName().getPrefix())
 				.append(":")
 				.append(reader.getLocalName())
 				.append(">")
 				.toString();
 	}
 
-	
 }

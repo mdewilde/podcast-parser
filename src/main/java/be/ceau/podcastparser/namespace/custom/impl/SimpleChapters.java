@@ -20,7 +20,7 @@ import javax.xml.stream.XMLStreamException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import be.ceau.podcastparser.PodParseContext;
+import be.ceau.podcastparser.PodcastParserContext;
 import be.ceau.podcastparser.models.core.Item;
 import be.ceau.podcastparser.models.support.Chapter;
 import be.ceau.podcastparser.models.support.Image;
@@ -53,7 +53,7 @@ public class SimpleChapters implements Namespace {
 	}
 
 	@Override
-	public void process(PodParseContext ctx, Item item) throws XMLStreamException {
+	public void process(PodcastParserContext ctx, Item item) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
 		case "chapter":
 			item.addChapter(parseChapter(ctx));
@@ -67,7 +67,7 @@ public class SimpleChapters implements Namespace {
 		}
 	}
 
-	private Chapter parseChapter(PodParseContext ctx) throws XMLStreamException {
+	private Chapter parseChapter(PodcastParserContext ctx) throws XMLStreamException {
 		String aTime = ctx.getAttribute("start");
 		Long millis = Durations.parse(aTime);
 		if (millis == null) {

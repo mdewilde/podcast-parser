@@ -19,7 +19,7 @@ import java.util.Set;
 
 import javax.xml.stream.XMLStreamException;
 
-import be.ceau.podcastparser.PodParseContext;
+import be.ceau.podcastparser.PodcastParserContext;
 import be.ceau.podcastparser.models.core.Item;
 import be.ceau.podcastparser.models.support.Category;
 import be.ceau.podcastparser.models.support.Image;
@@ -48,7 +48,7 @@ public class GooglePlay implements Namespace {
 	}
 
 	@Override
-	public void process(PodParseContext ctx) throws XMLStreamException {
+	public void process(PodcastParserContext ctx) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
 		case "author":
 			// The author of the podcast or episode. The author is specified in
@@ -93,7 +93,7 @@ public class GooglePlay implements Namespace {
 	}
 
 	@Override
-	public void process(PodParseContext ctx, Item item) throws XMLStreamException {
+	public void process(PodcastParserContext ctx, Item item) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
 		case "author":
 			item.addAuthor(parseAuthor(ctx));
@@ -121,7 +121,7 @@ public class GooglePlay implements Namespace {
 		}
 	}
 
-	private Person parseAuthor(PodParseContext ctx) throws XMLStreamException {
+	private Person parseAuthor(PodcastParserContext ctx) throws XMLStreamException {
 		Person author = new Person();
 		author.setName(ctx.getElementText());
 		return author;
@@ -133,7 +133,7 @@ public class GooglePlay implements Namespace {
 	// must match one of the pre-defined categories specified in the
 	// help center article:
 	// https://support.google.com/googleplay/podcasts/answer/6260341#spt
-	private Category parseCategory(PodParseContext ctx) throws XMLStreamException {
+	private Category parseCategory(PodcastParserContext ctx) throws XMLStreamException {
 		Category category = new Category();
 		category.setName(ctx.getElementText());
 		category.setScheme(NAME);
@@ -144,22 +144,22 @@ public class GooglePlay implements Namespace {
 	 * A description of the podcast or episode. The description can be specified in the
 	 * {@code <channel>} or {@code <item>} tags and must be plain-text (no markup allowed).
 	 */
-	private TypedString parseDescription(PodParseContext ctx) throws XMLStreamException {
+	private TypedString parseDescription(PodcastParserContext ctx) throws XMLStreamException {
 		TypedString typedString = new TypedString();
 		typedString.setText(ctx.getElementText());
 		typedString.setType("plain");
 		return typedString;
 	}
 	
-	private void parseExplicit(PodParseContext ctx) throws XMLStreamException {
+	private void parseExplicit(PodcastParserContext ctx) throws XMLStreamException {
 		parseExplicit(ctx, ctx.getFeed().getRating());
 	}
 
-	private void parseExplicit(PodParseContext ctx, Item item) throws XMLStreamException {
+	private void parseExplicit(PodcastParserContext ctx, Item item) throws XMLStreamException {
 		parseExplicit(ctx, item.getRating());
 	}
 
-	private void parseExplicit(PodParseContext ctx, Rating rating) throws XMLStreamException {
+	private void parseExplicit(PodcastParserContext ctx, Rating rating) throws XMLStreamException {
 		// Indicates whether the podcast or a specific episode contains
 		// explicit material. If not specified, it is considered not
 		// explicit. The explicit symbol will appear next to the podcast
@@ -170,7 +170,7 @@ public class GooglePlay implements Namespace {
 		rating.setExplicit(ctx.getElementText());
 	}
 	
-	private Image parseImage(PodParseContext ctx) {
+	private Image parseImage(PodcastParserContext ctx) {
 		String href = ctx.getAttribute("href");
 		Image image = new Image();
 		image.setUrl(href);

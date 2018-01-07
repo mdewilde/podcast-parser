@@ -21,8 +21,13 @@ package be.ceau.podcastparser.filter;
 public interface ElementFilter {
 
 	/**
-	 * Determine whether the current element should be skipped
-	 * 
+	 * <p>
+	 * Determine whether the current element should be skipped.
+	 * </p>
+	 * <p>
+	 * Implementation note: if an element is skipped, no callbacks will be called for it.
+	 * </p>
+	 *
 	 * @param namespaceURI
 	 *            {@link String} or {@code null}
 	 * @param localName
