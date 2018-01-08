@@ -5,6 +5,38 @@
 	<artifactId>podcast-parser</artifactId>
 	<version>0.9.0</version>
 	<name>Podcast Feed Parser</name>
+	<description>Java library for parsing podcast feed XML</description>
+	<url>https://github.com/mdewilde/podcast-parser</url>
+	<developers>
+		<developer>
+			<name>Marceau Dewilde</name>
+			<email>m@ceau.be</email>
+		</developer>
+	</developers>
+	<licenses>
+		<license>
+			<name>The Apache License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+		</license>
+	</licenses>
+	<scm>
+		<connection>scm:git:git@github.com:mdewilde/podcast-parser.git</connection>
+		<url>scm:git:git@github.com:mdewilde/podcast-parser.git</url>
+		<developerConnection>scm:git:git@github.com:mdewilde/podcast-parser.git</developerConnection>
+	</scm>
+	<issueManagement>
+		<url>https://github.com/mdewilde/podcast-parser/issues</url>
+	</issueManagement>
+	<distributionManagement>
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+	</distributionManagement>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
@@ -35,6 +67,20 @@
 						<id>attach-sources</id>
 						<goals>
 							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>1.6</version>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
 						</goals>
 					</execution>
 				</executions>
