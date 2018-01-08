@@ -84,7 +84,7 @@ public class Item {
 	private final Map<String, Enclosure> otherEnclosures = new HashMap<>();
 	private GeoPoint geoPoint;
 	private GeoBox geoBox;
-	private int order;
+	private Integer order;
 	private String summary;
 	private boolean block;
 	private String episodeType;
@@ -741,11 +741,11 @@ public class Item {
 		this.geoBox = geoBox;
 	}
 
-	public int getOrder() {
+	public Integer getOrder() {
 		return order;
 	}
 
-	public void setOrder(int order) {
+	public void setOrder(Integer order) {
 		this.order = order;
 	}
 
