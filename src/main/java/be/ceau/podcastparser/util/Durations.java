@@ -66,7 +66,7 @@ public class Durations {
 			// return null;
 		}
 	}
-
+	
 	private static final Pattern MIN_PATTERN = Pattern.compile("min");
 
 	/**

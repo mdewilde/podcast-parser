@@ -161,7 +161,7 @@ public class PodcastParser {
 			switch (streamReader.next()) {
 			case XMLStreamConstants.DTD:
 				String text = streamReader.getText();
-				if ("<!DOCTYPE html>".equals(text) || "<!DOCTYPE HTML>".equals(text)) {
+				if ("<!DOCTYPE html>".equalsIgnoreCase(text)) {
 					throw new NotPodcastFeedException("the input appears to be HTML");
 				}
 				break;

@@ -35,7 +35,7 @@ public class FilterTest {
 	@Test
 	public void namespaceFilterTest() {
 
-		NamespaceFilter nsFilter = new NamespaceFilter(NS);
+		ExcludeNamespaceFilter nsFilter = new ExcludeNamespaceFilter(NS);
 		
 		NamespaceCountingCallbackHandler callback = new NamespaceCountingCallbackHandler();
 		PodcastParser parser = new PodcastParser(callback, nsFilter);

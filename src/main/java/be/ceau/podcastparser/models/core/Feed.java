@@ -319,16 +319,6 @@ public class Feed {
 		this.ttl = ttl;
 	}
 
-	public void setTtl(String ttl) {
-		if (ttl != null) {
-			try {
-				int minutes = Integer.parseInt(ttl.trim());
-				this.ttl = Duration.ofMinutes(minutes);
-			} catch (NumberFormatException e) {
-			}
-		}
-	}
-
 	/**
 	 * <p>
 	 * Specifies a GIF, JPEG or PNG image that can be displayed with the

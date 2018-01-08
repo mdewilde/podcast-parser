@@ -15,6 +15,8 @@
 */
 package be.ceau.podcastparser.namespace.root.impl;
 
+import java.time.Duration;
+
 import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
@@ -184,7 +186,7 @@ public class RSS implements RootNamespace, Namespace {
 			ctx.getFeed().setCloud(ctx.getElementText());
 			break;
 		case "ttl":
-			ctx.getFeed().setTtl(ctx.getElementText());
+			ctx.getFeed().setTtl(parseTtl(ctx));
 			break;
 		case "image":
 			ctx.getFeed().addImage(parseImage(ctx));
@@ -425,6 +427,23 @@ public class RSS implements RootNamespace, Namespace {
 				}
 			}
 		}
+	}
+
+	/*
+	 * <ttl> is an optional sub-element of <channel>.
+	 * 
+	 * ttl stands for time to live. It's a number of minutes that indicates how long a channel can be
+	 * cached before refreshing from the source. This makes it possible for RSS sources to be managed by
+	 * a file-sharing network such as Gnutella.
+	 * 
+	 * Example: <ttl>60</ttl>
+	 */
+	private Duration parseTtl(PodcastParserContext ctx) throws XMLStreamException {
+		Integer minutes = ctx.getElementTextAsInteger();
+		if (minutes != null) {
+			return Duration.ofMinutes(minutes);
+		}
+		return null;
 	}
 
 }

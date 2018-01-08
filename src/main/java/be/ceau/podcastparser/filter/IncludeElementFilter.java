@@ -22,31 +22,37 @@ import be.ceau.podcastparser.namespace.NamespaceFactory;
 import be.ceau.podcastparser.util.Strings;
 
 /**
- * {@link ElementFilter} instance that skips any element for a given {@link Namespace}
+ * {@link ElementFilter} instance that skips everything except a specific element in a specific
+ * {@link Namespace}
  */
-public final class NamespaceFilter implements ElementFilter {
+public final class IncludeElementFilter implements ElementFilter {
 
 	private final Namespace namespace;
-	
-	public NamespaceFilter(String namespaceURI) {
-		Strings.requireNonBlank(namespaceURI);
-		this.namespace = NamespaceFactory.getInstance(namespaceURI);
-		Objects.requireNonNull(namespace);
+	private final String localName;
+
+	public IncludeElementFilter(String namespaceURI, String localName) {
+		this(NamespaceFactory.getInstance(namespaceURI), localName);
 	}
 
-	public NamespaceFilter(Namespace namespace) {
+	public IncludeElementFilter(Namespace namespace, String localName) {
 		Objects.requireNonNull(namespace);
+		Strings.requireNonBlank(localName);
 		this.namespace = namespace;
+		this.localName = localName;
 	}
 
 	@Override
 	public boolean skip(String namespaceURI, String localName) {
-		return namespace.isMatch(namespaceURI);
+		return !namespace.isMatch(namespaceURI) || !this.localName.equals(localName);
 	}
 
 	@Override
 	public int hashCode() {
-		return 31 + namespace.hashCode();
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((localName == null) ? 0 : localName.hashCode());
+		result = prime * result + ((namespace == null) ? 0 : namespace.hashCode());
+		return result;
 	}
 
 	@Override
@@ -57,16 +63,29 @@ public final class NamespaceFilter implements ElementFilter {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		NamespaceFilter other = (NamespaceFilter) obj;
-		return namespace.equals(other.namespace);
+		IncludeElementFilter other = (IncludeElementFilter) obj;
+		if (localName == null) {
+			if (other.localName != null)
+				return false;
+		} else if (!localName.equals(other.localName))
+			return false;
+		if (namespace == null) {
+			if (other.namespace != null)
+				return false;
+		} else if (!namespace.equals(other.namespace))
+			return false;
+		return true;
 	}
 
 	@Override
 	public String toString() {
 		return new StringBuilder()
-				.append("NamespaceFilter [")
+				.append("SingleElementFilter [")
 				.append("namespace=")
 				.append(namespace)
+				.append(", ")
+				.append("localName=")
+				.append(localName)
 				.append("]")
 				.toString();
 	}

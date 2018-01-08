@@ -22,9 +22,6 @@ import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import be.ceau.podcastparser.PodcastParserContext;
 import be.ceau.podcastparser.models.core.Item;
 import be.ceau.podcastparser.models.support.Category;
@@ -40,8 +37,6 @@ import be.ceau.podcastparser.util.UnmodifiableSet;
  * @see https://help.apple.com/itc/podcasts_connect/#/itcb54353390
  */
 public class ITunes implements Namespace {
-
-	private static final Logger logger = LoggerFactory.getLogger(ITunes.class);
 
 	private static final String NAME = "http://www.itunes.com/dtds/podcast-1.0.dtd";
 	private static final Set<String> ALTERNATIVE_NAMES = UnmodifiableSet.of(
@@ -203,7 +198,7 @@ public class ITunes implements Namespace {
 			item.addKeywords(parseKeywords(ctx));
 			return;
 		case "order":
-			item.setOrder(Integer.parseInt(ctx.getElementText()));
+			item.setOrder(ctx.getElementTextAsInteger());
 			return;
 		case "provider":
 			item.setProvider(ctx.getElementText());

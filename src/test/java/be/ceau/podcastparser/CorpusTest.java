@@ -15,15 +15,12 @@
 */
 package be.ceau.podcastparser;
 
-import java.util.stream.Collectors;
-
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import be.ceau.podcastparser.namespace.callback.UnhandledNamespaceCounter;
 import be.ceau.podcastparser.test.provider.FilesProvider;
-import be.ceau.podcastparser.test.wrappedxml.WrappedXml;
 
 public class CorpusTest {
 
@@ -32,42 +29,19 @@ public class CorpusTest {
 	@Test
 	public void corpusParseTest() {
 
-
 		UnhandledNamespaceCounter callback = new UnhandledNamespaceCounter();
 		PodcastParser parser = new PodcastParser(callback);
 		new FilesProvider().parallelStream()
-//				.limit(50000)
 				.forEach(wrap -> {
 					try {
 						parser.parse(wrap.getXml());
-//					} catch (NotPodcastFeedException e) {
-//						handleHtml(wrap, e.getMessage());
 					} catch (Exception e) {
-//						if (e.getMessage().contains("elementGetText() function expects")) {
-//							logger.error("{}", wrap.getFullPath(), e);
-//						} else {
-//							logger.error("{} -> {}", wrap.getFullPath(), e.getMessage());
-//						}
+						logger.error("{} -> {}", wrap.getFullPath(), e.getMessage());
 					}
 				});
 		
-		logger.debug("{}", callback.getNamespaceURIs().stream().collect(Collectors.joining(System.lineSeparator())));
-
 		logger.debug("{}", callback);
 
-	}
-
-	private void handleHtml(WrappedXml xml, String message) {
-		if ("the input appears to be HTML".equals(message)) {
-			if (!xml.delete()) {
-				logger.warn("delete failed -> {}", xml.getFullPath());
-			}
-		}
-		if ("root element must be rss or feed but it is html".equals(message)) {
-			if (!xml.delete()) {
-				logger.warn("delete failed -> {}", xml.getFullPath());
-			}
-		}
 	}
 	
 }
