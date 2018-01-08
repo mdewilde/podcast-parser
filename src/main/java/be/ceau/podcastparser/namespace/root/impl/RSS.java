@@ -174,7 +174,7 @@ public class RSS implements RootNamespace, Namespace {
 			ctx.getFeed().setLastBuildDate(Dates.parse(ctx.getElementText()));
 			break;
 		case "category":
-			ctx.getFeed().addCategory(new Category().setName(ctx.getElementText()));
+			ctx.getFeed().addCategory(parseCategory(ctx));
 			break;
 		case "generator":
 			ctx.getFeed().setGenerator(ctx.getElementText());
@@ -233,7 +233,7 @@ public class RSS implements RootNamespace, Namespace {
 			item.addAuthor(person);
 			break;
 		case "category": 
-			item.addCategory(new Category().setName(ctx.getElementText()));
+			item.addCategory(parseCategory(ctx));
 			break;
 		case "comments": 
 			item.setComments(parseComments(ctx));
@@ -269,6 +269,12 @@ public class RSS implements RootNamespace, Namespace {
 			Namespace.super.process(ctx, item);
 			break;
 		}
+	}
+	
+	private Category parseCategory(PodcastParserContext ctx) throws XMLStreamException {
+		Category category = new Category();
+		category.setName(ctx.getElementText());
+		return category;
 	}
 
 	private Comments parseComments(PodcastParserContext ctx) throws XMLStreamException {
@@ -332,22 +338,10 @@ public class RSS implements RootNamespace, Namespace {
 					image.setLink(ctx.getElementText());
 					break;
 				case "width":
-					String width = ctx.getElementText();
-					if (width != null) {
-						try {
-							image.setWidth(Integer.parseInt(width.trim()));
-						} catch (NumberFormatException e) {
-						}
-					}
+					image.setWidth(ctx.getElementTextAsInteger());
 					break;
 				case "height":
-					String height = ctx.getElementText();
-					if (height != null) {
-						try {
-							image.setHeight(Integer.parseInt(height.trim()));
-						} catch (NumberFormatException e) {
-						}
-					}
+					image.setHeight(ctx.getElementTextAsInteger());
 					break;
 				case "description":
 					image.setDescription(ctx.getElementText());

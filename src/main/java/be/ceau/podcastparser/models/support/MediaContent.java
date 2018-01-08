@@ -68,7 +68,7 @@ public class MediaContent {
 		return fileSize;
 	}
 
-	public void setFileSize(long fileSize) {
+	public void setFileSize(Long fileSize) {
 		this.fileSize = fileSize;
 	}
 
@@ -161,7 +161,7 @@ public class MediaContent {
 		return bitrate;
 	}
 
-	public void setBitrate(long bitrate) {
+	public void setBitrate(Long bitrate) {
 		this.bitrate = bitrate;
 	}
 
@@ -179,7 +179,7 @@ public class MediaContent {
 		return framerate;
 	}
 
-	public void setFramerate(long framerate) {
+	public void setFramerate(Long framerate) {
 		this.framerate = framerate;
 	}
 
@@ -252,7 +252,7 @@ public class MediaContent {
 		return height;
 	}
 
-	public void setHeight(int height) {
+	public void setHeight(Integer height) {
 		this.height = height;
 	}
 
@@ -270,7 +270,7 @@ public class MediaContent {
 		return width;
 	}
 
-	public void setWidth(int width) {
+	public void setWidth(Integer width) {
 		this.width = width;
 	}
 

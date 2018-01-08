@@ -44,9 +44,8 @@ public class Category {
 		return name;
 	}
 
-	public Category setName(String name) {
+	public void setName(String name) {
 		this.name = name;
-		return this;
 	}
 
 	/**
@@ -63,9 +62,8 @@ public class Category {
 		return subcategory;
 	}
 
-	public Category setSubcategory(String subcategory) {
+	public void setSubcategory(String subcategory) {
 		this.subcategory = subcategory;
-		return this;
 	}
 
 	/**
@@ -82,9 +80,8 @@ public class Category {
 		return scheme;
 	}
 
-	public Category setScheme(String scheme) {
+	public void setScheme(String scheme) {
 		this.scheme = scheme;
-		return this;
 	}
 
 	/**
@@ -101,9 +98,8 @@ public class Category {
 		return label;
 	}
 
-	public Category setLabel(String label) {
+	public void setLabel(String label) {
 		this.label = label;
-		return this;
 	}
 
 	@Override

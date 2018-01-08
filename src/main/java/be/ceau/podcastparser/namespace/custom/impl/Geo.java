@@ -47,7 +47,6 @@ public class Geo implements Namespace {
 			ctx.getFeed().setLatitude(ctx.getElementTextAsBigDecimal());
 			break;
 		default : 
-			ctx.log();
 			Namespace.super.process(ctx);
 			break;
 		}
@@ -57,14 +56,13 @@ public class Geo implements Namespace {
 	public void process(PodcastParserContext ctx, Item item) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
 		case "long":
-			ctx.getFeed().setLongitude(ctx.getElementTextAsBigDecimal());
+			item.setLongitude(ctx.getElementTextAsBigDecimal());
 			break;
 		case "lat":
-			ctx.getFeed().setLatitude(ctx.getElementTextAsBigDecimal());
+			item.setLatitude(ctx.getElementTextAsBigDecimal());
 			break;
 		case "Point":
 		default : 
-			ctx.log();
 			Namespace.super.process(ctx, item);
 			break;
 		}

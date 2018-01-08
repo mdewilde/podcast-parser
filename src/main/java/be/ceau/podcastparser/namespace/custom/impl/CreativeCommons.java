@@ -50,7 +50,6 @@ public class CreativeCommons implements Namespace {
 		case "Work":
 		case "prohibits":
 		default : 
-			ctx.log();
 			Namespace.super.process(ctx, item);
 			break;
 		}

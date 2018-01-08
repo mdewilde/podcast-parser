@@ -38,9 +38,8 @@ public class License {
 		return href;
 	}
 
-	public License setHref(String href) {
+	public void setHref(String href) {
 		this.href = href;
-		return this;
 	}
 
 	/**
@@ -57,9 +56,8 @@ public class License {
 		return type;
 	}
 
-	public License setType(String type) {
+	public void setType(String type) {
 		this.type = type;
-		return this;
 	}
 
 	/**
@@ -76,9 +74,8 @@ public class License {
 		return label;
 	}
 
-	public License setLabel(String label) {
+	public void setLabel(String label) {
 		this.label = label;
-		return this;
 	}
 
 	@Override

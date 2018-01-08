@@ -44,9 +44,8 @@ public class Hash {
 		return hash;
 	}
 
-	public Hash setHash(String hash) {
+	public void setHash(String hash) {
 		this.hash = hash;
-		return this;
 	}
 
 	/**
@@ -64,9 +63,8 @@ public class Hash {
 		return algo;
 	}
 
-	public Hash setAlgo(String algo) {
+	public void setAlgo(String algo) {
 		this.algo = algo;
-		return this;
 	}
 
 	@Override

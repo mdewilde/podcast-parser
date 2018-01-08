@@ -15,7 +15,6 @@
 */
 package be.ceau.podcastparser.namespace.custom.impl;
 
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -165,7 +164,8 @@ public class Media implements Namespace {
 		switch (ctx.getReader().getLocalName()) {
 		case "adult":
 			// This is deprecated and has been replaced with 'rating'
-			item.getRating().setText(ctx.getElementText()).setScheme("urn:simple");
+			item.getRating().setText(ctx.getElementText());
+			item.getRating().setScheme("urn:simple");
 			break;
 		case "category":
 			item.addCategory(parseCategory(ctx));
@@ -471,16 +471,12 @@ public class Media implements Namespace {
 	 * attributes.
 	 */
 	private Image parseImage(PodcastParserContext ctx) throws XMLStreamException {
-		String url = ctx.getAttribute("url");
-		String width = ctx.getAttribute("width");
-		String height = ctx.getAttribute("width");
-		String time = ctx.getAttribute("time");
-		return new Image()
-				.setUrl(url)
-				.setWidth(width)
-				.setHeight(height)
-				.setTime(Durations.parse(time))
-				.setTitle("thumbnail");
+		Image image = new Image();
+		image.setUrl(ctx.getAttribute("url"));
+		image.setWidth(ctx.getAttributeAsInteger("width"));
+		image.setHeight(ctx.getAttributeAsInteger("height"));
+		image.setTime(ctx.getAttributeAsLong("time"));
+		return image;
 	}
 
 	/*
@@ -512,53 +508,16 @@ public class Media implements Namespace {
 	private MediaContent parseMediaContent(PodcastParserContext ctx) throws XMLStreamException {
 		MediaContent mediaContent = new MediaContent();
 		mediaContent.setUrl(ctx.getAttribute("url"));
-		String fileSize = ctx.getAttribute("fileSize");
-		if (fileSize != null) {
-			try {
-				mediaContent.setFileSize(Long.parseLong(fileSize.trim()));
-			} catch (NumberFormatException e) {
-			}
-		}
+		mediaContent.setFileSize(ctx.getAttributeAsLong("fileSize"));
 		mediaContent.setType(ctx.getAttribute("type"));
 		mediaContent.setMedium(ctx.getAttribute("medium"));
 		mediaContent.setIsDefault(ctx.getAttribute("isDefault"));
-		String bitrate = ctx.getAttribute("bitrate");
-		if (bitrate != null) {
-			try {
-				mediaContent.setBitrate(Long.parseLong(bitrate.trim()));
-			} catch (NumberFormatException e) {
-			}
-		}
-		String framerate = ctx.getAttribute("framerate");
-		if (framerate != null) {
-			try {
-				mediaContent.setFramerate(Long.parseLong(framerate.trim()));
-			} catch (NumberFormatException e) {
-			}
-		}
+		mediaContent.setBitrate(ctx.getAttributeAsLong("bitrate"));
+		mediaContent.setFramerate(ctx.getAttributeAsLong("framerate"));
 		mediaContent.setSamplingrate(ctx.getAttribute("samplingrate"));
 		mediaContent.setChannels(ctx.getAttribute("channels"));
-		String duration = ctx.getAttribute("duration");
-		if (duration != null) {
-			try {
-				mediaContent.setDuration(Duration.ofSeconds(Integer.parseInt(duration.trim())));
-			} catch (NumberFormatException e) {
-			}
-		}
-		String height = ctx.getAttribute("height");
-		if (height != null) {
-			try {
-				mediaContent.setHeight(Integer.parseInt(height.trim()));
-			} catch (NumberFormatException e) {
-			}
-		}
-		String width = ctx.getAttribute("width");
-		if (width != null) {
-			try {
-				mediaContent.setWidth(Integer.parseInt(width.trim()));
-			} catch (NumberFormatException e) {
-			}
-		}
+		mediaContent.setHeight(ctx.getAttributeAsInteger("height"));
+		mediaContent.setWidth(ctx.getAttributeAsInteger("width"));
 		mediaContent.setLang(ctx.getAttribute("lang"));
 		return mediaContent;
 	}
@@ -585,16 +544,8 @@ public class Media implements Namespace {
 	private MediaPlayer parseMediaPlayer(PodcastParserContext ctx) throws XMLStreamException {
 		MediaPlayer player = new MediaPlayer();
 		player.setUrl(ctx.getAttribute("url"));
-		try {
-			int height = Integer.parseInt(ctx.getAttribute("height"));
-			player.setHeight(height);
-		} catch (NumberFormatException e) {
-		}
-		try {
-			int width = Integer.parseInt(ctx.getAttribute("width"));
-			player.setWidth(width);
-		} catch (NumberFormatException e) {
-		}
+		player.setHeight(ctx.getAttributeAsInteger("height"));
+		player.setWidth(ctx.getAttributeAsInteger("width"));
 		return player;
 	}
 	

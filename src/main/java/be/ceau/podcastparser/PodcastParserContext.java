@@ -205,6 +205,22 @@ public class PodcastParserContext {
 	}
 
 	/**
+	 * @param localName
+	 *            {@link String} attribute name
+	 * @return attribute value parsed as {@link Long}, or {@code null}
+	 */
+	public Long getAttributeAsLong(String localName) {
+		String value = getAttribute(localName);
+		if (value != null) {
+			try {
+				return Long.valueOf(value);
+			} catch (NumberFormatException e) {
+			}
+		}
+		return null;
+	}
+
+	/**
 	 * Evaluate the current element against the {@link ElementFilter} instances in this
 	 * {@link PodcastParserContext}.
 	 * 
@@ -258,6 +274,8 @@ public class PodcastParserContext {
 			StringBuilder xml = new StringBuilder();
 			xml.append(asStartElementString(reader));
 
+			boolean endElement = false;
+			
 			while (reader.hasNext()) {
 				switch (reader.next()) {
 				case XMLStreamConstants.COMMENT:
@@ -271,12 +289,17 @@ public class PodcastParserContext {
 				case XMLStreamConstants.START_ELEMENT:
 					xml.append(System.lineSeparator());
 					xml.append(asStartElementString(reader));
+					endElement = false;
 					break;
 				case XMLStreamConstants.END_ELEMENT:
+					if (endElement) {
+						xml.append(System.lineSeparator());
+					}
 					xml.append(asEndElementString(reader));
 					if (localName.equals(reader.getLocalName())) {
 						return xml.toString();
 					}
+					endElement = true;
 					break;
 				}
 			}

@@ -309,16 +309,23 @@ public class ITunes implements Namespace {
 			case XMLStreamConstants.START_ELEMENT:
 				if ("category".equals(ctx.getReader().getLocalName())) {
 					String subcategory = ctx.getAttribute("text");
-					return new Category().setName(text).setSubcategory(subcategory);
+					Category category = new Category();
+					category.setName(text);
+					category.setSubcategory(subcategory);
+					return category;
 				} else {
 					// logger.warn("unexpected element {} inside itunes:category element", reader.getLocalName());
 					break;
 				}
 			case XMLStreamConstants.END_ELEMENT:
-				return new Category().setName(text);
+				Category category = new Category();
+				category.setName(text);
+				return category;
 			}
 		}
-		return new Category().setName(text);
+		Category category = new Category();
+		category.setName(text);
+		return category;
 	}
 
 	/**
@@ -346,8 +353,9 @@ public class ITunes implements Namespace {
 	 * the contents of the RSS image tag.
 	 */
 	private Image parseImage(PodcastParserContext ctx) throws XMLStreamException {
-		return new Image()
-				.setUrl(ctx.getAttribute("href"));
+		Image image = new Image();
+		image.setUrl(ctx.getAttribute("href"));
+		return image;
 	}
 
 	private List<String> parseKeywords(PodcastParserContext ctx) throws XMLStreamException {

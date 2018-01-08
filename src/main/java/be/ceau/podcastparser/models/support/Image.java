@@ -42,9 +42,8 @@ public class Image {
 		return url;
 	}
 
-	public Image setUrl(String url) {
+	public void setUrl(String url) {
 		this.url = url;
-		return this;
 	}
 
 	/**
@@ -62,9 +61,8 @@ public class Image {
 		return title;
 	}
 
-	public Image setTitle(String title) {
+	public void setTitle(String title) {
 		this.title = title;
-		return this;
 	}
 
 	/**
@@ -84,9 +82,8 @@ public class Image {
 		return link;
 	}
 
-	public Image setLink(String link) {
+	public void setLink(String link) {
 		this.link = link;
-		return this;
 	}
 
 	/**
@@ -103,20 +100,8 @@ public class Image {
 		return width;
 	}
 
-	public Image setWidth(int width) {
+	public void setWidth(Integer width) {
 		this.width = width;
-		return this;
-	}
-
-	public Image setWidth(String width) {
-		if (width != null) {
-			try {
-				this.width = Integer.parseInt(width);
-			} catch (NumberFormatException e) {
-				
-			}
-		}
-		return this;
 	}
 
 	/**
@@ -133,20 +118,8 @@ public class Image {
 		return height;
 	}
 
-	public Image setHeight(int height) {
+	public void setHeight(Integer height) {
 		this.height = height;
-		return this;
-	}
-
-	public Image setHeight(String height) {
-		if (height != null) {
-			try {
-				this.height = Integer.parseInt(height);
-			} catch (NumberFormatException e) {
-				
-			}
-		}
-		return this;
 	}
 
 	/**
@@ -164,9 +137,8 @@ public class Image {
 		return description;
 	}
 
-	public Image setDescription(String description) {
+	public void setDescription(String description) {
 		this.description = description;
-		return this;
 	}
 
 	/**
@@ -187,9 +159,8 @@ public class Image {
 		return time;
 	}
 
-	public Image setTime(Long time) {
+	public void setTime(Long time) {
 		this.time = time;
-		return this;
 	}
 
 	@Override

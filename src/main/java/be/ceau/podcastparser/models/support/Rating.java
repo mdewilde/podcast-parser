@@ -37,9 +37,8 @@ public class Rating {
 		return text;
 	}
 
-	public Rating setText(String text) {
+	public void setText(String text) {
 		this.text = text;
-		return this;
 	}
 
 	/**
@@ -58,9 +57,8 @@ public class Rating {
 		return scheme;
 	}
 
-	public Rating setScheme(String scheme) {
+	public void setScheme(String scheme) {
 		this.scheme = scheme;
-		return this;
 	}
 
 	/**
@@ -79,9 +77,8 @@ public class Rating {
 		return explicit;
 	}
 
-	public Rating setExplicit(String explicit) {
+	public void setExplicit(String explicit) {
 		this.explicit = explicit;
-		return this;
 	}
 
 	/**
@@ -95,9 +92,8 @@ public class Rating {
 		return adultContent;
 	}
 
-	public Rating setAdultContent(String adultContent) {
+	public void setAdultContent(String adultContent) {
 		this.adultContent = adultContent;
-		return this;
 	}
 
 	@Override

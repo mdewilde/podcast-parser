@@ -78,7 +78,8 @@ public class RawVoice implements Namespace {
 			 * 
 			 * TV-Y TV-Y7 TV-Y7-FV TV-G TV-PG TV-14 TV-MA
 			 */
-			ctx.getFeed().getRating().setText(ctx.getElementText()).setScheme("V-chip");
+			ctx.getFeed().getRating().setText(ctx.getElementText());
+			ctx.getFeed().getRating().setScheme("V-chip");
 			break;
 		case "subscribe":
 			// Include subscription information. 

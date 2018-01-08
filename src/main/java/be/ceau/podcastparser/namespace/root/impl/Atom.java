@@ -201,7 +201,7 @@ public class Atom implements RootNamespace, Namespace {
 			item.addAuthor(parsePerson(ctx, "author"));
 			break;
 		case "category": 
-			item.addCategory(new Category().setName(ctx.getAttribute("term")));
+			item.addCategory(parseCategory(ctx));
 			break;
 		case "content":
 			item.setContent(parseContent(ctx));
@@ -239,6 +239,12 @@ public class Atom implements RootNamespace, Namespace {
 			Namespace.super.process(ctx, item);
 			break;
 		}
+	}
+
+	private Category parseCategory(PodcastParserContext ctx) throws XMLStreamException {
+		Category category = new Category();
+		category.setName(ctx.getAttribute("term"));
+		return category;
 	}
 
 	private TypedString parseContent(PodcastParserContext ctx) throws XMLStreamException {

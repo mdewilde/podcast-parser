@@ -26,8 +26,8 @@ package be.ceau.podcastparser.models.support;
 public class MediaPlayer {
 
 	private String url;
-	private int height;
-	private int width;
+	private Integer height;
+	private Integer width;
 
 	/**
 	 * Url is the URL of the player console that plays the media. It is a required attribute.
@@ -44,11 +44,11 @@ public class MediaPlayer {
 	 * Height is the height of the browser window that the URL should be opened in. It is an optional
 	 * attribute.
 	 */
-	public int getHeight() {
+	public Integer getHeight() {
 		return height;
 	}
 
-	public void setHeight(int height) {
+	public void setHeight(Integer height) {
 		this.height = height;
 	}
 
@@ -56,11 +56,11 @@ public class MediaPlayer {
 	 * Width is the width of the browser window that the URL should be opened in. It is an optional
 	 * attribute.
 	 */
-	public int getWidth() {
+	public Integer getWidth() {
 		return width;
 	}
 
-	public void setWidth(int width) {
+	public void setWidth(Integer width) {
 		this.width = width;
 	}
 
