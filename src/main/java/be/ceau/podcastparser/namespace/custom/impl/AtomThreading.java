@@ -28,7 +28,7 @@ import be.ceau.podcastparser.namespace.Namespace;
  * An extension for expressing threaded discussions within the Atom Syndication
  * Format [RFC4287].
  * 
- * @see http://www.ietf.org/rfc/rfc4685.txt
+ * @see <a href="http://www.ietf.org/rfc/rfc4685.txt">RFC 4685</a>
  */
 public class AtomThreading implements Namespace {
 

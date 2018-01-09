@@ -26,7 +26,8 @@ import be.ceau.podcastparser.util.Strings;
 /**
  * 
  * 
- * @see http://support.iono.fm/knowledgebase/articles/559560-iono-fm-rss-namespace
+ * @see <a href="http://support.iono.fm/knowledgebase/articles/559560-iono-fm-rss-namespace">Iono FM
+ *      specification</a>
  */
 public class Iono implements Namespace {
 
@@ -46,7 +47,7 @@ public class Iono implements Namespace {
 				ctx.getFeed().addImage(thumbnail);
 			}
 			break;
-		default : 
+		default:
 			Namespace.super.process(ctx);
 			break;
 		}
@@ -61,7 +62,7 @@ public class Iono implements Namespace {
 				item.addImage(thumbnail);
 			}
 			break;
-		default : 
+		default:
 			Namespace.super.process(ctx, item);
 			break;
 		}
@@ -79,11 +80,3 @@ public class Iono implements Namespace {
 	}
 
 }
-/*
-
-	corpus stats
-
-      8621 	--> http://iono.fm/rss-namespace-1.0 level=item localName=thumbnail attributes=[href]]
-       111 	--> http://iono.fm/rss-namespace-1.0 level=feed localName=thumbnail attributes=[href]]
-
-*/

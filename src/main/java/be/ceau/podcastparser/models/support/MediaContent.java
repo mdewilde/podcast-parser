@@ -18,11 +18,11 @@ package be.ceau.podcastparser.models.support;
 import java.time.Duration;
 
 /**
- * Media RSS is a new RSS module that supplements the {@link enclosure}
- * capabilities of RSS 2.0. RSS enclosures are already being used to syndicate
- * audio files and images. Media RSS extends enclosures to handle other media
- * types, such as short films or TV, as well as provide additional metadata with
- * the media.
+ * Media RSS is an RSS module that supplements the enclosure capabilities of RSS 2.0. Media RSS
+ * extends enclosures to handle other media types, such as short films or TV, as well as provide
+ * additional metadata with the media.
+ * 
+ * @see be.ceau.podcastparser.namespace.custom.impl.Media
  */
 public class MediaContent {
 
@@ -110,8 +110,7 @@ public class MediaContent {
 
 	/**
 	 * <p>
-	 * Whether this is the default {@link MediaContent} object that should be
-	 * used for the group.
+	 * Whether this is the default {@link MediaContent} object that should be used for the group.
 	 * </p>
 	 * <p>
 	 * Optional in Media RSS specification.
@@ -129,9 +128,8 @@ public class MediaContent {
 
 	/**
 	 * <p>
-	 * Whether this is a sample or the full version or a continuous stream of
-	 * this object. Default value is {@code full}. Possible values (sample |
-	 * full | nonstop).
+	 * Whether this is a sample or the full version or a continuous stream of this object. Default value
+	 * is {@code full}. Possible values (sample | full | nonstop).
 	 * </p>
 	 * <p>
 	 * Optional in Media RSS specification.
@@ -185,8 +183,8 @@ public class MediaContent {
 
 	/**
 	 * <p>
-	 * The number of samples per second taken to create the media object. It is
-	 * expressed in thousands of samples per second (kHz).
+	 * The number of samples per second taken to create the media object. It is expressed in thousands
+	 * of samples per second (kHz).
 	 * </p>
 	 * <p>
 	 * Optional in Media RSS specification.
@@ -276,16 +274,16 @@ public class MediaContent {
 
 	/**
 	 * <p>
-	 * The primary language encapsulated in the media object. Language codes
-	 * possible are detailed in RFC 3066.
+	 * The primary language encapsulated in the media object. Language codes possible are detailed in
+	 * RFC 3066.
 	 * </p>
 	 * <p>
 	 * Optional in Media RSS specification.
 	 * </p>
 	 * 
 	 * @return a {@link String} or {@code null}
-	 * @see http://www.i18nguy.com/unicode/language-identifiers.html
-	 * @see https://www.ietf.org/rfc/rfc3066.txt
+	 * @see <a href="http://www.i18nguy.com/unicode/language-identifiers.html">language identifiers</a>
+	 * @see <a href="https://www.ietf.org/rfc/rfc3066.txt">RFC 3066</a>
 	 */
 	public String getLang() {
 		return lang;
@@ -330,5 +328,5 @@ public class MediaContent {
 		builder.append("]");
 		return builder.toString();
 	}
-	
+
 }

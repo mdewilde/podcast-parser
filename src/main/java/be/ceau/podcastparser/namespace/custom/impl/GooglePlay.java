@@ -30,7 +30,8 @@ import be.ceau.podcastparser.namespace.Namespace;
 import be.ceau.podcastparser.util.UnmodifiableSet;
 
 /**
- * @see http://www.google.com/schemas/play-podcasts/1.0/play-podcasts.xsd
+ * @see <a href="http://www.google.com/schemas/play-podcasts/1.0/play-podcasts.xsd">Google Play
+ *      podcasts schema</a>
  */
 public class GooglePlay implements Namespace {
 
@@ -86,7 +87,7 @@ public class GooglePlay implements Namespace {
 			// specified in the <channel> tag.
 			Namespace.super.process(ctx);
 			break;
-		default : 
+		default:
 			Namespace.super.process(ctx);
 			break;
 		}
@@ -115,7 +116,7 @@ public class GooglePlay implements Namespace {
 		case "image":
 			item.addImage(parseImage(ctx));
 			break;
-		default : 
+		default:
 			Namespace.super.process(ctx, item);
 			break;
 		}
@@ -139,7 +140,7 @@ public class GooglePlay implements Namespace {
 		category.setScheme(NAME);
 		return category;
 	}
-	
+
 	/**
 	 * A description of the podcast or episode. The description can be specified in the
 	 * {@code <channel>} or {@code <item>} tags and must be plain-text (no markup allowed).
@@ -150,7 +151,7 @@ public class GooglePlay implements Namespace {
 		typedString.setType("plain");
 		return typedString;
 	}
-	
+
 	private void parseExplicit(PodcastParserContext ctx) throws XMLStreamException {
 		parseExplicit(ctx, ctx.getFeed().getRating());
 	}
@@ -169,45 +170,12 @@ public class GooglePlay implements Namespace {
 		// there's also an explicit version of of the same episode.
 		rating.setExplicit(ctx.getElementText());
 	}
-	
+
 	private Image parseImage(PodcastParserContext ctx) {
 		String href = ctx.getAttribute("href");
 		Image image = new Image();
 		image.setUrl(href);
 		return image;
 	}
-	
+
 }
-
-/*
-
-	corpus stats
-	
-    210007 	--> http://www.google.com/schemas/play-podcasts/1.0 level=item localName=explicit attributes=[]]
-    177359 	--> http://www.google.com/schemas/play-podcasts/1.0 level=item localName=description attributes=[]]
-    165902 	--> http://www.google.com/schemas/play-podcasts/1.0 level=item localName=author attributes=[]]
-    121355 	--> http://www.google.com/schemas/play-podcasts/1.0 level=item localName=image attributes=[href]]
-     44434 	--> http://www.google.com/schemas/play-podcasts/1.0 level=item localName=block attributes=[]]
-      5098 	--> http://www.google.com/schemas/play-podcasts/1.0/play-podcasts.xsd level=item localName=description attributes=[]]
-      4744 	--> http://www.google.com/schemas/play-podcasts/1.0 level=feed localName=explicit attributes=[]]
-      3867 	--> http://www.google.com/schemas/play-podcasts/1.0 level=feed localName=email attributes=[]]
-      3691 	--> http://www.google.com/schemas/play-podcasts/1.0 level=feed localName=description attributes=[]]
-      3622 	--> http://www.google.com/schemas/play-podcasts/1.0 level=feed localName=author attributes=[]]
-      3532 	--> http://www.google.com/schemas/play-podcasts/1.0 level=feed localName=image attributes=[href]]
-      3419 	--> http://www.google.com/schemas/play-podcasts/1.0/play-podcasts.xsd level=feed localName=category attributes=[text]]
-      3010 	--> http://www.google.com/schemas/play-podcasts/1.0/play-podcasts.xsd level=feed localName=email attributes=[]]
-      2060 	--> http://www.google.com/schemas/play-podcasts/1.0/play-podcasts.xsd level=feed localName=image attributes=[href]]
-      1938 	--> http://www.google.com/schemas/play-podcasts/1.0/play-podcasts.xsd level=feed localName=description attributes=[]]
-      1401 	--> http://www.google.com/schemas/play-podcasts/1.0 level=feed localName=category attributes=[text]]
-       655 	--> http://www.google.com/schemas/play-podcasts/1.0/play-podcasts.xsd level=feed localName=explicit attributes=[]]
-       402 	--> http://www.google.com/schemas/play-podcasts/1.0/play-podcasts.xsd level=item localName=explicit attributes=[]]
-       307 	--> http://www.google.com/schemas/play-podcasts/1.0 level=feed localName=block attributes=[]]
-       159 	--> http://www.google.com/schemas/play-podcasts/1.0/play-podcasts.xsd level=item localName=image attributes=[href]]
-        14 	--> http://www.google.com/schemas/play-podcasts/1.0/play-podcasts.xsd level=feed localName=author attributes=[]]
-         6 	--> http://www.google.com/schemas/play-podcasts/1.0 level=feed localName=image attributes=[]]
-         3 	--> http://www.google.com/schemas/play-podcasts/1.0 level=item localName=email attributes=[]]
-         2 	--> http://www.google.com/schemas/play-podcasts/1.0/play-podcasts.xsd level=item localName=block attributes=[]]
-         1 	--> http://www.google.com/schemas/play-podcasts/1.0 level=feed localName=category attributes=[]]
-	
-*/
-

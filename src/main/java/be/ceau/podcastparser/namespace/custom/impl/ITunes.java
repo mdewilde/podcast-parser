@@ -20,7 +20,6 @@ import java.util.Set;
 
 import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
-import javax.xml.stream.XMLStreamReader;
 
 import be.ceau.podcastparser.PodcastParserContext;
 import be.ceau.podcastparser.models.core.Item;
@@ -34,29 +33,30 @@ import be.ceau.podcastparser.util.Strings;
 import be.ceau.podcastparser.util.UnmodifiableSet;
 
 /**
- * @see https://help.apple.com/itc/podcasts_connect/#/itcb54353390
+ * @see <a href="https://help.apple.com/itc/podcasts_connect/#/itcb54353390">iTunes podcast
+ *      specification</a>
  */
 public class ITunes implements Namespace {
 
 	private static final String NAME = "http://www.itunes.com/dtds/podcast-1.0.dtd";
 	private static final Set<String> ALTERNATIVE_NAMES = UnmodifiableSet.of(
-			"//www.itunes.com/dtds/podcast-1.0.dtd", 
-			"//www.itunes.com/DTDs/Podcast-1.0.dtd", 
-			"http://itunes.com/dtds/podcast-1.0.dtd", 
+			"//www.itunes.com/dtds/podcast-1.0.dtd",
+			"//www.itunes.com/DTDs/Podcast-1.0.dtd",
+			"http://itunes.com/dtds/podcast-1.0.dtd",
 			"http://www.itunes.com/dtds/new_podcast-1.0.dtd",
 			"http://www.itunes.com/dtd/podcast-1.0.dtd",
 			"http://www.itunes.com/dtds/-1.0.dtd",
 			"http://www.itunes.com/dtds/podcast-1.0dtd",
-			"http://www.itunes.com/dtds/podcast-1.0.dtd/", 
-			"http://www.itunes.com/DTDs/Podcast-1.0.dtd", 
-			"http://www.itunes.com/DTDs/podcast-1.0.dtd", 
+			"http://www.itunes.com/dtds/podcast-1.0.dtd/",
+			"http://www.itunes.com/DTDs/Podcast-1.0.dtd",
+			"http://www.itunes.com/DTDs/podcast-1.0.dtd",
 			"http://www.itunes.com/dtds/podcast=1.0.dtd",
 			"http://www.itunes.com/DTD/Podcast-1.0dtd",
-			"http://www.itunes.com/dtds/podcast-'1.0'.dtd", 
-			"http://www.itunes.com/dtds/podcast-2.0.dtd", 
+			"http://www.itunes.com/dtds/podcast-'1.0'.dtd",
+			"http://www.itunes.com/dtds/podcast-2.0.dtd",
 			"http://www.itunes.org/dtds/podcast-1.0.dtd",
-			"https://itunes.com/dtds/podcast-1.0.dtd", 
-			"https://www.itunes.com/dtds/podcast-1.0.dtd", 
+			"https://itunes.com/dtds/podcast-1.0.dtd",
+			"https://www.itunes.com/dtds/podcast-1.0.dtd",
 			"itunes");
 
 	@Override
@@ -107,7 +107,7 @@ public class ITunes implements Namespace {
 			ctx.getFeed().setOwner(parseOwner(ctx));
 			return;
 		case "subtitle":
-			// The contents of this tag are shown in the Description column in iTunes. 
+			// The contents of this tag are shown in the Description column in iTunes.
 			// The subtitle displays best if it is only a few words long.
 			String subtitle = ctx.getElementText();
 			if (Strings.isNotBlank(subtitle)) {
@@ -126,22 +126,13 @@ public class ITunes implements Namespace {
 				ctx.getFeed().setType(type);
 			}
 			break;
-		default : 
+		default:
 			Namespace.super.process(ctx);
 			break;
 		}
 
 	}
 
-	/**
-	 * @param item
-	 *            {@link Item} instance in the process of being built
-	 * @param reader
-	 *            {@link XMLStreamReader} instance, just having processed a
-	 *            {@link XMLStreamConstants#START_ELEMENT} event with this
-	 *            namespace.
-	 * @throws XMLStreamException
-	 */
 	@Override
 	public void process(PodcastParserContext ctx, Item item) throws XMLStreamException {
 		String localName = ctx.getReader().getLocalName();
@@ -231,7 +222,7 @@ public class ITunes implements Namespace {
 			// fallthrough intended
 		case "isClosedCaptioned":
 			// fallthrough intended
-		default : 
+		default:
 			Namespace.super.process(ctx, item);
 			return;
 		}
@@ -252,38 +243,31 @@ public class ITunes implements Namespace {
 		person.setName(ctx.getElementText());
 		return person;
 	}
-	
+
 	/**
-	 * Use this inside a <channel> element to prevent the entire podcast
-	 * from appearing in the iTunes Podcast directory. Use this inside
-	 * an <item> element to prevent that episode from appearing in the
-	 * iTunes Podcast directory. For example, you may want a specific
-	 * episode blocked from iTunes if it's content might cause the feed
-	 * to be removed from iTunes.
+	 * Use this inside a <channel> element to prevent the entire podcast from appearing in the iTunes
+	 * Podcast directory. Use this inside an <item> element to prevent that episode from appearing in
+	 * the iTunes Podcast directory. For example, you may want a specific episode blocked from iTunes if
+	 * it's content might cause the feed to be removed from iTunes.
 	 * 
-	 * If this tag is present and set to "yes" (case insensitive), that
-	 * means to block the feed or the episode. If the tag's value is any
-	 * other value, including empty string, it's indicated as a signal
-	 * to unblock the feed or episode. At the feed level, if there is no
-	 * block tag, then the block status of the feed is left unchanged.
-	 * At the episode level, if there is no block tag, it is the same as
-	 * if a block=no were present.
+	 * If this tag is present and set to "yes" (case insensitive), that means to block the feed or the
+	 * episode. If the tag's value is any other value, including empty string, it's indicated as a
+	 * signal to unblock the feed or episode. At the feed level, if there is no block tag, then the
+	 * block status of the feed is left unchanged. At the episode level, if there is no block tag, it is
+	 * the same as if a block=no were present.
 	 */
 	private boolean parseBlock(PodcastParserContext ctx) throws XMLStreamException {
 		return "yes".equalsIgnoreCase(ctx.getElementText());
 	}
-	
+
 	/*
-	 * When browsing Podcasts in the iTunes Music Store, categories are shown in
-	 * the 2nd column and subcategories are shown in the 3rd column. Not all
-	 * categories have subcategories.
+	 * When browsing Podcasts in the iTunes Music Store, categories are shown in the 2nd column and
+	 * subcategories are shown in the 3rd column. Not all categories have subcategories.
 	 * 
-	 * Categories and subcategories can be specified as follows. Use a top level
-	 * <itunes:category> to specify the browse category, and a nested
-	 * <itunes:category> to specify the browse subcategory. Choose from the
-	 * existing categories and subcategories on the iTunes Music Store. Be sure
-	 * to properly escape ampersands. Note that multiple categories are allowed.
-	 * Single category:
+	 * Categories and subcategories can be specified as follows. Use a top level <itunes:category> to
+	 * specify the browse category, and a nested <itunes:category> to specify the browse subcategory.
+	 * Choose from the existing categories and subcategories on the iTunes Music Store. Be sure to
+	 * properly escape ampersands. Note that multiple categories are allowed. Single category:
 	 * 
 	 * <itunes:category text="Audio Blogs" />
 	 * 
@@ -293,14 +277,14 @@ public class ITunes implements Namespace {
 	 * 
 	 * Category with Subcategory:
 	 * 
-	 * <itunes:category text="Arts &amp; Entertainment"> <itunes:category
-	 * text="Games" /> </itunes:category>
+	 * <itunes:category text="Arts &amp; Entertainment"> <itunes:category text="Games" />
+	 * </itunes:category>
 	 * 
 	 * Entry with multiple categories:
 	 * 
-	 * <itunes:category text="Arts &amp; Entertainment"> <itunes:category
-	 * text="Games" /> </itunes:category> <itunes:category text="Technology">
-	 * <itunes:category text="Computers" /> </itunes:category>
+	 * <itunes:category text="Arts &amp; Entertainment"> <itunes:category text="Games" />
+	 * </itunes:category> <itunes:category text="Technology"> <itunes:category text="Computers" />
+	 * </itunes:category>
 	 */
 	private Category parseCategory(PodcastParserContext ctx) throws XMLStreamException {
 		String text = ctx.getAttribute("text");
@@ -331,26 +315,24 @@ public class ITunes implements Namespace {
 	/**
 	 * The podcast update status.
 	 * 
-	 * Specifying the {@link <itunes:complete>} tag with a Yes value indicates that a podcast is complete and
-	 * you will not post any more episodes in the future. This tag is only supported at the channel
-	 * level (podcast).
+	 * Specifying the {@link <itunes:complete>} tag with a Yes value indicates that a podcast is
+	 * complete and you will not post any more episodes in the future. This tag is only supported at the
+	 * channel level (podcast).
 	 * 
 	 * Specifying any value other than Yes has no effect.
 	 */
 	private boolean parseComplete(PodcastParserContext ctx) throws XMLStreamException {
 		return "yes".equalsIgnoreCase(ctx.getElementText());
 	}
-	
+
 	/*
-	 * This tag specifies the artwork for your podcast. Put the url to the image
-	 * in the href attribute. iTunes prefers square .jpg images that are at
-	 * least 300 x 300 pixels, which is different than what is specified for the
-	 * standard RSS image tag.
+	 * This tag specifies the artwork for your podcast. Put the url to the image in the href attribute.
+	 * iTunes prefers square .jpg images that are at least 300 x 300 pixels, which is different than
+	 * what is specified for the standard RSS image tag.
 	 * 
 	 * 
-	 * iTunes supports images in JPEG and PNG formats. The url must end in
-	 * ".jpg" or ".png". If the itunes:image tag is not present, iTunes will use
-	 * the contents of the RSS image tag.
+	 * iTunes supports images in JPEG and PNG formats. The url must end in ".jpg" or ".png". If the
+	 * itunes:image tag is not present, iTunes will use the contents of the RSS image tag.
 	 */
 	private Image parseImage(PodcastParserContext ctx) throws XMLStreamException {
 		Image image = new Image();
@@ -396,5 +378,5 @@ public class ITunes implements Namespace {
 		Attributes.get("length").from(ctx.getReader()).ifPresent(link::setLength);
 		return link;
 	}
-	
+
 }

@@ -39,7 +39,7 @@ import be.ceau.podcastparser.util.Strings;
  * structures in media files.
  * </p>
  * 
- * @see http://podlove.org/simple-chapters
+ * @see <a href="http://podlove.org/simple-chapters">Simple Chapters specification</a>
  */
 public class SimpleChapters implements Namespace {
 

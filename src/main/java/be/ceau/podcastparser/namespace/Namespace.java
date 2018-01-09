@@ -18,7 +18,6 @@ package be.ceau.podcastparser.namespace;
 import java.util.Collections;
 import java.util.Set;
 
-import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
@@ -62,7 +61,7 @@ public interface Namespace {
 	 * Check if the given namespaceURI is for {@code this} {@link Namespace}
 	 * 
 	 * @param namespaceURI
-	 *            {@link String} or {@null}
+	 *            {@link String} or {@code null}
 	 * @return {@code true} if the given {@code namespaceURI} is associated with {@code this}
 	 *         {@link Namespace}
 	 */
@@ -80,10 +79,8 @@ public interface Namespace {
 	 *
 	 * @param ctx
 	 *            {@link PodcastParserContext} instance in the process of being built
-	 * @param reader
-	 *            {@link XMLStreamReader} instance, having just processed a
-	 *            {@link XMLStreamConstants#START_ELEMENT} event with this namespace.
 	 * @throws XMLStreamException
+	 *             if any
 	 */
 	public default void process(PodcastParserContext ctx) throws XMLStreamException {
 		// default is to do nothing
@@ -98,10 +95,8 @@ public interface Namespace {
 	 *            {@link PodcastParserContext} instance in the process of being built
 	 * @param item
 	 *            {@link Item} instance in the process of being built
-	 * @param reader
-	 *            {@link XMLStreamReader} instance, having just processed a
-	 *            {@link XMLStreamConstants#START_ELEMENT} event with this namespace.
 	 * @throws XMLStreamException
+	 *             if any
 	 */
 	public default void process(PodcastParserContext ctx, Item item) throws XMLStreamException {
 		// default is to do nothing

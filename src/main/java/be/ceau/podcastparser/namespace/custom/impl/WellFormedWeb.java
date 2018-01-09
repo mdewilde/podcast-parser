@@ -24,12 +24,14 @@ import be.ceau.podcastparser.namespace.Namespace;
 
 /**
  * <p>
- * The {@code <wfw:commentRss>} element lets you syndicate your comments. The
- * URI in the {@code <wfw:commentRss>} element must point to an RSS feed
- * containing the comments for the {@code <item>} it is contained in.
+ * The {@code <wfw:commentRss>} element lets you syndicate your comments. The URI in the
+ * {@code <wfw:commentRss>} element must point to an RSS feed containing the comments for the
+ * {@code <item>} it is contained in.
  * </p>
  * 
- * @see https://developer.mozilla.org/en-US/docs/Web/RSS/Module/Well-Formed_Web/Element
+ * @see <a href=
+ *      "https://developer.mozilla.org/en-US/docs/Web/RSS/Module/Well-Formed_Web/Element">Well-Formed
+ *      Web specification</a>
  */
 public class WellFormedWeb implements Namespace {
 
@@ -60,19 +62,10 @@ public class WellFormedWeb implements Namespace {
 			item.addLink(link);
 			break;
 		}
-		default : 
+		default:
 			Namespace.super.process(ctx, item);
 			break;
 		}
 	}
 
 }
-
-/*
-	corpus stats
-	
-    753167 	--> http://wellformedweb.org/CommentAPI/ level=item localName=commentRss attributes=[]]
-       554 	--> http://wellformedweb.org/CommentAPI/ level=item localName=comment attributes=[]]
-       448 	--> http://wellformedweb.org/CommentAPI/ level=item localName=commentRSS attributes=[]]
-
-*/

@@ -126,8 +126,8 @@ public class PodcastParser {
 	 * @param xml
 	 *            a {@link java.lang.String} object.
 	 * @return a {@link Feed} object
-	 * @throws {@link
-	 *             PodcastParserException} if any
+	 * @throws PodcastParserException
+	 *             if any
 	 */
 	public Feed parse(String xml) throws PodcastParserException {
 		if (Strings.isBlank(xml)) {
@@ -144,8 +144,8 @@ public class PodcastParser {
 	 * @param reader
 	 *            a {@link java.io.Reader} object.
 	 * @return a {@link Feed} object.
-	 * @throws {@link
-	 *             be.ceau.podcastparser.exceptions.PodcastParserException} if any.
+	 * @throws PodcastParserException
+	 *             if any.
 	 */
 	public Feed parse(Reader reader) throws PodcastParserException {
 		try {

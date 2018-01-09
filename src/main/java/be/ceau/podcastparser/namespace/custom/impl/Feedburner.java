@@ -24,13 +24,17 @@ import be.ceau.podcastparser.models.support.Link;
 import be.ceau.podcastparser.models.support.TypedString;
 import be.ceau.podcastparser.namespace.Namespace;
 import be.ceau.podcastparser.util.Attributes;
-import be.ceau.podcastparser.util.Strings;
 
 /**
- * 
- * @see http://web.archive.org/web/20110822032923/http://code.google.com/apis/feedburner/feedburner_namespace_reference.html
- * @see http://intertwingly.net/blog/2007/11/20/RFC-FeedBurner-Namespace-Documentation
- * @see http://web.archive.org/web/20110822034410/http://code.google.com:80/apis/feedburner/awareness_api.html
+ * @see <a href=
+ *      "http://web.archive.org/web/20110822032923/http://code.google.com/apis/feedburner/feedburner_namespace_reference.html">FeedBurner
+ *      Namespace Reference</a>
+ * @see <a href=
+ *      "http://intertwingly.net/blog/2007/11/20/RFC-FeedBurner-Namespace-Documentation">FeedBurner
+ *      Namespace documentation</a>
+ * @see <a href=
+ *      "http://web.archive.org/web/20110822034410/http://code.google.com:80/apis/feedburner/awareness_api.html">FeedBurner
+ *      Awareness documentation</a>
  */
 public class Feedburner implements Namespace {
 
@@ -53,23 +57,21 @@ public class Feedburner implements Namespace {
 		case "emailServiceId":
 			// child text is integer
 			/*
-			 * The feedburner:emailServiceId element is a unique identifier for
-			 * feeds that use the Email Subscriptions service. It is only
-			 * present if the feed publisher has enabled the Email Subscriptions
-			 * service.
+			 * The feedburner:emailServiceId element is a unique identifier for feeds that use the Email
+			 * Subscriptions service. It is only present if the feed publisher has enabled the Email
+			 * Subscriptions service.
 			 */
 			Namespace.super.process(ctx);
 			break;
 		case "feedburnerHostname":
 			// child text is URI
 			/*
-			 * The feedburner:feedburnerHostname element is the base URI of the
-			 * site to be used for verifying email subscriptions. It is only
-			 * present if the feed publisher has enabled the Email Subscriptions
+			 * The feedburner:feedburnerHostname element is the base URI of the site to be used for verifying
+			 * email subscriptions. It is only present if the feed publisher has enabled the Email Subscriptions
 			 * service.
 			 * 
-			 * FeedBurner email is a service that allows publishers to deliver
-			 * their feed content to subscribers via email.
+			 * FeedBurner email is a service that allows publishers to deliver their feed content to subscribers
+			 * via email.
 			 */
 			Namespace.super.process(ctx);
 			break;
@@ -78,10 +80,9 @@ public class Feedburner implements Namespace {
 			break;
 		case "info":
 			/*
-			 * The feedburner:info element is an element that appears in every
-			 * FeedBurner feed. The uri attribute is required, and indicates the
-			 * feed URI chosen by the publisher where the feed can be accessed
-			 * under feeds.feedburner.com.
+			 * The feedburner:info element is an element that appears in every FeedBurner feed. The uri
+			 * attribute is required, and indicates the feed URI chosen by the publisher where the feed can be
+			 * accessed under feeds.feedburner.com.
 			 */
 			Attributes.get("uri").from(ctx.getReader()).ifPresent(uri -> {
 				Link link = new Link();
@@ -90,7 +91,7 @@ public class Feedburner implements Namespace {
 				ctx.getFeed().addLink(link);
 			});
 			break;
-		default : 
+		default:
 			Namespace.super.process(ctx);
 			break;
 		}
@@ -108,30 +109,27 @@ public class Feedburner implements Namespace {
 		case "origLink":
 			item.addLink(parseOrigLink(ctx));
 			break;
-		default : 
+		default:
 			Namespace.super.process(ctx, item);
 			break;
 		}
 	}
 
 	/*
-	 * Feed Awareness describes the extent and frequency with which a
-	 * publisher's feed and its content items are consumed, clicked on,
-	 * and referred to by independent sources (i.e., "syndicated").
-
-	 * As a feed-level element, the feedburner:awareness element points
-	 * to current basic feed awareness data for the feed. It is only
-	 * present if the feed publisher has enabled the Awareness API for
-	 * the feed.
+	 * Feed Awareness describes the extent and frequency with which a publisher's feed and its content
+	 * items are consumed, clicked on, and referred to by independent sources (i.e., "syndicated").
 	 * 
-	 * The feedburner:awareness element can appear 0 or 1 times as a
-	 * child of <atom:feed> or <channel>. The value of this element is
-	 * an http or https URI. The URI can not be relative. Leading and
+	 * As a feed-level element, the feedburner:awareness element points to current basic feed awareness
+	 * data for the feed. It is only present if the feed publisher has enabled the Awareness API for the
+	 * feed.
+	 * 
+	 * The feedburner:awareness element can appear 0 or 1 times as a child of <atom:feed> or <channel>.
+	 * The value of this element is an http or https URI. The URI can not be relative. Leading and
 	 * trailing whitespace is not significant.
 	 *
-	 * As an item-level element, the feedburner:awareness element points
-	 * to current item awareness data for the item. It is only present
-	 * if the feed publisher has enabled the Awareness API for the feed.
+	 * As an item-level element, the feedburner:awareness element points to current item awareness data
+	 * for the item. It is only present if the feed publisher has enabled the Awareness API for the
+	 * feed.
 	 */
 	private Link parseAwareness(PodcastParserContext ctx) throws XMLStreamException {
 		Link link = new Link();
@@ -141,31 +139,26 @@ public class Feedburner implements Namespace {
 	}
 
 	/*
-	 * The feedburner:browserFriendly element is simply a human-readable
-	 * description explaining the concept of syndication feeds. In older
-	 * browsers, clicking a syndicated feed causes the browser to
-	 * display a raw XML dump to the end user. This is clearly
-	 * undesirable, so FeedBurner uses client-side stylesheets to
-	 * reformat the feed into something more friendly. The content of
-	 * this element is a message displayed to the end user to explain
-	 * what they just clicked on.
+	 * The feedburner:browserFriendly element is simply a human-readable description explaining the
+	 * concept of syndication feeds. In older browsers, clicking a syndicated feed causes the browser to
+	 * display a raw XML dump to the end user. This is clearly undesirable, so FeedBurner uses
+	 * client-side stylesheets to reformat the feed into something more friendly. The content of this
+	 * element is a message displayed to the end user to explain what they just clicked on.
 	 */
 	private TypedString parseBrowserFriendly(PodcastParserContext ctx) throws XMLStreamException {
 		TypedString typedString = new TypedString();
 		typedString.setText(ctx.getElementText());
-		typedString.setType(Strings.isHtml(typedString.getText()) ? "html" : "text");
 		return typedString;
 	}
-	
+
 	/*
 	 * The feedburner:feedFlare element describes a piece of "flare" that is displayed on the feed's
 	 * landing page to allow the end user to subscribe to the blog with a variety of online services. If
 	 * a publisher has created custom BrowserFriendly chicklets and added them to a feed, these
 	 * chicklets will also appear in the feed as feedburner:feedFlare elements.
 	 * 
-	 * The href attribute is a link to a feed subscription service.
-	 * The src attribute is a link to an image.
-	 * The element also has text content, which is used as alternate text for the image.
+	 * The href attribute is a link to a feed subscription service. The src attribute is a link to an
+	 * image. The element also has text content, which is used as alternate text for the image.
 	 */
 	private Image parseFeedFlare(PodcastParserContext ctx) throws XMLStreamException {
 		Image image = new Image();
@@ -174,11 +167,10 @@ public class Feedburner implements Namespace {
 		image.setTitle(ctx.getElementText());
 		return image;
 	}
-	
+
 	/*
-	 * The feedburner:origEnclosureLink element points to the original
-	 * URI of an enclosure. It is only present in podcasting feeds, and
-	 * only if the feed publisher has opted to track enclosure
+	 * The feedburner:origEnclosureLink element points to the original URI of an enclosure. It is only
+	 * present in podcasting feeds, and only if the feed publisher has opted to track enclosure
 	 * clickthroughs.
 	 */
 	private Link parseOrigEnclosureLink(PodcastParserContext ctx) throws XMLStreamException {
@@ -189,9 +181,8 @@ public class Feedburner implements Namespace {
 	}
 
 	/*
-	 * The feedburner:origLink element points to the original URI of an
-	 * item. It is only present if the feed publisher has opted to track
-	 * item clickthroughs.
+	 * The feedburner:origLink element points to the original URI of an item. It is only present if the
+	 * feed publisher has opted to track item clickthroughs.
 	 */
 	private Link parseOrigLink(PodcastParserContext ctx) throws XMLStreamException {
 		Link link = new Link();
@@ -200,5 +191,4 @@ public class Feedburner implements Namespace {
 		return link;
 	}
 
-	
 }

@@ -90,7 +90,7 @@ public class Credit {
 	 * </p>
 	 * 
 	 * @return a {@code String} or {@code null}
-	 * @see https://tools.ietf.org/html/rfc5174
+	 * @see <a href="https://tools.ietf.org/html/rfc5174">URN specification</a>
 	 */
 	public String getScheme() {
 		return scheme;

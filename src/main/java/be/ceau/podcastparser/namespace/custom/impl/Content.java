@@ -23,7 +23,6 @@ import be.ceau.podcastparser.PodcastParserContext;
 import be.ceau.podcastparser.models.core.Item;
 import be.ceau.podcastparser.models.support.TypedString;
 import be.ceau.podcastparser.namespace.Namespace;
-import be.ceau.podcastparser.util.Strings;
 import be.ceau.podcastparser.util.UnmodifiableSet;
 
 /**
@@ -32,7 +31,8 @@ import be.ceau.podcastparser.util.UnmodifiableSet;
  * A module for the actual content of websites, in multiple formats.
  * </p>
  * 
- * @see http://web.resource.org/rss/1.0/modules/content/
+ * @see <a href="http://web.resource.org/rss/1.0/modules/content/">RDF Site Summary
+ *      specification</a>
  */
 public class Content implements Namespace {
 
@@ -57,7 +57,7 @@ public class Content implements Namespace {
 		case "encoded":
 			item.setContent(parseEncoded(ctx));
 			break;
-		default : 
+		default:
 			Namespace.super.process(ctx, item);
 			break;
 		}
@@ -66,8 +66,7 @@ public class Content implements Namespace {
 	private TypedString parseEncoded(PodcastParserContext ctx) throws XMLStreamException {
 		TypedString typedString = new TypedString();
 		typedString.setText(ctx.getElementText());
-		typedString.setType(Strings.isHtml(typedString.getText()) ? "html" : "plain");
 		return typedString;
 	}
-	
+
 }

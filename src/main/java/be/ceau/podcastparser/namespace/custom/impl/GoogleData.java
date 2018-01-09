@@ -22,10 +22,11 @@ import be.ceau.podcastparser.models.core.Item;
 import be.ceau.podcastparser.namespace.Namespace;
 
 /**
- * Used by Google Data APIs to be able to provide a consistent set of
- * information about a particular kind of item.
+ * Used by Google Data APIs to be able to provide a consistent set of information about a particular
+ * kind of item.
  * 
- * @see https://developers.google.com/gdata/docs/1.0/elements
+ * @see <a href="https://developers.google.com/gdata/docs/1.0/elements">Google Data
+ *      specification</a>
  */
 public class GoogleData implements Namespace {
 
@@ -40,19 +41,10 @@ public class GoogleData implements Namespace {
 	public void process(PodcastParserContext ctx, Item item) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
 		case "extendedProperty":
-		default : 
+		default:
 			Namespace.super.process(ctx, item);
 			break;
 		}
 	}
 
 }
-
-/*
-
-	corpus stats
-	
-      6550 	--> http://schemas.google.com/g/2005 level=item localName=extendedProperty attributes=[name, value]]
-
-*/
-

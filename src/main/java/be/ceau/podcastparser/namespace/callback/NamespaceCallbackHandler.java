@@ -19,6 +19,7 @@ import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamReader;
 
 import be.ceau.podcastparser.ParseLevel;
+import be.ceau.podcastparser.PodcastParserContext;
 import be.ceau.podcastparser.models.core.Feed;
 import be.ceau.podcastparser.models.core.Item;
 import be.ceau.podcastparser.namespace.Namespace;
@@ -29,8 +30,8 @@ import be.ceau.podcastparser.namespace.Namespace;
  * implementation is called. These methods are:
  * </p>
  * <ul>
- * <li>{@link Namespace#process(Feed, XMLStreamReader)}
- * <li>{@link Namespace#process(Item, XMLStreamReader)}
+ * <li>{@link Namespace#process(PodcastParserContext)}
+ * <li>{@link Namespace#process(PodcastParserContext, Item)}
  * </ul>
  * <p>
  * Implementations should be threadsafe.
@@ -40,7 +41,7 @@ public interface NamespaceCallbackHandler {
 
 	/**
 	 * <p>
-	 * Receives a callback before {@link Namespace#process(Feed, XMLStreamReader)} is invoked.
+	 * Receives a callback before {@link Namespace#process(PodcastParserContext)} is invoked.
 	 * </p>
 	 * <p>
 	 * Note that any implementation must not move the reader. Doing so will cause an
@@ -61,7 +62,7 @@ public interface NamespaceCallbackHandler {
 
 	/**
 	 * <p>
-	 * Receives a callback before {@link Namespace#process(Item, XMLStreamReader)} is invoked.
+	 * Receives a callback before {@link Namespace#process(PodcastParserContext, Item)} is invoked.
 	 * </p>
 	 * <p>
 	 * Note that any implementation must not move the reader. Doing so will cause an

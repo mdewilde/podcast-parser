@@ -31,7 +31,7 @@ import be.ceau.podcastparser.util.UnmodifiableSet;
  * returned in list-based XML syndication formats, such as RSS 2.0 and Atom 1.0,
  * but may be used in other contexts without restriction.
  * 
- * @see http://www.opensearch.org/Specifications/OpenSearch/1.1
+ * @see <a href="http://www.opensearch.org/Specifications/OpenSearch/1.1">OpenSearch specification</a>
  */
 public class OpenSearch implements Namespace {
 

@@ -57,7 +57,7 @@ import be.ceau.podcastparser.util.UnmodifiableSet;
  * <li>Rights
  * </ul>
  * 
- * @see https://en.wikipedia.org/wiki/Dublin_Core
+ * @see <a href="https://en.wikipedia.org/wiki/Dublin_Core">Dublin Core documentation</a>
  */
 public class DublinCore implements Namespace {
 

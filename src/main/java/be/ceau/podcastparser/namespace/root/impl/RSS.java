@@ -57,7 +57,7 @@ import be.ceau.podcastparser.util.Strings;
  * contents.
  * </p>
  * 
- * @see https://validator.w3.org/feed/docs/rss2.html
+ * @see <a href="https://validator.w3.org/feed/docs/rss2.html">RSS specification</a>
  */
 public class RSS implements RootNamespace, Namespace {
 
@@ -301,10 +301,10 @@ public class RSS implements RootNamespace, Namespace {
 	 */
 	private TypedString parseDescription(PodcastParserContext ctx) throws XMLStreamException {
 		String text = ctx.getElementText();
-		String type = Strings.isHtml(text) ? "html" : "plain";
+//		String type = Strings.isHtml(text) ? "html" : "plain";
 		TypedString typedString = new TypedString();
 		typedString.setText(ctx.getElementText());
-		typedString.setType(type);
+//		typedString.setType(type);
 		return typedString;
 	}
 	

@@ -29,16 +29,17 @@ import be.ceau.podcastparser.util.Strings;
 
 /**
  * <p>
- * “RawVoice RSS” is a RSS module that supplements the {@code <enclosure>}
- * element function of RSS 2.0 as well as extend iTunes Media RSS (e.g.
- * {@code <itunes:xxx>}) and/or the Yahoo Media RSS modules by including extra
- * media information that would otherwise not be syndicated. RawVoice extends
- * the enclosures as well as the Apple iTunes/Yahoo Media RSS modules to include
- * additional media information such as TV specific ratings, live stream/embed
- * data, episode poster art, location and episode frequency.
+ * “RawVoice RSS” is a RSS module that supplements the {@code <enclosure>} element function of RSS
+ * 2.0 as well as extend iTunes Media RSS (e.g. {@code <itunes:xxx>}) and/or the Yahoo Media RSS
+ * modules by including extra media information that would otherwise not be syndicated. RawVoice
+ * extends the enclosures as well as the Apple iTunes/Yahoo Media RSS modules to include additional
+ * media information such as TV specific ratings, live stream/embed data, episode poster art,
+ * location and episode frequency.
  * </p>
  * 
- * @see http://www.rawvoice.com/services/tools-and-resources/rawvoice-rss-2-0-module-xmlns-namespace-rss2/
+ * @see <a href=
+ *      "http://www.rawvoice.com/services/tools-and-resources/rawvoice-rss-2-0-module-xmlns-namespace-rss2/">RawVoice
+ *      RSS specification</a>
  */
 public class RawVoice implements Namespace {
 
@@ -73,8 +74,7 @@ public class RawVoice implements Namespace {
 			break;
 		case "rating":
 			/*
-			 * Element value must be one of the following TV (V-chip) parental
-			 * ratings.
+			 * Element value must be one of the following TV (V-chip) parental ratings.
 			 * 
 			 * TV-Y TV-Y7 TV-Y7-FV TV-G TV-PG TV-14 TV-MA
 			 */
@@ -82,7 +82,7 @@ public class RawVoice implements Namespace {
 			ctx.getFeed().getRating().setScheme("V-chip");
 			break;
 		case "subscribe":
-			// Include subscription information. 
+			// Include subscription information.
 			// It has six attributes feed, itunes, googleplay, html, blubrry and stitcher.
 			// The feed attribute is required. The itunes, googleplay, and html attributes are optional.
 			for (int i = 0; i < ctx.getReader().getAttributeCount(); i++) {
@@ -93,7 +93,7 @@ public class RawVoice implements Namespace {
 				ctx.getFeed().addLink(link);
 			}
 			break;
-		default : 
+		default:
 			Namespace.super.process(ctx);
 			break;
 		}
@@ -107,28 +107,23 @@ public class RawVoice implements Namespace {
 			break;
 		case "poster":
 			/*
-			 * poster, if present as a sub-item of <item>, specifies the artwork
-			 * image for the specific media episode included within <item>. The
-			 * artwork image should be in either JPEG or PNG format. A square
-			 * image 600 x 600 pixels in size is recommended. The URL must end
-			 * in “.jpg” or “.png”. It has one required attribute url.
+			 * poster, if present as a sub-item of <item>, specifies the artwork image for the specific media
+			 * episode included within <item>. The artwork image should be in either JPEG or PNG format. A
+			 * square image 600 x 600 pixels in size is recommended. The URL must end in “.jpg” or “.png”. It
+			 * has one required attribute url.
 			 * 
-			 * <rawvoice:poster url=”http://www.example.com/path/to/poster.png”
-			 * />
+			 * <rawvoice:poster url=”http://www.example.com/path/to/poster.png” />
 			 * 
-			 * url value should be a complete URL including schema (http://) to
-			 * the image.
+			 * url value should be a complete URL including schema (http://) to the image.
 			 * 
-			 * Note: The <rawvoice:poster> element is nearly identical to the
-			 * Yahoo Media <media:thumbnail> element except that there can be
-			 * only one <rawvoice:poster> element in a given <item>.
+			 * Note: The <rawvoice:poster> element is nearly identical to the Yahoo Media <media:thumbnail>
+			 * element except that there can be only one <rawvoice:poster> element in a given <item>.
 			 * 
 			 * Possible image sizes:
 			 * 
-			 * Square image either 300 x 300, 600 x 600 or 1400×1400 pixels in
-			 * size. Letterbox (4:3 aspect ratio) image 320 x 240 or 640 x 480
-			 * pixels in size. Widescreen (16:9 aspect ratio) image 640 x 360,
-			 * 1280 x 72, or 1920 x 1080 pixels in size.
+			 * Square image either 300 x 300, 600 x 600 or 1400×1400 pixels in size. Letterbox (4:3 aspect
+			 * ratio) image 320 x 240 or 640 x 480 pixels in size. Widescreen (16:9 aspect ratio) image 640 x
+			 * 360, 1280 x 72, or 1920 x 1080 pixels in size.
 			 */
 			Image poster = new Image();
 			poster.setUrl(ctx.getAttribute("url"));
@@ -140,26 +135,22 @@ public class RawVoice implements Namespace {
 			break;
 		case "webm":
 			/*
-			 * webm, if present as a sub-item of <item> and <item> includes an
-			 * <enclosure> item, specifies an alternative ‘WebM’ version of the
-			 * video specified in <enclosure>. Media content should be identical
-			 * to the media found in the <enclosure>. The src URL must end in
-			 * “.webm”. It has one required attribute src and two optional
-			 * attributes type and length.
+			 * webm, if present as a sub-item of <item> and <item> includes an <enclosure> item, specifies an
+			 * alternative ‘WebM’ version of the video specified in <enclosure>. Media content should be
+			 * identical to the media found in the <enclosure>. The src URL must end in “.webm”. It has one
+			 * required attribute src and two optional attributes type and length.
 			 * 
-			 * <rawvoice:webm src=”http://www.example.com/path/to/media.webm”
-			 * type=”video/webm” length=”753682846″ />
+			 * <rawvoice:webm src=”http://www.example.com/path/to/media.webm” type=”video/webm”
+			 * length=”753682846″ />
 			 * 
-			 * If this item is present, then the corresponding media content
-			 * specified by item’s <enclosure> is assumed to be the primary
-			 * format for playback. The WebM version is assumed to be an
-			 * alternative format for playback on hardware/software that does
-			 * not support the video format specified in the <enclosure>.
+			 * If this item is present, then the corresponding media content specified by item’s <enclosure> is
+			 * assumed to be the primary format for playback. The WebM version is assumed to be an alternative
+			 * format for playback on hardware/software that does not support the video format specified in the
+			 * <enclosure>.
 			 * 
 			 * src value should specify URL to the media.
 			 * 
-			 * type value should specify the content type of source. e.g.
-			 * video/webm
+			 * type value should specify the content type of source. e.g. video/webm
 			 * 
 			 * length value should specify the size of source file in bytes.
 			 */
@@ -168,7 +159,7 @@ public class RawVoice implements Namespace {
 		case "metamark":
 			item.addMetamark(parseMetaMark(ctx));
 			break;
-		default : 
+		default:
 			Namespace.super.process(ctx, item);
 			break;
 		}
@@ -186,92 +177,76 @@ public class RawVoice implements Namespace {
 	}
 
 	/*
-	 * isHd, if present as a sub-item of <item>, indicates if the video
-	 * media specified in the <item>’s child <enclosure> is in High
-	 * Definition (HD). Any video that is widescreen (16:9 aspect ratio)
-	 * with a 720p, 720i, 1080p or 1080i resolution (or better) should
-	 * specify the value “yes” to indicate it is HD.
+	 * isHd, if present as a sub-item of <item>, indicates if the video media specified in the <item>’s
+	 * child <enclosure> is in High Definition (HD). Any video that is widescreen (16:9 aspect ratio)
+	 * with a 720p, 720i, 1080p or 1080i resolution (or better) should specify the value “yes” to
+	 * indicate it is HD.
 	 * 
 	 * <rawvoice:isHd>yes</rawvoice:isHd>
 	 * 
-	 * If this tag is present and set to “yes” (case insensitive), then
-	 * the corresponding media content specified by item’s <enclosure>
-	 * is assumed to be in HD. If the tag is not present or uses any
-	 * other value, it is assumed the corresponding media content is not
-	 * HD.
+	 * If this tag is present and set to “yes” (case insensitive), then the corresponding media content
+	 * specified by item’s <enclosure> is assumed to be in HD. If the tag is not present or uses any
+	 * other value, it is assumed the corresponding media content is not HD.
 	 */
 	private boolean parseHd(PodcastParserContext ctx) throws XMLStreamException {
 		return "yes".equalsIgnoreCase(ctx.getElementText());
 	}
-	
+
 	/*
-	 * additional meta information that may complement the enclosure of
-	 * an item and/or may be used during the playback of the enclosure’s
-	 * media. It has four attributes type, link, position and duration
-	 * and may contain a value.
+	 * additional meta information that may complement the enclosure of an item and/or may be used
+	 * during the playback of the enclosure’s media. It has four attributes type, link, position and
+	 * duration and may contain a value.
 	 * 
-	 * <rawvoice:metamark type=”tag” position=”480″>This is where I
-	 * discuss how to properly beat eggs</rawvoice:metamark>
+	 * <rawvoice:metamark type=”tag” position=”480″>This is where I discuss how to properly beat
+	 * eggs</rawvoice:metamark>
 	 * 
 	 * <rawvoice:metamark type=”ad” position=”120″ duration=”60″
-	 * link=”http://www.example.com/path/to/advertisement.html”>campaign
-	 * :5634</rawvoice:metamark>
+	 * link=”http://www.example.com/path/to/advertisement.html”>campaign :5634</rawvoice:metamark>
 	 * 
-	 * <rawvoice:metamark type=”video”
-	 * link=”http://www.example.com/path/to/media.mp4″ position=”240″ />
+	 * <rawvoice:metamark type=”video” link=”http://www.example.com/path/to/media.mp4″ position=”240″ />
 	 * 
-	 * <rawvoice:metamark type=”comment”
-	 * link=”http://www.example.com/path/to/comment/” position=”360″
-	 * duration=”60″>Tom: Loved how you discuss how to make cookies with
-	 * a toaster oven.</rawvoice:metamark>
+	 * <rawvoice:metamark type=”comment” link=”http://www.example.com/path/to/comment/” position=”360″
+	 * duration=”60″>Tom: Loved how you discuss how to make cookies with a toaster
+	 * oven.</rawvoice:metamark>
 	 * 
-	 * If this item is present, the information within the metamark’s
-	 * attributes and value correspond with the item’s <enclosure> and
-	 * can be used for and possibly displayed during media playback.
+	 * If this item is present, the information within the metamark’s attributes and value correspond
+	 * with the item’s <enclosure> and can be used for and possibly displayed during media playback.
 	 * 
 	 * link value should specify URL to the media, web page or image.
 	 * 
 	 * type value should specify the type of metamark. e.g. video
 	 * 
-	 * position value should specify the position in seconds where the
-	 * metamark should be handled during playback.
+	 * position value should specify the position in seconds where the metamark should be handled during
+	 * playback.
 	 * 
-	 * duration value should specify the duration in seconds the
-	 * metamark should be displayed.
+	 * duration value should specify the duration in seconds the metamark should be displayed.
 	 * 
-	 * Element attribute type must be one of the following and include
-	 * the noted attributes and/or values.
+	 * Element attribute type must be one of the following and include the noted attributes and/or
+	 * values.
 	 * 
-	 * video – Attributes link and position must be specified. The link
-	 * value should be to a valid video in the same format as
-	 * <enclosure>, e,g, http://example.com/path/to/video.mp4. 
+	 * video – Attributes link and position must be specified. The link value should be to a valid video
+	 * in the same format as <enclosure>, e,g, http://example.com/path/to/video.mp4.
 	 * 
-	 * audio – Attributes link and position must be specified. The link value
-	 * should be to a valid audio in the same format as <enclosure>,
-	 * e,g, http://example.com/path/to/video.mp3. 
+	 * audio – Attributes link and position must be specified. The link value should be to a valid audio
+	 * in the same format as <enclosure>, e,g, http://example.com/path/to/video.mp3.
 	 * 
-	 * image – Attributes
-	 * link, position and duration must be specified. The link value
-	 * should be to a valid image in jpg or png format. 
+	 * image – Attributes link, position and duration must be specified. The link value should be to a
+	 * valid image in jpg or png format.
 	 * 
-	 * comment – Attributes position and duration must be specified, a value in
-	 * the form of a textual comment should be present. Attribute link
-	 * is optional. 
+	 * comment – Attributes position and duration must be specified, a value in the form of a textual
+	 * comment should be present. Attribute link is optional.
 	 * 
-	 * tag – Attributes position must be specified, a value
-	 * in the form of a textual label should be present. 
+	 * tag – Attributes position must be specified, a value in the form of a textual label should be
+	 * present.
 	 * 
-	 * ad – Attributes position and duration must be specified, a value in the form of a
-	 * unique identifier may be present. Attribute link is optional.
-	 * Note: the value is intended to be an identifier, it is not
-	 * intended to be re-displayed. 
+	 * ad – Attributes position and duration must be specified, a value in the form of a unique
+	 * identifier may be present. Attribute link is optional. Note: the value is intended to be an
+	 * identifier, it is not intended to be re-displayed.
 	 * 
-	 * lowerthird – Attributes link, position and duration must be specified and a value in the form
-	 * of a URL to a web page is optional. Note: This type is for video
-	 * enclosures and intended for the video player to display the image
-	 * specified in link as the lower third advertisement. The link
-	 * value should be to a valid image in png format with appropriate
-	 * transparency set if desired.
+	 * lowerthird – Attributes link, position and duration must be specified and a value in the form of
+	 * a URL to a web page is optional. Note: This type is for video enclosures and intended for the
+	 * video player to display the image specified in link as the lower third advertisement. The link
+	 * value should be to a valid image in png format with appropriate transparency set if desired.
 	 */
 	private Metamark parseMetaMark(PodcastParserContext ctx) throws XMLStreamException {
 		Metamark metamark = new Metamark();

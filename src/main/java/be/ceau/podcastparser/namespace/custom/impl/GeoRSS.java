@@ -29,7 +29,6 @@ import be.ceau.podcastparser.models.support.GeoBox;
 import be.ceau.podcastparser.models.support.GeoPoint;
 import be.ceau.podcastparser.models.support.OtherValueKey;
 import be.ceau.podcastparser.namespace.Namespace;
-import be.ceau.podcastparser.util.Attributes;
 import be.ceau.podcastparser.util.Strings;
 
 /**
@@ -59,7 +58,7 @@ import be.ceau.podcastparser.util.Strings;
  * {@code <georss:where> <gml:Point> <gml:pos>45.256 -71.92</gml:pos> </gml:Point>
  * </georss:where>}
  * 
- * @see http://www.georss.org
+ * @see <a href="http://www.georss.org">Geo RSS specification</a>
  */
 public class GeoRSS implements Namespace {
 
@@ -138,14 +137,3 @@ public class GeoRSS implements Namespace {
 	}
 	
 }
-
-/*
- * 
- * corpus stats
- * 
- * 25956 --> http://www.georss.org/georss level=item localName=point attributes=[]] 
- *  6026 --> http://www.georss.org/georss level=item localName=featurename attributes=[]] 
- *  6021 --> http://www.georss.org/georss level=item localName=box attributes=[]]
- *     2 --> http://www.georss.org/georss level=item localName=where attributes=[]]
- * 
- */

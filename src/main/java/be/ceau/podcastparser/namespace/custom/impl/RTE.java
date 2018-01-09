@@ -22,9 +22,7 @@ import be.ceau.podcastparser.models.core.Item;
 import be.ceau.podcastparser.namespace.Namespace;
 
 /**
- * Very little information can be found on this namespace.
- * 
- * @see http://www.rte.ie/applications/ipad/schemas
+ * Namespace for RTE (Raidió Teilifís Éireann) podcasts
  */
 public class RTE implements Namespace {
 
@@ -56,12 +54,3 @@ public class RTE implements Namespace {
 	}
 
 }
-
-/*
-	
-	corpus stats
-	
-	 15436 	--> http://www.rte.ie/applications/ipad/schemas level=item localName=id attributes=[]]
-	   154 	--> http://www.rte.ie/applications/ipad/schemas level=feed localName=id attributes=[]]
-
-*/

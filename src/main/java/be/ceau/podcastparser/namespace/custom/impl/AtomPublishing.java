@@ -29,7 +29,7 @@ import be.ceau.podcastparser.util.UnmodifiableSet;
  * The Atom Publishing Protocol is an application-level protocol for publishing
  * and editing Web Resources using HTTP and XML 1.0.
  * 
- * @see https://tools.ietf.org/html/rfc5023
+ * @see <a href="https://tools.ietf.org/html/rfc5023">RFC 5023</a>
  */
 public class AtomPublishing implements Namespace {
 

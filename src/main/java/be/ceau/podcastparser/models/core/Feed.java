@@ -78,11 +78,10 @@ public class Feed {
 	private Credit credit;
 	private boolean complete;
 	private TypedString browserFriendly;
-	
+
 	/**
 	 * <p>
-	 * The {@code id} element conveys a permanent, universally unique identifier
-	 * for an entry or feed.
+	 * The {@code id} element conveys a permanent, universally unique identifier for an entry or feed.
 	 * </p>
 	 * <p>
 	 * Part of Atom specification. Not listed in RSS specification.
@@ -117,8 +116,7 @@ public class Feed {
 	 * </p>
 	 * 
 	 * <p>
-	 * Required in RSS specification. Listed in Atom specification as element
-	 * {@code link}.
+	 * Required in RSS specification. Listed in Atom specification as element {@code link}.
 	 * </p>
 	 * 
 	 * @return a {@link Set}, never {@code null}
@@ -135,6 +133,8 @@ public class Feed {
 
 	/**
 	 * Phrase or sentence describing the channel.
+	 * 
+	 * @return a {@link TypedString} or {@code null}
 	 */
 	public TypedString getDescription() {
 		return description;
@@ -145,12 +145,13 @@ public class Feed {
 	}
 
 	/**
-	 * An item may represent a "story" -- much like a story in a newspaper or
-	 * magazine; if so its description is a synopsis of the story, and the link
-	 * points to the full story. An item may also be complete in itself, if so,
-	 * the description contains the text (entity-encoded HTML is allowed), and
-	 * the link and title may be omitted. All elements of an item are optional,
-	 * however at least one of title or description must be present.
+	 * An item may represent a "story" -- much like a story in a newspaper or magazine; if so its
+	 * description is a synopsis of the story, and the link points to the full story. An item may also
+	 * be complete in itself, if so, the description contains the text (entity-encoded HTML is allowed),
+	 * and the link and title may be omitted. All elements of an item are optional, however at least one
+	 * of title or description must be present.
+	 * 
+	 * @return {@link List} of {@link Item} instances, never {@code null}
 	 */
 	public List<Item> getItems() {
 		return items;
@@ -164,6 +165,8 @@ public class Feed {
 
 	/**
 	 * The language the channel is written in.
+	 * 
+	 * @return {@link String} or {@code null}
 	 */
 	public String getLanguage() {
 		return language;
@@ -188,6 +191,8 @@ public class Feed {
 
 	/**
 	 * Email address for person responsible for editorial content.
+	 * 
+	 * @return {@link String} or {@code null}
 	 */
 	public String getManagingEditor() {
 		return managingEditor;
@@ -198,8 +203,9 @@ public class Feed {
 	}
 
 	/**
-	 * Email address for person responsible for technical issues relating to
-	 * channel.
+	 * Email address for person responsible for technical issues relating to channel.
+	 * 
+	 * @return {@link String} or {@code null}
 	 */
 	public String getWebMaster() {
 		return webMaster;
@@ -210,12 +216,13 @@ public class Feed {
 	}
 
 	/**
-	 * The publication date for the content in the channel. For example, the New
-	 * York Times publishes on a daily basis, the publication date flips once
-	 * every 24 hours. That's when the pubDate of the channel changes. All
-	 * date-times in RSS conform to the Date and Time Specification of RFC 822,
-	 * with the exception that the year may be expressed with two characters or
-	 * four characters (four preferred).
+	 * The publication date for the content in the channel. For example, the New York Times publishes on
+	 * a daily basis, the publication date flips once every 24 hours. That's when the pubDate of the
+	 * channel changes. All date-times in RSS conform to the Date and Time Specification of RFC 822,
+	 * with the exception that the year may be expressed with two characters or four characters (four
+	 * preferred).
+	 * 
+	 * @return {@link ZonedDateTime} or {@code null}
 	 */
 	public ZonedDateTime getPubDate() {
 		return pubDate;
@@ -231,8 +238,7 @@ public class Feed {
 	 * </p>
 	 * 
 	 * <p>
-	 * Optional in RSS specification. Listed in Atom specification as element
-	 * {@code updated}.
+	 * Optional in RSS specification. Listed in Atom specification as element {@code updated}.
 	 * </p>
 	 * 
 	 * @return {@link ZonedDateTime} or {@code null}
@@ -263,7 +269,9 @@ public class Feed {
 	}
 
 	/**
-	 * A string indicating the program used to generate the channel.
+	 * A {@link String} indicating the program used to generate the channel.
+	 * 
+	 * @return {@link String} or {@code null}
 	 */
 	public String getGenerator() {
 		return generator;
@@ -274,10 +282,11 @@ public class Feed {
 	}
 
 	/**
-	 * A URL that points to the documentation for the format used in the RSS
-	 * file. It's probably a pointer to this page. It's for people who might
-	 * stumble across an RSS file on a Web server 25 years from now and wonder
-	 * what it is.
+	 * A URL that points to the documentation for the format used in the RSS file. It's probably a
+	 * pointer to this page. It's for people who might stumble across an RSS file on a Web server 25
+	 * years from now and wonder what it is.
+	 * 
+	 * @return {@link String} or {@code null}
 	 */
 	public String getDocs() {
 		return docs;
@@ -288,9 +297,10 @@ public class Feed {
 	}
 
 	/**
-	 * Allows processes to register with a cloud to be notified of updates to
-	 * the channel, implementing a lightweight publish-subscribe protocol for
-	 * RSS feeds.
+	 * Allows processes to register with a cloud to be notified of updates to the channel, implementing
+	 * a lightweight publish-subscribe protocol for RSS feeds.
+	 * 
+	 * @return {@link String} or {@code null}
 	 */
 	public String getCloud() {
 		return cloud;
@@ -302,8 +312,8 @@ public class Feed {
 
 	/**
 	 * <p>
-	 * TTL stands for time to live. It's a number of minutes that indicates how
-	 * long a channel can be cached before refreshing from the source.
+	 * TTL stands for time to live. It's a number of minutes that indicates how long a channel can be
+	 * cached before refreshing from the source.
 	 * </p>
 	 * <p>
 	 * Optional in RSS specification.
@@ -321,8 +331,7 @@ public class Feed {
 
 	/**
 	 * <p>
-	 * Specifies a GIF, JPEG or PNG image that can be displayed with the
-	 * channel.
+	 * Specifies a GIF, JPEG or PNG image that can be displayed with the channel.
 	 * </p>
 	 * 
 	 * @return a {@link List}, never {@code null}
@@ -337,6 +346,8 @@ public class Feed {
 
 	/**
 	 * Specifies a text input box that can be displayed with the channel.
+	 * 
+	 * @return {@link String} or {@code null}
 	 */
 	public String getTextInput() {
 		return textInput;
@@ -348,6 +359,8 @@ public class Feed {
 
 	/**
 	 * A hint for aggregators telling them which hours they can skip.
+	 * 
+	 * @return a {@link List}, never {@code null}
 	 */
 	public List<Integer> getSkipHours() {
 		return skipHours;
@@ -359,6 +372,8 @@ public class Feed {
 
 	/**
 	 * A hint for aggregators telling them which days they can skip.
+	 * 
+	 * @return a {@link List}, never {@code null}
 	 */
 	public List<String> getSkipDays() {
 		return skipDays;
@@ -393,10 +408,10 @@ public class Feed {
 	 * </p>
 	 * 
 	 * <p>
-	 * Not in RSS specification. Listed in Atom spec & iTunes RSS spec.
+	 * Not in RSS specification. Listed in Atom spec and iTunes spec.
 	 * </p>
 	 * 
-	 * @return {@link String} or {@code null}
+	 * @return a {@link List} of {@link Person} instances, never {@code null}
 	 */
 	public List<Person> getAuthors() {
 		return authors;
@@ -408,8 +423,8 @@ public class Feed {
 
 	/**
 	 * <p>
-	 * Information that can be used to contact the owner of the podcast for
-	 * communication specifically about their podcast.
+	 * Information that can be used to contact the owner of the podcast for communication specifically
+	 * about their podcast.
 	 * </p>
 	 * 
 	 * <p>
@@ -426,6 +441,9 @@ public class Feed {
 		this.owner = owner;
 	}
 
+	/**
+	 * @return a {@link List} of {@link Person} instances, never {@code null}
+	 */
 	public List<Person> getContributors() {
 		return contributors;
 	}
@@ -450,7 +468,7 @@ public class Feed {
 			this.keywords.add(keyword);
 		}
 	}
-	
+
 	public void addKeywords(Collection<String> keywords) {
 		if (keywords != null) {
 			keywords.forEach(this::addKeyword);
@@ -478,21 +496,21 @@ public class Feed {
 		}
 		updateInfo.setPeriod(period);
 	}
-	
+
 	public void setUpdateFrequency(Integer frequency) {
 		if (updateInfo == null) {
 			updateInfo = new UpdateInfo();
 		}
 		updateInfo.setFrequency(frequency);
 	}
-	
+
 	public void setUpdateBase(ZonedDateTime base) {
 		if (updateInfo == null) {
 			updateInfo = new UpdateInfo();
 		}
 		updateInfo.setBase(base);
 	}
-	
+
 	/**
 	 * <p>
 	 * The rating for this item.
@@ -544,8 +562,8 @@ public class Feed {
 
 	/**
 	 * <p>
-	 * A {@link Map} containing any value present in the podcast XML that is not
-	 * mapped to any of the other values present here.
+	 * A {@link Map} containing any value present in the podcast XML that is not mapped to any of the
+	 * other values present here.
 	 * </p>
 	 * <p>
 	 * See {@link OtherValueKey} for a full listing of possible values in this map.
@@ -589,7 +607,7 @@ public class Feed {
 			this.geoPoint.setLatitude(null);
 		}
 	}
-	
+
 	public void setLongitude(BigDecimal longitude) {
 		if (longitude != null) {
 			if (this.geoPoint == null) {
@@ -640,10 +658,6 @@ public class Feed {
 		return email;
 	}
 
-	/**
-	 * @param email
-	 * @see #getEmail()
-	 */
 	public void setEmail(String email) {
 		this.email = email;
 	}

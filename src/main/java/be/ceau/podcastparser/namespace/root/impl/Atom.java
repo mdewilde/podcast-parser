@@ -48,7 +48,7 @@ import be.ceau.podcastparser.util.UnmodifiableSet;
  * as "entries", each with an extensible set of attached metadata.
  * </p>
  * 
- * @see https://tools.ietf.org/html/rfc4287
+ * @see <a href="https://tools.ietf.org/html/rfc4287">Atom specification</a>
  */
 public class Atom implements RootNamespace, Namespace {
 

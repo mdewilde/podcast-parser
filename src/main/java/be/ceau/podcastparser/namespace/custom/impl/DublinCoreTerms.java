@@ -25,7 +25,7 @@ import be.ceau.podcastparser.util.Dates;
 /**
  * Metadata terms maintained by the Dublin Core Metadata Initiative:
  * 
- * @see http://dublincore.org/documents/2012/06/14/dcmi-terms/
+ * @see <a href="http://dublincore.org/documents/2012/06/14/dcmi-terms/">DCMI specification</a>
  */
 public class DublinCoreTerms implements Namespace {
 
@@ -39,38 +39,26 @@ public class DublinCoreTerms implements Namespace {
 	@Override
 	public void process(PodcastParserContext ctx, Item item) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
-		case "modified": 
+		case "modified":
 			// Date on which the resource was changed.
 			item.setUpdated(Dates.parse(ctx.getElementText()));
 			break;
-		case "created": 
+		case "created":
 			// Date of creation of the resource.
 			item.setPubDate(Dates.parse(ctx.getElementText()));
 			break;
-		case "valid": 
+		case "valid":
 			// Date (often a range) of validity of a resource.
 			item.setValidity(Dates.parse(ctx.getElementText()));
 			break;
-		case "subject": 
+		case "subject":
 			// The topic of the resource.
 			item.setSubject(ctx.getElementText());
 			break;
-		default : 
+		default:
 			Namespace.super.process(ctx, item);
 			break;
 		}
 	}
 
 }
-
-/*
-
-	corpus stats
-	
-    285271 	--> http://purl.org/dc/terms/ level=item localName=modified attributes=[]]
-    285266 	--> http://purl.org/dc/terms/ level=item localName=created attributes=[]]
-     10815 	--> http://purl.org/dc/terms/ level=item localName=valid attributes=[]]
-      3168 	--> http://purl.org/dc/terms/ level=item localName=subject attributes=[]]
-
-*/
-

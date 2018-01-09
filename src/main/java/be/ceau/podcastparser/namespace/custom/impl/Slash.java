@@ -29,7 +29,7 @@ import be.ceau.podcastparser.namespace.Namespace;
  * The Slash RSS 1.0 module augments the RSS core and Dublin Core module's
  * metadata with channel and item-level elements specific to Slash-based sites.
  *
- * @see http://web.resource.org/rss/1.0/modules/slash/
+ * @see <a href="http://web.resource.org/rss/1.0/modules/slash/">Slash RSS module specification</a>
  */
 public class Slash implements Namespace {
 

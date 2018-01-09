@@ -85,22 +85,6 @@ public class Strings {
 		return WHITE_SPACE.matcher(string).replaceAll(" ");
 	}
 
-	// adapted from https://stackoverflow.com/a/21278906
-	private final static Pattern HTML_PATTERN = Pattern.compile(".*\\<[^>]+>.*", Pattern.DOTALL);
-
-	/**
-	 * Check if string contains HTML markup tags or entities.
-	 *
-	 * @param s
-	 *            String to test
-	 * @return true if string contains HTML
-	 * @see https://stackoverflow.com/a/22581832
-	 */
-	public static boolean isHtml(String string) {
-		return false;
-		// return HTML_PATTERN.matcher(string).find();
-	}
-
 	/**
 	 * Check if string starts with prefix, case insensitive
 	 *
@@ -110,7 +94,7 @@ public class Strings {
 	 *            {@link String} to check, not {@code null}
 	 * @return {@code true} if {@code string} starts with {@code prefix}
 	 * @throws NullPointerException
-	 *             if {@link prefix} is {@code null}
+	 *             if {@code prefix} is {@code null}
 	 */
 	public static boolean startsWithIgnoreCase(String string, String prefix) {
 		if (string == null) {

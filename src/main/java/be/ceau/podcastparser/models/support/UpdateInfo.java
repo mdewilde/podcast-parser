@@ -20,7 +20,7 @@ import java.time.ZonedDateTime;
 /**
  * <p>
  * Information about rate of updates to a podcast feed.
- * <p>
+ * </p>
  * <p>
  * Aggregates data from Syndication and RawVoice namespace elements.
  * </p>

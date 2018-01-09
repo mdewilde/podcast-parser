@@ -45,79 +45,71 @@ import be.ceau.podcastparser.util.UnmodifiableSet;
  * <h1>Media RSS Specification</h1>
  * 
  * <p>
- * An RSS module that supplements the &lt;enclosure&gt; element capabilities of RSS
- * 2.0 to allow for more robust media syndication.
+ * An RSS module that supplements the &lt;enclosure&gt; element capabilities of RSS 2.0 to allow for
+ * more robust media syndication.
  * </p>
  * 
  * <p>
  * Primary elements
  * </p>
  * <ul>
- * <li>{@code <media:group>} sub-element of {@code <item>}. It allows grouping
- * of {@code <media:content>} elements that are effectively the same content,
- * yet different representations
- * <li>{@code <media:content>} is a sub-element of either {@code <item>} or
- * {@code <media:group>}. It contains 14 attributes, most of which are optional.
+ * <li>{@code <media:group>} sub-element of {@code <item>}. It allows grouping of
+ * {@code <media:content>} elements that are effectively the same content, yet different
+ * representations
+ * <li>{@code <media:content>} is a sub-element of either {@code <item>} or {@code <media:group>}.
+ * It contains 14 attributes, most of which are optional.
  * <ul>
  * <li>url should specify the direct URL to the media object. If not included, a
- * <media:player> element must be specified.
+ * {@code <media:player>} element must be specified.
  * 
- * <li>fileSize is the number of bytes of the media object. It is an optional
- * attribute.
+ * <li>fileSize is the number of bytes of the media object. It is an optional attribute.
  * 
- * <li>type is the standard MIME type of the object. It is an optional
- * attribute.
+ * <li>type is the standard MIME type of the object. It is an optional attribute.
  * 
- * <li>medium is the type of object (image | audio | video | document |
- * executable). While this attribute can at times seem redundant if type is
- * supplied, it is included because it simplifies decision making on the reader
- * side, as well as flushes out any ambiguities between MIME type and object
- * type. It is an optional attribute.
+ * <li>medium is the type of object (image | audio | video | document | executable). While this
+ * attribute can at times seem redundant if type is supplied, it is included because it simplifies
+ * decision making on the reader side, as well as flushes out any ambiguities between MIME type and
+ * object type. It is an optional attribute.
  * 
- * <li>isDefault determines if this is the default object that should be used
- * for the <media:group>. There should only be one default object per
- * <media:group>. It is an optional attribute.
- * 
- * <li>expression determines if the object is a sample or the full version of
- * the object, or even if it is a continuous stream (sample | full | nonstop).
- * Default value is "full". It is an optional attribute.
- * 
- * <li>bitrate is the kilobits per second rate of media. It is an optional
- * attribute.
- * 
- * <li>framerate is the number of frames per second for the media object. It is
+ * <li>isDefault determines if this is the default object that should be used for the
+ * {@code <media:group>}. There should only be one default object per {@code <media:group>}. It is
  * an optional attribute.
  * 
- * <li>samplingrate is the number of samples per second taken to create the
- * media object. It is expressed in thousands of samples per second (kHz). It is
- * an optional attribute.
+ * <li>expression determines if the object is a sample or the full version of the object, or even if
+ * it is a continuous stream (sample | full | nonstop). Default value is "full". It is an optional
+ * attribute.
  * 
- * <li>channels is number of audio channels in the media object. It is an
- * optional attribute.
+ * <li>bitrate is the kilobits per second rate of media. It is an optional attribute.
  * 
- * <li>duration is the number of seconds the media object plays. It is an
- * optional attribute.
+ * <li>framerate is the number of frames per second for the media object. It is an optional
+ * attribute.
+ * 
+ * <li>samplingrate is the number of samples per second taken to create the media object. It is
+ * expressed in thousands of samples per second (kHz). It is an optional attribute.
+ * 
+ * <li>channels is number of audio channels in the media object. It is an optional attribute.
+ * 
+ * <li>duration is the number of seconds the media object plays. It is an optional attribute.
  * 
  * <li>height is the height of the media object. It is an optional attribute.
  * 
  * <li>width is the width of the media object. It is an optional attribute.
  * 
- * <li>lang is the primary language encapsulated in the media object. Language
- * codes possible are detailed in RFC 3066. This attribute is used similar to
- * the xml:lang attribute detailed in the XML 1.0 Specification (Third Edition).
- * It is an optional attribute.
+ * <li>lang is the primary language encapsulated in the media object. Language codes possible are
+ * detailed in RFC 3066. This attribute is used similar to the xml:lang attribute detailed in the
+ * XML 1.0 Specification (Third Edition). It is an optional attribute.
  * </ul>
  * </ul>
  * 
- * @see http://www.rssboard.org/media-rss
+ * @see <a href="http://www.rssboard.org/media-rss">Media RSS Specification</a>
  */
 public class Media implements Namespace {
 
 	private static final String NAME = "http://search.yahoo.com/mrss/";
 	private static final Set<String> ALTERNATIVE_NAMES = UnmodifiableSet.of(
-			"http://search.yahoo.com/mrss", 
+			"http://search.yahoo.com/mrss",
 			"http://www.rssboard.org/media-rss");
-	
+
 	@Override
 	public String getName() {
 		return NAME;
@@ -153,7 +145,7 @@ public class Media implements Namespace {
 		case "thumbnail":
 			ctx.getFeed().addImage(parseImage(ctx));
 			break;
-		default : 
+		default:
 			Namespace.super.process(ctx);
 			break;
 		}
@@ -187,13 +179,13 @@ public class Media implements Namespace {
 		case "keywords":
 			ctx.getFeed().addKeywords(parseKeywords(ctx));
 			break;
-		case "rating": 
+		case "rating":
 			item.setRating(parseRating(ctx));
 			break;
 		case "thumbnail":
 			item.addImage(parseImage(ctx));
 			break;
-		case "title": 
+		case "title":
 			item.setTitle(parseTitle(ctx));
 			break;
 		case "player":
@@ -213,29 +205,23 @@ public class Media implements Namespace {
 			break;
 		case "community":
 			/*
-			 * This element stands for the community related content. This
-			 * allows inclusion of the user perception about a media object in
-			 * the form of view count, ratings and tags.
+			 * This element stands for the community related content. This allows inclusion of the user
+			 * perception about a media object in the form of view count, ratings and tags.
 			 * 
-			 * <media:community> <media:starRating average="3.5" count="20"
-			 * min="1" max="10" /> <media:statistics views="5" favorites="5" />
-			 * <media:tags>news: 5, abc:3, reuters</media:tags>
+			 * <media:community> <media:starRating average="3.5" count="20" min="1" max="10" />
+			 * <media:statistics views="5" favorites="5" /> <media:tags>news: 5, abc:3, reuters</media:tags>
 			 * </media:community>
 			 * 
-			 * starRating This element specifies the rating-related information
-			 * about a media object. Valid attributes are average, count, min
-			 * and max.
+			 * starRating This element specifies the rating-related information about a media object. Valid
+			 * attributes are average, count, min and max.
 			 * 
-			 * statistics This element specifies various statistics about a
-			 * media object like the view count and the favorite count. Valid
-			 * attributes are views and favorites.
+			 * statistics This element specifies various statistics about a media object like the view count and
+			 * the favorite count. Valid attributes are views and favorites.
 			 * 
-			 * tags This element contains user-generated tags separated by
-			 * commas in the decreasing order of each tag's weight. Each tag can
-			 * be assigned an integer weight in tag_name:weight format. It's up
-			 * to the provider to choose the way weight is determined for a tag;
-			 * for example, number of occurences can be one way to decide weight
-			 * of a particular tag. Default weight is 1.
+			 * tags This element contains user-generated tags separated by commas in the decreasing order of
+			 * each tag's weight. Each tag can be assigned an integer weight in tag_name:weight format. It's up
+			 * to the provider to choose the way weight is determined for a tag; for example, number of
+			 * occurences can be one way to decide weight of a particular tag. Default weight is 1.
 			 */
 			Namespace.super.process(ctx, item);
 			break;
@@ -247,9 +233,8 @@ public class Media implements Namespace {
 			break;
 		case "embed":
 			/*
-			 * Sometimes player-specific embed code is needed for a player to
-			 * play any video. <media:embed> allows inclusion of such
-			 * information in the form of key-value pairs.
+			 * Sometimes player-specific embed code is needed for a player to play any video. <media:embed>
+			 * allows inclusion of such information in the form of key-value pairs.
 			 */
 			Namespace.super.process(ctx, item);
 			break;
@@ -267,65 +252,56 @@ public class Media implements Namespace {
 			break;
 		case "status":
 			/*
-			 * Optional tag to specify the status of a media object -- whether
-			 * it's still active or it has been blocked/deleted.
+			 * Optional tag to specify the status of a media object -- whether it's still active or it has been
+			 * blocked/deleted.
 			 * 
-			 * <media:status state="blocked"
-			 * reason="http://www.reasonforblocking.com" />
+			 * <media:status state="blocked" reason="http://www.reasonforblocking.com" />
 			 * 
-			 * state can have values "active", "blocked" or "deleted". "active"
-			 * means a media object is active in the system, "blocked" means a
-			 * media object is blocked by the publisher, "deleted" means a media
-			 * object has been deleted by the publisher.
+			 * state can have values "active", "blocked" or "deleted". "active" means a media object is active
+			 * in the system, "blocked" means a media object is blocked by the publisher, "deleted" means a
+			 * media object has been deleted by the publisher.
 			 * 
-			 * reason is a reason explaining why a media object has been
-			 * blocked/deleted. It can be plain text or a URL.
+			 * reason is a reason explaining why a media object has been blocked/deleted. It can be plain text
+			 * or a URL.
 			 */
 			Namespace.super.process(ctx, item);
 			break;
 		case "price":
 			/*
-			 * Optional tag to include pricing information about a media object.
-			 * If this tag is not present, the media object is supposed to be
-			 * free. One media object can have multiple instances of this tag
-			 * for including different pricing structures. The presence of this
-			 * tag would mean that media object is not free.
+			 * Optional tag to include pricing information about a media object. If this tag is not present, the
+			 * media object is supposed to be free. One media object can have multiple instances of this tag for
+			 * including different pricing structures. The presence of this tag would mean that media object is
+			 * not free.
 			 * 
 			 * <media:price type="rent" price="19.99" currency="EUR" />
 			 * 
-			 * <media:price type="package"
-			 * info="http://www.dummy.jp/package_info.html" price="19.99"
+			 * <media:price type="package" info="http://www.dummy.jp/package_info.html" price="19.99"
 			 * currency="EUR" />
 			 * 
-			 * <media:price type="subscription"
-			 * info="http://www.dummy.jp/subscription_info" price="19.99"
+			 * <media:price type="subscription" info="http://www.dummy.jp/subscription_info" price="19.99"
 			 * currency="EUR" />
 			 * 
-			 * type Valid values are "rent", "purchase", "package" or
-			 * "subscription". If nothing is specified, then the media is free.
+			 * type Valid values are "rent", "purchase", "package" or "subscription". If nothing is specified,
+			 * then the media is free.
 			 * 
-			 * info if the type is "package" or "subscription", then info is a
-			 * URL pointing to package or subscription information. This is an
-			 * optional attribute.
+			 * info if the type is "package" or "subscription", then info is a URL pointing to package or
+			 * subscription information. This is an optional attribute.
 			 * 
-			 * price is the price of the media object. This is an optional
-			 * attribute.
+			 * price is the price of the media object. This is an optional attribute.
 			 * 
-			 * currency -- use [ISO 4217] for currency codes. This is an
-			 * optional attribute.
+			 * currency -- use [ISO 4217] for currency codes. This is an optional attribute.
 			 */
 			Namespace.super.process(ctx, item);
 			break;
-		case "license": 
+		case "license":
 			item.setLicense(parseLicense(ctx));
 			break;
 		case "subTitle":
 			/*
-			 * Optional element for subtitle/CC link. It contains type and
-			 * language attributes. Language is based on RFC 3066. There can be
-			 * more than one such tag per media element, for example one per
-			 * language. Please refer to Timed Text spec - W3C for more
-			 * information on Timed Text and Real Time Subtitling.
+			 * Optional element for subtitle/CC link. It contains type and language attributes. Language is
+			 * based on RFC 3066. There can be more than one such tag per media element, for example one per
+			 * language. Please refer to Timed Text spec - W3C for more information on Timed Text and Real Time
+			 * Subtitling.
 			 */
 			Namespace.super.process(ctx, item);
 			break;
@@ -333,31 +309,24 @@ public class Media implements Namespace {
 			/*
 			 * Optional element for P2P link.
 			 * 
-			 * <media:peerLink type="application/x-bittorrent"
-			 * href="http://www.example.org/sampleFile.torrent" />
+			 * <media:peerLink type="application/x-bittorrent" href="http://www.example.org/sampleFile.torrent"
+			 * />
 			 * 
-			 * For a valid Media RSS item, at least one of the following links
-			 * is required:
+			 * For a valid Media RSS item, at least one of the following links is required:
 			 * 
 			 * media:content media:player media:peerLink media:location
 			 * 
-			 * Optional element to specify geographical information about
-			 * various locations captured in the content of a media object. The
-			 * format conforms to geoRSS.
+			 * Optional element to specify geographical information about various locations captured in the
+			 * content of a media object. The format conforms to geoRSS.
 			 * 
-			 * <media:location description="My house" start="00:01" end="01:00">
-			 * <georss:where> <gml:Point> <gml:pos>35.669998
-			 * 139.770004</gml:pos> </gml:Point> </georss:where>
-			 * </media:location>
+			 * <media:location description="My house" start="00:01" end="01:00"> <georss:where> <gml:Point>
+			 * <gml:pos>35.669998 139.770004</gml:pos> </gml:Point> </georss:where> </media:location>
 			 * 
-			 * description description of the place whose location is being
-			 * specified.
+			 * description description of the place whose location is being specified.
 			 * 
-			 * start time at which the reference to a particular location starts
-			 * in the media object.
+			 * start time at which the reference to a particular location starts in the media object.
 			 * 
-			 * end time at which the reference to a particular location ends in
-			 * the media object.
+			 * end time at which the reference to a particular location ends in the media object.
 			 */
 			Namespace.super.process(ctx, item);
 			break;
@@ -367,15 +336,15 @@ public class Media implements Namespace {
 		case "scenes":
 			parseScenes(ctx).forEach(item::addScene);
 			break;
-		default : 
+		default:
 			Namespace.super.process(ctx, item);
 			break;
 		}
 	}
 
 	/*
-	 * Allows a taxonomy to be set that gives an indication of the type
-	 * of media content, and its particular contents.
+	 * Allows a taxonomy to be set that gives an indication of the type of media content, and its
+	 * particular contents.
 	 */
 	private Category parseCategory(PodcastParserContext ctx) throws XMLStreamException {
 		Category category = new Category();
@@ -399,27 +368,21 @@ public class Media implements Namespace {
 	}
 
 	/*
-	 * Notable entity and the contribution to the creation of the media
-	 * object. Current entities can include people, companies,
-	 * locations, etc. Specific entities can have multiple roles, and
-	 * several entities can have the same role. These should appear as
-	 * distinct <media:credit> elements. It has two optional attributes.
+	 * Notable entity and the contribution to the creation of the media object. Current entities can
+	 * include people, companies, locations, etc. Specific entities can have multiple roles, and several
+	 * entities can have the same role. These should appear as distinct <media:credit> elements. It has
+	 * two optional attributes.
 	 * 
-	 * <media:credit role="producer" scheme="urn:ebu">entity
-	 * name</media:credit>
+	 * <media:credit role="producer" scheme="urn:ebu">entity name</media:credit>
 	 * 
-	 * <media:credit role="owner" scheme="urn:yvs">copyright holder of
-	 * the entity</media:credit>
+	 * <media:credit role="owner" scheme="urn:yvs">copyright holder of the entity</media:credit>
 	 * 
-	 * role specifies the role the entity played. Must be lowercase. It
-	 * is an optional attribute.
+	 * role specifies the role the entity played. Must be lowercase. It is an optional attribute.
 	 * 
-	 * scheme is the URI that identifies the role scheme. It is an
-	 * optional attribute and possible values for this attribute are (
-	 * urn:ebu | urn:yvs ) . The default scheme is "urn:ebu". The list
-	 * of roles supported under urn:ebu scheme can be found at European
-	 * Broadcasting Union Role Codes. The roles supported under urn:yvs
-	 * scheme are ( uploader | owner ).
+	 * scheme is the URI that identifies the role scheme. It is an optional attribute and possible
+	 * values for this attribute are ( urn:ebu | urn:yvs ) . The default scheme is "urn:ebu". The list
+	 * of roles supported under urn:ebu scheme can be found at European Broadcasting Union Role Codes.
+	 * The roles supported under urn:yvs scheme are ( uploader | owner ).
 	 */
 	private Credit parseCredit(PodcastParserContext ctx) throws XMLStreamException {
 		Credit credit = new Credit();
@@ -431,12 +394,10 @@ public class Media implements Namespace {
 
 	/**
 	 * Short description describing the media object typically a sentence in length. It has one optional
-	 * attribute.
-	 * {@code 
+	 * attribute. {@code 
 	 * <media:description type="plain">This was some really bizarre band I listened to as a young
 	 * lad.</media:description>
-	 * }
-	 * type specifies the type of text embedded. Possible values are either "plain" or "html". Default
+	 * } type specifies the type of text embedded. Possible values are either "plain" or "html". Default
 	 * value is "plain". All HTML must be entity-encoded. It is an optional attribute.
 	 * 
 	 * @return
@@ -451,10 +412,10 @@ public class Media implements Namespace {
 		typedString.setText(ctx.getElementText());
 		return typedString;
 	}
-	
+
 	/*
-	 * This is the hash of the binary media file. It can appear multiple
-	 * times as long as each instance is a different algo.
+	 * This is the hash of the binary media file. It can appear multiple times as long as each instance
+	 * is a different algo.
 	 */
 	private Hash parseHash(PodcastParserContext ctx) throws XMLStreamException {
 		Hash hash = new Hash();
@@ -464,11 +425,9 @@ public class Media implements Namespace {
 	}
 
 	/*
-	 * Allows particular images to be used as representative images for
-	 * the media object. If multiple thumbnails are included, and time
-	 * coding is not at play, it is assumed that the images are in order
-	 * of importance. It has one required attribute and three optional
-	 * attributes.
+	 * Allows particular images to be used as representative images for the media object. If multiple
+	 * thumbnails are included, and time coding is not at play, it is assumed that the images are in
+	 * order of importance. It has one required attribute and three optional attributes.
 	 */
 	private Image parseImage(PodcastParserContext ctx) throws XMLStreamException {
 		Image image = new Image();
@@ -480,19 +439,16 @@ public class Media implements Namespace {
 	}
 
 	/*
-	 * Comma-delimited keywords describing the media object with
-	 * typically a maximum of 10 words.
+	 * Comma-delimited keywords describing the media object with typically a maximum of 10 words.
 	 */
 	private List<String> parseKeywords(PodcastParserContext ctx) throws XMLStreamException {
 		return Strings.splitOnComma(ctx.getElementText());
 	}
-	
+
 	/*
-	 * Optional link to specify the machine-readable license associated
-	 * with the content.
+	 * Optional link to specify the machine-readable license associated with the content.
 	 * 
-	 * <media:license type="text/html"
-	 * href="http://creativecommons.org/licenses/by/3.0/us/">Creative
+	 * <media:license type="text/html" href="http://creativecommons.org/licenses/by/3.0/us/">Creative
 	 * Commons Attribution 3.0 United States License</media:license>
 	 */
 	private License parseLicense(PodcastParserContext ctx) throws XMLStreamException {
@@ -548,24 +504,26 @@ public class Media implements Namespace {
 		player.setWidth(ctx.getAttributeAsInteger("width"));
 		return player;
 	}
-	
+
 	/**
 	 * This allows the permissible audience to be declared. If this element is not included, it assumes
 	 * that no restrictions are necessary. It has one optional attribute.
 	 * 
+	 * {@code 
 	 * <media:rating scheme="urn:simple">adult</media:rating>
 	 * <media:rating scheme="urn:icra">r (cz 1 lz 1 nz 1 oz 1 vz 1)</media:rating>
 	 * <media:rating scheme="urn:mpaa">pg</media:rating>
 	 * <media:rating scheme="urn:v-chip">tv-y7-fv</media:rating>
+	 * }
 	 * 
 	 * scheme is the URI that identifies the rating scheme. It is an optional attribute. If this
 	 * attribute is not included, the default scheme is urn:simple (adult | nonadult).
 	 * 
 	 * @param ctx
-	 * @return
+	 * @return new {@link Rating} instance, not {@code null}
 	 * @throws XMLStreamException
 	 */
-	private Rating parseRating(PodcastParserContext ctx)throws XMLStreamException {
+	private Rating parseRating(PodcastParserContext ctx) throws XMLStreamException {
 		String scheme = ctx.getAttribute("scheme");
 		if (Strings.isBlank(scheme)) {
 			scheme = "urn:simple";
@@ -575,71 +533,59 @@ public class Media implements Namespace {
 		rating.setScheme(scheme);
 		return rating;
 	}
-	
+
 	/*
-	 * Allows restrictions to be placed on the aggregator rendering the
-	 * media in the feed. Currently, restrictions are based on
-	 * distributor (URI), country codes and sharing of a media object.
-	 * This element is purely informational and no obligation can be
-	 * assumed or implied. Only one <media:restriction> element of the
-	 * same type can be applied to a media object -- all others will be
-	 * ignored. Entities in this element should be space-separated. To
-	 * allow the producer to explicitly declare his/her intentions, two
-	 * literals are reserved: "all", "none". These literals can only be
-	 * used once. This element has one required attribute and one
-	 * optional attribute (with strict requirements for its exclusion).
+	 * Allows restrictions to be placed on the aggregator rendering the media in the feed. Currently,
+	 * restrictions are based on distributor (URI), country codes and sharing of a media object. This
+	 * element is purely informational and no obligation can be assumed or implied. Only one
+	 * <media:restriction> element of the same type can be applied to a media object -- all others will
+	 * be ignored. Entities in this element should be space-separated. To allow the producer to
+	 * explicitly declare his/her intentions, two literals are reserved: "all", "none". These literals
+	 * can only be used once. This element has one required attribute and one optional attribute (with
+	 * strict requirements for its exclusion).
 	 * 
-	 * <media:restriction relationship="allow" type="country">au
-	 * us</media:restriction>
+	 * <media:restriction relationship="allow" type="country">au us</media:restriction>
 	 * 
-	 * relationship indicates the type of relationship that the
-	 * restriction represents (allow | deny). In the example above, the
-	 * media object should only be syndicated in Australia and the
-	 * United States. It is a required attribute.
+	 * relationship indicates the type of relationship that the restriction represents (allow | deny).
+	 * In the example above, the media object should only be syndicated in Australia and the United
+	 * States. It is a required attribute.
 	 * 
-	 * Note: If the "allow" element is empty and the type of
-	 * relationship is "allow", it is assumed that the empty list means
-	 * "allow nobody" and the media should not be syndicated.
+	 * Note: If the "allow" element is empty and the type of relationship is "allow", it is assumed that
+	 * the empty list means "allow nobody" and the media should not be syndicated.
 	 * 
 	 * A more explicit method would be:
 	 * 
-	 * <media:restriction relationship="allow" type="country">au
-	 * us</media:restriction>
+	 * <media:restriction relationship="allow" type="country">au us</media:restriction>
 	 * 
-	 * type specifies the type of restriction (country | uri | sharing )
-	 * that the media can be syndicated. It is an optional attribute;
-	 * however can only be excluded when using one of the literal values
-	 * "all" or "none".
+	 * type specifies the type of restriction (country | uri | sharing ) that the media can be
+	 * syndicated. It is an optional attribute; however can only be excluded when using one of the
+	 * literal values "all" or "none".
 	 * 
-	 * "country" allows restrictions to be placed based on country code.
-	 * [ISO 3166]
+	 * "country" allows restrictions to be placed based on country code. [ISO 3166]
 	 * 
-	 * "uri" allows restrictions based on URI. Examples: urn:apple,
-	 * http://images.google.com, urn:yahoo, etc.
+	 * "uri" allows restrictions based on URI. Examples: urn:apple, http://images.google.com, urn:yahoo,
+	 * etc.
 	 * 
 	 * "sharing" allows restriction on sharing.
 	 * 
-	 * "deny" means content cannot be shared -- for example via embed
-	 * tags. If the sharing type is not present, the default
-	 * functionality is to allow sharing. For example:
+	 * "deny" means content cannot be shared -- for example via embed tags. If the sharing type is not
+	 * present, the default functionality is to allow sharing. For example:
 	 * 
 	 * <media:restriction type="sharing" relationship="deny" />
 	 */
-//	private Restriction parseRestriction(PodParseContext ctx) throws XMLStreamException {
-//		return null;
-//	}
-	
+	// private Restriction parseRestriction(PodParseContext ctx) throws XMLStreamException {
+	// return null;
+	// }
+
 	/*
-	 * Optional element to specify the rights information of a media
-	 * object.
+	 * Optional element to specify the rights information of a media object.
 	 * 
 	 * <media:rights status="userCreated" />
 	 * 
 	 * <media:rights status="official" />
 	 * 
-	 * status is the status of the media object saying whether a media
-	 * object has been created by the publisher or they have rights to
-	 * circulate it.
+	 * status is the status of the media object saying whether a media object has been created by the
+	 * publisher or they have rights to circulate it.
 	 * 
 	 * Supported values are "userCreated" and "official".
 	 */
@@ -649,13 +595,11 @@ public class Media implements Namespace {
 
 	private List<Scene> parseScenes(PodcastParserContext ctx) throws XMLStreamException {
 		/*
-		 * Optional element to specify various scenes within a media object.
-		 * It can have multiple child <media:scene> elements, where each
-		 * <media:scene> element contains information about a particular
-		 * scene. <media:scene> has the optional sub-elements <sceneTitle>,
-		 * <sceneDescription>, <sceneStartTime> and <sceneEndTime>, which
-		 * contains title, description, start and end time of a particular
-		 * scene in the media, respectively.
+		 * Optional element to specify various scenes within a media object. It can have multiple child
+		 * <media:scene> elements, where each <media:scene> element contains information about a particular
+		 * scene. <media:scene> has the optional sub-elements <sceneTitle>, <sceneDescription>,
+		 * <sceneStartTime> and <sceneEndTime>, which contains title, description, start and end time of a
+		 * particular scene in the media, respectively.
 		 */
 		List<Scene> scenes = new ArrayList<>();
 		Scene scene = null;
@@ -689,44 +633,37 @@ public class Media implements Namespace {
 		return scenes;
 
 	}
-	
+
 	/*
-	 * Allows the inclusion of a text transcript, closed captioning or
-	 * lyrics of the media content. Many of these elements are permitted
-	 * to provide a time series of text. In such cases, it is
-	 * encouraged, but not required, that the elements be grouped by
-	 * language and appear in time sequence order based on the start
-	 * time. Elements can have overlapping start and end times. It has
+	 * Allows the inclusion of a text transcript, closed captioning or lyrics of the media content. Many
+	 * of these elements are permitted to provide a time series of text. In such cases, it is
+	 * encouraged, but not required, that the elements be grouped by language and appear in time
+	 * sequence order based on the start time. Elements can have overlapping start and end times. It has
 	 * four optional attributes.
 	 * 
-	 * <media:text type="plain" lang="en" start="00:00:03.000"
-	 * end="00:00:10.000"> Oh, say, can you see</media:text>
+	 * <media:text type="plain" lang="en" start="00:00:03.000" end="00:00:10.000"> Oh, say, can you
+	 * see</media:text>
 	 * 
-	 * <media:text type="plain" lang="en" start="00:00:10.000"
-	 * end="00:00:17.000">By the dawn's early light</media:text>
+	 * <media:text type="plain" lang="en" start="00:00:10.000" end="00:00:17.000">By the dawn's early
+	 * light</media:text>
 	 * 
-	 * type specifies the type of text embedded. Possible values are
-	 * either "plain" or "html". Default value is "plain". All HTML must
-	 * be entity-encoded. It is an optional attribute.
+	 * type specifies the type of text embedded. Possible values are either "plain" or "html". Default
+	 * value is "plain". All HTML must be entity-encoded. It is an optional attribute.
 	 * 
-	 * lang is the primary language encapsulated in the media object.
-	 * Language codes possible are detailed in RFC 3066. This attribute
-	 * is used similar to the xml:lang attribute detailed in the XML 1.0
-	 * Specification (Third Edition). It is an optional attribute.
+	 * lang is the primary language encapsulated in the media object. Language codes possible are
+	 * detailed in RFC 3066. This attribute is used similar to the xml:lang attribute detailed in the
+	 * XML 1.0 Specification (Third Edition). It is an optional attribute.
 	 * 
-	 * start specifies the start time offset that the text starts being
-	 * relevant to the media object. An example of this would be for
-	 * closed captioning. It uses the NTP time code format (see: the
-	 * time attribute used in <media:thumbnail>). It is an optional
-	 * attribute.
+	 * start specifies the start time offset that the text starts being relevant to the media object. An
+	 * example of this would be for closed captioning. It uses the NTP time code format (see: the time
+	 * attribute used in <media:thumbnail>). It is an optional attribute.
 	 * 
-	 * end specifies the end time that the text is relevant. If this
-	 * attribute is not provided, and a start time is used, it is
-	 * expected that the end time is either the end of the clip or the
-	 * start of the next <media:text> element.
+	 * end specifies the end time that the text is relevant. If this attribute is not provided, and a
+	 * start time is used, it is expected that the end time is either the end of the clip or the start
+	 * of the next <media:text> element.
 	 */
 	private Transcript parseText(PodcastParserContext ctx) throws XMLStreamException {
-		
+
 		Transcript transcript = new Transcript();
 		transcript.setLang(ctx.getAttribute("lang"));
 
@@ -735,21 +672,21 @@ public class Media implements Namespace {
 			type = "plain";
 		}
 		transcript.setType(type);
-		
+
 		String start = ctx.getAttribute("start");
 		if (Strings.isNotBlank(start)) {
 			transcript.setStart(Durations.parse(start));
 		}
-		
+
 		String end = ctx.getAttribute("end");
 		if (Strings.isNotBlank(end)) {
 			transcript.setEnd(Durations.parse(end));
 		}
 		transcript.setText(ctx.getElementText());
 		return transcript;
-		
+
 	}
-	
+
 	// type specifies the type of text embedded. Possible values are
 	// either "plain" or "html". Default value is "plain". All HTML must
 	// be entity-encoded. It is an optional attribute.

@@ -26,34 +26,31 @@ import be.ceau.podcastparser.util.UnmodifiableSet;
 
 /**
  * <p>
- * Provides syndication hints to aggregators and others picking up this RDF Site
- * Summary (RSS) feed regarding how often it is updated.
+ * Provides syndication hints to aggregators and others picking up this RDF Site Summary (RSS) feed
+ * regarding how often it is updated.
  * </p>
  * 
  * <p>
  * updatePeriod<br>
- * Describes the period over which the channel format is updated. Acceptable
- * values are: hourly, daily, weekly, monthly, yearly. If omitted, daily is
- * assumed.
+ * Describes the period over which the channel format is updated. Acceptable values are: hourly,
+ * daily, weekly, monthly, yearly. If omitted, daily is assumed.
  * </p>
  * 
  * <p>
  * updateFrequency<br>
- * Used to describe the frequency of updates in relation to the update period. A
- * positive integer indicates how many times in that period the channel is
- * updated. For example, an updatePeriod of daily, and an updateFrequency of 2
- * indicates the channel format is updated twice daily. If omitted a value of 1
- * is assumed.
+ * Used to describe the frequency of updates in relation to the update period. A positive integer
+ * indicates how many times in that period the channel is updated. For example, an updatePeriod of
+ * daily, and an updateFrequency of 2 indicates the channel format is updated twice daily. If
+ * omitted a value of 1 is assumed.
  * </p>
  * 
  * <p>
  * updateBase<br>
- * Defines a base date to be used in concert with updatePeriod and
- * updateFrequency to calculate the publishing schedule. The date format takes
- * the form: yyyy-mm-ddThh:mm
+ * Defines a base date to be used in concert with updatePeriod and updateFrequency to calculate the
+ * publishing schedule. The date format takes the form: yyyy-mm-ddThh:mm
  * </p>
  * 
- * @see http://web.resource.org/rss/1.0/modules/syndication/
+ * @see <a href="http://web.resource.org/rss/1.0/modules/syndication/">Syndication specification</a>
  */
 public class Syndication implements Namespace {
 
@@ -73,20 +70,20 @@ public class Syndication implements Namespace {
 	@Override
 	public void process(PodcastParserContext ctx) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
-		case "updatePeriod" :
+		case "updatePeriod":
 			// The period over which the channel format is updated.
 			// Acceptable values are: hourly, daily, weekly, monthly, yearly
 			ctx.getFeed().setUpdatePeriod(ctx.getElementText());
-		break;
-		case "updateFrequency" :
+			break;
+		case "updateFrequency":
 			// the frequency of updates in relation to the update period
 			ctx.getFeed().setUpdateFrequency(ctx.getElementTextAsInteger());
 			break;
-		case "updateBase" :
+		case "updateBase":
 			// base date to calculate the publishing schedule
 			ctx.getFeed().setUpdateBase(Dates.parse(ctx.getElementText()));
 			break;
-		default : 
+		default:
 			Namespace.super.process(ctx);
 			break;
 		}

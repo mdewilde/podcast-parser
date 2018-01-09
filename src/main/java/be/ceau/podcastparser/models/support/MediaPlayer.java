@@ -31,6 +31,8 @@ public class MediaPlayer {
 
 	/**
 	 * Url is the URL of the player console that plays the media. It is a required attribute.
+	 * 
+	 * @return {@link String} or {@code null}
 	 */
 	public String getUrl() {
 		return url;
@@ -43,6 +45,8 @@ public class MediaPlayer {
 	/**
 	 * Height is the height of the browser window that the URL should be opened in. It is an optional
 	 * attribute.
+	 * 
+	 * @return {@link Integer} or {@code null}
 	 */
 	public Integer getHeight() {
 		return height;
@@ -55,6 +59,8 @@ public class MediaPlayer {
 	/**
 	 * Width is the width of the browser window that the URL should be opened in. It is an optional
 	 * attribute.
+	 * 
+	 * @return {@link Integer} or {@code null}
 	 */
 	public Integer getWidth() {
 		return width;
@@ -70,7 +76,11 @@ public class MediaPlayer {
 		builder.append("MediaPlayer [");
 		if (url != null)
 			builder.append("url=").append(url).append(", ");
-		builder.append("height=").append(height).append(", width=").append(width).append("]");
+		if (height != null)
+			builder.append("height=").append(height).append(", ");
+		if (width != null)
+			builder.append("width=").append(width);
+		builder.append("]");
 		return builder.toString();
 	}
 

@@ -49,14 +49,44 @@ public class PodcastParserContext {
 	private final Set<ElementFilter> elementFilters;
 	private final Feed feed;
 
+	/**
+	 * Constructor
+	 * 
+	 * @param rootNamespace
+	 *            {@link String} name of the root namespace, not {@code null}
+	 * @param reader
+	 *            {@link XMLStreamReader} instance over the XML input, not {@code null}
+	 */
 	public PodcastParserContext(String rootNamespace, XMLStreamReader reader) {
 		this(rootNamespace, reader, Collections.emptyList(), Collections.emptySet());
 	}
 
+	/**
+	 * Constructor
+	 * 
+	 * @param rootNamespace
+	 *            {@link String} name of the root namespace, not {@code null}
+	 * @param reader
+	 *            {@link XMLStreamReader} instance over the XML input, not {@code null}
+	 * @param callbacks
+	 *            {@link Collection} of {@link NamespaceCallbackHandler} instances, can be {@code null}
+	 */
 	public PodcastParserContext(String rootNamespace, XMLStreamReader reader, Collection<NamespaceCallbackHandler> callbacks) {
 		this(rootNamespace, reader, callbacks, Collections.emptySet());
 	}
 
+	/**
+	 * Constructor
+	 * 
+	 * @param rootNamespace
+	 *            {@link String} name of the root namespace, not {@code null}
+	 * @param reader
+	 *            {@link XMLStreamReader} instance over the XML input, not {@code null}
+	 * @param callbacks
+	 *            {@link Collection} of {@link NamespaceCallbackHandler} instances, can be {@code null}
+	 * @param filters
+	 *            {@link Collection} of {@link ElementFilter} instances, can be {@code null}
+	 */
 	public PodcastParserContext(String rootNamespace, XMLStreamReader reader, Collection<NamespaceCallbackHandler> callbacks, Collection<ElementFilter> filters) {
 		Objects.requireNonNull(rootNamespace);
 		Objects.requireNonNull(reader);
@@ -77,14 +107,26 @@ public class PodcastParserContext {
 		this.feed = new Feed();
 	}
 
+	/**
+	 * @return {@code XMLStreamReader}, never {@code null}
+	 */
 	public XMLStreamReader getReader() {
 		return reader;
 	}
 
+	/**
+	 * @return {@link Feed}, never {@code null}
+	 */
 	public Feed getFeed() {
 		return feed;
 	}
 
+	/**
+	 * Process callback before processing {@link Feed}
+	 * 
+	 * @throws XMLStreamException
+	 *             if any
+	 */
 	public void beforeProcess() throws XMLStreamException {
 		if (!namespaceCallbackHandlers.isEmpty()) {
 			RequiredState state = RequiredState.from(reader);
@@ -93,6 +135,14 @@ public class PodcastParserContext {
 		}
 	}
 
+	/**
+	 * Process callback before processing {@link Item}
+	 * 
+	 * @param item
+	 *            {@link Item} instance, not {@code null}
+	 * @throws XMLStreamException
+	 *             if any
+	 */
 	public void beforeProcess(Item item) throws XMLStreamException {
 		if (!namespaceCallbackHandlers.isEmpty()) {
 			RequiredState state = RequiredState.from(reader);
@@ -101,6 +151,14 @@ public class PodcastParserContext {
 		}
 	}
 
+	/**
+	 * Process callback when encountering unknown namespace
+	 * 
+	 * @param level
+	 *            {@link ParseLevel} of current parse process, not {@code null}
+	 * @throws XMLStreamException
+	 *             if any
+	 */
 	public void registerUnknownNamespace(ParseLevel level) throws XMLStreamException {
 		if (!namespaceCallbackHandlers.isEmpty()) {
 			RequiredState state = RequiredState.from(reader);
@@ -109,6 +167,14 @@ public class PodcastParserContext {
 		}
 	}
 
+	/**
+	 * Process callback when encountering unknown element
+	 * 
+	 * @param level
+	 *            {@link ParseLevel} of current parse process, not {@code null}
+	 * @throws XMLStreamException
+	 *             if any
+	 */
 	public void registerUnhandledElement(ParseLevel level) throws XMLStreamException {
 		if (!namespaceCallbackHandlers.isEmpty()) {
 			RequiredState state = RequiredState.from(reader);
@@ -122,6 +188,7 @@ public class PodcastParserContext {
 	 * 
 	 * @return a {@link String} with element text content, or {@code null}
 	 * @throws XMLStreamException
+	 *             if any
 	 */
 	public String getElementText() throws XMLStreamException {
 		if (reader.isStartElement() && !reader.isStandalone()) {
@@ -152,6 +219,7 @@ public class PodcastParserContext {
 	 * 
 	 * @return {@link Integer} or {@code null}
 	 * @throws XMLStreamException
+	 *             if any
 	 */
 	public Integer getElementTextAsInteger() throws XMLStreamException {
 		try {
@@ -166,6 +234,7 @@ public class PodcastParserContext {
 	 * 
 	 * @return {@link BigDecimal} or {@code null}
 	 * @throws XMLStreamException
+	 *             if any
 	 */
 	public BigDecimal getElementTextAsBigDecimal() throws XMLStreamException {
 		try {
@@ -240,6 +309,7 @@ public class PodcastParserContext {
 	 * until the end of the newly opened element is reached.
 	 * 
 	 * @throws XMLStreamException
+	 *             if any
 	 */
 	public void skip() throws XMLStreamException {
 		if (reader.isStartElement()) {
@@ -256,6 +326,7 @@ public class PodcastParserContext {
 	 * Log, non-repeatably, the current element, including its internal hierarchy
 	 * 
 	 * @throws XMLStreamException
+	 *             if any
 	 */
 	public void log() throws XMLStreamException {
 		if (reader.isStartElement()) {
@@ -266,7 +337,9 @@ public class PodcastParserContext {
 	/**
 	 * Serialize, non-repeatably, the current element, including its internal hierarchy
 	 * 
+	 * @return {@link String}, not {@code null}
 	 * @throws XMLStreamException
+	 *             if any
 	 */
 	public String serialize() throws XMLStreamException {
 		if (reader.isStartElement()) {
@@ -275,7 +348,7 @@ public class PodcastParserContext {
 			xml.append(asStartElementString(reader));
 
 			boolean endElement = false;
-			
+
 			while (reader.hasNext()) {
 				switch (reader.next()) {
 				case XMLStreamConstants.COMMENT:

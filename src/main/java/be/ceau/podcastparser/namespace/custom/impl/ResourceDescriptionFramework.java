@@ -20,7 +20,8 @@ import be.ceau.podcastparser.namespace.Namespace;
 /**
  * <h1>Resource Description Framework (RDF)</h1>
  * 
- * @see https://www.w3.org/TR/1999/REC-rdf-syntax-19990222/
+ * @see <a href="https://www.w3.org/TR/1999/REC-rdf-syntax-19990222/">RDF Model and Syntax
+ *      Specification</a>
  */
 public class ResourceDescriptionFramework implements Namespace {
 
@@ -32,13 +33,3 @@ public class ResourceDescriptionFramework implements Namespace {
 	}
 
 }
-
-/*
-
-	corpus stats
-	
-         9 	--> http://www.w3.org/1999/02/22-rdf-syntax-ns# level=feed localName=Description attributes=[]]
-         9 	--> http://www.w3.org/1999/02/22-rdf-syntax-ns# level=feed localName=value attributes=[]]
-         7 	--> http://www.w3.org/1999/02/22-rdf-syntax-ns# level=item localName=RDF attributes=[]]
-
-*/

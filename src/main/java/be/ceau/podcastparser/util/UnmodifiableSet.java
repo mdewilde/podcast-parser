@@ -18,7 +18,6 @@ package be.ceau.podcastparser.util;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -27,11 +26,9 @@ import java.util.Set;
  * Helper class for fluent creation of unmodifiable {@link Set} instances.
  * </p>
  * 
- * @param <T>
+ * @param <T> the type of elements in the target set
  */
-public class UnmodifiableSet<T> extends HashSet<T> {
-
-	private static final long serialVersionUID = 1492194402964L;
+public class UnmodifiableSet<T> {
 
 	public static <T> Set<T> of(T t) {
 		return Collections.unmodifiableSet(new LinkedHashSet<>(Arrays.asList(t)));

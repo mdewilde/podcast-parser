@@ -43,15 +43,15 @@ public class Rating {
 
 	/**
 	 * <p>
-	 * The content rating scheme used in the {@code text} property of this
-	 * {@link Rating}.
+	 * The content rating scheme used in the {@code text} property of this {@link Rating}.
 	 * </p>
 	 * <p>
 	 * Optional attribute specified in the Media RSS specification.
 	 * </p>
 	 * 
 	 * @return a {@link String} or {@code null}
-	 * @see https://en.wikipedia.org/wiki/Category:Media_content_ratings_systems
+	 * @see <a href="https://en.wikipedia.org/wiki/Category:Media_content_ratings_systems">rating
+	 *      systems</a>
 	 */
 	public String getScheme() {
 		return scheme;
@@ -63,9 +63,8 @@ public class Rating {
 
 	/**
 	 * <p>
-	 * This tag should be used to indicate whether or not your podcast contains
-	 * explicit material. The three values for this tag are "yes", "no", and
-	 * "clean".
+	 * This tag should be used to indicate whether or not your podcast contains explicit material. The
+	 * three values for this tag are "yes", "no", and "clean".
 	 * </p>
 	 * <p>
 	 * Not in RSS specification. Part of iTunes RSS spec.
