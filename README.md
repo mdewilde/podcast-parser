@@ -1,4 +1,4 @@
-#Podcast Feed Parser
+# Podcast Parser
 
 [![Maven Central badge](https://maven-badges.herokuapp.com/maven-central/be.ceau/podcast-feed-parser/badge.svg)](https://mvnrepository.com/artifact/be.ceau/podcast-feed-parser)  
 [![Javadocs](https://javadoc.io/badge/be.ceau/podcast-feed-parser.svg)](https://javadoc.io/doc/be.ceau/podcast-feed-parser)  
