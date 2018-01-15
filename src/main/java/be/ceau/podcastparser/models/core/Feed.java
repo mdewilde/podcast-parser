@@ -176,7 +176,11 @@ public class Feed {
 	}
 
 	public void setLanguage(String language) {
-		this.language = language;
+		if (Strings.isBlank(language)) {
+			this.language = null;
+		} else {
+			this.language = language.trim();
+		}
 	}
 
 	/**
