@@ -20,6 +20,7 @@ import java.time.Duration;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -52,6 +53,33 @@ import be.ceau.podcastparser.models.support.Visibility;
 import be.ceau.podcastparser.util.Strings;
 
 public class Item {
+
+	/**
+	 * {@link Comparator} implementation that sorts order first to last (property {@code value}), or
+	 * oldest to newest (property {@link pubDate}.
+	 */
+	public static class ItemComparator implements Comparator<Item> {
+
+		@Override
+		public int compare(Item o1, Item o2) {
+			if (o1.order != null && o2.order != null) {
+				if (o1.order - o2.order < 0) {
+					return -1;
+				} else if (o2.order - o1.order < 0) {
+					return 1;
+				}
+			}
+			if (o1.pubDate != null && o2.pubDate != null) {
+				if (o1.pubDate.isBefore(o2.pubDate)) {
+					return -1;
+				} else if (o1.pubDate.isAfter(o2.pubDate)) {
+					return 1;
+				}
+			}
+			return 0;
+		}
+
+	}
 
 	private TypedString title;
 	private String subtitle;
@@ -747,6 +775,18 @@ public class Item {
 		this.geoBox = geoBox;
 	}
 
+	/**
+	 * The episode order number, part of the iTunes RSS specification.
+	 * 
+	 * Use the {@code <itunes:order>} tag to specify the number value in which you would like the
+	 * episode to appear; overriding the default ordering of episodes in Apple Podcasts.
+	 * 
+	 * For example, if you want an item to appear as the first episode in your podcast, specify the
+	 * {@code <itunes:order>} tag with 1. If conflicting order values are present in multiple episodes,
+	 * Apple Podcasts uses {@code <pubDate>}.
+	 * 
+	 * @return {@link Integer} or {@code null}
+	 */
 	public Integer getOrder() {
 		return order;
 	}

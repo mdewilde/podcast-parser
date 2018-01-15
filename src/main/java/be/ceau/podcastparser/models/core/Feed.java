@@ -17,6 +17,7 @@ package be.ceau.podcastparser.models.core;
 
 import java.math.BigDecimal;
 import java.time.Duration;
+import java.time.LocalDate;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -44,7 +45,11 @@ public class Feed {
 	private String id;
 	private String title;
 	private final Set<Link> links = new HashSet<>();
+
 	private TypedString description;
+	private String subtitle;
+	private String summary;
+
 	private final List<Item> items = new ArrayList<>();
 	private String language;
 	private Copyright copyright;
@@ -61,7 +66,6 @@ public class Feed {
 	private String textInput;
 	private final List<Integer> skipHours = new ArrayList<>();
 	private final List<String> skipDays = new ArrayList<>();
-	private String subtitle;
 	private final List<Person> authors = new ArrayList<>();
 	private Person owner;
 	private final List<Person> contributors = new ArrayList<>();
@@ -72,7 +76,6 @@ public class Feed {
 	private final Map<OtherValueKey, String> values = new EnumMap<>(OtherValueKey.class);
 	private GeoPoint geoPoint;
 	private boolean block;
-	private String summary;
 	private String type;
 	private String email;
 	private Credit credit;
@@ -627,6 +630,21 @@ public class Feed {
 		this.block = block;
 	}
 
+	/**
+	 * A phrase or sentence summarizing the podcast, part of the iTunes RSS specification.
+	 * 
+	 * Use the {@code <itunes:summary>} tag to summarize your podcast for potential listeners. You can
+	 * specify up to 4000 characters.
+	 * 
+	 * If you don’t specify a {@code <itunes:summary>} tag, Apple Podcasts uses the information in the
+	 * {@code <description>} tag.
+	 * 
+	 * Note: You can view {@code <itunes:summary>} information in the Apple Podcasts page for your
+	 * podcast. The information also appears in a separate window if a users clicks the Information icon
+	 * (Information icon) in the Description column.
+	 * 
+	 * @return a {@link String} or {@code null}
+	 */
 	public String getSummary() {
 		return summary;
 	}
@@ -684,6 +702,28 @@ public class Feed {
 
 	public void setBrowserFriendly(TypedString browserFriendly) {
 		this.browserFriendly = browserFriendly;
+	}
+
+	/**
+	 * Find and return the date of last change as {@link LocalDate}
+	 * 
+	 * @return {@link LocalDate} or {@code null}
+	 */
+	public LocalDate getLastLocalDate() {
+		LocalDate localDate;
+		if (lastBuildDate != null) {
+			localDate = lastBuildDate.toLocalDate();
+		} else if (pubDate != null) {
+			localDate = pubDate.toLocalDate();
+		} else {
+			ZonedDateTime z = items.stream()
+					.sorted(new Item.ItemComparator().reversed())
+					.findFirst()
+					.map(Item::getPubDate)
+					.orElse(null);
+			localDate = z == null ? null : z.toLocalDate();
+		}
+		return localDate;
 	}
 
 	@Override
