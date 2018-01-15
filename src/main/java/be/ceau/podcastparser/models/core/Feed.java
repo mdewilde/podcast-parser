@@ -24,6 +24,7 @@ import java.util.Collection;
 import java.util.EnumMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
@@ -52,6 +53,7 @@ public class Feed {
 
 	private final List<Item> items = new ArrayList<>();
 	private String language;
+
 	private Copyright copyright;
 	private String managingEditor;
 	private String webMaster;
@@ -179,7 +181,12 @@ public class Feed {
 		if (Strings.isBlank(language)) {
 			this.language = null;
 		} else {
-			this.language = language.trim();
+			language = language.trim().toLowerCase(Locale.ENGLISH);
+			if (RFC639.LANGUAGES.contains(language)) {
+				this.language = language.trim();
+			} else {
+				this.language = null;
+			}
 		}
 	}
 

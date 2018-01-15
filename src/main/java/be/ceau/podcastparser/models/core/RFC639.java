@@ -3,6 +3,7 @@ package be.ceau.podcastparser.models.core;
 import java.util.Collections;
 import java.util.EnumSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public enum RFC639 {
 
@@ -34,7 +35,7 @@ public enum RFC639 {
 	co("Corsican"),
 	cr("Cree"),
 	cs("Czech"),
-	cu("Church Slavic, Church Slavonic, Old Church Slavonic, Old Slavonic, Old Bulgarian"),
+	cu("Church Slavic"),
 	cv("Chuvash"),
 	cy("Welsh"),
 	da("Danish"),
@@ -192,6 +193,7 @@ public enum RFC639 {
 	zu("Zulu");
 
 	public static final Set<RFC639> ALL = Collections.unmodifiableSet(EnumSet.allOf(RFC639.class));
+	public static final Set<String> LANGUAGES = Collections.unmodifiableSet(ALL.stream().map(e -> e.name()).collect(Collectors.toSet()));
 
 	private final String isoName;
 	private RFC639(String isoName) {
