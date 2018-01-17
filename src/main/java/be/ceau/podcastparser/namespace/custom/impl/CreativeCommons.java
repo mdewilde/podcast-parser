@@ -44,11 +44,11 @@ public class CreativeCommons implements Namespace {
 	@Override
 	public void process(PodcastParserContext ctx, Item item) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
-		case "requires":
-		case "permits":
 		case "License":
-		case "Work":
+		case "permits":
 		case "prohibits":
+		case "requires":
+		case "Work":
 		default : 
 			Namespace.super.process(ctx, item);
 			break;

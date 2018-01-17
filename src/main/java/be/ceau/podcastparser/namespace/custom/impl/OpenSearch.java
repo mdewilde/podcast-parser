@@ -54,12 +54,12 @@ public class OpenSearch implements Namespace {
 	@Override
 	public void process(PodcastParserContext ctx) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
-		case "totalResults":
-			// The number of search results available for the current search.
-		case "startIndex":
-			// The index of the first search result in the current set of search results.
 		case "itemsPerPage":
 			// The number of search results returned per page.
+		case "startIndex":
+			// The index of the first search result in the current set of search results.
+		case "totalResults":
+			// The number of search results available for the current search.
 		default : 
 			Namespace.super.process(ctx);
 			break;

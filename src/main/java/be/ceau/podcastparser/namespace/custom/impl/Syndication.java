@@ -70,18 +70,18 @@ public class Syndication implements Namespace {
 	@Override
 	public void process(PodcastParserContext ctx) throws XMLStreamException {
 		switch (ctx.getReader().getLocalName()) {
-		case "updatePeriod":
-			// The period over which the channel format is updated.
-			// Acceptable values are: hourly, daily, weekly, monthly, yearly
-			ctx.getFeed().setUpdatePeriod(ctx.getElementText());
+		case "updateBase":
+			// base date to calculate the publishing schedule
+			ctx.getFeed().setUpdateBase(Dates.parse(ctx.getElementText()));
 			break;
 		case "updateFrequency":
 			// the frequency of updates in relation to the update period
 			ctx.getFeed().setUpdateFrequency(ctx.getElementTextAsInteger());
 			break;
-		case "updateBase":
-			// base date to calculate the publishing schedule
-			ctx.getFeed().setUpdateBase(Dates.parse(ctx.getElementText()));
+		case "updatePeriod":
+			// The period over which the channel format is updated.
+			// Acceptable values are: hourly, daily, weekly, monthly, yearly
+			ctx.getFeed().setUpdatePeriod(ctx.getElementText());
 			break;
 		default:
 			Namespace.super.process(ctx);
