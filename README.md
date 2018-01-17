@@ -6,6 +6,10 @@
 
 Java library for parsing podcast feed XML files.
 
+### Compatibility
+
+Take a look at the full list of [supported namespaces and elements](namespaces.md).
+
 ### Usage
 
 ```Java
