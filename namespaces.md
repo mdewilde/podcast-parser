@@ -49,4 +49,4 @@ Full support for RSS and Atom root namespaces.
 | WellFormedWeb | http://wellformedweb.org/commentapi/ | | comment, commentRss |
 | Welt | https://www.welt.de/spec | | premium, source, topic |
 | Wordpress | com-wordpress:feed-additions:1 | site | post-id |
-| YahooVideo | http//video.yahooapis.com/v2/video/ | | adData, adInfo, adTargeting, id, name, value |
+| YahooVideo | http://video.yahooapis.com/v2/video/ | | adData, adInfo, adTargeting, id, name, value |
