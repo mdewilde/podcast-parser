@@ -36,10 +36,22 @@ public class CorpusTest {
 					try {
 						parser.parse(wrap.getXml());
 					} catch (Exception e) {
-						logger.error("{} -> {}", wrap.getFullPath(), e.getMessage());
+						if ("the input appears to be HTML".equals(e.getMessage())) {
+							wrap.delete();
+						} else if ("root element must be rss or feed but it is html".equalsIgnoreCase(e.getMessage())) {
+							wrap.delete();
+						} else if ("root element must be rss or feed but it is br".equalsIgnoreCase(e.getMessage())) {
+							wrap.delete();
+						} else if ("root element must be rss or feed but it is script".equalsIgnoreCase(e.getMessage())) {
+							wrap.delete();
+						} else if ("xml input is blank".equalsIgnoreCase(e.getMessage())) {
+							wrap.delete();
+						} else {
+							logger.error("{} -> {}", wrap.getFullPath(), e.getMessage());
+						}
 					}
 				});
-		
+			
 		logger.debug("{}", callback);
 
 	}
