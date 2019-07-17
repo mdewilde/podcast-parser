@@ -1,5 +1,5 @@
 /*
-	Copyright 2018 Marceau Dewilde <m@ceau.be>
+	Copyright 2019 Marceau Dewilde <m@ceau.be>
 	
 	Licensed under the Apache License, Version 2.0 (the "License");
 	you may not use this file except in compliance with the License.
@@ -46,9 +46,9 @@ public class UydTest {
 		Assert.assertEquals(Duration.ofMinutes(60), feed.getTtl());
 		Assert.assertEquals("Uhh Yeah Dude", feed.getTitle());
 
-
-		Assert.assertEquals("A weekly roundup of America through the eyes of two American Americans.", feed.getDescription());
-		Assert.assertEquals("en-us", feed.getLanguage());
+ 
+		Assert.assertEquals("A weekly roundup of America through the eyes of two American Americans.", feed.getDescription().getText());
+		Assert.assertEquals("en", feed.getLanguage());
 		Assert.assertEquals("A weekly round up of America through the eyes of two American Americans", feed.getSubtitle());
 
 		feed.getAuthors();

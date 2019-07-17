@@ -1,5 +1,5 @@
 /*
-	Copyright 2018 Marceau Dewilde <m@ceau.be>
+	Copyright 2019 Marceau Dewilde <m@ceau.be>
 	
 	Licensed under the Apache License, Version 2.0 (the "License");
 	you may not use this file except in compliance with the License.
@@ -182,8 +182,11 @@ public class Feed {
 			this.language = null;
 		} else {
 			language = language.trim().toLowerCase(Locale.ENGLISH);
+			if (language.length() > 2) {
+				language = language.substring(0, 2);
+			}
 			if (RFC639.LANGUAGES.contains(language)) {
-				this.language = language.trim();
+				this.language = language;
 			} else {
 				this.language = null;
 			}

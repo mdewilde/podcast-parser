@@ -1,5 +1,5 @@
 /*
-	Copyright 2018 Marceau Dewilde <m@ceau.be>
+	Copyright 2019 Marceau Dewilde <m@ceau.be>
 	
 	Licensed under the Apache License, Version 2.0 (the "License");
 	you may not use this file except in compliance with the License.
@@ -300,10 +300,9 @@ public class RSS implements RootNamespace, Namespace {
 	 * @throws XMLStreamException
 	 */
 	private TypedString parseDescription(PodcastParserContext ctx) throws XMLStreamException {
-		String text = ctx.getElementText();
-//		String type = Strings.isHtml(text) ? "html" : "plain";
 		TypedString typedString = new TypedString();
 		typedString.setText(ctx.getElementText());
+//		String type = Strings.isHtml(text) ? "html" : "plain";
 //		typedString.setType(type);
 		return typedString;
 	}

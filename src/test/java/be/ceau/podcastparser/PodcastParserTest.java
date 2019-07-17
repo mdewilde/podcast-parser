@@ -1,5 +1,5 @@
 /*
-	Copyright 2018 Marceau Dewilde <m@ceau.be>
+	Copyright 2019 Marceau Dewilde <m@ceau.be>
 	
 	Licensed under the Apache License, Version 2.0 (the "License");
 	you may not use this file except in compliance with the License.
@@ -15,21 +15,16 @@
 */
 package be.ceau.podcastparser;
 
-import org.junit.Assert;
 import org.junit.Test;
 
-import be.ceau.podcastparser.exceptions.PodcastParserException;
+import be.ceau.podcastparser.exceptions.InvalidFeedFormatException;
 
 
 public class PodcastParserTest {
 
-	@Test
+	@Test(expected = InvalidFeedFormatException.class)
 	public void emptyInput() {
-		try {
-			new PodcastParser().parse("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
-		} catch (PodcastParserException e) {
-			Assert.assertEquals("provided feed XML is empty", e.getMessage());
-		}
+		new PodcastParser().parse("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
 	}
 	
 }
