@@ -24,7 +24,7 @@ Include this project directly from Maven Central
 ```XML
 <dependency>
 	<groupId>be.ceau</groupId>
-	<artifactId>podcast-feed-parser</artifactId>
+	<artifactId>podcast-parser</artifactId>
 	<version>${podcast-feed-parser.version}</version>
 </dependency>
 ```
