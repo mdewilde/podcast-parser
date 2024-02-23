@@ -21,7 +21,7 @@ import be.ceau.podcastparser.models.core.Item;
 import be.ceau.podcastparser.namespace.Namespace;
 
 /**
- * <h1>WGS84 Geo Positioning: an RDF vocabulary</h1>
+ * <strong>WGS84 Geo Positioning: an RDF vocabulary</strong>
  * <p>
  * A vocabulary for representing latitude, longitude and altitude information in
  * the WGS84 geodetic reference datum.

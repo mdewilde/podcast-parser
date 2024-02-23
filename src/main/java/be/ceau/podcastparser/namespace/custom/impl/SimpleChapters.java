@@ -29,7 +29,7 @@ import be.ceau.podcastparser.util.Durations;
 import be.ceau.podcastparser.util.Strings;
 
 /**
- * <h1>Podlove Simple Chapters</h1>
+ * <strong>Podlove Simple Chapters</strong>
  * 
  * <p>
  * Podlove Simple Chapters is an XML 1.0 based format meant to extend file

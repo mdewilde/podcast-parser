@@ -25,7 +25,7 @@ import be.ceau.podcastparser.namespace.Namespace;
 import be.ceau.podcastparser.util.UnmodifiableSet;
 
 /**
- * <h1>RDF Site Summary 1.0 Modules: Content</h1>
+ * <strong>RDF Site Summary 1.0 Modules: Content</strong>
  * <p>
  * A module for the actual content of websites, in multiple formats.
  * </p>

@@ -22,7 +22,7 @@ import be.ceau.podcastparser.models.support.Copyright;
 import be.ceau.podcastparser.namespace.Namespace;
 
 /**
- * <h1>creativeCommons RSS Module</h1>
+ * <strong>creativeCommons RSS Module</strong>
  * <p>
  * An RSS module that adds an element at the {@code <channel>} or {@code <item>}
  * level that specifies which Creative Commons license applies.

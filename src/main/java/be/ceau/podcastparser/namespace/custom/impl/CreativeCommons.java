@@ -21,7 +21,7 @@ import be.ceau.podcastparser.models.core.Item;
 import be.ceau.podcastparser.namespace.Namespace;
 
 /**
- * <h1>Creative Commons Rights Expression Language</h1>
+ * <strong>Creative Commons Rights Expression Language</strong>
  * 
  * <p>
  * The Creative Commons Rights Expression Language (CC REL) lets you describe

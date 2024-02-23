@@ -31,7 +31,7 @@ import be.ceau.podcastparser.namespace.Namespace;
 import be.ceau.podcastparser.util.Strings;
 
 /**
- * <h1>GeoRSS : Geographically Encoded Objects for RSS feeds</h1>
+ * <strong>GeoRSS : Geographically Encoded Objects for RSS feeds</strong>
  * 
  * <p>
  * GeoRSS was designed as a lightweight, community driven way to extend existing

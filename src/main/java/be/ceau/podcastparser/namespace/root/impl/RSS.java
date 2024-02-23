@@ -39,7 +39,7 @@ import be.ceau.podcastparser.util.Dates;
 import be.ceau.podcastparser.util.Strings;
 
 /**
- * <h1>Really Simple Syndication</h1>
+ * <strong>Really Simple Syndication</strong>
  * <p>
  * RSS is dialect of XML. All RSS files must conform to the XML 1.0
  * specification, as published on the World Wide Web Consortium (W3C) website.

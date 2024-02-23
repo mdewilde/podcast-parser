@@ -27,7 +27,7 @@ import be.ceau.podcastparser.util.Dates;
 import be.ceau.podcastparser.util.UnmodifiableSet;
 
 /**
- * <h1>Dublin Core</h1>
+ * <strong>Dublin Core</strong>
  * 
  * <p>
  * The Dublin Core Schema is a small set of vocabulary terms that can be used to

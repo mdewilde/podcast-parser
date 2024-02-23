@@ -17,7 +17,7 @@ package be.ceau.podcastparser.namespace.custom.impl;
 import be.ceau.podcastparser.namespace.Namespace;
 
 /**
- * <h1>Resource Description Framework (RDF)</h1>
+ * <strong>Resource Description Framework (RDF)</strong>
  * 
  * @see <a href="https://www.w3.org/TR/1999/REC-rdf-syntax-19990222/">RDF Model and Syntax
  *      Specification</a>

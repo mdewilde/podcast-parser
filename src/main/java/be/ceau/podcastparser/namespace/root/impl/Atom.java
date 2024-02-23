@@ -39,7 +39,7 @@ import be.ceau.podcastparser.util.Strings;
 import be.ceau.podcastparser.util.UnmodifiableSet;
 
 /**
- * <h1>Atom Syndication Format</h1>
+ * <strong>Atom Syndication Format</strong>
  * 
  * <p>
  * Atom is an XML-based document format that describes lists of related

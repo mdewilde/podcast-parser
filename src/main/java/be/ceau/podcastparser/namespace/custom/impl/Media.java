@@ -41,7 +41,7 @@ import be.ceau.podcastparser.util.Strings;
 import be.ceau.podcastparser.util.UnmodifiableSet;
 
 /**
- * <h1>Media RSS Specification</h1>
+ * <strong>Media RSS Specification</strong>
  * 
  * <p>
  * An RSS module that supplements the &lt;enclosure&gt; element capabilities of RSS 2.0 to allow for
