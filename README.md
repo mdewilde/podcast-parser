@@ -1,8 +1,8 @@
 # Podcast Parser
 
 [![Maven Central badge](https://maven-badges.herokuapp.com/maven-central/be.ceau/podcast-parser/badge.svg)](https://mvnrepository.com/artifact/be.ceau/podcast-parser)  
-[![Javadocs](https://javadoc.io/badge/be.ceau/podcast-feed-parser.svg)](https://javadoc.io/doc/be.ceau/podcast-parser)  
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0.txt)
+ [![javadoc](https://javadoc.io/badge2/be.ceau/podcast-parser/javadoc.svg)](https://javadoc.io/doc/be.ceau/podcast-parser) 
+ [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0.txt)
 
 Java library for parsing podcast feed XML files.
 
@@ -25,7 +25,7 @@ Include this project directly from Maven Central
 <dependency>
 	<groupId>be.ceau</groupId>
 	<artifactId>podcast-parser</artifactId>
-	<version>${podcast-feed-parser.version}</version>
+	<version>${podcast-parser.version}</version>
 </dependency>
 ```
 
