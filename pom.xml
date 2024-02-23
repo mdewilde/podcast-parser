@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>be.ceau</groupId>
 	<artifactId>podcast-parser</artifactId>
-	<version>0.10</version>
+	<version>0.11</version>
 	<name>Podcast Feed Parser</name>
 	<description>Java library for parsing podcast feed XML</description>
 	<url>https://github.com/mdewilde/podcast-parser</url>
