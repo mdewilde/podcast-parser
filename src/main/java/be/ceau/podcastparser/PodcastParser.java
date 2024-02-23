@@ -1,6 +1,4 @@
 /*
-	Copyright 2019 Marceau Dewilde <m@ceau.be>
-	
 	Licensed under the Apache License, Version 2.0 (the "License");
 	you may not use this file except in compliance with the License.
 	You may obtain a copy of the License at
@@ -58,56 +56,51 @@ public class PodcastParser {
 	}
 
 	/**
-	 * Constructor with {@link NamespaceCallbackHandler}. Use this constructor if you want to add custom
-	 * callbacks to the parsing process.
+	 * Constructor with {@link NamespaceCallbackHandler}. Use this constructor if
+	 * you want to add custom callbacks to the parsing process.
 	 *
-	 * @param callbackHandler
-	 *            a {@link NamespaceCallbackHandler} implementation
-	 * @throws NullPointerException
-	 *             if argument is {@code null}
+	 * @param callbackHandler a {@link NamespaceCallbackHandler} implementation
+	 * @throws NullPointerException if argument is {@code null}
 	 */
 	public PodcastParser(NamespaceCallbackHandler callbackHandler) {
 		this(Collections.singleton(callbackHandler), Collections.emptySet());
 	}
 
 	/**
-	 * Constructor with {@link ElementFilter}. Use this constructor if you want to filter elements from
-	 * the parsing process.
+	 * Constructor with {@link ElementFilter}. Use this constructor if you want to
+	 * filter elements from the parsing process.
 	 *
-	 * @param elementFilter
-	 *            a {@link ElementFilter} implementation
-	 * @throws NullPointerException
-	 *             if argument is {@code null}
+	 * @param elementFilter a {@link ElementFilter} implementation
+	 * @throws NullPointerException if argument is {@code null}
 	 */
 	public PodcastParser(ElementFilter elementFilter) {
 		this(Collections.emptySet(), Collections.singleton(elementFilter));
 	}
 
 	/**
-	 * Constructor with {@link NamespaceCallbackHandler} and {@link ElementFilter}. Use this constructor
-	 * if you want to add custom callbacks to and filter elements from the parsing process.
+	 * Constructor with {@link NamespaceCallbackHandler} and {@link ElementFilter}.
+	 * Use this constructor if you want to add custom callbacks to and filter
+	 * elements from the parsing process.
 	 *
-	 * @param callbackHandler
-	 *            a {@link NamespaceCallbackHandler} implementation
-	 * @param elementFilter
-	 *            a {@link ElementFilter} implementation
-	 * @throws NullPointerException
-	 *             if argument is {@code null}
+	 * @param callbackHandler a {@link NamespaceCallbackHandler} implementation
+	 * @param elementFilter   a {@link ElementFilter} implementation
+	 * @throws NullPointerException if argument is {@code null}
 	 */
 	public PodcastParser(NamespaceCallbackHandler callbackHandler, ElementFilter elementFilter) {
 		this(Collections.singleton(callbackHandler), Collections.singleton(elementFilter));
 	}
 
 	/**
-	 * Constructor with {@link NamespaceCallbackHandler}. Use this constructor if you want to multiple
-	 * callback handlers to execute custom logic to the parsing process.
+	 * Constructor with {@link NamespaceCallbackHandler}. Use this constructor if
+	 * you want to multiple callback handlers to execute custom logic to the parsing
+	 * process.
 	 *
-	 * @param callbackHandlers
-	 *            a {@link Collection} of {@link NamespaceCallbackHandler} implementations
-	 * @param elementFilters
-	 *            a {@link Collection} of {@link ElementFilter} implementations
-	 * @throws NullPointerException
-	 *             if either argument is {@code null} or contains {@code null}
+	 * @param callbackHandlers a {@link Collection} of
+	 *                         {@link NamespaceCallbackHandler} implementations
+	 * @param elementFilters   a {@link Collection} of {@link ElementFilter}
+	 *                         implementations
+	 * @throws NullPointerException if either argument is {@code null} or contains
+	 *                              {@code null}
 	 */
 	public PodcastParser(Collection<NamespaceCallbackHandler> callbackHandlers, Collection<ElementFilter> elementFilters) {
 		Objects.requireNonNull(callbackHandlers);
@@ -123,11 +116,9 @@ public class PodcastParser {
 	/**
 	 * Parse the given XML {@link String} into a {@link Feed} object.
 	 *
-	 * @param xml
-	 *            a {@link java.lang.String} object.
+	 * @param xml a {@link java.lang.String} object.
 	 * @return a {@link Feed} object
-	 * @throws PodcastParserException
-	 *             if any
+	 * @throws PodcastParserException if any
 	 */
 	public Feed parse(String xml) throws PodcastParserException {
 		if (Strings.isBlank(xml)) {
@@ -141,11 +132,9 @@ public class PodcastParser {
 	/**
 	 * Parse the given XML {@link InputStream} into a {@link Feed} object.
 	 *
-	 * @param reader
-	 *            a {@link java.io.Reader} object.
+	 * @param reader a {@link java.io.Reader} object.
 	 * @return a {@link Feed} object.
-	 * @throws PodcastParserException
-	 *             if any.
+	 * @throws PodcastParserException if any.
 	 */
 	public Feed parse(Reader reader) throws PodcastParserException {
 		try {
